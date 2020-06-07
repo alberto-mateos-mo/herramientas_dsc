@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Conocimientos básicos de R | Herramientas Estadísticas para Ciencia de Datos</title>
+  <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Conocimientos básicos de R | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Conocimientos básicos de R | Herramientas Estadísticas para Ciencia de Datos" />
+  
+  <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
+  
+
+<meta name="author" content="Sofía Villers Gómez" />
+<meta name="author" content="David Alberto Mateos Montes de Oca" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="instalando-r-y-rstudio.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenido a Herramientas Estadísticas para Ciencia de Datos</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i><b>0.1</b> Objetivos</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i><b>0.2</b> Estructura</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i><b>0.3</b> Detalles técnicos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
+</ul></li>
+<li class="part"><span><b>I Todo empieza con R</b></span></li>
+<li class="chapter" data-level="1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html"><i class="fa fa-check"></i><b>1</b> Instalando R y RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#r-y-rstudio"><i class="fa fa-check"></i><b>1.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.3" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#recursos-adicionales"><i class="fa fa-check"></i><b>1.3</b> Recursos adicionales</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html"><i class="fa fa-check"></i><b>2</b> Conocimientos básicos de R</a><ul>
+<li class="chapter" data-level="2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#buscando-ayuda"><i class="fa fa-check"></i><b>2.1</b> Buscando ayuda</a></li>
+<li class="chapter" data-level="2.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#arítmetica-de-vectores"><i class="fa fa-check"></i><b>2.2.1</b> Arítmetica de vectores</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#el-ambiente-environment."><i class="fa fa-check"></i><b>2.3</b> El ambiente (environment).</a></li>
+<li class="chapter" data-level="2.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#lectura-y-escritura-de-archivos"><i class="fa fa-check"></i><b>2.4</b> Lectura y escritura de archivos</a></li>
+<li class="chapter" data-level="2.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunas-funciones-variadas"><i class="fa fa-check"></i><b>2.5</b> Algunas funciones variadas</a></li>
+<li class="chapter" data-level="2.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#objetos"><i class="fa fa-check"></i><b>2.6</b> Objetos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores-1"><i class="fa fa-check"></i><b>2.6.1</b> Vectores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#factores"><i class="fa fa-check"></i><b>2.6.2</b> Factores</a></li>
+<li class="chapter" data-level="2.6.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#matrices"><i class="fa fa-check"></i><b>2.6.3</b> Matrices</a></li>
+<li class="chapter" data-level="2.6.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#data-frames"><i class="fa fa-check"></i><b>2.6.4</b> Data Frames</a></li>
+<li class="chapter" data-level="2.6.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#listas"><i class="fa fa-check"></i><b>2.6.5</b> Listas</a></li>
+<li class="chapter" data-level="2.6.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#expresiones"><i class="fa fa-check"></i><b>2.6.6</b> Expresiones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunos-ejemplos-más-avanzados"><i class="fa fa-check"></i><b>2.7</b> Algunos ejemplos más avanzados</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#operadores"><i class="fa fa-check"></i><b>2.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="2.7.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#ciclos-condiciones-y-funciones"><i class="fa fa-check"></i><b>2.7.2</b> Ciclos, condiciones y funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#paquetes"><i class="fa fa-check"></i><b>2.8</b> Paquetes</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Herramientas Estadísticas para Ciencia de Datos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conocimientos-básicos-de-r" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Conocimientos básicos de R</h1>
+<div id="buscando-ayuda" class="section level2">
+<h2><span class="header-section-number">2.1</span> Buscando ayuda</h2>
+<p>Por sí mismo, R cuenta con funciones que nos permmitirán obtener ayuda sobre R en general pero también sobre las diferentes funciones que estemos usando para resolver algún problema.</p>
+<p>Para mostrar un manual de ayuda general en formato HTML corremos el siguiente código en la consola:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="conocimientos-básicos-de-r.html#cb3-1"></a><span class="kw">help.start</span>()</span></code></pre></div>
+<p>El manual será mostrado en el panel de ayuda dentro de RStudio pero puede abrirse con el navegador en caso de que así lo deseemos.</p>
+<p>Supongamos ahora que dentro de nuestro flujo de trabajo estamos utilizando la funcíón <code>log()</code> sin embargo no estamos familiarizados con ella y deseamos obtener ayuda sobre el uso de la función.</p>
+<p>Para a tener acceso a la documentación de la función podemos usar alguna de las siguientes líneas de código:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="conocimientos-básicos-de-r.html#cb4-1"></a><span class="kw">help</span>(log)</span>
+<span id="cb4-2"><a href="conocimientos-básicos-de-r.html#cb4-2"></a>?log</span></code></pre></div>
+<p>En el caso particular de RStudio, existe un atajo con el que podemos abrir la documentación de cualquier función sin necesidad de correr alguna de las líneas anteriores en la consola.</p>
+<p>El atajo consiste de colocar el cursor de texto entre cualesquiera caracteres de la función y presionar el botón F1 de nuestro teclado.</p>
+<p>Adicionalmente tenemos las siguientes funciones:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="conocimientos-básicos-de-r.html#cb5-1"></a><span class="kw">apropos</span>(<span class="st">&quot;plot&quot;</span>)</span>
+<span id="cb5-2"><a href="conocimientos-básicos-de-r.html#cb5-2"></a><span class="kw">help.search</span>(<span class="st">&quot;plot&quot;</span>)</span></code></pre></div>
+<p><code>apropos()</code> nos ayudará a encontrar las funciones que incluyan el texto (en este caso <em>plot</em>) en su nombre.</p>
+<p>Por otro lado, <code>help.search()</code> nos mostrará la documentación de las funciones que incluyan el texto, en este caso <em>plot</em>.</p>
+<p>Como se indica, cualquiera de esas opciones te permitirá tener acceso a la documentación de la funciones donde podrás encontrar: para qué se usan, qué argumentos necesitan, lo que regresan y algunos ejemplos del uso de las mismas.</p>
+<p>Una buena parte de los errores que podamos encontrarnos en nuestros flujos de trabajo se resolverán al revisar la documentación de la función que esté generando el error, sin embargo habrá ocasiones en las que los errores sean más complejos y la documentación no nos dará una buena pista de cómo remediarlos, en tal caso la mejor estrategía sera utilizar tu buscador favorito para buscar el error.</p>
+<p>Será tan fácil cómo copiar el error que la consola esté arrojando y ponerlo en la barra de búsqueda de e.g. <a href="https://www.google.com/">Google</a>.</p>
+</div>
+<div id="vectores" class="section level2">
+<h2><span class="header-section-number">2.2</span> Vectores</h2>
+<p>Quizá ya hayas escuchado lo siguiente en algún lado: <em>R es un lenguaje vectorial</em>.</p>
+<p>El comportamiento al que hace referencia esta frase será de mucha ayuda en la construcción de rutinas avanzadas de programación que veremos más adelante, por ahora la implicación más relevante reside en el hecho de que la estructura básica en R serán justamente vectores.</p>
+<p>Los siguientes ejemplos nos muestran cómo crear vectores numéricos en R:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="conocimientos-básicos-de-r.html#cb6-1"></a>roma &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>)</span>
+<span id="cb6-2"><a href="conocimientos-básicos-de-r.html#cb6-2"></a></span>
+<span id="cb6-3"><a href="conocimientos-básicos-de-r.html#cb6-3"></a><span class="kw">assign</span>(<span class="st">&quot;mora&quot;</span>, <span class="kw">c</span>(<span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>))</span>
+<span id="cb6-4"><a href="conocimientos-básicos-de-r.html#cb6-4"></a></span>
+<span id="cb6-5"><a href="conocimientos-básicos-de-r.html#cb6-5"></a><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.9</span>) -&gt;<span class="st"> </span>z</span>
+<span id="cb6-6"><a href="conocimientos-básicos-de-r.html#cb6-6"></a></span>
+<span id="cb6-7"><a href="conocimientos-básicos-de-r.html#cb6-7"></a>mora &lt;-<span class="st"> </span><span class="kw">c</span>(roma, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, roma)</span></code></pre></div>
+<p>N.B. Los vectores en R no solo pueden ser numéricos también los hay aquellos con cadenas de texto.</p>
+<p>En seguida vemos algunos ejemplos que nos permitirán acceder a elementos de un vector:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conocimientos-básicos-de-r.html#cb7-1"></a>mora[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 0.3</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="conocimientos-básicos-de-r.html#cb9-1"></a>mora[<span class="op">-</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 0.1 0.2 0.0 0.0 0.0 0.1 0.2 0.3</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="conocimientos-básicos-de-r.html#cb11-1"></a>mora[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>)]</span></code></pre></div>
+<pre><code>## [1] 0.1 0.0 0.1</code></pre>
+<div id="arítmetica-de-vectores" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Arítmetica de vectores</h3>
+<p>El siguiente ejemplo muestra el comportamiento asociado a un lenguaje <em>vectorial</em> que mencionabamos anteriormente:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="conocimientos-básicos-de-r.html#cb13-1"></a>v &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>roma<span class="op">+</span>mora<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb13-2"><a href="conocimientos-básicos-de-r.html#cb13-2"></a></span>
+<span id="cb13-3"><a href="conocimientos-básicos-de-r.html#cb13-3"></a>v</span></code></pre></div>
+<pre><code>## [1] 1.3 1.6 1.9 1.2 1.4 1.6 1.3 1.6 1.9</code></pre>
+<p>Existen una enorme cantidad de funciones para manipular los <em>datos</em> dentro de nuestros vectores, enseguida se muestran algunas:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="conocimientos-básicos-de-r.html#cb15-1"></a><span class="kw">sum</span>(v) <span class="co">## suma todos los elementos del objeto</span></span>
+<span id="cb15-2"><a href="conocimientos-básicos-de-r.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="conocimientos-básicos-de-r.html#cb15-3"></a><span class="kw">prod</span>(v) <span class="co">## multiplica todos los elementos del objeto</span></span>
+<span id="cb15-4"><a href="conocimientos-básicos-de-r.html#cb15-4"></a></span>
+<span id="cb15-5"><a href="conocimientos-básicos-de-r.html#cb15-5"></a><span class="kw">max</span>(v) <span class="co">## encuentra el valor máximo</span></span>
+<span id="cb15-6"><a href="conocimientos-básicos-de-r.html#cb15-6"></a></span>
+<span id="cb15-7"><a href="conocimientos-básicos-de-r.html#cb15-7"></a><span class="kw">min</span>(v) <span class="co">## encuentra el valor mínimo</span></span>
+<span id="cb15-8"><a href="conocimientos-básicos-de-r.html#cb15-8"></a></span>
+<span id="cb15-9"><a href="conocimientos-básicos-de-r.html#cb15-9"></a><span class="kw">which.max</span>(v) <span class="co">## índice o posición del máximo</span></span>
+<span id="cb15-10"><a href="conocimientos-básicos-de-r.html#cb15-10"></a></span>
+<span id="cb15-11"><a href="conocimientos-básicos-de-r.html#cb15-11"></a><span class="kw">which.min</span>(v) <span class="co">## índice o posición del mínimo</span></span>
+<span id="cb15-12"><a href="conocimientos-básicos-de-r.html#cb15-12"></a></span>
+<span id="cb15-13"><a href="conocimientos-básicos-de-r.html#cb15-13"></a><span class="kw">range</span>(v) <span class="co">## vector de dos entradas con el mínimo y máximo respectivamente</span></span></code></pre></div>
+</div>
+</div>
+<div id="el-ambiente-environment." class="section level2">
+<h2><span class="header-section-number">2.3</span> El ambiente (environment).</h2>
+<p>Los objetos que guardemos o asignemos en nuestros flujos de trabajo serán almacenados en un espacio de memoria que se llama <em>ambiente</em> o en inglés <em>environment</em>. Desde RStudio podremos ver lo que se guardado en este espacio de memoria en el panel <em>Environment</em>.</p>
+<p>Adicional a ello, existen algunas funciones que nos permiten <em>explorar</em> nuestro ambiente:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="conocimientos-básicos-de-r.html#cb16-1"></a><span class="co">## Muestra los nombres de los objetos en memoria</span></span>
+<span id="cb16-2"><a href="conocimientos-básicos-de-r.html#cb16-2"></a><span class="kw">ls</span>()</span>
+<span id="cb16-3"><a href="conocimientos-básicos-de-r.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="conocimientos-básicos-de-r.html#cb16-4"></a><span class="co">## Muestra las variables con cierta serie de caracteres en su nombre</span></span>
+<span id="cb16-5"><a href="conocimientos-básicos-de-r.html#cb16-5"></a><span class="kw">ls</span>(<span class="dt">pat=</span><span class="st">&quot;m&quot;</span>)</span>
+<span id="cb16-6"><a href="conocimientos-básicos-de-r.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="conocimientos-básicos-de-r.html#cb16-7"></a><span class="co">## Muestra las variables las cuales su nombre empieza con el caracter dado</span></span>
+<span id="cb16-8"><a href="conocimientos-básicos-de-r.html#cb16-8"></a><span class="kw">ls</span>(<span class="dt">pat=</span><span class="st">&quot;^m&quot;</span>)</span>
+<span id="cb16-9"><a href="conocimientos-básicos-de-r.html#cb16-9"></a></span>
+<span id="cb16-10"><a href="conocimientos-básicos-de-r.html#cb16-10"></a><span class="co">## Muestra detalles de los objetos en memoria</span></span>
+<span id="cb16-11"><a href="conocimientos-básicos-de-r.html#cb16-11"></a><span class="kw">ls.str</span>()</span>
+<span id="cb16-12"><a href="conocimientos-básicos-de-r.html#cb16-12"></a></span>
+<span id="cb16-13"><a href="conocimientos-básicos-de-r.html#cb16-13"></a><span class="co">## Eliminar todas las variables de &#39;Global Environment&#39;</span></span>
+<span id="cb16-14"><a href="conocimientos-básicos-de-r.html#cb16-14"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb16-15"><a href="conocimientos-básicos-de-r.html#cb16-15"></a></span>
+<span id="cb16-16"><a href="conocimientos-básicos-de-r.html#cb16-16"></a><span class="co">## Eliminar únicamente variables que empiezan con la letra m</span></span>
+<span id="cb16-17"><a href="conocimientos-básicos-de-r.html#cb16-17"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>(<span class="dt">pat=</span><span class="st">&quot;^m&quot;</span>))</span>
+<span id="cb16-18"><a href="conocimientos-básicos-de-r.html#cb16-18"></a></span>
+<span id="cb16-19"><a href="conocimientos-básicos-de-r.html#cb16-19"></a><span class="co">## Tipo de elementos del objeto v</span></span>
+<span id="cb16-20"><a href="conocimientos-básicos-de-r.html#cb16-20"></a><span class="kw">mode</span>(v)</span>
+<span id="cb16-21"><a href="conocimientos-básicos-de-r.html#cb16-21"></a><span class="co">## Longitud del objeto v</span></span>
+<span id="cb16-22"><a href="conocimientos-básicos-de-r.html#cb16-22"></a><span class="kw">length</span>(v)</span></code></pre></div>
+</div>
+<div id="lectura-y-escritura-de-archivos" class="section level2">
+<h2><span class="header-section-number">2.4</span> Lectura y escritura de archivos</h2>
+<p>En cuanto a archivos externos, a lo largo del libro únicamente usaremos archivos con extensiones .csv y .txt sin embargo R no está limitado a este tipo de archivos, existen una amplia variedad de formatos que se pueden leer a través de paquetes diseñados específicamente para ese fin.</p>
+<p>El siguiente ejemplo muestra cómo se haría la lectura de un archivo con extensión .txt:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="conocimientos-básicos-de-r.html#cb17-1"></a>datos&lt;-<span class="kw">read.table</span>(<span class="st">&quot;data.txt&quot;</span>, <span class="co"># nombre del archivo (con extensión) entre comillas</span></span>
+<span id="cb17-2"><a href="conocimientos-básicos-de-r.html#cb17-2"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="co"># TRUE o FALSE, indicando si el archivo tiene como primer renglón el nombre de las columnas</span></span>
+<span id="cb17-3"><a href="conocimientos-básicos-de-r.html#cb17-3"></a>                  <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span> <span class="co"># separador de los campos</span></span>
+<span id="cb17-4"><a href="conocimientos-básicos-de-r.html#cb17-4"></a>                  )</span></code></pre></div>
+<p>Una vez que leemos el archivo externo en R, el objeto donde se almacenará la información será de tipo <code>data.frame</code>.</p>
+<p>Muchas veces será de nuestro interés exportar objetos <code>data.frame</code> a archivos externos, tal objetivo lo podemos lograr con alguna de las siguientes dos opciones:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="conocimientos-básicos-de-r.html#cb18-1"></a><span class="kw">write.table</span>(datos, <span class="st">&quot;toma.txt&quot;</span>, <span class="dt">append=</span>F, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb18-2"><a href="conocimientos-básicos-de-r.html#cb18-2"></a></span>
+<span id="cb18-3"><a href="conocimientos-básicos-de-r.html#cb18-3"></a><span class="kw">write.csv</span>(datos, <span class="st">&quot;toma2.csv&quot;</span>)</span></code></pre></div>
+<p>N:B. Como en la lectura de datos, R no está limitado a exportar archivos .csv o .txt también existe una amplia variedad de formatos que podemos generar.</p>
+</div>
+<div id="algunas-funciones-variadas" class="section level2">
+<h2><span class="header-section-number">2.5</span> Algunas funciones variadas</h2>
+<p>A continuación se muestra un conjunto bastante pequeño de funciones que nos ayudarán a alcanzar distintos objetivos:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="conocimientos-básicos-de-r.html#cb19-1"></a><span class="co">## Generar un vector con valores subsecuentes</span></span>
+<span id="cb19-2"><a href="conocimientos-básicos-de-r.html#cb19-2"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span></span>
+<span id="cb19-3"><a href="conocimientos-básicos-de-r.html#cb19-3"></a></span>
+<span id="cb19-4"><a href="conocimientos-básicos-de-r.html#cb19-4"></a><span class="co">## Generar un vector con cierta secuencia</span></span>
+<span id="cb19-5"><a href="conocimientos-básicos-de-r.html#cb19-5"></a>y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb19-6"><a href="conocimientos-básicos-de-r.html#cb19-6"></a></span>
+<span id="cb19-7"><a href="conocimientos-básicos-de-r.html#cb19-7"></a>w &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="fl">-0.5</span>)</span>
+<span id="cb19-8"><a href="conocimientos-básicos-de-r.html#cb19-8"></a></span>
+<span id="cb19-9"><a href="conocimientos-básicos-de-r.html#cb19-9"></a><span class="co">## Genera un vector que repite un dato cierto número de veces</span></span>
+<span id="cb19-10"><a href="conocimientos-básicos-de-r.html#cb19-10"></a>z &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb19-11"><a href="conocimientos-básicos-de-r.html#cb19-11"></a></span>
+<span id="cb19-12"><a href="conocimientos-básicos-de-r.html#cb19-12"></a><span class="co">## Genera un vector con series valores subsecuentes hasta los números indicados</span></span>
+<span id="cb19-13"><a href="conocimientos-básicos-de-r.html#cb19-13"></a>q &lt;-<span class="st"> </span><span class="kw">sequence</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>)</span>
+<span id="cb19-14"><a href="conocimientos-básicos-de-r.html#cb19-14"></a>q &lt;-<span class="st"> </span><span class="kw">sequence</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb19-15"><a href="conocimientos-básicos-de-r.html#cb19-15"></a></span>
+<span id="cb19-16"><a href="conocimientos-básicos-de-r.html#cb19-16"></a><span class="co">## Genera series regulares de factores dados. </span></span>
+<span id="cb19-17"><a href="conocimientos-básicos-de-r.html#cb19-17"></a>q &lt;-<span class="st"> </span><span class="kw">gl</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">30</span>)</span>
+<span id="cb19-18"><a href="conocimientos-básicos-de-r.html#cb19-18"></a>q &lt;-<span class="st"> </span><span class="kw">gl</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>))</span>
+<span id="cb19-19"><a href="conocimientos-básicos-de-r.html#cb19-19"></a></span>
+<span id="cb19-20"><a href="conocimientos-básicos-de-r.html#cb19-20"></a><span class="co">## A diferencia de los anteriores, la siguiente función genera un data frame con todas las</span></span>
+<span id="cb19-21"><a href="conocimientos-básicos-de-r.html#cb19-21"></a><span class="co">## posible combinaciones de vectores o factores dados como argumentos</span></span>
+<span id="cb19-22"><a href="conocimientos-básicos-de-r.html#cb19-22"></a>q &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">h =</span> <span class="kw">c</span>(<span class="dv">60</span>, <span class="dv">80</span>), <span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">300</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>, <span class="st">&quot;Mujer&quot;</span>))</span></code></pre></div>
+</div>
+<div id="objetos" class="section level2">
+<h2><span class="header-section-number">2.6</span> Objetos</h2>
+<p>Los ejemplos anteriores consisten en el uso de funciones, dichas funciones generan cierto tipo de objetos para regresar el resultado.</p>
+<p>Si queremos crear de manera <em>manual</em> cierto tipo de objetos, podemos hacerlo de la siguiente manera:</p>
+<div id="vectores-1" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Vectores</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="conocimientos-básicos-de-r.html#cb20-1"></a><span class="co">## Vector (numeric, logical, character)</span></span>
+<span id="cb20-2"><a href="conocimientos-básicos-de-r.html#cb20-2"></a>a &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span> <span class="st">&quot;logical&quot;</span>, <span class="dt">length=</span><span class="dv">5</span>)</span>
+<span id="cb20-3"><a href="conocimientos-básicos-de-r.html#cb20-3"></a></span>
+<span id="cb20-4"><a href="conocimientos-básicos-de-r.html#cb20-4"></a>b &lt;-<span class="st"> </span><span class="kw">logical</span>(<span class="dt">length=</span><span class="dv">5</span>)</span></code></pre></div>
+</div>
+<div id="factores" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> Factores</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="conocimientos-básicos-de-r.html#cb21-1"></a>a &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Hola&quot;</span>, <span class="st">&quot;Adios&quot;</span>, <span class="st">&quot;Ah&quot;</span>))</span>
+<span id="cb21-2"><a href="conocimientos-básicos-de-r.html#cb21-2"></a></span>
+<span id="cb21-3"><a href="conocimientos-básicos-de-r.html#cb21-3"></a>b&lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>), <span class="dt">levels =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)</span>
+<span id="cb21-4"><a href="conocimientos-básicos-de-r.html#cb21-4"></a></span>
+<span id="cb21-5"><a href="conocimientos-básicos-de-r.html#cb21-5"></a>c &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">exclude =</span> <span class="dv">4</span>)</span></code></pre></div>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">2.6.3</span> Matrices</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="conocimientos-básicos-de-r.html#cb22-1"></a>a &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dt">byrow =</span> F)</span>
+<span id="cb22-2"><a href="conocimientos-básicos-de-r.html#cb22-2"></a></span>
+<span id="cb22-3"><a href="conocimientos-básicos-de-r.html#cb22-3"></a><span class="co">## Otra forma de crear una matriz</span></span>
+<span id="cb22-4"><a href="conocimientos-básicos-de-r.html#cb22-4"></a></span>
+<span id="cb22-5"><a href="conocimientos-básicos-de-r.html#cb22-5"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></span>
+<span id="cb22-6"><a href="conocimientos-básicos-de-r.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="conocimientos-básicos-de-r.html#cb22-7"></a><span class="kw">dim</span>(b) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>)</span></code></pre></div>
+</div>
+<div id="data-frames" class="section level3">
+<h3><span class="header-section-number">2.6.4</span> Data Frames</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="conocimientos-básicos-de-r.html#cb23-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span></span>
+<span id="cb23-2"><a href="conocimientos-básicos-de-r.html#cb23-2"></a></span>
+<span id="cb23-3"><a href="conocimientos-básicos-de-r.html#cb23-3"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb23-4"><a href="conocimientos-básicos-de-r.html#cb23-4"></a></span>
+<span id="cb23-5"><a href="conocimientos-básicos-de-r.html#cb23-5"></a>M &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">35</span>)</span>
+<span id="cb23-6"><a href="conocimientos-básicos-de-r.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="conocimientos-básicos-de-r.html#cb23-7"></a>a &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, n, M)</span></code></pre></div>
+</div>
+<div id="listas" class="section level3">
+<h3><span class="header-section-number">2.6.5</span> Listas</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="conocimientos-básicos-de-r.html#cb24-1"></a>a &lt;-<span class="st"> </span><span class="kw">list</span>(x, M)</span>
+<span id="cb24-2"><a href="conocimientos-básicos-de-r.html#cb24-2"></a></span>
+<span id="cb24-3"><a href="conocimientos-básicos-de-r.html#cb24-3"></a>b &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">A =</span> x, <span class="dt">B =</span> M)</span></code></pre></div>
+</div>
+<div id="expresiones" class="section level3">
+<h3><span class="header-section-number">2.6.6</span> Expresiones</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="conocimientos-básicos-de-r.html#cb25-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb25-2"><a href="conocimientos-básicos-de-r.html#cb25-2"></a>y &lt;-<span class="st"> </span><span class="fl">2.5</span></span>
+<span id="cb25-3"><a href="conocimientos-básicos-de-r.html#cb25-3"></a>z &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb25-4"><a href="conocimientos-básicos-de-r.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="conocimientos-básicos-de-r.html#cb25-5"></a>exp &lt;-<span class="st"> </span><span class="kw">expression</span>(x<span class="op">/</span>(y <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(z)))</span></code></pre></div>
+</div>
+</div>
+<div id="algunos-ejemplos-más-avanzados" class="section level2">
+<h2><span class="header-section-number">2.7</span> Algunos ejemplos más avanzados</h2>
+<div id="operadores" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Operadores</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Aritméticos</th>
+<th align="center">Comparación</th>
+<th align="center">Lógicos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Suma (+)</td>
+<td align="center">Menor que (&lt;)</td>
+<td align="center">NOT (!)</td>
+</tr>
+<tr class="even">
+<td align="center">Resta (-)</td>
+<td align="center">Mayor que (&gt;)</td>
+<td align="center">AND (&amp;)</td>
+</tr>
+<tr class="odd">
+<td align="center">Multiplicación (*)</td>
+<td align="center">Menor o igual que (&lt;=)</td>
+<td align="center">OR (|)</td>
+</tr>
+<tr class="even">
+<td align="center">División (/)</td>
+<td align="center">Mayor o igual que (&gt;=)</td>
+<td align="center">Cierto (TRUE)</td>
+</tr>
+<tr class="odd">
+<td align="center">Potencia (^)</td>
+<td align="center">Igual (==)</td>
+<td align="center">Falso (FALSE)</td>
+</tr>
+<tr class="even">
+<td align="center">Modulo (%%)</td>
+<td align="center">Diferente (!=)</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">División entera (%/%)</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ciclos-condiciones-y-funciones" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Ciclos, condiciones y funciones</h3>
+<p>Al ser R un lenguaje de programación podemos usar:</p>
+<ul>
+<li>ciclos</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="conocimientos-básicos-de-r.html#cb26-1"></a><span class="co">## Ciclo for</span></span>
+<span id="cb26-2"><a href="conocimientos-básicos-de-r.html#cb26-2"></a><span class="cf">for</span> (anio <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">2000</span>,<span class="dv">2001</span>,<span class="dv">2002</span>,<span class="dv">2003</span>,<span class="dv">2004</span>,<span class="dv">2005</span>,<span class="dv">2006</span>,<span class="dv">2007</span>)){</span>
+<span id="cb26-3"><a href="conocimientos-básicos-de-r.html#cb26-3"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Cuenta&quot;</span>,anio))</span>
+<span id="cb26-4"><a href="conocimientos-básicos-de-r.html#cb26-4"></a>}</span>
+<span id="cb26-5"><a href="conocimientos-básicos-de-r.html#cb26-5"></a></span>
+<span id="cb26-6"><a href="conocimientos-básicos-de-r.html#cb26-6"></a><span class="co">## Ciclo while</span></span>
+<span id="cb26-7"><a href="conocimientos-básicos-de-r.html#cb26-7"></a>i &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb26-8"><a href="conocimientos-básicos-de-r.html#cb26-8"></a></span>
+<span id="cb26-9"><a href="conocimientos-básicos-de-r.html#cb26-9"></a><span class="cf">while</span>(i <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>){</span>
+<span id="cb26-10"><a href="conocimientos-básicos-de-r.html#cb26-10"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb26-11"><a href="conocimientos-básicos-de-r.html#cb26-11"></a>  i &lt;-<span class="st"> </span>i<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb26-12"><a href="conocimientos-básicos-de-r.html#cb26-12"></a>}</span></code></pre></div>
+<ul>
+<li>condiciones</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="conocimientos-básicos-de-r.html#cb27-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb27-2"><a href="conocimientos-básicos-de-r.html#cb27-2"></a>  <span class="co">## Condición if</span></span>
+<span id="cb27-3"><a href="conocimientos-básicos-de-r.html#cb27-3"></a>  <span class="cf">if</span>(<span class="op">!</span>i <span class="op">%%</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="cb27-4"><a href="conocimientos-básicos-de-r.html#cb27-4"></a>    <span class="cf">next</span></span>
+<span id="cb27-5"><a href="conocimientos-básicos-de-r.html#cb27-5"></a>  } </span>
+<span id="cb27-6"><a href="conocimientos-básicos-de-r.html#cb27-6"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb27-7"><a href="conocimientos-básicos-de-r.html#cb27-7"></a>}</span></code></pre></div>
+<p>Particularmente en la programación con R, será de mucha utilidad aprender a crear funciones:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="conocimientos-básicos-de-r.html#cb28-1"></a>funcionfactorial&lt;-<span class="cf">function</span>(a){</span>
+<span id="cb28-2"><a href="conocimientos-básicos-de-r.html#cb28-2"></a>  res &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb28-3"><a href="conocimientos-básicos-de-r.html#cb28-3"></a>  <span class="cf">if</span>(a<span class="op">&lt;</span><span class="dv">0</span>){</span>
+<span id="cb28-4"><a href="conocimientos-básicos-de-r.html#cb28-4"></a>    <span class="kw">return</span>(<span class="st">&quot;No existen factoriales de números negativos.&quot;</span>)</span>
+<span id="cb28-5"><a href="conocimientos-básicos-de-r.html#cb28-5"></a>  } <span class="cf">else</span> <span class="cf">if</span>(a<span class="op">==</span><span class="dv">0</span>){</span>
+<span id="cb28-6"><a href="conocimientos-básicos-de-r.html#cb28-6"></a>    <span class="kw">return</span>(res)</span>
+<span id="cb28-7"><a href="conocimientos-básicos-de-r.html#cb28-7"></a>  } <span class="cf">else</span>{</span>
+<span id="cb28-8"><a href="conocimientos-básicos-de-r.html#cb28-8"></a>    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>a){</span>
+<span id="cb28-9"><a href="conocimientos-básicos-de-r.html#cb28-9"></a>      res &lt;-<span class="st"> </span>res<span class="op">*</span>i</span>
+<span id="cb28-10"><a href="conocimientos-básicos-de-r.html#cb28-10"></a>    }</span>
+<span id="cb28-11"><a href="conocimientos-básicos-de-r.html#cb28-11"></a>    <span class="kw">return</span>(res)</span>
+<span id="cb28-12"><a href="conocimientos-básicos-de-r.html#cb28-12"></a>  }</span>
+<span id="cb28-13"><a href="conocimientos-básicos-de-r.html#cb28-13"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="paquetes" class="section level2">
+<h2><span class="header-section-number">2.8</span> Paquetes</h2>
+<p>En R llamamos librerías o paquetes a conjuntos de funciones diseñados para un fin específico. Por ejemplo el paquete <a href="https://github.com/tidyverse/ggplot2">ggplot2</a> contiene funciones diseñadas para crear gráficos usando una sintáxis llamada <em>la gramática de gráficas</em>.</p>
+<p>Para descargar alguna librería de nuestra interés debemos utilizar el siguiente código:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="conocimientos-básicos-de-r.html#cb29-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># Dentro de las comillas ponemos el nombre del paquete que queremos instalar</span></span></code></pre></div>
+<p>Dado que se trata de una instalación, el código anterior solamente será necesario la primera vez que instalemos el paquete.</p>
+<p>Una vez instalado, necesitamos hacer que R sepa que queremos usar la funciones de ese paquete, para lo cual usamos el siguiente código:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="conocimientos-básicos-de-r.html#cb30-1"></a><span class="kw">library</span>(ggplot2) <span class="co"># El argumento de la función será el nombre del paquete previamente instalado</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="instalando-r-y-rstudio.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
