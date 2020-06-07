@@ -1,1 +1,1 @@
-# seminario_est_libro
+# Libro para el curso Herramientas Estadísticas para Ciencia de Datos
