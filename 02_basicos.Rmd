@@ -2,7 +2,7 @@
 
 ## Buscando ayuda
 
-Por sí mismo, R cuenta con funciones que nos permmitirán obtener ayuda sobre R en general pero también sobre las diferentes funciones que estemos usando para resolver algún problema.
+Por sí mismo, R cuenta con funciones que nos permitirán obtener ayuda sobre R en general pero también sobre las diferentes funciones que estemos usando para resolver algún problema.
 
 Para mostrar un manual de ayuda general en formato HTML corremos el siguiente código en la consola:
 
@@ -23,7 +23,7 @@ help(log)
 
 En el caso particular de RStudio, existe un atajo con el que podemos abrir la documentación de cualquier función sin necesidad de correr alguna de las líneas anteriores en la consola.
 
-El atajo consiste de colocar el cursor de texto entre cualesquiera caracteres de la función y presionar el botón F1 de nuestro teclado.
+El atajo consiste de colocar el cursor de texto entre cualesquiera caractéres de la función y presionar el botón F1 de nuestro teclado.
 
 Adicionalmente tenemos las siguientes funciones:
 
@@ -86,7 +86,7 @@ v <- 2*roma+mora+1
 v
 ```
 
-Existen una enorme cantidad de funciones para manipular los _datos_ dentro de nuestros vectores, enseguida se muestran algunas:
+Existen una enorme cantidad de funciones para manipular los _datos_ dentro de nuestros vectores, en seguida se muestran algunas:
 
 ```{r, eval=FALSE}
 sum(v) ## suma todos los elementos del objeto

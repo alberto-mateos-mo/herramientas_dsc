@@ -13,7 +13,7 @@ github-repo: alberto-mateos-mo/seminario_est_libro
 description: "Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México"
 ---
 
-# Bienvenido a Herramientas Estadísticas para Ciencia de Datos {-}
+# Herramientas Estadísticas para Ciencia de Datos {-}
 
 ```{r include = FALSE}
 # source("common.R")

@@ -1,0 +1,7 @@
+# (PART) Modelos de regresión {-}
+
+# Regresión Lineal
+
+# Regresión logística
+
+# Modelos lineales generalizados

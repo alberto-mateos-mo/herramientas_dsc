@@ -12,7 +12,7 @@ Si previamente habías instalado alguna versión de R y RStudio en tu computador
 
 ## RStudio Cloud
 
-Aunque a lo largo del libro se mostrará a detalle el código de R usado, también proveeremos de links a proyectos de RStudio Cloud para facilitar reproducir los resultados aquí mostrados. Para acceder a tales proectos será necesario contar con una cuenta en [RStudio Cloud][rstudio-cloud].
+Aunque a lo largo del libro se mostrará a detalle el código de R usado, también proveeremos de links a proyectos de RStudio Cloud para facilitar reproducir los resultados aquí mostrados. Para acceder a tales proyectos será necesario contar con una cuenta en [RStudio Cloud][rstudio-cloud].
 
 ## Recursos adicionales
 
