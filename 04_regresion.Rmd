@@ -29,7 +29,7 @@ La regresión lineal consiste en buscar la hipótesis $h\in H$ con el menor erro
 
 ## Regresión lineal simple
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 require(ggplot2)
 
 x <- c(609, 629, 620, 564, 645, 493, 606, 660, 630, 672, 778, 616, 727, 810, 778, 823, 755, 710, 701, 803, 855, 838, 830, 864, 635, 565, 562, 580, 596, 597, 636, 559, 615, 740, 677, 675, 629, 692, 710, 730, 763, 686, 717, 737, 816)
@@ -43,7 +43,9 @@ ggplot(data.frame(x = x, y = y))+
   labs(y = "y", x = bquote(Phi(x)))
 ```
 
-Para este modelo supondremos que nuestra respuesta, $y$, es explicada únicamente por una covariable, $x$. Entonces, escribimos nuestro modelo como:
+Para este modelo supondremos que nuestra respuesta, $y$, es explicada únicamente por una covariable, $x$. 
+
+Entonces, escribimos nuestro modelo como:
 
 $$y^{(i)}=\beta_0+\beta_1x^{(i)}+\epsilon^{(i)},\ \ i=1,2,\dots,n$$
 Como podemos observar, se ha propuesto una relación lineal entre la variable $y$ y la variable explicativa $x$, que es nuestro primer supuesto sobre el modelo: La relación funcional entre $x$ y $y$ es una línea recta.

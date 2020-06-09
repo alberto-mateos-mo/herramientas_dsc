@@ -31,8 +31,8 @@ Se le denomina de esta manera a la acción de ajustar el _mejor_ modelo a los da
 
 Formalmente se define como sigue:
 
-Dado un conjunto de entrenamiento $(x^{(i)},y^{(i)})\in(\mathcal{X} \times \mathcal{Y})$ el objetivo es "aprender" (ajustar) una función $h:\mathcal{X}\rightarrow \mathcal{Y}$ tal que $h(x)$ sea un "buen predictor" de $y$.
+Dado un conjunto de entrenamiento $(x^{(i)},y^{(i)})\in(\mathcal{X} \times \mathcal{Y})$ el objetivo es _aprender_ (ajustar) una función $h:\mathcal{X}\rightarrow \mathcal{Y}$ tal que $h(x)$ sea un _buen predictor_ de $y$.
 
-La función $h$ suele llamarse "hipótesis".
+La función $h$ suele llamarse _hipótesis_.
 
-Cuando el conjunto $\mathcal{Y}$ es continuo, estamos frente a un problema de regresión. Si se trata de un conjunto discreto* entonces tenemos un problema de clasificación.
+Cuando el conjunto $\mathcal{Y}$ es continuo, estamos frente a un problema de regresión. Si se trata de un conjunto discreto entonces tenemos un problema de clasificación.
