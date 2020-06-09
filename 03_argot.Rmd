@@ -4,7 +4,7 @@ A pesar de que el mundo de Ciencia de Datos tiene sus fundamentos en estadístic
 
 # Notación
 
-A lo largo del libro usaremos la notación típica de estadística per también haremos uso de la siguiente:
+A lo largo del libro usaremos la notación típica de estadística pero también haremos uso de la siguiente:
 
 - $x^{(i)}$: el conjunto de inputs (variables explicativas)
 - $y^{(i)}$: es la variable de output/salida (variable dependiente) que queremos predecir (ajustar)
