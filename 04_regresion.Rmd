@@ -1,0 +1,62 @@
+# (PART) Modelos de regresión {-}
+
+# Regresión Lineal
+
+## Un poco de história
+
+Los primeros problemas prácticos tipo regresión iniciaron en el siglo XVIII, relacionados con la navegación basada en la Astronomía.
+Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que él desarrolló este método algunos años antes y demuestra, en 1809, que mínimos cuadrados proporciona una solución óptima cuando los errores se distribuyen normal. Francis Galton acuña el término regresión al utilizar el modelo para explicar el fenómeno de que los hijos de padres altos, tienden a ser altos en su generación, pero no tan altos como lo fueron sus padres en la propia, por lo que hay un efecto de _regresión_.
+
+El modelo de regresión lineal es, probablemente, el modelo de su tipo más conocido en estadística.
+
+El modelo de regresión se usa para explicar o modelar la relación entre una sola variable, $y$, llamada dependiente o respuesta, y una o más variables predictoras, independientes, covariables, o explicativas, $x_1, x_2, ..., x_p$. Si $p = 1$, se trata de un modelo de regresión simple y si $p > 1$, de un modelo de regresión múltiple. En este modelo se asume que la variable de respuesta, $y$, es aleatoria y las variables explicativas son fijas, es decir, no aleatorias.
+
+La variable de respuesta debe ser continua, pero los regresores pueden tener cualquier escala de medición.
+
+## Objetivos del análisis de regresión
+
+Existen varios objetivos dentro del análisis de regresión, entre otros:
+
+- Determinar el efecto, o relación, entre las variables explicativas y la respuesta.
+- Predicción de una observación futura.
+- Describir de manera general la estructura de los datos.
+
+## El algorítmo de regresión lineal
+
+Sea $\Phi: \mathcal{X} \rightarrow \mathbb{R}^N$ y consideremos la familia de hipótesis lineales $$H=\{x\mapsto w \cdot \Phi(x)+b | w\in\mathbb{R}^N, b\in\mathbb{R}\}$$
+
+La regresión lineal consiste en buscar la hipótesis $h\in H$ con el menor error cuadrático medio, es decir, se debe resolver el problema de optimización: $$\min \frac{1}{m}\sum_{i=1}^{m}(h(x_i)-y_i)^2$$
+
+## Regresión lineal simple
+
+```{r, message=FALSE, warning=FALSE}
+require(ggplot2)
+
+x <- c(609, 629, 620, 564, 645, 493, 606, 660, 630, 672, 778, 616, 727, 810, 778, 823, 755, 710, 701, 803, 855, 838, 830, 864, 635, 565, 562, 580, 596, 597, 636, 559, 615, 740, 677, 675, 629, 692, 710, 730, 763, 686, 717, 737, 816)
+
+y <- c(241, 222, 233, 207, 247, 189, 226, 240, 215, 231, 263, 220, 271, 284, 279, 272, 268, 278, 238, 255, 308, 281, 288, 306, 236, 204, 216, 225, 220, 219, 201, 213, 228, 234, 237, 217, 211, 238, 221, 281, 292, 251, 231, 275, 275)
+
+ggplot(data.frame(x = x, y = y))+
+  geom_point(aes(x, y), colour = "#f6583a", size = 6)+
+  geom_smooth(aes(x, y), method = "lm", se = FALSE, colour = "#85037e", size = 2)+
+  theme_minimal()+
+  labs(y = "y", x = bquote(Phi(x)))
+```
+
+Para este modelo supondremos que nuestra respuesta, $y$, es explicada únicamente por una covariable, $x$. Entonces, escribimos nuestro modelo como:
+
+$$y^{(i)}=\beta_0+\beta_1x^{(i)}+\epsilon^{(i)},\ \ i=1,2,\dots,n$$
+Como podemos observar, se ha propuesto una relación lineal entre la variable $y$ y la variable explicativa $x$, que es nuestro primer supuesto sobre el modelo: La relación funcional entre $x$ y $y$ es una línea recta.
+
+Observamos que la relación no es perfecta, ya que se agrega el término de error, $\epsilon$. Dado que la parte aleatoria del modelo es la variable $y$, asumimos que al error se le “cargan” los errores de medición de $y$, así como las perturbaciones que le pudieran ocasionar los términos omitidos en el modelo. 
+Gauss desarrolló este modelo a partir de la teoría de errores de medición, que es de donde se desprenden los supuestos sobre este término:
+
+- $\mathbb{E}(\epsilon^{(i)})=0$
+- $\mathbb{V}ar(\epsilon^{(i)})=\sigma^2$
+- $\mathbb{C}ov(\epsilon^{(i)},\epsilon^{(j)})=0, \ \forall i\neq j$
+
+N.B. Los errores $\epsilon^{(i)}$ son variables aleatorias no observables.
+
+# Regresión logística
+
+# Modelos lineales generalizados

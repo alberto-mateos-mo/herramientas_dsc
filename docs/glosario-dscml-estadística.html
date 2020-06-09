@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 4 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 4 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 4 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="entrenamiento-de-modelos.html"/>
-<link rel="next" href="regresión-logística.html"/>
+<link rel="prev" href="notación.html"/>
+<link rel="next" href="entrenamiento-de-modelos.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -195,64 +195,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresión-lineal" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> Regresión Lineal</h1>
-<div id="un-poco-de-história" class="section level2">
-<h2><span class="header-section-number">6.1</span> Un poco de história</h2>
-<p>Los primeros problemas prácticos tipo regresión iniciaron en el siglo XVIII, relacionados con la navegación basada en la Astronomía.
-Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que él desarrolló este método algunos años antes y demuestra, en 1809, que mínimos cuadrados proporciona una solución óptima cuando los errores se distribuyen normal. Francis Galton acuña el término regresión al utilizar el modelo para explicar el fenómeno de que los hijos de padres altos, tienden a ser altos en su generación, pero no tan altos como lo fueron sus padres en la propia, por lo que hay un efecto de <em>regresión</em>.</p>
-<p>El modelo de regresión lineal es, probablemente, el modelo de su tipo más conocido en estadística.</p>
-<p>El modelo de regresión se usa para explicar o modelar la relación entre una sola variable, <span class="math inline">\(y\)</span>, llamada dependiente o respuesta, y una o más variables predictoras, independientes, covariables, o explicativas, <span class="math inline">\(x_1, x_2, ..., x_p\)</span>. Si <span class="math inline">\(p = 1\)</span>, se trata de un modelo de regresión simple y si <span class="math inline">\(p &gt; 1\)</span>, de un modelo de regresión múltiple. En este modelo se asume que la variable de respuesta, <span class="math inline">\(y\)</span>, es aleatoria y las variables explicativas son fijas, es decir, no aleatorias.</p>
-<p>La variable de respuesta debe ser continua, pero los regresores pueden tener cualquier escala de medición.</p>
-</div>
-<div id="objetivos-del-análisis-de-regresión" class="section level2">
-<h2><span class="header-section-number">6.2</span> Objetivos del análisis de regresión</h2>
-<p>Existen varios objetivos dentro del análisis de regresión, entre otros:</p>
-<ul>
-<li>Determinar el efecto, o relación, entre las variables explicativas y la respuesta.</li>
-<li>Predicción de una observación futura.</li>
-<li>Describir de manera general la estructura de los datos.</li>
-</ul>
-</div>
-<div id="el-algorítmo-de-regresión-lineal" class="section level2">
-<h2><span class="header-section-number">6.3</span> El algorítmo de regresión lineal</h2>
-<p>Sea <span class="math inline">\(\Phi: \mathcal{X} \rightarrow \mathbb{R}^N\)</span> y consideremos la familia de hipótesis lineales <span class="math display">\[H=\{x\mapsto w \cdot \Phi(x)+b | w\in\mathbb{R}^N, b\in\mathbb{R}\}\]</span></p>
-<p>La regresión lineal consiste en buscar la hipótesis <span class="math inline">\(h\in H\)</span> con el menor error cuadrático medio, es decir, se debe resolver el problema de optimización: <span class="math display">\[\min \frac{1}{m}\sum_{i=1}^{m}(h(x_i)-y_i)^2\]</span></p>
-</div>
-<div id="regresión-lineal-simple" class="section level2">
-<h2><span class="header-section-number">6.4</span> Regresión lineal simple</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="regresión-lineal.html#cb31-1"></a><span class="kw">require</span>(ggplot2)</span>
-<span id="cb31-2"><a href="regresión-lineal.html#cb31-2"></a></span>
-<span id="cb31-3"><a href="regresión-lineal.html#cb31-3"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">609</span>, <span class="dv">629</span>, <span class="dv">620</span>, <span class="dv">564</span>, <span class="dv">645</span>, <span class="dv">493</span>, <span class="dv">606</span>, <span class="dv">660</span>, <span class="dv">630</span>, <span class="dv">672</span>, <span class="dv">778</span>, <span class="dv">616</span>, <span class="dv">727</span>, <span class="dv">810</span>, <span class="dv">778</span>, <span class="dv">823</span>, <span class="dv">755</span>, <span class="dv">710</span>, <span class="dv">701</span>, <span class="dv">803</span>, <span class="dv">855</span>, <span class="dv">838</span>, <span class="dv">830</span>, <span class="dv">864</span>, <span class="dv">635</span>, <span class="dv">565</span>, <span class="dv">562</span>, <span class="dv">580</span>, <span class="dv">596</span>, <span class="dv">597</span>, <span class="dv">636</span>, <span class="dv">559</span>, <span class="dv">615</span>, <span class="dv">740</span>, <span class="dv">677</span>, <span class="dv">675</span>, <span class="dv">629</span>, <span class="dv">692</span>, <span class="dv">710</span>, <span class="dv">730</span>, <span class="dv">763</span>, <span class="dv">686</span>, <span class="dv">717</span>, <span class="dv">737</span>, <span class="dv">816</span>)</span>
-<span id="cb31-4"><a href="regresión-lineal.html#cb31-4"></a></span>
-<span id="cb31-5"><a href="regresión-lineal.html#cb31-5"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">241</span>, <span class="dv">222</span>, <span class="dv">233</span>, <span class="dv">207</span>, <span class="dv">247</span>, <span class="dv">189</span>, <span class="dv">226</span>, <span class="dv">240</span>, <span class="dv">215</span>, <span class="dv">231</span>, <span class="dv">263</span>, <span class="dv">220</span>, <span class="dv">271</span>, <span class="dv">284</span>, <span class="dv">279</span>, <span class="dv">272</span>, <span class="dv">268</span>, <span class="dv">278</span>, <span class="dv">238</span>, <span class="dv">255</span>, <span class="dv">308</span>, <span class="dv">281</span>, <span class="dv">288</span>, <span class="dv">306</span>, <span class="dv">236</span>, <span class="dv">204</span>, <span class="dv">216</span>, <span class="dv">225</span>, <span class="dv">220</span>, <span class="dv">219</span>, <span class="dv">201</span>, <span class="dv">213</span>, <span class="dv">228</span>, <span class="dv">234</span>, <span class="dv">237</span>, <span class="dv">217</span>, <span class="dv">211</span>, <span class="dv">238</span>, <span class="dv">221</span>, <span class="dv">281</span>, <span class="dv">292</span>, <span class="dv">251</span>, <span class="dv">231</span>, <span class="dv">275</span>, <span class="dv">275</span>)</span>
-<span id="cb31-6"><a href="regresión-lineal.html#cb31-6"></a></span>
-<span id="cb31-7"><a href="regresión-lineal.html#cb31-7"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y))<span class="op">+</span></span>
-<span id="cb31-8"><a href="regresión-lineal.html#cb31-8"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(x, y), <span class="dt">colour =</span> <span class="st">&quot;#f6583a&quot;</span>, <span class="dt">size =</span> <span class="dv">6</span>)<span class="op">+</span></span>
-<span id="cb31-9"><a href="regresión-lineal.html#cb31-9"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(x, y), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">colour =</span> <span class="st">&quot;#85037e&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>)<span class="op">+</span></span>
-<span id="cb31-10"><a href="regresión-lineal.html#cb31-10"></a><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
-<span id="cb31-11"><a href="regresión-lineal.html#cb31-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">x =</span> <span class="kw">bquote</span>(<span class="kw">Phi</span>(x)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
-<p>Para este modelo supondremos que nuestra respuesta, <span class="math inline">\(y\)</span>, es explicada únicamente por una covariable, <span class="math inline">\(x\)</span>. Entonces, escribimos nuestro modelo como:</p>
-<p><span class="math display">\[y^{(i)}=\beta_0+\beta_1x^{(i)}+\epsilon^{(i)},\ \ i=1,2,\dots,n\]</span>
-Como podemos observar, se ha propuesto una relación lineal entre la variable <span class="math inline">\(y\)</span> y la variable explicativa <span class="math inline">\(x\)</span>, que es nuestro primer supuesto sobre el modelo: La relación funcional entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> es una línea recta.</p>
-<p>Observamos que la relación no es perfecta, ya que se agrega el término de error, <span class="math inline">\(\epsilon\)</span>. Dado que la parte aleatoria del modelo es la variable <span class="math inline">\(y\)</span>, asumimos que al error se le “cargan” los errores de medición de <span class="math inline">\(y\)</span>, así como las perturbaciones que le pudieran ocasionar los términos omitidos en el modelo.
-Gauss desarrolló este modelo a partir de la teoría de errores de medición, que es de donde se desprenden los supuestos sobre este término:</p>
-<ul>
-<li><span class="math inline">\(\mathbb{E}(\epsilon^{(i)})=0\)</span></li>
-<li><span class="math inline">\(\mathbb{V}ar(\epsilon^{(i)})=\sigma^2\)</span></li>
-<li><span class="math inline">\(\mathbb{C}ov(\epsilon^{(i)},\epsilon^{(j)})=0, \ \forall i\neq j\)</span></li>
-</ul>
-<p>N.B. Los errores <span class="math inline">\(\epsilon^{(i)}\)</span> son variables aleatorias no observables.</p>
-</div>
+<div id="glosario-dscml---estadística" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> Glosario DSc/ML - Estadística</h1>
+<table>
+<colgroup>
+<col width="55%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Machine Learning / Ciencia de Datos</th>
+<th align="center">Estadística</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">red, grafo (network, graphs)</td>
+<td align="center">modelo (model)</td>
+</tr>
+<tr class="even">
+<td align="center">pesos (weigths)</td>
+<td align="center">parámetros (parameters)</td>
+</tr>
+<tr class="odd">
+<td align="center">aprendizaje (learning)</td>
+<td align="center">ajuste (fiting)</td>
+</tr>
+<tr class="even">
+<td align="center">prueba, generalización (testing, generalization)</td>
+<td align="center">ajuste en el conjunto de prueba</td>
+</tr>
+<tr class="odd">
+<td align="center">aprendizaje supervisado (supervised learning)</td>
+<td align="center">regresión, clasificación</td>
+</tr>
+<tr class="even">
+<td align="center">aprendizaje no supervisado (unsupervised learning)</td>
+<td align="center">estimación de densidades, clusterización</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="entrenamiento-de-modelos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regresión-logística.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="notación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="entrenamiento-de-modelos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
