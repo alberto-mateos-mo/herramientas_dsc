@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Conocimientos básicos de R | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Conocimientos básicos de R | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -175,6 +176,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>6.2</b> Objetivos del análisis de regresión</a></li>
 <li class="chapter" data-level="6.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>6.3</b> El algorítmo de regresión lineal</a></li>
 <li class="chapter" data-level="6.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="6.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>6.5</b> Solución al problema de regresión lineal simple</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>6.5.1</b> Mínimos cuadrados ordinarios</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>6.6</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="6.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>6.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>6.7.1</b> Ecuaciones normales</a></li>
+<li class="chapter" data-level="6.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>6.7.2</b> Evaluación de supuestos</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>6.8</b> Aplicación en R</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="regresión-logística.html"><a href="regresión-logística.html"><i class="fa fa-check"></i><b>7</b> Regresión logística</a></li>
 <li class="chapter" data-level="8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>8</b> Modelos lineales generalizados</a></li>
@@ -216,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Por otro lado, <code>help.search()</code> nos mostrará la documentación de las funciones que incluyan el texto, en este caso <em>plot</em>.</p>
 <p>Como se indica, cualquiera de esas opciones te permitirá tener acceso a la documentación de la funciones donde podrás encontrar: para qué se usan, qué argumentos necesitan, lo que regresan y algunos ejemplos del uso de las mismas.</p>
 <p>Una buena parte de los errores que podamos encontrarnos en nuestros flujos de trabajo se resolverán al revisar la documentación de la función que esté generando el error, sin embargo habrá ocasiones en las que los errores sean más complejos y la documentación no nos dará una buena pista de cómo remediarlos, en tal caso la mejor estrategía sera utilizar tu buscador favorito para buscar el error.</p>
-<p>Será tan fácil cómo copiar el error que la consola esté arrojando y ponerlo en la barra de búsqueda de e.g. <a href="https://www.google.com/">Google</a>.</p>
+<p>Será tan fácil cómo copiar el error que la consola esté arrojando y ponerlo en la barra de búsqueda de e.g. [Google][google].</p>
 </div>
 <div id="vectores" class="section level2">
 <h2><span class="header-section-number">2.2</span> Vectores</h2>
@@ -480,7 +490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="paquetes" class="section level2">
 <h2><span class="header-section-number">2.8</span> Paquetes</h2>
-<p>En R llamamos librerías o paquetes a conjuntos de funciones diseñados para un fin específico. Por ejemplo el paquete <a href="https://github.com/tidyverse/ggplot2">ggplot2</a> contiene funciones diseñadas para crear gráficos usando una sintáxis llamada <em>la gramática de gráficas</em>.</p>
+<p>En R llamamos librerías o paquetes a conjuntos de funciones diseñados para un fin específico. Por ejemplo el paquete [ggplot2][ggplot2-github] contiene funciones diseñadas para crear gráficos usando una sintáxis llamada <em>la gramática de gráficas</em>.</p>
 <p>Para descargar alguna librería de nuestra interés debemos utilizar el siguiente código:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="conocimientos-básicos-de-r.html#cb29-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># Dentro de las comillas ponemos el nombre del paquete que queremos instalar</span></span></code></pre></div>
 <p>Dado que se trata de una instalación, el código anterior solamente será necesario la primera vez que instalemos el paquete.</p>
