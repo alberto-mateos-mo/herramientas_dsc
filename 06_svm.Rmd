@@ -112,6 +112,6 @@ $$ \begin{equation}  \max_{\beta,\beta_0,||\beta||_2=1} M \ sujeto \ a \ y_i(x_i
 
 $$\sum_{i=1}^n \xi_i\leq K$$
 
-# Ejemplo
+# SVMs en R
 
 ..WIP...

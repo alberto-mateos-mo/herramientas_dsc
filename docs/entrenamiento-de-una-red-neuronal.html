@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 11 Entrenamiento de una red neuronal | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 11 Entrenamiento de una red neuronal | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 11 Entrenamiento de una red neuronal | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="instalando-r-y-rstudio.html"/>
+<link rel="prev" href="teorema-de-universalidad.html"/>
+<link rel="next" href="qué-es-una-svm.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -266,76 +266,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Herramientas Estadísticas para Ciencia de Datos</h1>
-<p class="author"><em>Sofía Villers Gómez</em></p>
-<p class="author"><em>David Alberto Mateos Montes de Oca</em></p>
-</div>
-<div id="herramientas-estadísticas-para-ciencia-de-datos" class="section level1 unnumbered">
-<h1>Herramientas Estadísticas para Ciencia de Datos</h1>
-<p>Primera edición del libro de texto para el curso <em>Herramientas Estadísticas para Ciencia de Datos</em> del Seminario de Estadística de la Facultad de Ciencias.</p>
-<div id="objetivos" class="section level2">
-<h2><span class="header-section-number">0.1</span> Objetivos</h2>
-<p>Como el título lo indica, a lo largo de este libro se expondrán diferentes modelos estadísticos y sus aplicaciones con un enfoque a Ciencia de Datos.</p>
-<p>El objetivo es proveer al lector de las herramientas necesarias para comprender los fundamentos de estos modelos y sus aplicaciones mediante el uso del lenguaje R.</p>
-</div>
-<div id="estructura" class="section level2">
-<h2><span class="header-section-number">0.2</span> Estructura</h2>
-<p>El libro se descompone en dos grandes secciones, una de ellas enfocada a presentar diferentes paquetes de R considerados de gran utilidad para la práctica de Ciencia de Datos, la otra se enfoca en la teoría y aplicación de diferentes modelos.</p>
-<p>La estructura del libro sigue el orden en que se imparte la materia en la Facultad de Ciencias sin embargo hemos diseñado los capítulos suficientemente independientes como para ser consultados en el orden de preferencia del lector.</p>
-</div>
-<div id="detalles-técnicos" class="section level2">
-<h2><span class="header-section-number">0.3</span> Detalles técnicos</h2>
-<p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
-<p>Esta versión fue escrita con:</p>
-<pre><code>## Finding R package dependencies ... Done!</code></pre>
-<pre><code>##  setting  value                       
-##  version  R version 4.0.0 (2020-04-24)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  Spanish_Mexico.1252         
-##  ctype    Spanish_Mexico.1252         
-##  tz       America/Mexico_City         
-##  date     2020-09-11</code></pre>
-</div>
-<div id="licencia" class="section level2 unnumbered">
-<h2>Licencia</h2>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license.
-Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
+<div id="entrenamiento-de-una-red-neuronal" class="section level1">
+<h1><span class="header-section-number">Capítulo 11</span> Entrenamiento de una red neuronal</h1>
+<p>En el ámbito del <em>machine learning</em> se le conoce como entrenamiento al proceso de encontrar <em>buenos</em> estimadores de los parámetros del mmodelo usado, en este caso, de la red neuronal.</p>
+<p>Sea <span class="math inline">\(\beta = (\beta_{uv}; u\rightarrow v)\)</span> el vector de parámetros de una red neuronal. Dados los datos de entrenamiento <span class="math inline">\((x^1,y^1),\dots,(x^n,y^n)\)</span>, la log-verosimilitud de <span class="math inline">\(\beta\)</span> está dada por:</p>
+<p><span class="math display">\[{\it l}\left(\beta\right)=\sum_{i=1}^{n}\sum_{{\it l}=1}^{L}\mathbb{I}_{\left\{ y_{i}={\it l}\right\} }log\left(\frac{e^{s_{v_{{\it l}}}\left(x_{i},\beta\right)}}{e^{s_{v_{1}}\left(x_{1},\beta\right)}+\dots+e^{s_{v_{L}}\left(x_{L},\beta\right)}}\right) =\colon \sum_{i=1}^{n}{\it l}_{i}\left(\beta\right)\]</span>
+A continuación mostraremos cómo podemos maximizar la log-verosimilitud para obtener los parámetros.</p>
+<div id="back-propagation" class="section level2">
+<h2><span class="header-section-number">11.1</span> Back-propagation</h2>
+<p>Gracias a la estructura de composición de funciones del modelo, la derivada puede encontrarse <em>fácilmente</em> usando la regla de la cadena.</p>
+<div id="ejemplo-back-propagation." class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Ejemplo (back-propagation).</h3>
+<p>Consideremos la siguiente red neuronal:</p>
+<p><img src="ejemplo.png" /></p>
+<p>Dado, el ejemplo de entrenamiento <span class="math inline">\(x^i=(x_1^i,x_2^i)\)</span> con etiqueta/valor <span class="math inline">\(y^i\)</span> la red neuronal calcula la probabilidad de salida <span class="math inline">\(z_1=\mathbb{P}[Y=1|X = x^i]\)</span> de la siguiente forma:</p>
+<p><span class="math display">\[\begin{align*}
+s_{3}=\beta_{1,3}x_{1}+\beta_{2,3}x_{2} &amp; \,\,\,\,\,\,\,\,\,\,x_{3}\leftarrow f\left(s_{3}\right)\\
+s_{4}=\beta_{1,4}x_{1}+\beta_{2,4}x_{2} &amp; \,\,\,\,\,\,\,\,\,\,x_{4}\leftarrow f\left(s_{4}\right)\\
+s_{5}=\beta_{1,5}x_{1}+\beta_{2,5}x_{2} &amp; \,\,\,\,\,\,\,\,\,\,x_{5}\leftarrow f\left(s_{5}\right)\\
+s_{6}=\beta_{3,6}x_{3}+\beta_{4,6}x_{4}+\beta_{5,6}x_{5} &amp; \,\,\,\,\,\,\,\,\,\,z_{1}\leftarrow f\left(s_{6}\right)
+\end{align*}\]</span></p>
+<p>Donde, por facilidad estamos considerando que <span class="math inline">\(f(x)=\frac{e^x}{1+e^x}\)</span>.</p>
+<p>El valor de la log-verosimilitud para este ejemplo de entrenamiento se calcula como:</p>
+<p><span class="math display">\[{\it l}_{i}\left(\beta;\,\left(x^{i},\,y^{i}\right)\right)=\mathbb{I}_{\left\{ y^{i}=1\right\} }log\left(z_{1}\right)+\mathbb{I}_{\left\{ y^{i}=2\right\} }log\left(1-z_{1}\right)\]</span></p>
+<p>Y el <em>gradiente estocástico</em> como:</p>
 <ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or
-format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any
-purpose, even commercially.</p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial z_1} = \frac{\mathbb{I}_{\{y^1=1\}}}{z_1}-\frac{\mathbb{I}_{\{y^1=2\}}}{1-z_1}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial s_6} = \frac{\partial l}{\partial z_1}\cdot f&#39;(s_6)\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{3,6}} = \frac{\partial l}{\partial s_6}\cdot x_3\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{4,6}} = \frac{\partial l}{\partial s_6}\cdot x_4\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{5,6}} = \frac{\partial l}{\partial s_6}\cdot x_5\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial x_3} = \frac{\partial l}{\partial s_6}\cdot \beta_{3,6}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial x_4} = \frac{\partial l}{\partial s_6}\cdot \beta_{4,6}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial x_5} = \frac{\partial l}{\partial s_6}\cdot \beta_{5,6}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial s_3} = \frac{\partial l}{\partial x_3}\cdot f&#39;(s_3)\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial s_4} = \frac{\partial l}{\partial x_4}\cdot f&#39;(s_4)\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial s_4} = \frac{\partial l}{\partial x_5}\cdot f&#39;(s_5)\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{1,3}} = \frac{\partial l}{\partial s_3}\cdot x_1\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{2,3}} = \frac{\partial l}{\partial s_3}\cdot x_2\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{1,4}} = \frac{\partial l}{\partial s_4}\cdot x_1\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{2,4}} = \frac{\partial l}{\partial s_4}\cdot x_2\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{1,5}} = \frac{\partial l}{\partial s_5}\cdot x_1\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial \beta_{2,5}} = \frac{\partial l}{\partial s_5}\cdot x_2\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial x_1} = \frac{\partial l}{\partial s_3}\cdot \beta_{1,3}+\frac{\partial l}{\partial s_4}\cdot \beta_{1,4}+\frac{\partial l}{\partial s_5}\cdot \beta_{1,5}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\partial l}{\partial x_2} = \frac{\partial l}{\partial s_3}\cdot \beta_{2,3}+\frac{\partial l}{\partial s_4}\cdot \beta_{2,4}+\frac{\partial l}{\partial s_5}\cdot \beta_{2,5}\)</span></p></li>
 </ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the
-license terms.</p>
-<p><strong>Under the following terms:</strong></p>
+<p>En resúmen, para optimizar la verosimilitud por gradiente estocástico debemos seguir lo siguientes pasos (llamados _back-propagation):</p>
+<p><strong>1.</strong> Inicializar los parámetros <span class="math inline">\(\hat{\beta}^{(0,n)}=\{\hat{\beta_{u,v}}^{(0,n)}:u\rightarrow v\}\)</span></p>
+<p><strong>2.</strong> Para cada fase de entrenamiento <span class="math inline">\(t=1,2,\dots\)</span></p>
+<p>Para <span class="math inline">\(i = 1,2,\dots,n\)</span>
+- Obtener el vector de probabilidades <span class="math inline">\(z = (z_1,\dots,z_N)\)</span> usando como input el <em>ejemplo</em> <span class="math inline">\(x^i\)</span> y los parámteros <span class="math inline">\(\hat{\beta}^{(t, i-1)}\)</span></p>
 <ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link
-to the license, and indicate if changes were made. You may do so in
-any reasonable manner, but not in any way that suggests the licensor
-endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or
-technological measures that legally restrict others from doing
-anything the license permits.</p></li>
+<li>Obtener las derivadas parciales del la log-verosimilitud con respecto a:</li>
 </ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the
-material in the public domain or where your use is permitted by an
-applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the
-permissions necessary for your intended use. For example, other rights
-such as publicity, privacy, or moral rights may limit how you use the
-material.</p>
+<p><span class="math display">\[\{z_l:1\leq l\leq N\} \ \{s_v:v\in S_M\} \ \{\beta_{uv}:u\in S_{M-1}, v\in S_M\}\]</span>
+<span class="math display">\[\{x_v:v\in S_{M-1}\} \ \{s_v:v\in S_{M-1}\} \ \{\beta_{uv}:u\in S_{M-2}, v\in S_{M-1}\}\]</span>
+<span class="math display">\[\{x_v:v\in S_{M-2}\} \ \{s_v:v\in S_{M-2}\} \ \{\beta_{uv}:u\in S_{M-3}, v\in S_{M-1}\}\]</span>
+<span class="math display">\[\vdots\]</span>
+<span class="math display">\[\{x_v:v\in S_2\} \ \{s_v:v\in S_2\} \ \{\beta_{uv}:u\in S_1, v\in S_2\}\]</span></p>
+<p>en ese orden.</p>
+<p><strong>3.</strong> Actualizar los parámetros <span class="math display">\[\hat{\beta_{uv}}^{(t,i)} \leftarrow \hat{\beta_{uv}}^{(t,i-1)}+\alpha \cdot \frac{\partial l_i}{\partial \beta_{uv}}\]</span></p>
+<p>En general, a este procedimiento de optimización se le conoce como <em>descenso gradiente</em>.</p>
+</div>
+</div>
+<div id="saturación" class="section level2">
+<h2><span class="header-section-number">11.2</span> Saturación</h2>
+<p>Si durante el proceso de entrenamiento, algún nodo <span class="math inline">\(v\)</span> tiene una valor <span class="math inline">\(|s_v|\)</span> muy <em>grande</em> entonces el valor de <span class="math inline">\(f&#39;(s_v)\)</span> será muy cercano a cero para funciones de activación sigmoides.</p>
+<p>Debido a la regla de la cadena, los valores de <span class="math inline">\(\beta_{uv}\)</span> se moverán muy lentamente hacia el óptimo, en este caso se dice que el nodo <span class="math inline">\(v\)</span> está saturado.</p>
+<p>Para evitar problemas de saturación al inicio del entrenamiento comúnmente debemos estandarizar las covariables para que tengan media cero y varianza unitaria.</p>
+<p>También es conveniente inicializar los parámetos <span class="math inline">\(\hat{\beta}^{(0,n)}\)</span> cercanos a cero, comúnmente elegidos uniformemente entre <span class="math inline">\([-c,c]\)</span> para <span class="math inline">\(c \in (0,1)\)</span>.</p>
+<p>Sin embargo debemos tener cuidado pues si <span class="math inline">\(\hat{\beta}^{(0,n)}=0\)</span> entonces <span class="math inline">\(\frac{\partial l}{\partial x_v}=0 \ \forall \ v\in S_{M-1}\)</span> lo que hará que el algoritmo <em>no se mueva</em>.</p>
+</div>
+<div id="regularización" class="section level2">
+<h2><span class="header-section-number">11.3</span> Regularización</h2>
+<p>Un problema típico en las redes neuronales es que suelen <em>sobre ajustar</em> los datos de entrenamiento dado que suelen haber más parámetros que variables.</p>
+<p>Una forma de <em>regularizar</em> es imponer una penalización equivalente al cuadrado de los parámetros, también llamada <em>ridge</em> o <em>L2</em>, a la log-verosimilitud y maximizar respecto a esta log-verosimilitud penalizada.</p>
+<p><span class="math display">\[{\it l}\left(\beta\right)^{ridge}={\it l}\left(\beta\right)+\frac{\lambda}{2}||\beta||_2^2 = \sum_{i=1}^{n}\sum_{{\it l}=1}^{L}\mathbb{I}_{\left\{ y_{i}={\it l}\right\} }log\left(\frac{e^{s_{v_{{\it l}}}\left(x_{i},\beta\right)}}{e^{s_{v_{1}}\left(x_{1},\beta\right)}+\dots+e^{s_{v_{L}}\left(x_{L},\beta\right)}}\right)+\frac{\lambda}{2}||\beta||_2^2\]</span></p>
+</div>
+<div id="redes-neuronales-en-r" class="section level2">
+<h2><span class="header-section-number">11.4</span> Redes Neuronales en R</h2>
+<p>…WIP…</p>
 
 </div>
 </div>
@@ -347,8 +357,8 @@ material.</p>
           </div>
         </div>
       </div>
-
-<a href="instalando-r-y-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="teorema-de-universalidad.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qué-es-una-svm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

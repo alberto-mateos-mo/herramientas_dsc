@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 8 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 7 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 8 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 7 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 8 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 7 Modelos lineales generalizados | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="regresión-logística.html"/>
-
+<link rel="prev" href="regresión-lineal.html"/>
+<link rel="next" href="modelos-lineales-generalizados-construcción-y-evaluación.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>3</b> Notación</a></li>
 <li class="chapter" data-level="4" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>4</b> Glosario DSc/ML - Estadística</a></li>
 <li class="chapter" data-level="5" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>5</b> Entrenamiento de modelos</a></li>
-<li class="part"><span><b>III Modelos de regresión</b></span></li>
+<li class="part"><span><b>III Modelos Lineales</b></span></li>
 <li class="chapter" data-level="6" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>6</b> Regresión Lineal</a><ul>
 <li class="chapter" data-level="6.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>6.1</b> Un poco de história</a></li>
 <li class="chapter" data-level="6.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>6.2</b> Objetivos del análisis de regresión</a></li>
@@ -186,8 +186,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>6.8</b> Aplicación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="regresión-logística.html"><a href="regresión-logística.html"><i class="fa fa-check"></i><b>7</b> Regresión logística</a></li>
-<li class="chapter" data-level="8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>8</b> Modelos lineales generalizados</a></li>
+<li class="chapter" data-level="7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>7</b> Modelos lineales generalizados</a><ul>
+<li class="chapter" data-level="7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>7.1</b> Regresión logística</a></li>
+<li class="chapter" data-level="7.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>7.2</b> Modelo de regresión logísitica simple</a></li>
+<li class="chapter" data-level="7.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>7.3</b> Modelo de regresión logísitica multiple</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-lineal-en-r"><i class="fa fa-check"></i><b>7.3.1</b> Regresión lineal en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>7.4</b> Regresión Multinomial</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>7.4.1</b> Regresión Multinomial en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>7.5</b> Modelos para conteos</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>7.5.1</b> Sobredispersión en GLM Poisson</a></li>
+<li class="chapter" data-level="7.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>7.5.2</b> GLM Poisson R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>7.6</b> GLM binomial negativa</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>7.6.1</b> GLM Binomial Negativa en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>7.7</b> Exponencial</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>7.7.1</b> GLM Exponencial en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>7.8</b> Gamma</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>7.8.1</b> GLM Gamma en R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>8</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
+<li class="chapter" data-level="8.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>8.1</b> Exploración de los datos.</a></li>
+<li class="chapter" data-level="8.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>8.2</b> Elección de la estructura de errores y función liga.</a></li>
+<li class="chapter" data-level="8.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>8.3</b> Bondad de ajuste.</a></li>
+<li class="chapter" data-level="8.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>8.4</b> Simplificación del modelo.</a></li>
+<li class="chapter" data-level="8.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>8.5</b> Criterios de evaluación de modelos.</a></li>
+<li class="chapter" data-level="8.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>8.6</b> Análisis de los residuos.</a></li>
+<li class="chapter" data-level="8.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>8.7</b> Evaluación de GLMs en R</a></li>
+</ul></li>
+<li class="part"><span><b>IV Redes neuronales</b></span></li>
+<li class="chapter" data-level="9" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>9</b> ¿Qué es una red neuronal?</a><ul>
+<li class="chapter" data-level="9.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>9.1</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>10</b> Teorema de Universalidad</a></li>
+<li class="chapter" data-level="11" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>11</b> Entrenamiento de una red neuronal</a><ul>
+<li class="chapter" data-level="11.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>11.1</b> Back-propagation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#ejemplo-back-propagation."><i class="fa fa-check"></i><b>11.1.1</b> Ejemplo (back-propagation).</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>11.2</b> Saturación</a></li>
+<li class="chapter" data-level="11.3" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>11.3</b> Regularización</a></li>
+<li class="chapter" data-level="11.4" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>11.4</b> Redes Neuronales en R</a></li>
+</ul></li>
+<li class="part"><span><b>V Maquinas de Soporte Vectorial (SVM)</b></span></li>
+<li class="chapter" data-level="12" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>12</b> ¿Qué es una SVM?</a></li>
+<li class="chapter" data-level="13" data-path="estimación-de-los-coeficientes.html"><a href="estimación-de-los-coeficientes.html"><i class="fa fa-check"></i><b>13</b> Estimación de los coeficientes</a></li>
+<li class="chapter" data-level="14" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html"><i class="fa fa-check"></i><b>14</b> RKHS y el método kernel</a><ul>
+<li class="chapter" data-level="14.1" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>14.1</b> ¿Cómo escoger un kernel k?</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="margen-suave.html"><a href="margen-suave.html"><i class="fa fa-check"></i><b>15</b> <em>Margen suave</em></a></li>
+<li class="chapter" data-level="16" data-path="svms-en-r.html"><a href="svms-en-r.html"><i class="fa fa-check"></i><b>16</b> SVMs en R</a></li>
+<li class="part"><span><b>VI Árboles de regresión y clasificación</b></span></li>
+<li class="chapter" data-level="17" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>17</b> Antecedentes</a></li>
+<li class="chapter" data-level="18" data-path="árboles-de-regresión.html"><a href="árboles-de-regresión.html"><i class="fa fa-check"></i><b>18</b> Árboles de regresión</a></li>
+<li class="chapter" data-level="19" data-path="árboles-de-clasificación.html"><a href="árboles-de-clasificación.html"><i class="fa fa-check"></i><b>19</b> Árboles de clasificación</a></li>
+<li class="chapter" data-level="20" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html"><i class="fa fa-check"></i><b>20</b> Alguno problemas en los árboles</a><ul>
+<li class="chapter" data-level="20.1" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#covariables-categóricas"><i class="fa fa-check"></i><b>20.1</b> Covariables categóricas</a></li>
+<li class="chapter" data-level="20.2" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>20.2</b> La matriz de pérdida</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="árboles-en-r.html"><a href="árboles-en-r.html"><i class="fa fa-check"></i><b>21</b> Árboles en R</a></li>
+<li class="part"><span><b>VII Random Forests</b></span></li>
 </ul>
 
       </nav>
@@ -206,16 +267,214 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="modelos-lineales-generalizados" class="section level1">
-<h1><span class="header-section-number">Capítulo 8</span> Modelos lineales generalizados</h1>
-
+<h1><span class="header-section-number">Capítulo 7</span> Modelos lineales generalizados</h1>
+<p>En el capítulo anterior exploramos el modelo básico que nos permite responder a la pregunta: ¿puede ser la variable de interés predicha por un conjunto de variables explicativas?</p>
+<p>Sin embargo, para poder utilizar dicho modelo, es necesario que la variable respuesta sea continua y cumpla las hipótesis estándar del modelo lineal (datos normales, varianza constante, etc.)</p>
+<p>Si la variable de interés es, por ejemplo binaria podemos ajustar un modelo de regresión logística en donde lo que predecimos son las probabilidades de la ocurrencia del evento medido con la variable binaria.</p>
+<p>En 1944, Berkson utilizó por primera vez la regresión logística como una forma de solucionar el problema de explicar una variable dicotómica a través de una variable continua. En este caso, la función logit hace que en lugar de trabajar con valores de la variable respuesta entre <span class="math inline">\((0, 1)\)</span>, trabajemos con una variable respuesta que puede tomar cualquier valor.</p>
+<p>No fue hasta 1972 cuando John Nelder introdujo los modelos lineales generalizados (GLM por sus siglas en inglés), de ahí que en general se considere a la regresión logística como algo distinto a los GLM, cuando lo que ocurre es que tanto la regresión múltiple como la logística, de Poisson, ordinal, etcétera, son casos particulares de un GLM.</p>
+<p>Para entender lo que es un GLM, volvamos al modelo de regresión múltiple, en este modelos suponemos que:</p>
+<p><span class="math display">\[Y=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}+\epsilon\]</span></p>
+<p><span class="math display">\[E[Y]=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<p>Es decir, que existe una relación lineal entre las <span class="math inline">\(X\)</span> y <span class="math inline">\(E[Y]\)</span> (el valor medio de Y dado un cierto valor de las variables explicativas).</p>
+<p>Si las observaciones son binarias, entonces:</p>
+<p><span class="math display">\[P(Y = 1) = p\]</span></p>
+<p><span class="math display">\[P(Y = 0) = 1-p\]</span></p>
+<p>Y <span class="math inline">\(E[Y] = 0\times P(Y = 0) + 1 \times P(Y = 1) = p\)</span>, por lo tanto un modelo de regresión múltiple relacionará directamente la probabilidad de que ocurra un suceso con las variables explicativas, lo cual no es lo que se busca al ajustar un modelo de regresión lineal.</p>
+<p>Lo que hacen los GLM es establecer esa relación lineal no entre la media de la variable respuesta y los predictores, sino entre una función de la media de variable respuesta y los predictores, es decir:</p>
+<p><span class="math display">\[g(E[Y])=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<p>Según de qué tipo sea la varible <span class="math inline">\(Y\)</span>, así será la función <span class="math inline">\(g(\cdot)\)</span>.</p>
+<p>Entonces se puede decir que un GLM tiene 3 componentes:</p>
+<ul>
+<li><strong>Componente aleatorio:</strong> La variable respuesta <span class="math inline">\(Y\)</span> . Para poder utilizar un GLM, la distribución de <span class="math inline">\(Y\)</span> ha de pertenecer a la <strong>familia exponencial</strong>, es decir, su función de densidad ha de poder escribirse como:</li>
+</ul>
+<p><span class="math display">\[f(y;\theta,\phi)=exp\{\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\}\]</span></p>
+<p>donde <span class="math inline">\(a(\cdot)\)</span>, <span class="math inline">\(b(\cdot)\)</span> y <span class="math inline">\(c(\cdot)\)</span> son funciones específicas. El parámetro <span class="math inline">\(\theta\)</span> es lo que se llama parámetro canónico de localización y <span class="math inline">\(\phi\)</span> es un parámetro de dispersión. Pertenecen a la familia exponecial la distribución Normal, Bernouilli, Binomial, Poisson, Exponecial, Gamma, entre otras.</p>
+<ul>
+<li><p><strong>Componente sistemático:</strong> Las variables predictoras <span class="math inline">\(X_i \ \ i = 1,...,k\)</span></p></li>
+<li><p><strong>Función liga:</strong> La función que relaciona la media, <span class="math inline">\(E[Y]\)</span>, con las variables predictoras <span class="math inline">\(X\)</span>. En el caso del modelo de regresión ordinaria, <span class="math inline">\(\mu = \nu\)</span>, por lo tanto la función liga es la identidad.</p></li>
+</ul>
+<p>Hay muchas opciones par la función liga. La función liga canonica es una función que transforma la media en el parámetro canónico <span class="math inline">\(\theta\)</span></p>
+<p><span class="math display">\[g(E[Y])=\theta\]</span></p>
+<p>Entoces <span class="math inline">\(g(\cdot)\)</span> es la función liga canónica.</p>
+<p>La siguiente tabla muestra las funciones link canónicas para las distribuciones más comunes usadas en los GLMs:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Distribución</th>
+<th>Liga canónica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Normal</td>
+<td><span class="math inline">\(X \beta = E[Y]\)</span> (identidad)</td>
+</tr>
+<tr class="even">
+<td>Binomial</td>
+<td><span class="math inline">\(X \beta = ln(\frac{P}{1-P})\)</span> (logística)</td>
+</tr>
+<tr class="odd">
+<td>Poisson</td>
+<td><span class="math inline">\(X \beta = ln(E[Y])\)</span> (logarítmica)</td>
+</tr>
+<tr class="even">
+<td>Exponencial</td>
+<td><span class="math inline">\(X \beta = \frac{1}{E[Y]})\)</span> (recíproca)</td>
+</tr>
+<tr class="odd">
+<td>Gamma</td>
+<td><span class="math inline">\(X \beta = \frac{1}{E[Y]})\)</span> (recíproca)</td>
+</tr>
+</tbody>
+</table>
+<p>La diferencia que hay entre usar la función liga y usar una transformación, es que la función liga transforma la media, <span class="math inline">\(E[Y]\)</span>, y no los datos, <span class="math inline">\(Y\)</span>.</p>
+<p>Los GLM generalizan la regresión <em>ordinaria</em> de dos modos: permitiendo que la variable de respuesta <span class="math inline">\(Y\)</span> tenga distribuciones diferentes a la normal y, por otro lado, incluyendo distintas funciones liga de la media, lo cual resulta muy útil para datos categóricos.</p>
+<div id="regresión-logística" class="section level2">
+<h2><span class="header-section-number">7.1</span> Regresión logística</h2>
+<p>El modelo de regresión logistica es un GLM donde la distribución de probabilidad es Bernoulli o Binomial, y la función liga es el logit (ya que relaciona a la media, que en una Bernouilli es la probabilidad con el predictor lineal). Por lo tanto la estimación de los parámetros y los contrastes de hipótesis utilizan la teoría desarrollada para los GLMs.</p>
+<p>Estos modelos se utilizan cuando se desea conocer la relación entre</p>
+<ul>
+<li>Una <strong>variable dependiente cualitativa</strong>, dicotómica.</li>
+<li>Una o más variables explicativas independientes, llamadas <strong>covariables</strong> ya sean cualitativas o cuantitativas</li>
+</ul>
+<p>Por tanto, el objetivo de la regresión logística no es, como en regresión lineal, predecir el valor de la variable <span class="math inline">\(Y\)</span> a partir de una o varias variables predictoras, sino que queremos predecir la <strong>probabilidad</strong> de que ocurra <span class="math inline">\(Y\)</span> conocidos los valores de las variables <span class="math inline">\(X_i&#39;s\)</span>.</p>
+<p>Recordemos que las covariables cualitativas deben transformarse en las covariables cualitativas dicotómicas ficticias necesarias (variables dummy). De manera que al hacer esta transformación cada categoría de la variable entrará en el modelo de forma individual.</p>
+</div>
+<div id="modelo-de-regresión-logísitica-simple" class="section level2">
+<h2><span class="header-section-number">7.2</span> Modelo de regresión logísitica simple</h2>
+<p>Para este modelo supondremos que nuestra respuesta, <span class="math inline">\(Y\)</span>, es explicada únicamente por una covariable, <span class="math inline">\(X\)</span>. Asumimos que la variable independiente <span class="math inline">\(Y\)</span> está codificada como un 0 o un 1.</p>
+<p>Entonces, escribimos nuestro modelo como:</p>
+<p><span class="math display">\[ln(\frac{p}{1-p})=\beta_{0}+\beta_{1}X\]</span>
+<span class="math display">\[\frac{p}{1-p}=e^{\beta_{0}+\beta_{1}X}\]</span>
+<span class="math display">\[p=e^{\beta_{0}+\beta_{1}X}-p\times e^{\beta_{0}+\beta_{1}X}\]</span>
+<span class="math display">\[p(1+e^{\beta_{0}+\beta_{1}X})=e^{\beta_{0}+\beta_{1}X}\]</span>
+<span class="math display">\[p=\frac{e^{\beta_{0}+\beta_{1}X}}{1+e^{\beta_{0}+\beta_{1}X}}\]</span></p>
+<p>Y:</p>
+<p><span class="math display">\[1-p=\frac{1}{1+e^{\beta_{0}+\beta_{1}X}}\]</span></p>
+<p>Los valores posibles de estas ecuaciones varían entre 0 y 1. Un valor cercano a 0 significa que es muy improbable que <span class="math inline">\(Y\)</span> haya ocurrido, y un valor cercano a 1 significa que es muy probable que tuviese lugar.</p>
+<p>Similar a regresión lineal los valores de los parámetros se estiman utilizando el método de máxima verosimilitud que selecciona los coeficientes que hacen más probable que los valores observados ocurran.</p>
+<p>Para este análisis tenemos la razón de momios (odds ratio), que corresponde a la razón entre las posibilidades de respuesta.</p>
+<p><span class="math display">\[OR=\frac{\frac{P(Y=1|X=1)}{1-P(Y=1|X=1)}}{\frac{P(Y=1|X=0)}{1-P(Y=1|X=0)}}\]</span></p>
+<p>El valor nulo para la razón de momios es el 1. Un <span class="math inline">\(OR = 1\)</span> implica que las dos categorías comparadas son iguales.</p>
+<p>El valor mínimo posible es 0 y el máximo teóricamente posible es infinito.</p>
+<p>Un OR inferior a la unidad se interpreta como que el desenlace es menos frecuente en la categoría o grupo que se ha elegido como de interés con respecto al otro grupo o categoría de referencia. Un OR = 3 se interpreta como una ventaja 3 veces superior de una de las categorías <span class="math inline">\(X = 1\)</span> relativamente a la otra categoría <span class="math inline">\(X=0\)</span>.</p>
+</div>
+<div id="modelo-de-regresión-logísitica-multiple" class="section level2">
+<h2><span class="header-section-number">7.3</span> Modelo de regresión logísitica multiple</h2>
+<p>Análogo a lo que observamos en los modelos de regresión lineal, el modelo de regresión logística se puede facilmente generalizar de un modelo simple a un múltiple.</p>
+<p><span class="math display">\[ln(\frac{p}{1-p})=\beta_{0}+\beta_{1}X_1+\beta_{2}X_{2}+...\beta_{k}X_{k}\]</span>
+<span class="math display">\[p=P(Y)=\frac{1}{1+e^{-(\beta_{0}+\beta_{1}X_1+\beta_{2}X_{2}+...\beta_{k}X_{k})}}\]</span></p>
+<p>De nuevo los valores posibles de estas ecuaciones varían entre 0 y 1.</p>
+<p>El propósito del análisis es predecir la probabilidad de que un evento <span class="math inline">\(Y\)</span> ocurra para el <span class="math inline">\(i-eismo\)</span> individuo. Para dicha <span class="math inline">\(i-ésima\)</span> persona, <span class="math inline">\(Y\)</span> será 0 (la respuesta no ocurre) o 1 (la respuesta ocurre), y el valor predicho, <span class="math inline">\(\mathbb{P}(Y)\)</span>, tendrá un valor 0 (no hay probabilidad de que el resultado ocurra) o 1 (el resultado seguro que ocurre).</p>
+<div id="regresión-lineal-en-r" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Regresión lineal en R</h3>
+<p>…WIP..</p>
+</div>
+</div>
+<div id="regresión-multinomial" class="section level2">
+<h2><span class="header-section-number">7.4</span> Regresión Multinomial</h2>
+<p>Hasta ahora hemos revisado el caso en el que la variable respuesta era dicotómica. Ahora nos centramos en el caso en el que la variable de interés tiene más de dos categorías, por ejemplo, afiliación política; resultado de un partido de fútbol; marcas de teléfonos celulares, etc.</p>
+<p>Por simplicidad, se ilustrará la metodología para el caso de tres categorías, ya que la generalización a más de tres es inmediata.</p>
+<p>Supongamos que codificamos las tres categorías de la variable respuesta como 0, 1 y 2. En el caso de regresión logística, el logit es:</p>
+<p><span class="math display">\[ln(\frac{p}{1-p})=ln(\frac{P[Y=1]}{P[Y=0]})\]</span></p>
+<p>Ahora el modelo necesita dos funciones logit ya que tenemos tres categorías, y necesitamos decidir que categorías queremos comparar. Lo más general es utilizar <span class="math inline">\(Y = 0\)</span> como referencia y formar logits comparándola con <span class="math inline">\(Y = 1\)</span> y <span class="math inline">\(Y = 2\)</span>.</p>
+<p>Supongamos que tenemos k variables explicativas, entonces:</p>
+<p><span class="math display">\[ln(\frac{P[Y=1]}{P[Y=0]})=\beta_{10}+\beta_{11}X_1+\beta_{12}X_{2}+...\beta_{1k}X_{k}\]</span>
+<span class="math display">\[ln(\frac{P[Y=2]}{P[Y=0]})=\beta_{20}+\beta_{21}X_1+\beta_{22}X_{2}+...\beta_{2k}X_{k}\]</span></p>
+<p>Y ahora tenemos el doble de coeficientes que en el caso de regresión logística.</p>
+<p>Las probabilidades se calcularán como:</p>
+<p><span class="math display">\[P[Y=0|X]=\frac{1}{1+e^{g_1(X)}+e^{g_2(X)}}\]</span>
+<span class="math display">\[P[Y=1|X]=\frac{e^{g_1(X)}}{1+e^{g_1(X)}+e^{g_2(X)}}\]</span>
+<span class="math display">\[P[Y=2|X]=\frac{e^{g_2(X)}}{1+e^{g_1(X)}+e^{g_2(X)}}\]</span>
+<span class="math display">\[g_1(X)=\beta_{10}+\beta_{11}X_1+\beta_{12}X_{2}+...\beta_{1k}X_{k}\]</span>
+<span class="math display">\[g_2(X)=\beta_{20}+\beta_{21}X_1+\beta_{22}X_{2}+...\beta_{2k}X_{k}\]</span></p>
+<div id="regresión-multinomial-en-r" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Regresión Multinomial en R</h3>
+<p>…WIP..</p>
+</div>
+</div>
+<div id="modelos-para-conteos" class="section level2">
+<h2><span class="header-section-number">7.5</span> Modelos para conteos</h2>
+<p>En muchos casos las variables respuesta son conteos, y en ocasiones estos recuentos aparecen al resumir en tablas de contingencia otras variables.</p>
+<p>Hay cuatro razones por las que sería erroneo utlizar un modelo de regresión normal para datos de conteo :</p>
+<ul>
+<li>Puede dar lugar a predicciones negativas.</li>
+<li>La varianza de la variable respuesta no es independiente de la media.</li>
+<li>Los errores no siguen una distribución Normal.</li>
+<li>Los ceros que aparecen en la variable respuesta dan problemas a la hora de transformar la variables.</li>
+</ul>
+<p>Sin embargo, si la variable es de conteo pero los datos toman valores elevados, entonces si podría ser posible utilizar la distribución Normal.</p>
+<p>El modelo más simple para cuando la variable de respuesta son recuentos es asumir que el componente aleatorio <span class="math inline">\(Y\)</span> sigue una distribución de <strong>Poisson</strong>. Esta distribución es unimodal y su propiedad más destacada es que la media y la varianza coinciden.</p>
+<p><span class="math display">\[E(Y)=Var(Y)=\mu\]</span></p>
+<p>De modo que cuando el número de recuentos es mayor en media, también tienden a tener mayor variabilidad.</p>
+<p>La principal diferencia entre la distribución de Poisson y la Binomial, es que, aunque ambas cuentan el número de veces que ocurre algo, en la distribución de Poisson no sabemos cuántas veces no ocurrio, y en la Binomial sí lo sabemos.</p>
+<p>Supongamos que estamos haciendo un estudio sobre cuantas larvas de insectos hay en ciertos árboles, los datos de los que disponemos corresponden al número de larvas por hoja <span class="math inline">\((Y)\)</span>. Habrá hojas que no tengan ninguna, y otras que tenga hasta 5 ó 6. Si el número medio de larvas por hoja es <span class="math inline">\(\mu\)</span>, la probabilidad de observar <span class="math inline">\(y_0\)</span> larvas por hoja viene dada por la siguiente ecuación:</p>
+<p><span class="math display">\[P(y_0)=\frac{e^{\mu}\mu^{y_0}}{y_0!}\]</span></p>
+<p>Donde <span class="math inline">\(\mu\)</span> se puede aproximar con <span class="math inline">\(\mu=np\)</span>, para <span class="math inline">\(n\)</span> grande y <span class="math inline">\(p\)</span> pequeño. Es decir, que una distribución de Poisson se obtiene a partir de una Binomial con <span class="math inline">\(p\)</span> pequeño y <span class="math inline">\(n\)</span>.</p>
+<p>Entonces el modelo GLM para los conteos se basará en modelar la relación entre la media muestral <span class="math inline">\(\mu\)</span> y las variables explicativas.</p>
+<p><span class="math display">\[\mu=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<p>Por las características de la variable (son conteos) buscamos que la parte derecha de la ecuación sólo tome valores positivos. Por esta razón habitualmente se usa el logaritmo de la media como la función liga, de modo que el modelo log-lineal se puede expresar como:</p>
+<p><span class="math display">\[log(\mu) = log(E[Y])=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<p>de modo que al despejar <span class="math inline">\(\mu\)</span> obtenemos:</p>
+<p><span class="math display">\[\mu = e^{\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}}\]</span></p>
+<div id="sobredispersión-en-glm-poisson" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Sobredispersión en GLM Poisson</h3>
+<p>En una distribución de Poisson, la media y la varianza son iguales, pero en la práctica, los datos de conteo muestran mayor variabilidad de la que se espera en un modelo binomial o Poisson. En el caso de este último, es común que la varianza sea mucho mayor que la media <span class="math inline">\(\mathbb{V}\left(Y\right)&gt;&gt;\mathbb{E}\left(Y\right)=\mu\)</span>, este fenómeno se conoce como <em>sobredispersión</em>.</p>
+<p>Por ejemplo, podemos suponer que cada individuo tienen igual probabilidad de padecer cierta enfermedad; no obstante, siendo más realistas, es claro que que estas probabilidades varían debido a factores genéticos, de salubridad y de localización geográfica, entre otros, propiciando mayor variabilidad sobre el número de sujetos enfermos en un periodo determinado, que los que puede predecir el modelo Poisson asociado.</p>
+<p>Una forma de medir la sobredispersión en los datos es ajustando una distribución <em>quasipoisson</em>, la cual ajustará el modelo con distribución Poisson pero no asumirá varianza igual a la media y calculará el parámetro de dispersión.</p>
+</div>
+<div id="glm-poisson-r" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> GLM Poisson R</h3>
+<p>…WIP…</p>
+</div>
+</div>
+<div id="glm-binomial-negativa" class="section level2">
+<h2><span class="header-section-number">7.6</span> GLM binomial negativa</h2>
+<p>Una distribución que puede usarse como alternativa a una Poisson es la . Dado que su varianza es más grande que su media, constituye una excelente alternativa para modelar datos de conteo sobredispersos, que son muy comunes en aplicaciones reales.</p>
+<p>Si una variable aleatoria <span class="math inline">\(Y\)</span> se distribuye como una binomial negativa, entonces la función de probabilidad es:</p>
+<p><span class="math display">\[P(y|k,\mu)=\frac{\Gamma(y+k)}{\Gamma(k)\Gamma(y+1)}\left( \frac{k}{\mu+k}  \right)^k\left( 1-\frac{k}{\mu+k}  \right)^y\]</span></p>
+<p>con <span class="math inline">\(y=0,1,2,...\)</span> donde <span class="math inline">\(k\)</span> y <span class="math inline">\(\mu\)</span> son los parámetros de la distribución y se tiene que</p>
+<p><span class="math display">\[E(Y)=\mu\]</span></p>
+<p><span class="math display">\[Var(Y)=\mu+\frac{\mu^2}{k}\]</span></p>
+<p>El parámetro <span class="math inline">\(\frac{1}{k}\)</span> es un parámetro de dispersión, de modo que si <span class="math inline">\(\frac{1}{k} \rightarrow 0\)</span> entonces <span class="math inline">\(Var(Y)\rightarrow \mu\)</span> y la distribución binomial negativa converge a una distribución Poisson.</p>
+<p>Por otro lado, para un valor fijo de <span class="math inline">\(k\)</span> esta distribución pertenece a la familia exponencial natural, de modo que se puede definir un modelo GLM binomial negativo. En general, se usa una función liga de tipo logaritmo.</p>
+<p>La regresión binomial negativa se puede utilizar para datos sobredispersos de recuentos, es decir cuando la varianza condicional es mayor que la media condicional. Se puede considerar como una generalización de la regresión de Poisson, ya que tiene su misma estructura de medias y además un parámetro adicional para el modelo de sobredispersión.</p>
+<p>Si la distribución condicional de la variable observada es más dispersa, los intervalos de confianza para la regresión binomial negativa es probable que sean más estrechos que los correspondientes a un modelo de regresión de Poisson.</p>
+<div id="glm-binomial-negativa-en-r" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> GLM Binomial Negativa en R</h3>
+<p>…WIP…</p>
+</div>
+</div>
+<div id="exponencial" class="section level2">
+<h2><span class="header-section-number">7.7</span> Exponencial</h2>
+<p>Se dice que la variable respuesta <span class="math inline">\(Y\)</span> es de tipo Exponencial cuando hemos observado el tiempo transcurrido hasta que ocurre un evento de interés como resultado de un conjunto de variables predictoras que pueden ser de tipo numérico o categórico. En este caso similar al caso de conteos también se asume que <span class="math inline">\(Y\)</span> sólo toma valores positivos y es continua.</p>
+<p>En este caso la función liga utilizada es el recíproco, de modo que el modelo lineal se puede expresar como:</p>
+<p><span class="math display">\[\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<div id="glm-exponencial-en-r" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> GLM Exponencial en R</h3>
+<p>…WIP…</p>
+</div>
+</div>
+<div id="gamma" class="section level2">
+<h2><span class="header-section-number">7.8</span> Gamma</h2>
+<p>Como se mencionó en la sección anterior las distribución exponencial es un caso particular de la distribución gamma. En general cuando la variable de respuesta es de tipo numérico, pero sólo puede tomar valores positivos de forma asimétrica, es decir, se encuentra concentrada en un conjunto de valores y su frecuencia disminuye cuando aumenta el valor de la respuesta, se dice que la variable se distribuye gamma.</p>
+<p>La distribución gamma sólo está definida para valores mayores a cero, por lo que si la variable de respuesta <span class="math inline">\(Y\)</span> toma valores negativos o cero, para poder utilizar esta distribución será necesario realizar una transformación de los datos, sumando una constante lo suficientemente grande que haga todas las obervaciones positivas.</p>
+<p>Análogo al caso exponencial, la función liga utilizada es el recíproco, de modo que el modelo lineal se expresa como:</p>
+<p><span class="math display">\[\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
+<div id="glm-gamma-en-r" class="section level3">
+<h3><span class="header-section-number">7.8.1</span> GLM Gamma en R</h3>
+<p>…WIP…</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="regresión-logística.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="regresión-lineal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-lineales-generalizados-construcción-y-evaluación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

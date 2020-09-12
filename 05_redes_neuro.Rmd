@@ -72,7 +72,7 @@ A continuación mostraremos cómo podemos maximizar la log-verosimilitud para ob
 
 Gracias a la estructura de composición de funciones del modelo, la derivada puede encontrarse _fácilmente_ usando la regla de la cadena.
 
-### Ejemplo.
+### Ejemplo (back-propagation).
 
 Consideremos la siguiente red neuronal:
 
@@ -177,6 +177,6 @@ Una forma de _regularizar_ es imponer una penalización equivalente al cuadrado 
 
 $${\it l}\left(\beta\right)^{ridge}={\it l}\left(\beta\right)+\frac{\lambda}{2}||\beta||_2^2 = \sum_{i=1}^{n}\sum_{{\it l}=1}^{L}\mathbb{I}_{\left\{ y_{i}={\it l}\right\} }log\left(\frac{e^{s_{v_{{\it l}}}\left(x_{i},\beta\right)}}{e^{s_{v_{1}}\left(x_{1},\beta\right)}+\dots+e^{s_{v_{L}}\left(x_{L},\beta\right)}}\right)+\frac{\lambda}{2}||\beta||_2^2$$
 
-## Ejemplo
+## Redes Neuronales en R
 
 ...WIP...

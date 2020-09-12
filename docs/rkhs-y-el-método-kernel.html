@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 14 RKHS y el método kernel | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 14 RKHS y el método kernel | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 14 RKHS y el método kernel | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="instalando-r-y-rstudio.html"/>
+<link rel="prev" href="estimación-de-los-coeficientes.html"/>
+<link rel="next" href="margen-suave.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -266,89 +266,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Herramientas Estadísticas para Ciencia de Datos</h1>
-<p class="author"><em>Sofía Villers Gómez</em></p>
-<p class="author"><em>David Alberto Mateos Montes de Oca</em></p>
-</div>
-<div id="herramientas-estadísticas-para-ciencia-de-datos" class="section level1 unnumbered">
-<h1>Herramientas Estadísticas para Ciencia de Datos</h1>
-<p>Primera edición del libro de texto para el curso <em>Herramientas Estadísticas para Ciencia de Datos</em> del Seminario de Estadística de la Facultad de Ciencias.</p>
-<div id="objetivos" class="section level2">
-<h2><span class="header-section-number">0.1</span> Objetivos</h2>
-<p>Como el título lo indica, a lo largo de este libro se expondrán diferentes modelos estadísticos y sus aplicaciones con un enfoque a Ciencia de Datos.</p>
-<p>El objetivo es proveer al lector de las herramientas necesarias para comprender los fundamentos de estos modelos y sus aplicaciones mediante el uso del lenguaje R.</p>
-</div>
-<div id="estructura" class="section level2">
-<h2><span class="header-section-number">0.2</span> Estructura</h2>
-<p>El libro se descompone en dos grandes secciones, una de ellas enfocada a presentar diferentes paquetes de R considerados de gran utilidad para la práctica de Ciencia de Datos, la otra se enfoca en la teoría y aplicación de diferentes modelos.</p>
-<p>La estructura del libro sigue el orden en que se imparte la materia en la Facultad de Ciencias sin embargo hemos diseñado los capítulos suficientemente independientes como para ser consultados en el orden de preferencia del lector.</p>
-</div>
-<div id="detalles-técnicos" class="section level2">
-<h2><span class="header-section-number">0.3</span> Detalles técnicos</h2>
-<p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
-<p>Esta versión fue escrita con:</p>
-<pre><code>## Finding R package dependencies ... Done!</code></pre>
-<pre><code>##  setting  value                       
-##  version  R version 4.0.0 (2020-04-24)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  Spanish_Mexico.1252         
-##  ctype    Spanish_Mexico.1252         
-##  tz       America/Mexico_City         
-##  date     2020-09-11</code></pre>
-</div>
-<div id="licencia" class="section level2 unnumbered">
-<h2>Licencia</h2>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license.
-Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
+<div id="rkhs-y-el-método-kernel" class="section level1">
+<h1><span class="header-section-number">Capítulo 14</span> RKHS y el método kernel</h1>
+<p>Típicamente nos encontraremos con datos para los cuales no será evidente la existencia de un hiperplano que pueda separar a las clases. Esto puede suceder porque la frontera de clasificación es no lineal, o bien porque los datos tienen mucha varianza (<em>ruido</em>) y las densidades de las clases se intersectan.</p>
+<p>Existen dos formas de <em>generalizar</em> el hiperplano de separación para resolver ambos problemas.</p>
+<p>Una forma de resolver el problema de <em>no separabilidad</em> es llevar los datos a alguna dimensión superior mediante <span class="math inline">\(x \mapsto \phi(x)=(\phi_1(x),\phi_2(x),\dots)\)</span> donde <span class="math inline">\(\phi_1,\phi_2,\dots\)</span> son funciones reales en algún conjunto <span class="math inline">\(\mathcal{X}\)</span>, donde <span class="math inline">\(\mathcal{X}\)</span> no requiere alguna estructura específica.</p>
+<p>A la función <span class="math inline">\(\phi\)</span> se le conoce como función característica (<em>feature map</em>) y a sus componentes <span class="math inline">\(\phi_1,\phi_2,\dots\)</span> se les llama características (<em>features</em>)</p>
+<p>En dimensiones suficientemente <em>grandes</em> los puntos correspondientes a dos clases son siempre separables.</p>
+<p>Una pregunta natural es ¿cómo escoger buenas <em>características</em> y cuántas deberíamos escoger? Antes de responder estas preguntas asumamos que ya tenemos la función <span class="math inline">\(\phi\)</span> y definamos <span class="math inline">\(k(x,x&#39;)=\langle \phi(x),\phi(x&#39;)\rangle\)</span> para cualesquiera <span class="math inline">\(x,x&#39;\in \mathcal{X}\)</span>, donde <span class="math inline">\(\langle \cdot,\cdot \rangle\)</span> es el producto interior en el espacio de características.</p>
+<p>Con ello podemos obtener los coeficientes de la SVM como sigue:</p>
+<p><strong>1:</strong> Resolver el problema dual en el espacio de características <span class="math display">\[\max_{\lambda\in \mathbb{R}_{\geq 0}^n,\sum_i\lambda_i y_i=0}\sum_{i=1}^n\lambda_i-\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \lambda_i \lambda_j y_i y_j k(x_i,x_j)\]</span> para obtener <span class="math inline">\(\lambda_1^*,\cdots,\lambda_n^*\)</span></p>
+<p><strong>2:</strong> Sea <span class="math inline">\(S=\{i:\lambda_i^*\neq 0\}\)</span> el conjunto de índices de los vectores soporte.</p>
+<p><strong>3:</strong> Calcular <span class="math inline">\(\beta_0^*=\sum_{i\in S}\lambda_i^*y_i \phi(x_i)\)</span> y <span class="math display">\[\beta_0^*=-\frac{1}{2}\{\min_{i:y_i=1}\sum_{j\in S}\lambda _j^*y_j k(x_i,x_j)+\max_{i:y_i=-1}\sum_{j \in S}\lambda_j^* y_j k(x_i,x_j) \}\]</span></p>
+<p><strong>4:</strong> Cada nueva observación la clasificamos de acuerdo a <span class="math display">\[sgn\{ \sum_{i\in S}\lambda_i^* y_i k(x_i,x) + \beta_0^* \}\]</span></p>
+<p>Notemos que el procedimiento anterior depende de <span class="math inline">\(\phi\)</span> a través de <span class="math inline">\(k(\cdot,\cdot)\)</span>, excepto por <span class="math inline">\(\beta^*\)</span> pero si solo queremos hacer predicciones entonces no es necesario saber exactamente quién es <span class="math inline">\(\phi\)</span> siempre que la función <span class="math inline">\(k\)</span> esté dada.</p>
+<p>El siguiente teorema nos dice que cualquier kernel definido positivo <span class="math inline">\(k\)</span> siempre puede obtenerse como el producto interno en algún espacio de características de dimensión infinita.</p>
+<p>Recordemos que un <em>espacio de Hilbert</em> es un espacio producto interior donde toda sucesión de Cauchy tiene límite respecto a la norma asociada al producto interior. Podemos pensar a un espacio de Hilbert como la generalización del espacio Euclideano.</p>
+<p><strong>Definición:</strong> Una función simétrica <span class="math inline">\(k:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}\)</span> se llama <em>kernel definido positivo</em> en <span class="math inline">\(\mathcal{X}\)</span> si <span class="math inline">\((k(x_i,x_j))_{i,j=1,\dots,n}\)</span> es una matriz semi-definida positiva para cualquier <span class="math inline">\(n\in \mathbb{N}\)</span> y <span class="math inline">\(x_1,\dots,x_n\in \mathcal{X}\)</span></p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(k:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}\)</span> es un kernel definido positivo, entonces existe un espacio de Hilbert <span class="math inline">\(\mathcal{H}\)</span> y una función <span class="math inline">\(\phi :\mathcal{X}\rightarrow \mathcal{H}\)</span> tal que <span class="math inline">\(k(x_1,x_2)=\langle\phi(x_1),\phi(x_2)\rangle\)</span> donde <span class="math inline">\(\langle\cdot,\cdot \rangle_\mathcal{H}\)</span> es el producto interno en <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p>Esto significa que en lugar de trabajar directamente en espacios de dimensión superior, podemos trabajar con kernels definidos positivos, más aún la <em>calidad</em> de las SVM dependerá solamente de la elección de las funciones krnel <span class="math inline">\(k\)</span>.</p>
+<div id="cómo-escoger-un-kernel-k" class="section level2">
+<h2><span class="header-section-number">14.1</span> ¿Cómo escoger un kernel k?</h2>
+<p>Algunos kernels usados en la practica:</p>
 <ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or
-format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any
-purpose, even commercially.</p></li>
+<li><p>Kernel lineal: <span class="math inline">\(k(x,x&#39;)=x^Tx&#39;\)</span></p></li>
+<li><p>Kernel Polinomial: $ k(x,x’)=(c+x<sup>Tx’)</sup>d$. Típicamente usado si suponemos que la similaridad entre dos observaciones está dada por las covariables y interacciones de ellas.</p></li>
+<li><p>Kernel Gaussiano: <span class="math inline">\(k(x,x&#39;)=\exp\{-\frac{1}{2\sigma^2}||x-x&#39;||_2^2\}\)</span>. Es el más popular para trabajar con características no lineales.</p></li>
+<li><p>Kernel de Laplace: <span class="math inline">\(k(x,x&#39;)=\exp\{-\frac{1}{\sigma}||x-x&#39;||_2\}\)</span>. Similar al gaussiano, éste mide la similaridad de observaciones basados en la distancia en <span class="math inline">\(\mathcal{X}\)</span></p></li>
 </ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the
-license terms.</p>
-<p><strong>Under the following terms:</strong></p>
-<ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link
-to the license, and indicate if changes were made. You may do so in
-any reasonable manner, but not in any way that suggests the licensor
-endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or
-technological measures that legally restrict others from doing
-anything the license permits.</p></li>
-</ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the
-material in the public domain or where your use is permitted by an
-applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the
-permissions necessary for your intended use. For example, other rights
-such as publicity, privacy, or moral rights may limit how you use the
-material.</p>
-
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="instalando-r-y-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estimación-de-los-coeficientes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="margen-suave.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

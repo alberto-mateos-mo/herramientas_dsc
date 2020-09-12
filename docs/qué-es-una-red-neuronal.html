@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 9 ¿Qué es una red neuronal? | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 9 ¿Qué es una red neuronal? | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 9 ¿Qué es una red neuronal? | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="instalando-r-y-rstudio.html"/>
+<link rel="prev" href="modelos-lineales-generalizados-construcción-y-evaluación.html"/>
+<link rel="next" href="teorema-de-universalidad.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -266,89 +266,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Herramientas Estadísticas para Ciencia de Datos</h1>
-<p class="author"><em>Sofía Villers Gómez</em></p>
-<p class="author"><em>David Alberto Mateos Montes de Oca</em></p>
-</div>
-<div id="herramientas-estadísticas-para-ciencia-de-datos" class="section level1 unnumbered">
-<h1>Herramientas Estadísticas para Ciencia de Datos</h1>
-<p>Primera edición del libro de texto para el curso <em>Herramientas Estadísticas para Ciencia de Datos</em> del Seminario de Estadística de la Facultad de Ciencias.</p>
-<div id="objetivos" class="section level2">
-<h2><span class="header-section-number">0.1</span> Objetivos</h2>
-<p>Como el título lo indica, a lo largo de este libro se expondrán diferentes modelos estadísticos y sus aplicaciones con un enfoque a Ciencia de Datos.</p>
-<p>El objetivo es proveer al lector de las herramientas necesarias para comprender los fundamentos de estos modelos y sus aplicaciones mediante el uso del lenguaje R.</p>
-</div>
-<div id="estructura" class="section level2">
-<h2><span class="header-section-number">0.2</span> Estructura</h2>
-<p>El libro se descompone en dos grandes secciones, una de ellas enfocada a presentar diferentes paquetes de R considerados de gran utilidad para la práctica de Ciencia de Datos, la otra se enfoca en la teoría y aplicación de diferentes modelos.</p>
-<p>La estructura del libro sigue el orden en que se imparte la materia en la Facultad de Ciencias sin embargo hemos diseñado los capítulos suficientemente independientes como para ser consultados en el orden de preferencia del lector.</p>
-</div>
-<div id="detalles-técnicos" class="section level2">
-<h2><span class="header-section-number">0.3</span> Detalles técnicos</h2>
-<p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
-<p>Esta versión fue escrita con:</p>
-<pre><code>## Finding R package dependencies ... Done!</code></pre>
-<pre><code>##  setting  value                       
-##  version  R version 4.0.0 (2020-04-24)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  Spanish_Mexico.1252         
-##  ctype    Spanish_Mexico.1252         
-##  tz       America/Mexico_City         
-##  date     2020-09-11</code></pre>
-</div>
-<div id="licencia" class="section level2 unnumbered">
-<h2>Licencia</h2>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license.
-Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
-<ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or
-format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any
-purpose, even commercially.</p></li>
-</ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the
-license terms.</p>
-<p><strong>Under the following terms:</strong></p>
-<ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link
-to the license, and indicate if changes were made. You may do so in
-any reasonable manner, but not in any way that suggests the licensor
-endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or
-technological measures that legally restrict others from doing
-anything the license permits.</p></li>
-</ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the
-material in the public domain or where your use is permitted by an
-applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the
-permissions necessary for your intended use. For example, other rights
-such as publicity, privacy, or moral rights may limit how you use the
-material.</p>
-
+<div id="qué-es-una-red-neuronal" class="section level1">
+<h1><span class="header-section-number">Capítulo 9</span> ¿Qué es una red neuronal?</h1>
+<p>Las redes neuronales artificiales están inspiradas en la forma en la que las neuronas de nuestro cerebro trabajan en conjunto para resolver una tarea compleja. Éstas modelan una variable respuesta, ya sea de tipo continua o categórica, como función de las covariables a través de la composición de funciones no lineales.</p>
+<p>De manera general, una red nueronal consiste de una <em>arquitectura</em>, una <em>regla de activación</em> y una <em>regla de salida</em>.</p>
+<p><strong>Arquitectura:</strong> Puede ser descrita vía un gráfo dirigido cuyo nodos son llamados <em>neuronas</em>. Existen una grán cantidad de arquitecturas dependiendo de la naturaleza del grafo i.e. de las relaciones entre los nodos. Una descripción bastante completa de las distintas arquitecturas y sus nombres puede ser consultada <img src="https://www.asimovinstitute.org/neural-network-zoo/" alt="en este sitio." /></p>
+<p><strong>Regla de activación:</strong> Típicamente el valor en cada nodo <span class="math inline">\(v\)</span> puede ser calculado como <span class="math display">\[x_v = f(\sum_{u \rightarrow v}\beta_{uv}x_u)\]</span> donde la suma se obtiene sobre los nodos <em>predecesores</em> de <span class="math inline">\(v\)</span> y <span class="math inline">\(\beta_{uv}\)</span> son los coeficientes (desconocidos) de la red.</p>
+<p>A la función <span class="math inline">\(f(\cdot)\)</span> se le conoce como <em>función de activación</em>. Las más comúnmente usadas son la <em>sigmoide logística</em> <span class="math inline">\(f(x) = \frac{e^y}{1+e^y}\)</span> y la función <em>rectificadora</em> <span class="math inline">\(f(x) = \max\{{y,0}\}\)</span></p>
+<div id="ejemplo" class="section level2">
+<h2><span class="header-section-number">9.1</span> Ejemplo</h2>
+<p>Dada la siguiente arquitectura calcularemos el valor de salida dado por el nodo <span class="math inline">\(x_6\)</span>.</p>
+<p><img src="ejemplo.png" /></p>
+<p><span class="math display">\[\begin{align*}
+x_{6} &amp; =f\left(\beta_{3,6}\cdot x_{3}+\beta_{4,6}\cdot x_{4}+\beta_{5,6}\cdot x_{5}\right)\\
+ &amp; \hookrightarrow x_{3}=f\left(\beta_{1,3}\cdot x_{1}+\beta_{2,3}\cdot x_{2}\right)\\
+ &amp; \hookrightarrow x_{4}=f\left(\beta_{1,4}\cdot x_{1}+\beta_{2,4}\cdot x_{2}\right)\\
+ &amp; \hookrightarrow x_{5}=f\left(\beta_{1,5}\cdot x_{1}+\beta_{2,5}\cdot x_{2}\right)\\
+ &amp; \vdots
+\end{align*}\]</span></p>
+<p>donde <span class="math inline">\(f(\cdot)\)</span> es la función de activación.</p>
+<p>Si suponemos que <span class="math inline">\(f(x) = \mathbb{I}(x)\)</span> entonces el problema a resolver será el de regresión lineal.</p>
+<p><strong>Nodos de <em>sesgo:</em></strong> Dependiendo de la utilidad, podríamos estar interesados, como en el problema de regresión lineal, en un término de intercepto o de nivel base, para ello puede simplemente crearse un nodo extra cuyo valor sea la constante 1.</p>
+<p><strong>Regla de salida:</strong> En el nodo de salida <span class="math inline">\(v\)</span> se calcula: <span class="math display">\[s_v = \sum_{u\rightarrow v}\beta_{uv}x_u\]</span> y en lugar de aplicar la función de activación <span class="math inline">\(f(\cdot)\)</span>, se usa una regla de salida para obtener el valor o vector de ajuste/predicción.</p>
+<p>Por ejemplo, en un problema de clasificación de <span class="math inline">\(N\)</span> clases, la <em>capa de salida</em> consitirá de <span class="math inline">\(N\)</span> nodos, cada uno asociado a cada clase; la predicción/ajuste <span class="math inline">\(\hat{y}\in \mathbb{R}^p\)</span> está dada por <span class="math display">\[\hat{y}=\arg max\{s_{vn}\}\]</span></p>
+<p>Notemos que para este ejemplo, si la arquitectura de la red carece de <em>capas</em> intermedias/ocultas y con función de activación <em>sigmoide logística</em> entonces el modelo corresponde al de regresión logística múltiple.</p>
+<p>Al igual que en los modelos logísticos, podemos hacer que la red neuronal tenga como salida un vector de probabilidades <span class="math inline">\(z=(z_1,\dots,z_N)\)</span> dado por <span class="math display">\[z_n=\frac{e^{s_{v_n}}}{e^{s_{v_1}}+\dots+e^{s_{v_N}}}\]</span></p>
+<p>Al proceso de normalización de los valores <em>exponenciados</em> se le conoce como la operación <em>softmax</em>.</p>
+<p>De manera particular una red neuronal cuya arquitectura está representada por un grafo dirigido no cíclico, (<em>feedforward</em>) con función de activación <em>sigmoide logística</em> y regla de salida <em>softmax</em> es un modelo paramétrico descrito por:</p>
+<p><span class="math display">\[y \sim Multinomial(1, (p_1,\dots,p_N)\]</span>
+<span class="math display">\[(p_1,\dots,p_N)=g^{nnet}(x_v; \{\beta_{uv}:u\rightarrow v\})\]</span></p>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="instalando-r-y-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modelos-lineales-generalizados-construcción-y-evaluación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="teorema-de-universalidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

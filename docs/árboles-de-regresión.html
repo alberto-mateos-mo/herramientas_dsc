@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 18 Árboles de regresión | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 18 Árboles de regresión | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 18 Árboles de regresión | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="instalando-r-y-rstudio.html"/>
+<link rel="prev" href="antecedentes.html"/>
+<link rel="next" href="árboles-de-clasificación.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -266,89 +266,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Herramientas Estadísticas para Ciencia de Datos</h1>
-<p class="author"><em>Sofía Villers Gómez</em></p>
-<p class="author"><em>David Alberto Mateos Montes de Oca</em></p>
+<div id="árboles-de-regresión" class="section level1">
+<h1><span class="header-section-number">Capítulo 18</span> Árboles de regresión</h1>
+<p>Supongamos que tenemos <span class="math inline">\(p\)</span> covariables, una variable de respuesta/objetivo y <span class="math inline">\(N\)</span> observaciones. El argoritmo debe poder decidir las variables a particionar, los puntos de quiebre y la topología del árbol.</p>
+<p>Supongamos que tenemos una partición de en <span class="math inline">\(M\)</span> regiones <span class="math inline">\(R_1,R_2,\dots,R_M\)</span> y modelamos la respuesta como la constante <span class="math inline">\(c_m\)</span> en cada región:</p>
+<p><span class="math display">\[f(x)=\sum_{m=1}^M c_mI(x\in R_m)\]</span></p>
+<p>Si tomamos como criterio minimizar la suma de cuadrados <span class="math inline">\(\sum(y_i-f(x_i))^2\)</span>, es sencillo obtener que la mejor <span class="math inline">\(\hat{c}_m\)</span> es el promedio de <span class="math inline">\(y_i\)</span> en la región <span class="math inline">\(R_m\)</span>:</p>
+<p><span class="math display">\[\hat{c}_m=prom(y_i|x_i\in R_m)\]</span></p>
+<p>Ahora para encontrar la mejor partición binaria en términos de la suma de cuadrados seguimos lo siguiente pasos:</p>
+<p>Consideremos la variable de partición <span class="math inline">\(j\)</span> y el punto de quiebre <span class="math inline">\(s\)</span> definimos el par de semiplanos</p>
+<p><span class="math display">\[R_1(j,s)=\{X|X_j\leq s\}\]</span></p>
+<p><span class="math display">\[R_2(j,s)=\{X|X_j &gt;s\}\]</span></p>
+<p>Entonces buscamos la variabe <span class="math inline">\(j\)</span> y el punto de quiebre <span class="math inline">\(s\)</span> que resuelve</p>
+<p><span class="math display">\[\min_{j,s}[\min_{c_1}\sum_{x_i\in R_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in R_2(j,s)}(y_i-c_2)^2]\]</span></p>
+<p>Para cualquier elección de <span class="math inline">\(j\)</span> y <span class="math inline">\(s\)</span> la minimización dentro de los corchetes se resuelve como</p>
+<p><span class="math display">\[\hat{c}_1=prom(y_i|x_i \in R_1(j,s))\]</span> y <span class="math display">\[\hat{c}_2=prom(y_i|x_i \in R_2(j,s))\]</span></p>
+<p>Para cada variable de partición, encontrar el punto de quiebre <span class="math inline">\(s\)</span> se puede hacer muy rápidamente pasando por todos los puntos.</p>
+<p>Una vez encontrada la mejor partición, volvemos a hacer particiones siguiendo el mismo método.</p>
+<p><strong>¿Qué tanto debemos dejar que un árbol crezca?</strong></p>
+<p>El crecimiento de un árbol hace referencia a la cantidad de particiones que contiene. En este sentido un árbol muy grande podría sobre ajustar los datos mientras que uno muy pequeño podría no capturar la estructura de ellos.</p>
+<p>El tamaño del árbol es un parámetro que incide directamente en la complejidad del modelo y el tamaño óptimo debe ser elegido de forma adaptativa según los datos.</p>
+<p>La solución usada es dejar crecer el árbol (<span class="math inline">\(T_0\)</span>) hasta tener un tamaño de nodo específico y entonces <em>podar</em> el árbol usando una estrategia costo-complejidad como mostramos en seguida.</p>
+<p>Definimos un sub-árbol <span class="math inline">\(T \subset T_0\)</span> como cualquier árbol que pueda ser obtenido de podar el árbol <span class="math inline">\(T_0\)</span>, es decir, colapsar el número de sus nodos internos.</p>
+<p>Indexemos los nodos terminales con <span class="math inline">\(m\)</span>, siendo el nodo <span class="math inline">\(m\)</span> representante de la región <span class="math inline">\(R_m\)</span>. Sea <span class="math inline">\(|T|\)</span> el número de nodos terminales en el árbol <span class="math inline">\(T\)</span> y sean</p>
+<p><span class="math display">\[N_m=\#\{x_i\in R_m\}\]</span></p>
+<p><span class="math display">\[\hat{c}_m=\frac{1}{N_m}\sum_{x_i\in R_m}y_i\]</span></p>
+<p><span class="math display">\[Q_m(T)=\frac{1}{N_m}\sum_{x_i\in R_m}(y_i-\hat{c}_m)^2\]</span></p>
+<p>definimos entonces el criterio costo-complejidad como:</p>
+<p><span class="math display">\[C_\alpha(T)=\sum_{m=1}^{|T|}N_mQ_m(T)+\alpha |T|\]</span></p>
+<p>La idea es encontrar, para cada <span class="math inline">\(\alpha\)</span>, el sub-árbol <span class="math inline">\(T_\alpha \subseteq T_0\)</span> que minimice <span class="math inline">\(C_\alpha(T)\)</span>.</p>
+<p>El parámetro <span class="math inline">\(\alpha \geq 0\)</span> controla el tradeoff entre el tamaño del árbol y la bondad de ajuste a los datos. Valores grandes de <span class="math inline">\(\alpha\)</span> resultará en árboles pequeños y viceversa.</p>
 </div>
-<div id="herramientas-estadísticas-para-ciencia-de-datos" class="section level1 unnumbered">
-<h1>Herramientas Estadísticas para Ciencia de Datos</h1>
-<p>Primera edición del libro de texto para el curso <em>Herramientas Estadísticas para Ciencia de Datos</em> del Seminario de Estadística de la Facultad de Ciencias.</p>
-<div id="objetivos" class="section level2">
-<h2><span class="header-section-number">0.1</span> Objetivos</h2>
-<p>Como el título lo indica, a lo largo de este libro se expondrán diferentes modelos estadísticos y sus aplicaciones con un enfoque a Ciencia de Datos.</p>
-<p>El objetivo es proveer al lector de las herramientas necesarias para comprender los fundamentos de estos modelos y sus aplicaciones mediante el uso del lenguaje R.</p>
-</div>
-<div id="estructura" class="section level2">
-<h2><span class="header-section-number">0.2</span> Estructura</h2>
-<p>El libro se descompone en dos grandes secciones, una de ellas enfocada a presentar diferentes paquetes de R considerados de gran utilidad para la práctica de Ciencia de Datos, la otra se enfoca en la teoría y aplicación de diferentes modelos.</p>
-<p>La estructura del libro sigue el orden en que se imparte la materia en la Facultad de Ciencias sin embargo hemos diseñado los capítulos suficientemente independientes como para ser consultados en el orden de preferencia del lector.</p>
-</div>
-<div id="detalles-técnicos" class="section level2">
-<h2><span class="header-section-number">0.3</span> Detalles técnicos</h2>
-<p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
-<p>Esta versión fue escrita con:</p>
-<pre><code>## Finding R package dependencies ... Done!</code></pre>
-<pre><code>##  setting  value                       
-##  version  R version 4.0.0 (2020-04-24)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  Spanish_Mexico.1252         
-##  ctype    Spanish_Mexico.1252         
-##  tz       America/Mexico_City         
-##  date     2020-09-11</code></pre>
-</div>
-<div id="licencia" class="section level2 unnumbered">
-<h2>Licencia</h2>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license.
-Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
-<ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or
-format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any
-purpose, even commercially.</p></li>
-</ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the
-license terms.</p>
-<p><strong>Under the following terms:</strong></p>
-<ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link
-to the license, and indicate if changes were made. You may do so in
-any reasonable manner, but not in any way that suggests the licensor
-endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or
-technological measures that legally restrict others from doing
-anything the license permits.</p></li>
-</ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the
-material in the public domain or where your use is permitted by an
-applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the
-permissions necessary for your intended use. For example, other rights
-such as publicity, privacy, or moral rights may limit how you use the
-material.</p>
-
-</div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="instalando-r-y-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="antecedentes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="árboles-de-clasificación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -112,6 +112,6 @@ Para incorporar las _pérdidas_ en el modelo podemos modificar el índice Gini c
 
 Aunque en el caso de $k>2$ clases es muy útil, no lo es para el caso $k=2$, ¿por qué?
 
-# Ejemplo
+# Árboles en R
 
 ...WIP...

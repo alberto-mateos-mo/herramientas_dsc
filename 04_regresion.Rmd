@@ -528,7 +528,7 @@ Por tanto, el objetivo de la regresión logística no es, como en regresión lin
 
 Recordemos que las covariables cualitativas deben transformarse en las covariables cualitativas dicotómicas ficticias necesarias (variables dummy). De manera que al hacer esta transformación cada categoría de la variable entrará en el modelo de forma individual.
 
-### Modelo de regresión logísitica simple
+## Modelo de regresión logísitica simple
 
 Para este modelo supondremos que nuestra respuesta, $Y$, es explicada únicamente por una covariable, $X$. Asumimos que la variable independiente $Y$ está codificada como un 0 o un 1. 
 
@@ -558,7 +558,7 @@ El valor mínimo posible es 0 y el máximo teóricamente posible es infinito.
 
 Un OR inferior a la unidad se interpreta como que el desenlace es menos frecuente en la categoría o grupo que se ha elegido como de interés con respecto al otro grupo o categoría de referencia. Un OR = 3 se interpreta como una ventaja 3 veces superior de una de las categorías $X = 1$ relativamente a la otra categoría $X=0$.
 
-### Modelo de regresión logísitica multiple
+## Modelo de regresión logísitica multiple
 
 Análogo a lo que observamos en los modelos de regresión lineal, el modelo de regresión logística se puede facilmente generalizar de un  modelo simple a un múltiple.
 
@@ -569,7 +569,7 @@ De nuevo los valores posibles de estas ecuaciones varían entre 0 y 1.
 
 El propósito del análisis es predecir la probabilidad de que un evento $Y$ ocurra para el $i-eismo$ individuo. Para dicha $i-ésima$ persona, $Y$ será 0 (la respuesta no ocurre) o 1 (la respuesta ocurre), y el valor predicho, $\mathbb{P}(Y)$, tendrá un valor 0 (no hay probabilidad de que el resultado ocurra) o 1 (el resultado seguro que ocurre).
 
-### Ejemplo en R
+### Regresión lineal en R
 
 ...WIP..
 
@@ -600,7 +600,7 @@ $$P[Y=2|X]=\frac{e^{g_2(X)}}{1+e^{g_1(X)}+e^{g_2(X)}}$$
 $$g_1(X)=\beta_{10}+\beta_{11}X_1+\beta_{12}X_{2}+...\beta_{1k}X_{k}$$
 $$g_2(X)=\beta_{20}+\beta_{21}X_1+\beta_{22}X_{2}+...\beta_{2k}X_{k}$$
 
-### Ejemplo en R
+### Regresión Multinomial en R
 
 ...WIP..
 
@@ -651,7 +651,7 @@ Por ejemplo, podemos suponer que cada individuo tienen igual probabilidad de pad
 
 Una forma de medir la sobredispersión en los datos es ajustando una distribución _quasipoisson_, la cual ajustará el  modelo con distribución Poisson pero no asumirá varianza igual a la media y calculará el parámetro de dispersión. 
 
-### Ejemplo en R
+### GLM Poisson R
 
 ...WIP...
 
@@ -677,7 +677,7 @@ La regresión binomial negativa se puede utilizar para datos sobredispersos de r
 
 Si la distribución condicional de la variable observada es más dispersa, los intervalos de confianza para la regresión binomial negativa es probable que sean más estrechos que los correspondientes a un modelo de regresión de Poisson.
 
-### Ejemplo en R
+### GLM Binomial Negativa en R
 
 ...WIP...
 
@@ -689,7 +689,7 @@ En este caso la función liga utilizada es el recíproco, de modo que el modelo 
 
 $$\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}$$
 
-### Ejemplo en R
+### GLM Exponencial en R
 
 ...WIP...
 
@@ -703,7 +703,7 @@ Análogo al caso exponencial, la función liga utilizada es el recíproco, de mo
 
 $$\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}$$
 
-### Ejemplo en R
+### GLM Gamma en R
 
 ...WIP...
 
@@ -776,6 +776,6 @@ Estos gráficos ayudan la evaluación del modelo utilizado.
 En caso necesario, sería preciso volver a plantear el modelo, tal vez utilizando una estructura de errores más adecuada, otra función liga o
 incluso eliminando ciertos datos que pueden estar desviando el análisis.
 
-## Ejemplo en R
+## Evaluación de GLMs en R
 
 ...WIP...
