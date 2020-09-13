@@ -447,7 +447,6 @@ La tabla anterior para las transfomaciones analíticas de la respuesta, también
 
 ## Aplicación en R
 
-... Work in progres ...
 
 # Modelos lineales generalizados
 
@@ -569,9 +568,244 @@ De nuevo los valores posibles de estas ecuaciones varían entre 0 y 1.
 
 El propósito del análisis es predecir la probabilidad de que un evento $Y$ ocurra para el $i-eismo$ individuo. Para dicha $i-ésima$ persona, $Y$ será 0 (la respuesta no ocurre) o 1 (la respuesta ocurre), y el valor predicho, $\mathbb{P}(Y)$, tendrá un valor 0 (no hay probabilidad de que el resultado ocurra) o 1 (el resultado seguro que ocurre).
 
-### Regresión lineal en R
+### Regresión logística simple en R
 
-...WIP..
+En el siguiente ejercicio se busca analizar si los productos salen o no defectuosos de acuerdo de la temperatura de la máquina que los produce.
+
+Los datos son los siguientes:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(dplyr)
+```
+
+
+```{r}
+temperatura <-c(66,70,69,68,67,72,73,70,57,63,70,78,67,53,67,75,70,81,76,79,75,76,58)
+defecto <-c( 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+```
+
+Con ambos vectores construimos un dataframe:
+
+```{r}
+datos <- data.frame(temperatura = temperatura, defecto = defecto)
+rm(temperatura, defecto)
+```
+
+Resumen visual de los datos:
+
+```{r}
+colores <- NULL
+colores[datos$defecto == 0] <- "green"
+colores[datos$defecto == 1] <- "red"
+plot(datos$temperatura, datos$defecto, 
+     pch = 21, bg = colores, xlab = "Temperatura", 
+     ylab = "Prob.defecto")
+legend("bottomleft", c("No defecto", "Si defecto"), 
+       pch = 21, col = c("green", "red"))
+```
+
+Creamos el modelo de regresión logística (modelo de regresión lineal generalizado y parametrizamos por familia binomial).
+
+```{r}
+reg <- glm(defecto ~ temperatura, data = datos, family = binomial)
+```
+
+Tabla resumen:
+
+```{r}
+summary(reg) %>% 
+  knitr::kable()
+```
+
+Creamos una nueva variable al dataframe de nuestros datos con las probabilidades de pertenencia a la clase 1 predichas por el modelo.
+
+```{r}
+datos$predict<-reg$fitted.values
+```
+
+Dibujamos la recta de probabilidad para cada una de las temperaturas:
+
+```{r}
+datos_probab <- data.frame(temperatura = seq(50, 85, 0.1))
+
+datos.predict <- predict(reg, datos_probab, type = "response")  
+
+
+plot(datos$temperatura, datos$defecto, pch = 21, bg = colores,  xlab = "Temperatura", ylab = "Prob.defecto")
+legend("bottomleft", c("No defecto", "Si defecto"), 
+       pch = 21, col = c("green", "red"))
+lines(datos_probab$temperatura, datos.predict, 
+      col = "blue", lwd = 2)
+```
+
+Bondad de Ajuste:
+
+```{r}
+dev <- reg$deviance
+nullDev <- reg$null.deviance
+modelChi <- nullDev - dev
+modelChi
+
+chidf <- reg$df.null - reg$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+chisq.prob es el p-value de la estadística "modelChi", para valores pequeños se dice que el modelo es estadisticamente significativo.
+
+### Ejercicio.
+
+Se tiene la siguiente tabla donde se eligen varios niveles de ronquidos y se ponen en relación con una enfermedad cardíaca. Se toman como puntuaciones relativas de ronquidos los valores $\{0, 2, 4, 5\}$.
+
+|     Ronquido    | Presencia de enfermedad cardiaca | Ausencia de enfermedad cardiaca |
+|:---------------:|:--------------------------------:|:-------------------------------:|
+|      Nunca      |                24                |               1355              |
+|    Ocasional    |                35                |               603               |
+| Casi cada noche |                21                |               192               |
+|    Cada noche   |                30                |               224               |
+
+Fijamos los niveles de manera ordinal:
+
+```{r}
+roncas <-  c(0, 2, 4, 5)
+
+frecuencia <-  cbind (SI=c(24 , 35, 21, 30) , NO=c (1355 ,603 , 192 , 224))
+
+logit.irls <- glm( frecuencia~roncas , family = binomial ( link = logit ))
+
+summary ( logit.irls )$ coefficients
+```
+
+El modelo queda de la siguiente forma:
+
+$$ln(\frac{p}{1-p})=-3.87+.40X$$
+
+Como $\beta = 0.40 > 0$ entonces la probabilidad de ataque cardíaco aumenta cuando los niveles de ronquidos se incrementan.
+
+Con un  nivel de ronquido $X=0$ obtenemos:
+
+$$ln(\frac{p}{1-p})=-3.87$$ y
+
+```{r}
+p <- exp(-3.87)/(1+exp(-3.87))
+
+print(p)
+```
+
+La probabilidad de tener la enfermedad es 2.04%. 
+
+Mientras que si $X=5$ obtenemos:
+
+$$ln(\frac{p}{1-p})=-3.87+.40*5=-1.87$$ y
+
+```{r}
+p <- exp(-1.87)/(1+exp(-1.87))
+
+print(p)
+```
+
+La probabilidad de tener la enfermedad  aumenta a 13.35%.
+
+- Calcular la probabilidad de presentar la enfermedad cardíaca cuando el nivel de ronquido es _Ocasional_.
+
+- ¿Cuántas veces más probable es la ocurrencia de la enfermedad cardíaca cuando el nivel de ronquidos es _cada noche_ en comparación con _ocasional_?
+
+### Regresión logística múltiple en R
+
+Los datos corresponden a información sobre la respuesta a anuncios en redes sociales, se tienen datos de género, edad, salario de los individuos
+asi como la información de si se realizó o no la compra del producto anunciado.
+
+```{r}
+datos <- read.csv("example_data/social_network_ads.csv", header = TRUE)
+```
+
+__Descriptivos básicos de los datos:__
+
+```{r}
+str(datos)
+
+summary(datos)
+```
+
+__Resumen de cuantos elementos hay en cada caso para la variable de compra del producto:__
+
+```{r}
+table(datos$Purchased)
+```
+
+__Creación del modelo de regresión logística(modelo de regresión lineal generalizado y parametrizamos por binomial) aplicando a datos[,-1] estamos dejando fuera la variable "User.ID":__
+
+```{r}
+modelo <- glm(Purchased ~ ., data = datos[,-1], family = binomial)
+summary(modelo)
+```
+
+__Bondad de ajuste:__
+
+```{r}
+dev <- modelo$deviance
+nullDev <- modelo$null.deviance
+modelChi <- nullDev - dev
+modelChi
+```
+
+```{r}
+chidf <- m1$df.null - m1$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+
+El modelo queda de la siguiente forma:
+
+$$ln(\frac{p}{1-p})=-12.78+.33*Genero+.237*Edad+0.000036*Salario$$
+
+La prueba Ji-Cuadrada para la significancia del modelo da un p-value de cero, por lo tanto el modelo propuesto con las variables de género, edad y salario resulta ser significativo.
+
+__Agregamos a los datos la columna de probabilidad de compra calculada con nuestro modelo:__
+
+```{r}
+datos <- cbind(datos,m1$fitted.values)
+```
+
+```{r}
+plot(m1$fitted.values,col=datos$Gender,
+     main="Probabilidad de compra por género",
+     ylab="probabilidad de compra")
+```
+
+```{r}
+plot(m1$fitted.values,datos$Age,col=datos$Gender,
+     main="Probabilidad de compra vs edad coloreado por edad",
+     xlab="probabilidad de compra",ylab="edad")
+```
+
+```{r}
+plot(m1$fitted.values,datos$EstimatedSalary,
+     main="Probabilidad de compra vs salario",
+     xlab="probabilidad de compra",ylab="salario")
+```
+
+Observamos que de las 3 variables consideradas, la que parece tener más efecto en la probabilidad de compra es la edad.
+
+Veamos ahora algunas probabilidades. Según nuestro modelo ¿cuál es la probabilidad de compra de una mujer 55 años con salario de 80,000?
+
+```{r}
+1/(1+exp(-(-12.78+.33*0+.237*55+0.000036*80000)))
+```
+
+¿Y el de una mujer de 35 años con el mismo salario?
+
+```{r}
+1/(1+exp(-(-12.78+.33*0+.237*35+0.000036*80000)))
+```
+
+Mientrás que la probabilidad de compra de una mujer de 55 años con salario de 80,000 es $96\%$ una mujer con el mismo salario pero 20 años mas joven tendrá una probabilidad de sólo $17\%$ de comprar el producto anunciado.
+
+
+- Calcular la probailidad de que un hombre de 45 años con salario de 50,000 compre el producto anunciado.
+
+- ¿Cuántas veces más probable es que un hombre de 45 años con salario de 100,000 compre el producto que un hombre de la misma edad pero con salario de 50,000?
 
 ## Regresión Multinomial
 
@@ -602,7 +836,98 @@ $$g_2(X)=\beta_{20}+\beta_{21}X_1+\beta_{22}X_{2}+...\beta_{2k}X_{k}$$
 
 ### Regresión Multinomial en R
 
-...WIP..
+Datos "rh_satisfaction" corresponde a información del área de recursos humanos de una empresa que mide el nivel de satisfacción de sus empleados (en escala de 1 a 5).
+
+También se tiene algunas características de los empleados (edad, area, salario, etc). El primer análisis a realizar que queremos analizar es la satisfacción de los empleados a través del salario y la edad. Para ello aplicaremos primero una regresión para cada variable por separado y posteriormente un modelo con ambas.
+
+La función para realizar la regresión multinomial es __multinom__, la cual es similar a la de los comandos para regresión logística. 
+Esta función está en la librería __nnet__.
+
+__Cargamos la libreria y los datos:__
+
+```{r,warning=FALSE}
+library(nnet)
+
+datos <- read.csv("example_data/hr_satisfaction.csv", header=TRUE)
+```
+
+Ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de salario.
+
+```{r}
+multi1 <- multinom(satisfied~salary)
+
+print(multi1)
+```
+
+Tenemos entonces 4 ecuaciones y el análisis está tomando la categoría 1 como la base para construir los modelos _logit_ como vimos en la teoría.
+
+Uno de los usos de este modelo puede ser el calcular probabilidades especifícas para ciertos niveles de satisfacción que sean de interés. Por ejemplo la probabilidad de que un empleado con salario de 50,000 (la media es 50,416.06) esté muy satisfecho en la empresa es $21\%$ y se calcula de la siguiente forma:
+
+```{r}
+s <- 50000
+
+denom <- 1+exp(-0.108+.0000031*s)+exp(-0.219+.0000027*s) + exp(-0.152+.0000066*s)+exp(-0.410+.0000103*s)
+
+exp(-0.410+.0000103*s)/denom
+```
+
+Mientras que la probabilidad de que este empleado esté completamente insatisfecho será:
+
+```{r}
+1/denom
+```
+
+Ahora ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de edad.
+
+```{r}
+multi2 <- multinom(satisfied~age)
+
+multi2
+```
+
+La probabilidad de que un empleado de edad 40 años esté muy satisfecho en la empresa es 20\% y se calcula de la siguiente forma:
+
+```{r}
+e <- 40
+
+denom <- 1+exp(-0.068+.0028*e)+exp(-0.438+.0088*e) + exp(0.636-.0120*e)+exp(1.178-.0281*e)
+
+exp(1.178-.0281*e)/denom
+```
+
+Finalmente ajustamos el modelo de regresión con las variables explicativas de salario y edad. 
+
+```{r}
+multi3 <- multinom(satisfied~salary+age)
+
+multi3
+```
+
+Con este modelo entonces podemos calcular la probabilidad de que un empleado de edad 25 años esté muy satisfecho en la empresa es $27\%$ y se 
+calcula de la siguiente forma:
+
+```{r}
+e <- 25
+s <- 50000
+
+denom <- 1+exp(-0.232+.0000031*s+0.003*e)+exp(-0.587+.0000028*s+0.009*e) + exp(0.295+.0000063*s-0.011*e)+exp(0.640+.0000098*s-0.027*e)
+
+exp(0.640+.0000098*s-0.027*e)/denom
+```
+
+Mientras que la probabilidad de estar completamente insatisfecho será:
+
+```{r}
+1/denom
+```
+
+- Calcular la probabilidad de un empleado de 50 años con salario de 65,000 asigne un nivel de satisfacción de 3.
+
+- Ajustar un modelo con las variables de salario y educación.
+
+- Calcular la probabilidad de que un empleado con estudios de postgrado con salario de 65,000 este completamente satisfecho con la empresa.
+
+- Si quisiera analizar la satisfacción por departamento ¿qué procedimiento propondría usar?
 
 ## Modelos para conteos
 
@@ -653,7 +978,88 @@ Una forma de medir la sobredispersión en los datos es ajustando una distribuci�
 
 ### GLM Poisson R
 
-...WIP...
+Entre los cangrejos cacerola se sabe que cada hembra tiene un macho en su nido, pero puede tener más machos concubinos. Considerando que deseamos relacionar la variable respuesta, el número de concubinos, con las variables explicativas son: color, estado de la espina central, peso y anchura del caparazón, procederemos a ajustar un modelo lineal a los datos. 
+
+En un primer análisis sólo consideramos la anchura del caparazón como variable explicativa.
+
+```{r}
+tabla <- read.csv ( "http://www.hofroe.net/stat557/data/crab.txt" , header =TRUE, sep = "\t" )
+
+plot.tabla <-  aggregate (rep (1,nrow (tabla)), list (Sa= tabla$Satellite , W=tabla$Width), sum)
+
+plot(tabla$Width,tabla$Satellite, xlab="Ancho de caparazón", ylab="Número de Concubinos", bty="L", axes = FALSE, type ="n")
+axis (2, at =1:15)
+axis (1, at=seq (20 , 34, 2))
+text (y= plot.tabla$Sa , x= plot.tabla$W, labels = plot.tabla$x)
+```
+
+Ahora agruparemos los datos según cortes específicos en la variable de ancho de caparazón (_Width_) para poder ver visualmente el ajuste del modelo de regresión.
+
+__Discretizamos el ancho del caparazón__
+
+```{r}
+tabla$W.fac = cut( tabla$Width , breaks =c(0, seq (23.25 , 29.25), Inf ))
+```
+
+__Calculamos el numero medio de concubinos para cada categoria según el ancho del caparazón:__
+
+```{r}
+plot.y <- aggregate ( tabla$Satellite , by= list (W= tabla$W.fac), mean )$x
+```
+
+__Determinamos la media del ancho del caparazon por categoría:__
+
+```{r}
+plot.x <- aggregate ( tabla$Width , by = list (W= tabla$W.fac ), mean )$x
+```
+
+__Representamos las medias de anchura y la media del numero de concubinos:__
+
+```{r}
+plot (x = plot.x , y = plot.y , ylab = " Numero de Concubinos ", xlab = " Anchura (cm) ", bty = "L", axes = FALSE, type = "p", pch = 16)
+axis(2, at =0:5)
+axis(1, at=seq (20 , 34, 2))
+```
+
+En este caso podemos observar una relación lineal entre la media del número de concubinos y la media del ancho del caparazón por categoría. 
+
+Ahora ajustamos el modelo lineal entre el número de concubinos y el ancho del caparazón definiendo una función de distribución Poisson. 
+
+```{r}
+m1 <- glm(Satellite~Width , family = poisson , data = tabla )
+
+summary( m1 )
+```
+
+Recordando que para medir el ajuste del modelo utilizamos la devianza, en donde la devianza nula es la desviación para el modelo que no depende de ninguna variable. Miéntras que la devianza residual es la diferencia entre la desviación del modelo que no depende de ninguna variable menos la del modelo que incluye a la variable "Width". La diferencia entre ambas se distribuirá como una distribución Ji-cuadrada con 1 grado de libertad.
+
+__Bondad de Ajuste:__
+
+```{r}
+dev <- m1$deviance
+nullDev <- m1$null.deviance
+modelChi <- nullDev - dev
+modelChi
+
+chisq.prob <- 1 - pchisq(modelChi, 1)
+chisq.prob
+```
+
+Se puede rechazar claramente la hipótesis nula. Por lo que concluimos que hay un aportación significativa de la variable de ancho del caparazón al modelo del número de concubinos.
+
+El modelo queda de la siguiente forma:
+
+$$ln(\mu)=-3.30+0.16*Width$$
+
+Y los valores estimados por el modelo se pueden encontrar en `m1$fitted.values`. Y se puede predecir la media del números de concubinos para un valor de ancho de caparazón dado, por ejemplo, para una anchura igual a 26.3:
+
+```{r}
+predict.glm ( m1 , type = "response", newdata = data.frame( Width = 26.3 ))
+```
+
+Entonces siguiendo este modelo, decimos que los cangrejos hembra con ancho de caparazón del 26.3cm tienen en promedio 2.7 parejas.
+
+Podriamos ajustar ahora el modelo con las variables de peso, color y estado de la espina. Se deja al lector el ejercicio de utilizando el algoritmo stepAIC encontrar el mejor modelo para el número de concubinos.
 
 ## GLM binomial negativa
 
@@ -679,7 +1085,41 @@ Si la distribución condicional de la variable observada es más dispersa, los i
 
 ### GLM Binomial Negativa en R
 
-...WIP...
+Usando los mismos datos de los cangrejos ahora ajustaremos un modelo con distribución binomial negativa:
+
+```{r, message=FALSE, warning=FALSE}
+require( MASS )
+
+m2 <-  glm.nb(Satellite~Width , data = tabla )
+
+summary( m2 )
+```
+
+En este caso el modelo queda de la siguiente forma:
+
+$$ln(\mu)=-4.05+0.19*Width$$
+
+Observamos que tanto la devianza como el coeficiente de Akaike son menores en comparación con el modelo que usa una distribución Poisson.
+
+Adicionalmente habiamos visto que los datos indicaban que la varianza era poco mas de tres veces la media. Por estas razones para este ejemplo se puede decir que un modelo con distribución binomial negativa es mas adecuado.
+
+### Ejercicio
+
+La base de datos "productos.csv" contiene información sobre el número de productos financieros que posee cada cliente, adicional a esa información se tiene la edad, género, número de ofertas, antigüedad y el número de créditos que tiene. Deseamos obtener información respecto a la relación entre el número de productos y el resto de las variables que nos permitan incrementar la venta de productos.
+
+- Ajustar un modelo al número de productos financieros en función de la edad del cliente. 
+
+- Asumiendo una distribución Poisson
+
+- Calcular con la distribución quasiPoisson el valor del parámetro de dispersión para estos datos. 
+
+- ¿Qué puede concluir de este modelo?
+
+- ¿Valdrá la pena cambiar a una distribución binomial negativa?
+
+- Encontrar el mejor modelo que explique el número de productos financieros a partir de todas las variables disponibles.
+
+- ¿Qué recomendación puede dar al área de mercadotecnia que esta buscando incrementar el número de productos por cliente?
 
 ## Exponencial
 
@@ -691,7 +1131,80 @@ $$\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}$$
 
 ### GLM Exponencial en R
 
-...WIP...
+Los datos de este ejemplo corresponden a la información de un banco qué busca entender la transición de sus clientes hacia un estado de alto riesgo de crédito. Con la finalidad de entender mejor el momento en que el cliente pasa a un estado de alto riesgo crediticio por falta de pago, el banco hizo un seguimiento a una muestra representativa de sus clientes.
+
+Deseamos identificar cuáles de las características de los clientes influyen en la transición de un estado de bajo riesgo a alto riesgo.  
+
+```{r}
+datos <- read.csv("example_data/default.csv", header=TRUE)
+```
+
+__Breve análisis exploratorio:__
+
+```{r}
+str(datos)
+summary(datos)
+```
+
+__Selección de observaciones en donde si hubo falta de pago:__
+
+```{r}
+datos <- datos[default==1,]
+```
+
+__Construcción de la variable del tiempo transcurrido al default:__
+
+```{r}
+datos$meses_default <- Ddatos$duration-datos$installment_commitment
+
+hist(datos$meses_default)
+```
+
+Lo primero será ajustar un modelo que explique el tiempo en que occure la falta de pago en función de la variable tenencia de teléfono propio.
+
+N.B. La distribución exponencial es un caso particular de la distribución gamma y por esa razón en la función glm sólo aparece la familia _Gamma_
+
+```{r}
+m1 <- glm(meses_default ~ own_telephone, data = datos, family = Gamma)
+
+summary(m1)
+```
+
+__Bondad de ajuste:__
+
+```{r}
+dev <- m1$deviance
+nullDev <- m1$null.deviance
+modelChi <- nullDev - dev
+modelChi
+```
+
+```{r}
+chidf <- m1$df.null - m1$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+La prueba de bondad de ajuste da una probabilidad de $7\%$ que es menor al $10\%$ y puede considerarse suficiente para decir que el modelo con esta variable si aporta información estadísticamente significativa.
+
+El modelo queda de la siguiente forma:
+
+$$\frac{1}{E(Y)}=0.050-0.009*TeléfonoPropio$$
+
+Con este modelo podriamos calcular, en promedio, en cuantos meses de iniciado el crédito se presentará el no pago en función de si el teléfono es propio o no.  
+
+```{r}
+table(m1$fitted.values) %>% 
+  knitr::kable()
+```
+
+Recordando que el objetivo del ejercicio es entender mejor la relación entre las caracteristicas de los clientes y su riesgo crediticio nos podemos plantear las siguientes preguntas:
+
+- ¿A qué se debe que sólo tenemos 2 estimaciones de tiempo?
+
+- ¿Con estos datos un modelo en donde la variable explicativa es la edad, es mejor? 
+
+- ¿Cómo podemos mejorar el modelo y/o las estimaciones de los tiempo de falta de pago?
 
 ## Gamma
 
@@ -705,7 +1218,99 @@ $$\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}$$
 
 ### GLM Gamma en R
 
-...WIP...
+La base de datos que utilizaremos para este ejemplo, corresponde a las reclamaciones recibidas por cierta aseguradora para su producto de seguro de automóviles. Los siniestros corresponden al primer trimestre de 2015 y se registraron además del monto total reclamado, características del asegurado asi como del siniestro.
+
+La aseguradora busca modelar el monto total reclamado en función de las otras variables medidas para con ello mejorar su cálculo de primas e identificación de grupos que deberian tener sobreprima.
+
+Cargamos los datos y realizamos un breve análisis exploratorio de los datos. 
+
+```{r,message=FALSE}
+datos <- read.csv("example_data/insurance_claims.csv", header = TRUE)
+
+str(datos)
+summary(datos)
+```
+
+__Eliminar las columnas que contienen información específica:__
+
+```{r}
+datos <- datos[,c(-3,-12)]
+```
+
+__Ajustaremos un primer modelo con la variable de género del asegurado:__
+
+```{r}
+m1 <- glm(total_claim_amount ~ insured_sex, data = datos, family = Gamma)
+summary(m1)
+```
+
+__Bondad de ajuste:__
+
+```{r}
+dev <- m1$deviance
+nullDev <- m1$null.deviance
+modelChi <- nullDev - dev
+modelChi
+```
+
+```{r}
+chidf <- m1$df.null - m1$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+La prueba de bondad de ajuste nos dice que el modelo es malo ya que la explicación de la varianza ganada con el modelo no es estadísticamente significativa.
+
+Intentemos ahora con la variable de edad
+
+```{r}
+m2 <- glm(total_claim_amount ~ age, data = datos, family = Gamma)
+summary(m2)
+```
+
+__Bondad de ajuste:__
+
+```{r}
+dev <- m2$deviance
+nullDev <- m2$null.deviance
+modelChi <- nullDev - dev
+modelChi
+```
+
+```{r}
+chidf <- m2$df.null - m2$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+¿Es un buen modelo?, ¿Es mejor que el modelo de género?
+
+Probar con la variable de tipo de siniestro.
+
+```{r}
+m3 <- glm( total_claim_amount ~ incident_type, data = datos, family = Gamma)
+
+summary(m3)
+```
+
+__Bondad de ajuste:__
+
+```{r}
+dev <- m3$deviance
+nullDev <- m3$null.deviance
+modelChi <- nullDev - dev
+modelChi
+```
+
+```{r}
+chidf <- m3$df.null - m3$df.residual
+chisq.prob <- 1 - pchisq(modelChi, chidf)
+chisq.prob
+```
+
+¿Qué podemos decir de este modelo?, ¿Nos sirve este modelo para clasificar la sobreprima?
+
+¿Podemos encontrar un mejor modelo?
 
 # Modelos Lineales Generalizados (Construcción y Evaluación)
 
@@ -778,4 +1383,44 @@ incluso eliminando ciertos datos que pueden estar desviando el análisis.
 
 ## Evaluación de GLMs en R
 
-...WIP...
+Ejemplo de meses para default crediticio usando una distribución exponencial.
+
+```{r}
+datos <- read.csv("example_data/default.csv", header = TRUE)
+
+datos <- datos[default==1,]
+```
+
+__Construcción de la variable del tiempo transcurrido al default:__
+
+```{r}
+D1$meses_default=D1$duration-D1$installment_commitment
+
+m1 <- glm(meses_default ~ own_telephone, data = D1, family = Gamma)
+```
+
+__Análisis de puntos influyentes.__
+
+
+Distancia de Cook:
+
+```{r}
+plot(m1, 4)
+```
+
+Puntos palanca para betas:
+
+```{r}
+plot(dfbetas(m1)[,1],type="h", ylab="Beta0")
+```
+
+```{r}
+plot(dfbetas(m1)[,2],type="h", ylab="Beta1")
+```
+
+Puntos palanca para los datos ajustados:
+
+```{r}
+plot(dffits(m1),type="h")
+```
+
