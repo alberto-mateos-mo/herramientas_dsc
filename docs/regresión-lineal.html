@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 12 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 12 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 12 Regresión Lineal | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -166,89 +166,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#paquetes"><i class="fa fa-check"></i><b>2.8</b> Paquetes</a></li>
 </ul></li>
-<li class="part"><span><b>II El argot de ciencia de datos</b></span></li>
-<li class="chapter" data-level="3" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>3</b> Notación</a></li>
-<li class="chapter" data-level="4" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>4</b> Glosario DSc/ML - Estadística</a></li>
-<li class="chapter" data-level="5" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>5</b> Entrenamiento de modelos</a></li>
-<li class="part"><span><b>III Modelos Lineales</b></span></li>
-<li class="chapter" data-level="6" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>6</b> Regresión Lineal</a><ul>
-<li class="chapter" data-level="6.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>6.1</b> Un poco de história</a></li>
-<li class="chapter" data-level="6.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>6.2</b> Objetivos del análisis de regresión</a></li>
-<li class="chapter" data-level="6.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>6.3</b> El algorítmo de regresión lineal</a></li>
-<li class="chapter" data-level="6.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>6.4</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="6.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>6.5</b> Solución al problema de regresión lineal simple</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>6.5.1</b> Mínimos cuadrados ordinarios</a></li>
+<li class="part"><span><b>II Presentando datos</b></span></li>
+<li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
+<li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
+<li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
+<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a></li>
+<li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
+<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a></li>
+<li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
+<li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
+<li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
+<li class="chapter" data-level="11" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>11</b> Entrenamiento de modelos</a></li>
+<li class="part"><span><b>IV Modelos Lineales</b></span></li>
+<li class="chapter" data-level="12" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>12</b> Regresión Lineal</a><ul>
+<li class="chapter" data-level="12.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>12.1</b> Un poco de história</a></li>
+<li class="chapter" data-level="12.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>12.2</b> Objetivos del análisis de regresión</a></li>
+<li class="chapter" data-level="12.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>12.3</b> El algorítmo de regresión lineal</a></li>
+<li class="chapter" data-level="12.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>12.4</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="12.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>12.5</b> Solución al problema de regresión lineal simple</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>12.5.1</b> Mínimos cuadrados ordinarios</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>6.6</b> Regresión lineal múltiple</a></li>
-<li class="chapter" data-level="6.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>6.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>6.7.1</b> Ecuaciones normales</a></li>
-<li class="chapter" data-level="6.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>6.7.2</b> Evaluación de supuestos</a></li>
+<li class="chapter" data-level="12.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.6</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="12.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>12.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>12.7.1</b> Ecuaciones normales</a></li>
+<li class="chapter" data-level="12.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>12.7.2</b> Evaluación de supuestos</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>6.8</b> Aplicación en R</a></li>
+<li class="chapter" data-level="12.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>12.8</b> Aplicación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>7</b> Modelos lineales generalizados</a><ul>
-<li class="chapter" data-level="7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>7.1</b> Regresión logística</a></li>
-<li class="chapter" data-level="7.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>7.2</b> Modelo de regresión logísitica simple</a></li>
-<li class="chapter" data-level="7.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>7.3</b> Modelo de regresión logísitica multiple</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-lineal-en-r"><i class="fa fa-check"></i><b>7.3.1</b> Regresión lineal en R</a></li>
+<li class="chapter" data-level="13" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>13</b> Modelos lineales generalizados</a><ul>
+<li class="chapter" data-level="13.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>13.1</b> Regresión logística</a></li>
+<li class="chapter" data-level="13.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>13.2</b> Modelo de regresión logísitica simple</a></li>
+<li class="chapter" data-level="13.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>13.3</b> Modelo de regresión logísitica multiple</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>13.3.1</b> Regresión logística simple en R</a></li>
+<li class="chapter" data-level="13.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>13.3.2</b> Ejercicio.</a></li>
+<li class="chapter" data-level="13.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>13.3.3</b> Regresión logística múltiple en R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>7.4</b> Regresión Multinomial</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>7.4.1</b> Regresión Multinomial en R</a></li>
+<li class="chapter" data-level="13.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>13.4</b> Regresión Multinomial</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>13.4.1</b> Regresión Multinomial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>7.5</b> Modelos para conteos</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>7.5.1</b> Sobredispersión en GLM Poisson</a></li>
-<li class="chapter" data-level="7.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>7.5.2</b> GLM Poisson R</a></li>
+<li class="chapter" data-level="13.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>13.5</b> Modelos para conteos</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>13.5.1</b> Sobredispersión en GLM Poisson</a></li>
+<li class="chapter" data-level="13.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>13.5.2</b> GLM Poisson R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>7.6</b> GLM binomial negativa</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>7.6.1</b> GLM Binomial Negativa en R</a></li>
+<li class="chapter" data-level="13.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>13.6</b> GLM binomial negativa</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>13.6.1</b> GLM Binomial Negativa en R</a></li>
+<li class="chapter" data-level="13.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>13.6.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>7.7</b> Exponencial</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>7.7.1</b> GLM Exponencial en R</a></li>
+<li class="chapter" data-level="13.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>13.7</b> Exponencial</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>13.7.1</b> GLM Exponencial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>7.8</b> Gamma</a><ul>
-<li class="chapter" data-level="7.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>7.8.1</b> GLM Gamma en R</a></li>
+<li class="chapter" data-level="13.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>13.8</b> Gamma</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>13.8.1</b> GLM Gamma en R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>8</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>8.1</b> Exploración de los datos.</a></li>
-<li class="chapter" data-level="8.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>8.2</b> Elección de la estructura de errores y función liga.</a></li>
-<li class="chapter" data-level="8.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>8.3</b> Bondad de ajuste.</a></li>
-<li class="chapter" data-level="8.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>8.4</b> Simplificación del modelo.</a></li>
-<li class="chapter" data-level="8.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>8.5</b> Criterios de evaluación de modelos.</a></li>
-<li class="chapter" data-level="8.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>8.6</b> Análisis de los residuos.</a></li>
-<li class="chapter" data-level="8.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>8.7</b> Evaluación de GLMs en R</a></li>
+<li class="chapter" data-level="14" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>14</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
+<li class="chapter" data-level="14.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>14.1</b> Exploración de los datos.</a></li>
+<li class="chapter" data-level="14.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>14.2</b> Elección de la estructura de errores y función liga.</a></li>
+<li class="chapter" data-level="14.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>14.3</b> Bondad de ajuste.</a></li>
+<li class="chapter" data-level="14.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>14.4</b> Simplificación del modelo.</a></li>
+<li class="chapter" data-level="14.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>14.5</b> Criterios de evaluación de modelos.</a></li>
+<li class="chapter" data-level="14.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>14.6</b> Análisis de los residuos.</a></li>
+<li class="chapter" data-level="14.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>14.7</b> Evaluación de GLMs en R</a></li>
 </ul></li>
-<li class="part"><span><b>IV Redes neuronales</b></span></li>
-<li class="chapter" data-level="9" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>9</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="9.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>9.1</b> Ejemplo</a></li>
+<li class="part"><span><b>V Redes neuronales</b></span></li>
+<li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
+<li class="chapter" data-level="15.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>10</b> Teorema de Universalidad</a></li>
-<li class="chapter" data-level="11" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>11</b> Entrenamiento de una red neuronal</a><ul>
-<li class="chapter" data-level="11.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>11.1</b> Back-propagation</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#ejemplo-back-propagation."><i class="fa fa-check"></i><b>11.1.1</b> Ejemplo (back-propagation).</a></li>
+<li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
+<li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
+<li class="chapter" data-level="17.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>17.1</b> Back-propagation</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#ejemplo-back-propagation."><i class="fa fa-check"></i><b>17.1.1</b> Ejemplo (back-propagation).</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>11.2</b> Saturación</a></li>
-<li class="chapter" data-level="11.3" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>11.3</b> Regularización</a></li>
-<li class="chapter" data-level="11.4" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>11.4</b> Redes Neuronales en R</a></li>
+<li class="chapter" data-level="17.2" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>17.2</b> Saturación</a></li>
+<li class="chapter" data-level="17.3" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>17.3</b> Regularización</a></li>
+<li class="chapter" data-level="17.4" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>17.4</b> Redes Neuronales en R</a></li>
 </ul></li>
-<li class="part"><span><b>V Maquinas de Soporte Vectorial (SVM)</b></span></li>
-<li class="chapter" data-level="12" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>12</b> ¿Qué es una SVM?</a></li>
-<li class="chapter" data-level="13" data-path="estimación-de-los-coeficientes.html"><a href="estimación-de-los-coeficientes.html"><i class="fa fa-check"></i><b>13</b> Estimación de los coeficientes</a></li>
-<li class="chapter" data-level="14" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html"><i class="fa fa-check"></i><b>14</b> RKHS y el método kernel</a><ul>
-<li class="chapter" data-level="14.1" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>14.1</b> ¿Cómo escoger un kernel k?</a></li>
+<li class="part"><span><b>VI Maquinas de Soporte Vectorial (SVM)</b></span></li>
+<li class="chapter" data-level="18" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>18</b> ¿Qué es una SVM?</a></li>
+<li class="chapter" data-level="19" data-path="estimación-de-los-coeficientes.html"><a href="estimación-de-los-coeficientes.html"><i class="fa fa-check"></i><b>19</b> Estimación de los coeficientes</a></li>
+<li class="chapter" data-level="20" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html"><i class="fa fa-check"></i><b>20</b> RKHS y el método kernel</a><ul>
+<li class="chapter" data-level="20.1" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo escoger un kernel k?</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="margen-suave.html"><a href="margen-suave.html"><i class="fa fa-check"></i><b>15</b> <em>Margen suave</em></a></li>
-<li class="chapter" data-level="16" data-path="svms-en-r.html"><a href="svms-en-r.html"><i class="fa fa-check"></i><b>16</b> SVMs en R</a></li>
-<li class="part"><span><b>VI Árboles de regresión y clasificación</b></span></li>
-<li class="chapter" data-level="17" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>17</b> Antecedentes</a></li>
-<li class="chapter" data-level="18" data-path="árboles-de-regresión.html"><a href="árboles-de-regresión.html"><i class="fa fa-check"></i><b>18</b> Árboles de regresión</a></li>
-<li class="chapter" data-level="19" data-path="árboles-de-clasificación.html"><a href="árboles-de-clasificación.html"><i class="fa fa-check"></i><b>19</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="20" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html"><i class="fa fa-check"></i><b>20</b> Alguno problemas en los árboles</a><ul>
-<li class="chapter" data-level="20.1" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#covariables-categóricas"><i class="fa fa-check"></i><b>20.1</b> Covariables categóricas</a></li>
-<li class="chapter" data-level="20.2" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>20.2</b> La matriz de pérdida</a></li>
+<li class="chapter" data-level="21" data-path="margen-suave.html"><a href="margen-suave.html"><i class="fa fa-check"></i><b>21</b> <em>Margen suave</em></a></li>
+<li class="chapter" data-level="22" data-path="svms-en-r.html"><a href="svms-en-r.html"><i class="fa fa-check"></i><b>22</b> SVMs en R</a></li>
+<li class="part"><span><b>VII Árboles de regresión y clasificación</b></span></li>
+<li class="chapter" data-level="23" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>23</b> Antecedentes</a></li>
+<li class="chapter" data-level="24" data-path="árboles-de-regresión.html"><a href="árboles-de-regresión.html"><i class="fa fa-check"></i><b>24</b> Árboles de regresión</a></li>
+<li class="chapter" data-level="25" data-path="árboles-de-clasificación.html"><a href="árboles-de-clasificación.html"><i class="fa fa-check"></i><b>25</b> Árboles de clasificación</a></li>
+<li class="chapter" data-level="26" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html"><i class="fa fa-check"></i><b>26</b> Alguno problemas en los árboles</a><ul>
+<li class="chapter" data-level="26.1" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#covariables-categóricas"><i class="fa fa-check"></i><b>26.1</b> Covariables categóricas</a></li>
+<li class="chapter" data-level="26.2" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>26.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="árboles-en-r.html"><a href="árboles-en-r.html"><i class="fa fa-check"></i><b>21</b> Árboles en R</a></li>
-<li class="part"><span><b>VII Random Forests</b></span></li>
+<li class="chapter" data-level="27" data-path="árboles-en-r.html"><a href="árboles-en-r.html"><i class="fa fa-check"></i><b>27</b> Árboles en R</a></li>
+<li class="part"><span><b>VIII Random Forests</b></span></li>
 </ul>
 
       </nav>
@@ -267,9 +277,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="regresión-lineal" class="section level1">
-<h1><span class="header-section-number">Capítulo 6</span> Regresión Lineal</h1>
+<h1><span class="header-section-number">Capítulo 12</span> Regresión Lineal</h1>
 <div id="un-poco-de-história" class="section level2">
-<h2><span class="header-section-number">6.1</span> Un poco de história</h2>
+<h2><span class="header-section-number">12.1</span> Un poco de história</h2>
 <p>Los primeros problemas prácticos tipo regresión iniciaron en el siglo XVIII, relacionados con la navegación basada en la Astronomía.
 Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que él desarrolló este método algunos años antes y demuestra, en 1809, que mínimos cuadrados proporciona una solución óptima cuando los errores se distribuyen normal. Francis Galton acuña el término regresión al utilizar el modelo para explicar el fenómeno de que los hijos de padres altos, tienden a ser altos en su generación, pero no tan altos como lo fueron sus padres en la propia, por lo que hay un efecto de <em>regresión</em>.</p>
 <p>El modelo de regresión lineal es, probablemente, el modelo de su tipo más conocido en estadística.</p>
@@ -277,7 +287,7 @@ Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que �
 <p>La variable de respuesta debe ser continua, pero los regresores pueden tener cualquier escala de medición.</p>
 </div>
 <div id="objetivos-del-análisis-de-regresión" class="section level2">
-<h2><span class="header-section-number">6.2</span> Objetivos del análisis de regresión</h2>
+<h2><span class="header-section-number">12.2</span> Objetivos del análisis de regresión</h2>
 <p>Existen varios objetivos dentro del análisis de regresión, entre otros:</p>
 <ul>
 <li>Determinar el efecto, o relación, entre las variables explicativas y la respuesta.</li>
@@ -286,12 +296,12 @@ Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que �
 </ul>
 </div>
 <div id="el-algorítmo-de-regresión-lineal" class="section level2">
-<h2><span class="header-section-number">6.3</span> El algorítmo de regresión lineal</h2>
+<h2><span class="header-section-number">12.3</span> El algorítmo de regresión lineal</h2>
 <p>Sea <span class="math inline">\(\Phi: \mathcal{X} \rightarrow \mathbb{R}^N\)</span> y consideremos la familia de hipótesis lineales <span class="math display">\[H=\{x\mapsto w \cdot \Phi(x)+b | w\in\mathbb{R}^N, b\in\mathbb{R}\}\]</span></p>
 <p>La regresión lineal consiste en buscar la hipótesis <span class="math inline">\(h\in H\)</span> con el menor error cuadrático medio, es decir, se debe resolver el problema de optimización: <span class="math display">\[\min \frac{1}{m}\sum_{i=1}^{m}(h(x_i)-y_i)^2\]</span></p>
 </div>
 <div id="regresión-lineal-simple" class="section level2">
-<h2><span class="header-section-number">6.4</span> Regresión lineal simple</h2>
+<h2><span class="header-section-number">12.4</span> Regresión lineal simple</h2>
 <p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>Para este modelo supondremos que nuestra respuesta, <span class="math inline">\(y\)</span>, es explicada únicamente por una covariable, <span class="math inline">\(x\)</span>.</p>
 <p>Entonces, escribimos nuestro modelo como:</p>
@@ -307,9 +317,9 @@ Gauss desarrolló este modelo a partir de la teoría de errores de medición, qu
 <p>N.B. Los errores <span class="math inline">\(\epsilon^{(i)}\)</span> son variables aleatorias no observables.</p>
 </div>
 <div id="solución-al-problema-de-regresión-lineal-simple" class="section level2">
-<h2><span class="header-section-number">6.5</span> Solución al problema de regresión lineal simple</h2>
+<h2><span class="header-section-number">12.5</span> Solución al problema de regresión lineal simple</h2>
 <div id="mínimos-cuadrados-ordinarios" class="section level3">
-<h3><span class="header-section-number">6.5.1</span> Mínimos cuadrados ordinarios</h3>
+<h3><span class="header-section-number">12.5.1</span> Mínimos cuadrados ordinarios</h3>
 <p>En una situación real, tenemos <span class="math inline">\(n\)</span> observaciones de la variable de respuesta así como de la variable explicativa, que conforman las parejas de entrenamiento <span class="math inline">\((x_i, y_i), \ i = 1, 2, ..., n\)</span>.</p>
 <p>Entonces, nuestro objetivo será encontrar la recta que mejor ajuste a los datos observados.</p>
 <p>Utilizaremos el método de mínimos cuadrados para estimar los parámetros del modelo, que consiste en minimizar la suma de los errores al cuadrado, esto es:</p>
@@ -322,7 +332,7 @@ Una desventaja del método de mínimos cuadrados, es que no se pueden hacer proc
 <p>Este supuesto garantiza que las distribuciones de <span class="math inline">\(y_i,\ \hat{\beta_0},\ \hat{\beta_1}\)</span> sean normales, lo que permite tanto la construcción de intervalos de confianza como de pruebas de hipótesis.</p>
 <p>N.B El estimador de <span class="math inline">\(\sigma^2\)</span> está dado por <span class="math inline">\(\hat{\sigma^2}=\frac{\sum_{i=1}^n(y_i-\hat{y_i})^2}{n-2}\)</span></p>
 <div id="pruebas-de-hipótesis" class="section level4">
-<h4><span class="header-section-number">6.5.1.1</span> Pruebas de hipótesis</h4>
+<h4><span class="header-section-number">12.5.1.1</span> Pruebas de hipótesis</h4>
 <p>En el modelo de regresión lineal simple, la prueba de hipótesis más importante es determinar si estadísticamente existe la dependencia líneal entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>, y que no sea producto del muestreo (debido al azar). Es decir, realizar la prueba de hipótesis:</p>
 <p><span class="math display">\[H_0:\beta_1=0 \ vs.\ H_a:\beta_1\neq 0\]</span>
 No rechazar la hipótesis nula, implicaría que la variable <span class="math inline">\(x\)</span> <em>no ayuda a explicar</em> a <span class="math inline">\(y\)</span> o bien que, tal vez, la relación entre estas variables <strong>no es lineal</strong>.</p>
@@ -331,7 +341,7 @@ No rechazar la hipótesis nula, implicaría que la variable <span class="math in
 <p>Rechazar esta hipótesis nula, también podría implicar que existe una relación lineal entre las variables pero, tal vez, se pueda mejorar el ajuste con algún otro término no lineal.</p>
 </div>
 <div id="interpretación-de-los-parámetros" class="section level4">
-<h4><span class="header-section-number">6.5.1.2</span> Interpretación de los parámetros</h4>
+<h4><span class="header-section-number">12.5.1.2</span> Interpretación de los parámetros</h4>
 <p>Cuando se tiene una recta en el sentido determinista, los parámetros <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span> tienen una interpretación muy clara; <span class="math inline">\(\beta_0\)</span> se interpreta como el valor de <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x\)</span> es igual a cero y <span class="math inline">\(\beta_1\)</span> como el cambio que experimenta la variable de respuesta <span class="math inline">\(y\)</span> por unidad de cambio en <span class="math inline">\(x\)</span>.</p>
 <p>La interpretación, desde el punto de vista estadístico, de los parámetros estimados en el modelo de regresión es muy similar:</p>
 <ul>
@@ -343,7 +353,7 @@ modelo, si tiene sentido que <span class="math inline">\(x\)</span> tome el valo
 </div>
 </div>
 <div id="regresión-lineal-múltiple" class="section level2">
-<h2><span class="header-section-number">6.6</span> Regresión lineal múltiple</h2>
+<h2><span class="header-section-number">12.6</span> Regresión lineal múltiple</h2>
 <p>La mayoría de los fenómenos reales son multicausales, por esta razón, un modelo de regresión más acorde a estudios reales es el modelo de regresión lineal múltiple, que es la generalización del modelo simple.</p>
 <p>En este modelo supondremos que la variable de respuesta, <span class="math inline">\(y\)</span>, puede explicarse a través de una colección de <span class="math inline">\(k\)</span> covariables <span class="math inline">\(x_1,\dots,x_k\)</span>.</p>
 <p>El modelo se escribe de la siguiente manera:</p>
@@ -353,9 +363,9 @@ Al igual que en el caso simple, los parámetros del modelo se pueden estimar por
 <p>Esta estructura del error permite tener las mismas propiedades distribucionales que en regresión simple, es decir, <span class="math inline">\(y_i\)</span> se distribuye normal y <span class="math inline">\(\beta_i\)</span> tiene distribución normal, facilitando las inferencias sobre cada parámetro y la construcción de intervalos de predicción para las <span class="math inline">\(y\)</span>’s.</p>
 </div>
 <div id="solución-al-problema-de-regresión-lineal-múltiple." class="section level2">
-<h2><span class="header-section-number">6.7</span> Solución al problema de regresión lineal múltiple.</h2>
+<h2><span class="header-section-number">12.7</span> Solución al problema de regresión lineal múltiple.</h2>
 <div id="ecuaciones-normales" class="section level3">
-<h3><span class="header-section-number">6.7.1</span> Ecuaciones normales</h3>
+<h3><span class="header-section-number">12.7.1</span> Ecuaciones normales</h3>
 <p>Las expresiones para estimar los parámetros involucrados en el modelo son:</p>
 <p><span class="math display">\[\hat{\beta}=(X^TX)^{-1}X^Ty\]</span>
 <span class="math display">\[\hat{\sigma}^2=\frac{\sum_{i=1}^n(y_i-\hat{y_i})^2}{n-p}\]</span></p>
@@ -417,7 +427,7 @@ Podemos apreciar que los constrastes de hipótesis se pueden hacer contra cualqu
 <p>Esto es, <span class="math inline">\(\hat{\beta_i}}\)</span> es el cambio promedio o cambio esperado en <span class="math inline">\(y\)</span> por unidad de cambio en <span class="math inline">\(x_i\)</span>, sin considerar cambio alguno en ninguna de las otras variables dentro del modelo, es decir, suponiendo que estas otras variables permanecen fijas. Esta interpretación es similar a la que se hace de la derivada parcial en un modelo determinista.</p>
 <p>Nuevamente, la interpretación de <span class="math inline">\(\hat{\beta_0}\)</span> estará sujeta a la posibilidad de que, en este caso, todas las variables puedan tomar el valor cero.</p>
 <div id="predicción-de-nuevos-valores" class="section level4">
-<h4><span class="header-section-number">6.7.1.1</span> Predicción de nuevos valores</h4>
+<h4><span class="header-section-number">12.7.1.1</span> Predicción de nuevos valores</h4>
 <p>Uno de los usos más frecuentes del modelo de regresión es el de predecir un valor de la respuesta para un valor particular de las covariables en el modelo. Si la predicción se realiza para un valor de las covariables dentro del rango de observación de las mismas, se tratará de una interpolación, y si se realiza para un valor fuera de este rango, hablaremos de una extrapolación.</p>
 <p>En cualquiera de los dos casos, estaremos interesados en dos tipos de predicciones:</p>
 <ul>
@@ -430,7 +440,7 @@ Podemos apreciar que los constrastes de hipótesis se pueden hacer contra cualqu
 <p>Y para predecir una observación: <span class="math inline">\(y_0=(\hat{y_0}\pm t_{(n-p,1-\alpha/2)}\sqrt{\hat{\sigma^2}(1+X_0^T(X^TX)^{-1}X_0)})\)</span></p>
 </div>
 <div id="coeficiente-de-determinación" class="section level4">
-<h4><span class="header-section-number">6.7.1.2</span> Coeficiente de determinación</h4>
+<h4><span class="header-section-number">12.7.1.2</span> Coeficiente de determinación</h4>
 <p>Un primer elemento de juicio sobre el modelo de regresión lo constituye el coeficiente de determinación <span class="math inline">\(R^2\)</span>, que es la proporción de variabilidad de las <span class="math inline">\(y\)</span>’s que es explicada por las <span class="math inline">\(x\)</span>’s y que se escribe como:</p>
 <p><span class="math display">\[R^2=\frac{SS_R}{S_{yy}}=1-\frac{SS_E}{S_{yy}}\]</span>
 Una <span class="math inline">\(R^2\)</span> cercana a uno implicaría que mucha de la variabilidad de la respuesta es explicada por el conjunto de regresores incluidos en el modelo.</p>
@@ -438,7 +448,7 @@ Una <span class="math inline">\(R^2\)</span> cercana a uno implicaría que mucha
 </div>
 </div>
 <div id="evaluación-de-supuestos" class="section level3">
-<h3><span class="header-section-number">6.7.2</span> Evaluación de supuestos</h3>
+<h3><span class="header-section-number">12.7.2</span> Evaluación de supuestos</h3>
 <p>Los dos modelos de regresión presentados, el simple y el múltiple, se construyeron sobre los supuestos de:</p>
 <ul>
 <li><p>La relación funcional entre la variable de respuesta <span class="math inline">\(y\)</span> y cada regresor <span class="math inline">\(x_i\)</span> es lineal</p></li>
@@ -449,7 +459,7 @@ Una <span class="math inline">\(R^2\)</span> cercana a uno implicaría que mucha
 </ul>
 <p>Entonces, para garantizar que el modelo es adecuado, es indispensable verificar estos supuestos.</p>
 <div id="residuos" class="section level4">
-<h4><span class="header-section-number">6.7.2.1</span> Residuos</h4>
+<h4><span class="header-section-number">12.7.2.1</span> Residuos</h4>
 <p>Los elementos más importantes para verificar estos supuestos son los residuos, definidos como:</p>
 <p><span class="math display">\[e_i=y_i-\hat{y}_i\]</span></p>
 <p>Estos residuos representan la discrepancia entre la respuesta predicha por el modelo ajustado, <span class="math inline">\(\hat{y}_i\)</span> y el correspondiente valor observado, <span class="math inline">\(y_i\)</span>.</p>
@@ -466,18 +476,18 @@ Una <span class="math inline">\(R^2\)</span> cercana a uno implicaría que mucha
 <p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="linealidad-de-los-predictores" class="section level4">
-<h4><span class="header-section-number">6.7.2.2</span> Linealidad de los predictores</h4>
+<h4><span class="header-section-number">12.7.2.2</span> Linealidad de los predictores</h4>
 <p>La manera estándar de evaluar la linealidad de las variables explicativas es a través de la gráfica de cada una de ellas contra los residuos. Si la variable en cuestión ingresa al modelo de manera lineal, esta gráfica debe mostrar un patrón totalmente aleatorio entre los puntos dispuestos en ella.</p>
 <p>Cuando la variable explicativa es politómica, este tipo de gráficas son poco ilustrativas en este sentido.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="supuestos-sobre-los-errores" class="section level4">
-<h4><span class="header-section-number">6.7.2.3</span> Supuestos sobre los errores</h4>
+<h4><span class="header-section-number">12.7.2.3</span> Supuestos sobre los errores</h4>
 <p>Si la gráfica entre los valores ajustados y los residuos estandarizados, muestra un patrón aleatorio, es simétrica alrededor del cero y los puntos están comprendidos entre los valores -2 y 2, entonces se tendrá evidencia de que los errores tienen media cero, varianza constante y no están correlacionados.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>Los métodos mostrados hasta ahora, permiten evaluar el modelo de manera global y no por cada observación dentro del mismo. Dado que una observación puede resultar determinante sobre alguna(s) característica(s) del modelo, es conveniente verificar el impacto que cada observación pueda tener en los distintos aspectos del modelo. Las estadísticas para evaluar el impacto que tiene una observación sobre todo el vector de parámetros, alguno de los regresores y sobre los valores predichos, se basan en la misma idea, que consiste en cuantificar el cambio en la característica de interés con y sin la observación que se está evaluando.</p>
 <div id="puntos-palanca" class="section level5">
-<h5><span class="header-section-number">6.7.2.3.1</span> Puntos palanca</h5>
+<h5><span class="header-section-number">12.7.2.3.1</span> Puntos palanca</h5>
 <p>Antes de presentar las estadísticas que servirán para hacer este diagnóstico, introduciremos un elemento que es común a ellas: la llamada palanca (leverage) de una observación.</p>
 <p>Recordemos que el ajuste del modelo se expresaba como:</p>
 <p><span class="math display">\[\hat{\beta}=(X^TX)^{-1}X^Ty \Rightarrow \hat{y}=X\hat{\beta}=Hy\]</span></p>
@@ -888,7 +898,7 @@ Con <span class="math inline">\(h_i\)</span> el i-ésimo elemento de la diagonal
 </div>
 </div>
 <div id="multicolinealidad" class="section level4">
-<h4><span class="header-section-number">6.7.2.4</span> Multicolinealidad</h4>
+<h4><span class="header-section-number">12.7.2.4</span> Multicolinealidad</h4>
 <p>El modelo de regresión lineal múltiple, se construye bajo el supuesto de que los regresores son ortogonales, i.e., son independientes.</p>
 <p>Desafortunadamente, en la mayoría de las aplicaciones el conjunto de regresores no es ortogonal. Algunas veces, esta falta de ortogonalidad no es seria; sin embargo, en algunas otras los regresores están muy cerca de una perfecta relación lineal, en tales casos las inferencias realizadas a través del modelo de regresión lineal pueden ser erróneas. Cuando hay una cercana dependencia lineal entre los regresores, se dice que estamos en presencia de un problema de multicolinealidad.</p>
 <p><strong>Efectos de la multicolinealidad</strong>:</p>
@@ -899,7 +909,7 @@ Con <span class="math inline">\(h_i\)</span> el i-ésimo elemento de la diagonal
 <li><p>Es común que algún signo de un parámetro cambie, haciendo ilógica su interpretación dentro del modelo.</p></li>
 </ul>
 <div id="cómo-detectar-multicolinealidad" class="section level5">
-<h5><span class="header-section-number">6.7.2.4.1</span> ¿Cómo detectar multicolinealidad?</h5>
+<h5><span class="header-section-number">12.7.2.4.1</span> ¿Cómo detectar multicolinealidad?</h5>
 <p><strong>Matriz de correlación.</strong></p>
 <p>Examinar las correlaciones entre pares de variables:</p>
 <p><span class="math display">\[r_{ij}\ \ \  i, j = 1, 2, \dots, k\ \  i\neq j\]</span></p>
@@ -920,7 +930,7 @@ Si el índice de condición es menor que 10, no hay ningún problema. Si está e
 </div>
 </div>
 <div id="relación-funcional" class="section level4">
-<h4><span class="header-section-number">6.7.2.5</span> Relación funcional</h4>
+<h4><span class="header-section-number">12.7.2.5</span> Relación funcional</h4>
 <p>Un supuesto importante en el modelo de regresión es el que considera que debe existir una relación funcional lineal entre cada regresor y la variable de respuestas. Pero, ¿qué debemos hacer si no se cumple esta relación lineal de la respuesta con alguno(s) de los regresor(es)?</p>
 <p>Primero, ya dijimos que este supuesto se evalúa realizando la gráfica de dispersión entre los residuos del modelo y los valores de la variable en cuestión. Cuando no hay una asociación lineal entre la respuesta y la covariable, generalmente este diagrama de dispersión muestra un patrón (tendencia) que sugiere qué tipo de transformación se debería hacer a la covariable para lograr linealidad con la respuesta.</p>
 <p>Debe quedar claro que la transformación puede realizarse a la variable explicativa o a la variable de respuesta.</p>
@@ -1313,7 +1323,7 @@ Si el índice de condición es menor que 10, no hay ningún problema. Si está e
 <p>Un problema asociado a esta identificación por parte del usuario, es que debe tener experiencia para asociar estas formas a una función analítica específica; hecho no necesariamente cierto. Por lo tanto, requiere de alguna herramienta técnica que pudiera auxiliarlo en esta labor.</p>
 <p>Un buen auxiliar, en el caso de que se crea que es necesario transformar la respuesta, es usar la llamada trasformación Box-Cox.</p>
 <div id="transformación-box-cox" class="section level5">
-<h5><span class="header-section-number">6.7.2.5.1</span> Transformación Box-Cox</h5>
+<h5><span class="header-section-number">12.7.2.5.1</span> Transformación Box-Cox</h5>
 <p>La transformación Box-Cox de la respuesta, es una función que sirve para normalizar la distribución del error, estabilizar la varianza de este error y mejorar la relación lineal entre <span class="math inline">\(y\)</span> y las <span class="math inline">\(X’s\)</span>.</p>
 <p>Se define como:</p>
 <p><span class="math display">\[y_i^{\lambda} = \left\{ \begin{array}{ll} \frac{y_i^{\lambda-1}}{\lambda}, &amp;  \lambda \neq 0;\\ ln(y_i), &amp; \lambda=0 .\end{array} \right.\]</span>
@@ -1358,7 +1368,7 @@ La siguiente tabla muestra el rango de valores de <span class="math inline">\(\l
 </table>
 </div>
 <div id="transformación-box-tidwell" class="section level5">
-<h5><span class="header-section-number">6.7.2.5.2</span> Transformación Box-Tidwell</h5>
+<h5><span class="header-section-number">12.7.2.5.2</span> Transformación Box-Tidwell</h5>
 <p>Box y Tidwell implementan un proceso iterativo para encontrar la mejor transformación de las variables predictoras en el modelo de regresión lineal.</p>
 <p>Definiendo como <span class="math inline">\(X_j^{\gamma_j}\)</span> la correspondiente transformación Box-Tidwell de la variable <span class="math inline">\(j\)</span>.</p>
 <p>La tabla anterior para las transfomaciones analíticas de la respuesta, también aplican para estas transformaciones de los predictores.</p>
@@ -1367,8 +1377,7 @@ La siguiente tabla muestra el rango de valores de <span class="math inline">\(\l
 </div>
 </div>
 <div id="aplicación-en-r" class="section level2">
-<h2><span class="header-section-number">6.8</span> Aplicación en R</h2>
-<p>… Work in progres …</p>
+<h2><span class="header-section-number">12.8</span> Aplicación en R</h2>
 </div>
 </div>
             </section>
