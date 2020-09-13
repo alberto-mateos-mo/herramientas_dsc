@@ -613,8 +613,7 @@ reg <- glm(defecto ~ temperatura, data = datos, family = binomial)
 Tabla resumen:
 
 ```{r}
-summary(reg) %>% 
-  knitr::kable()
+summary(reg)
 ```
 
 Creamos una nueva variable al dataframe de nuestros datos con las probabilidades de pertenencia a la clase 1 predichas por el modelo.
@@ -750,7 +749,7 @@ modelChi
 ```
 
 ```{r}
-chidf <- m1$df.null - m1$df.residual
+chidf <- modelo$df.null - modelo$df.residual
 chisq.prob <- 1 - pchisq(modelChi, chidf)
 chisq.prob
 ```
@@ -765,23 +764,23 @@ La prueba Ji-Cuadrada para la significancia del modelo da un p-value de cero, po
 __Agregamos a los datos la columna de probabilidad de compra calculada con nuestro modelo:__
 
 ```{r}
-datos <- cbind(datos,m1$fitted.values)
+datos <- cbind(datos, modelo$fitted.values)
 ```
 
 ```{r}
-plot(m1$fitted.values,col=datos$Gender,
+plot(modelo$fitted.values, col = as.factor(datos$Gender),
      main="Probabilidad de compra por género",
      ylab="probabilidad de compra")
 ```
 
 ```{r}
-plot(m1$fitted.values,datos$Age,col=datos$Gender,
+plot(modelo$fitted.values, datos$Age, col = as.factor(datos$Gender),
      main="Probabilidad de compra vs edad coloreado por edad",
      xlab="probabilidad de compra",ylab="edad")
 ```
 
 ```{r}
-plot(m1$fitted.values,datos$EstimatedSalary,
+plot(modelo$fitted.values, datos$EstimatedSalary,
      main="Probabilidad de compra vs salario",
      xlab="probabilidad de compra",ylab="salario")
 ```
@@ -854,7 +853,7 @@ datos <- read.csv("example_data/hr_satisfaction.csv", header=TRUE)
 Ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de salario.
 
 ```{r}
-multi1 <- multinom(satisfied~salary)
+multi1 <- multinom(satisfied~salary, data = datos)
 
 print(multi1)
 ```
@@ -880,7 +879,7 @@ Mientras que la probabilidad de que este empleado esté completamente insatisfec
 Ahora ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de edad.
 
 ```{r}
-multi2 <- multinom(satisfied~age)
+multi2 <- multinom(satisfied~age, data = datos)
 
 multi2
 ```
@@ -898,7 +897,7 @@ exp(1.178-.0281*e)/denom
 Finalmente ajustamos el modelo de regresión con las variables explicativas de salario y edad. 
 
 ```{r}
-multi3 <- multinom(satisfied~salary+age)
+multi3 <- multinom(satisfied~salary+age, data = datos)
 
 multi3
 ```
@@ -1149,13 +1148,13 @@ summary(datos)
 __Selección de observaciones en donde si hubo falta de pago:__
 
 ```{r}
-datos <- datos[default==1,]
+datos <- datos[datos$default==1,]
 ```
 
 __Construcción de la variable del tiempo transcurrido al default:__
 
 ```{r}
-datos$meses_default <- Ddatos$duration-datos$installment_commitment
+datos$meses_default <- datos$duration-datos$installment_commitment
 
 hist(datos$meses_default)
 ```
@@ -1388,15 +1387,15 @@ Ejemplo de meses para default crediticio usando una distribución exponencial.
 ```{r}
 datos <- read.csv("example_data/default.csv", header = TRUE)
 
-datos <- datos[default==1,]
+datos <- datos[datos$default==1,]
 ```
 
 __Construcción de la variable del tiempo transcurrido al default:__
 
 ```{r}
-D1$meses_default=D1$duration-D1$installment_commitment
+datos$meses_default <- datos$duration-datos$installment_commitment
 
-m1 <- glm(meses_default ~ own_telephone, data = D1, family = Gamma)
+m1 <- glm(meses_default ~ own_telephone, data = datos, family = Gamma)
 ```
 
 __Análisis de puntos influyentes.__
