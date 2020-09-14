@@ -72,6 +72,28 @@ Al realizar una tabla que resume datos es buena idea considerar el mesaje que se
 
 - ¿Deben estar los datos presentados en algún orden?
 
+### Ejemplo
+
+De una base de datos en donde se registra la exportación díaria de aguacate de los diferentes productores del país, se busca conocer la distribución de las exportaciones por estado de la república en 2019.
+
+El siguiente ejemplo presenta la salida en R de un agrupamiento por estado del total de kilogramos exportados durante 2019. 
+
+| Estado     | Volumen (Kgs) | Porcentaje |
+|------------|--------------:|-----------:|
+| JALISCO    |      417729.8 |      52.12 |
+| MICHOACAN  |      286298.8 |      35.72 |
+| GUANAJUATO |       96916.3 |      12.09 |
+| MORELOS    |           600 |       0.07 |
+
+Una mejor presentación de estos datos, siguiendo las recomendaciones es:
+
+
+| Estado     | Volumen (Kgs) | Porcentaje |
+|------------|--------------:|-----------:|
+| JALISCO    |       417,730 |        52% |
+| MICHOACAN  |       286,299 |        36% |
+| GUANAJUATO |        96,916 |        12% |
+
 # Gráficos
 
 Cuando se usan gráficos por lo general se busca la comprensión de los datos sólo con el objeto visual sin ayuda de ejes, pies de página o información adicional.
@@ -107,3 +129,42 @@ En particular para los gráficos circulares se recomienda:
 - Evitar _pies_ de mas de 6 segmentos.
 
 - Usar tonos del mismo color para identificar proporciones de una variable.
+
+### Ejemplo
+
+Usando los mismos datos de exportación díaria de aguacate. Realizaremos una representación gráfica del volumen de exportación de aguacate observada en 2019 para cada país destino. 
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+paises <- c("MYANMAR (BIRMANIA)","BANGLADESH","HONG KONG","JAPON","ARABIA SAUDITA", "EMIRATOS ÁRABES UNIDOS", "REINO UNIDO", "PAÍSES BAJOS (HOLANDA)", "SINGAPUR","ESTADOS UNIDOS")
+
+vol <- c(304734.62, 125240.00, 74578.50, 68925.24,55285.20,51517.44, 43760.00, 32092.50, 29610.00, 11481.36)
+
+D1 <- data.frame(paises,vol)
+
+ggplot(D1, aes(x = paises, y = vol)) +
+  labs(x="Paises de Destino", y="Volumen en Kg", title="Volumen de exportación de aguacate por pais de destino en 2019")+
+  geom_bar(stat = "identity",fill="#f68060")+
+  theme(axis.text.x = element_text(angle = 90)) +
+  scale_y_continuous(labels = scales::number)
+```
+
+Y también presentaremos gráficamente la tabla de producción de aguacate por estado de la república que presentamos en la sección de tablas.
+
+```{r, echo=TRUE}
+edo <- c("JALISCO","MICHOACAN","GUANAJUATO")	
+vol <- c("417,730","286,299","96,916")
+por <- c(52,36,	12)
+D1 <- data.frame(edo,vol,por)
+
+ggplot(D1, aes(x="", y=por, fill=edo)) +
+  geom_bar(stat="identity", width=1,color="white") +
+  coord_polar("y", start=0)+
+  theme_void()+
+  geom_text(aes(label = vol,x = 1), color = "white", size=4,
+            position = position_stack(vjust = 0.5))+
+  scale_fill_brewer(palette="Set2")+
+  labs(title="Producción de aguacate por estado en 2019")
+  
+```
