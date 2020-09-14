@@ -170,9 +170,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
 <li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
 <li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
-<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a></li>
+<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>6.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
-<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a></li>
+<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="gráfico-circular.html"><a href="gráfico-circular.html#ejemplo-1"><i class="fa fa-check"></i><b>8.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
 <li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
 <li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
@@ -230,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>V Redes neuronales</b></span></li>
 <li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="15.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="15.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
 <li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
@@ -286,7 +290,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Evitar <em>pies</em> de mas de 6 segmentos.</p></li>
 <li><p>Usar tonos del mismo color para identificar proporciones de una variable.</p></li>
 </ul>
+<div id="ejemplo-1" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> Ejemplo</h3>
+<p>Usando los mismos datos de exportación díaria de aguacate. Realizaremos una representación gráfica del volumen de exportación de aguacate observada en 2019 para cada país destino.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="gráfico-circular.html#cb31-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb31-2"><a href="gráfico-circular.html#cb31-2"></a></span>
+<span id="cb31-3"><a href="gráfico-circular.html#cb31-3"></a>paises &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;MYANMAR (BIRMANIA)&quot;</span>,<span class="st">&quot;BANGLADESH&quot;</span>,<span class="st">&quot;HONG KONG&quot;</span>,<span class="st">&quot;JAPON&quot;</span>,<span class="st">&quot;ARABIA SAUDITA&quot;</span>, <span class="st">&quot;EMIRATOS ÁRABES UNIDOS&quot;</span>, <span class="st">&quot;REINO UNIDO&quot;</span>, <span class="st">&quot;PAÍSES BAJOS (HOLANDA)&quot;</span>, <span class="st">&quot;SINGAPUR&quot;</span>,<span class="st">&quot;ESTADOS UNIDOS&quot;</span>)</span>
+<span id="cb31-4"><a href="gráfico-circular.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="gráfico-circular.html#cb31-5"></a>vol &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">304734.62</span>, <span class="fl">125240.00</span>, <span class="fl">74578.50</span>, <span class="fl">68925.24</span>,<span class="fl">55285.20</span>,<span class="fl">51517.44</span>, <span class="fl">43760.00</span>, <span class="fl">32092.50</span>, <span class="fl">29610.00</span>, <span class="fl">11481.36</span>)</span>
+<span id="cb31-6"><a href="gráfico-circular.html#cb31-6"></a></span>
+<span id="cb31-7"><a href="gráfico-circular.html#cb31-7"></a>D1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(paises,vol)</span>
+<span id="cb31-8"><a href="gráfico-circular.html#cb31-8"></a></span>
+<span id="cb31-9"><a href="gráfico-circular.html#cb31-9"></a><span class="kw">ggplot</span>(D1, <span class="kw">aes</span>(<span class="dt">x =</span> paises, <span class="dt">y =</span> vol)) <span class="op">+</span></span>
+<span id="cb31-10"><a href="gráfico-circular.html#cb31-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Paises de Destino&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Volumen en Kg&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Volumen de exportación de aguacate por pais de destino en 2019&quot;</span>)<span class="op">+</span></span>
+<span id="cb31-11"><a href="gráfico-circular.html#cb31-11"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>,<span class="dt">fill=</span><span class="st">&quot;#f68060&quot;</span>)<span class="op">+</span></span>
+<span id="cb31-12"><a href="gráfico-circular.html#cb31-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>)) <span class="op">+</span></span>
+<span id="cb31-13"><a href="gráfico-circular.html#cb31-13"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>number)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Y también presentaremos gráficamente la tabla de producción de aguacate por estado de la república que presentamos en la sección de tablas.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="gráfico-circular.html#cb32-1"></a>edo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;JALISCO&quot;</span>,<span class="st">&quot;MICHOACAN&quot;</span>,<span class="st">&quot;GUANAJUATO&quot;</span>)	</span>
+<span id="cb32-2"><a href="gráfico-circular.html#cb32-2"></a>vol &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;417,730&quot;</span>,<span class="st">&quot;286,299&quot;</span>,<span class="st">&quot;96,916&quot;</span>)</span>
+<span id="cb32-3"><a href="gráfico-circular.html#cb32-3"></a>por &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">52</span>,<span class="dv">36</span>,	<span class="dv">12</span>)</span>
+<span id="cb32-4"><a href="gráfico-circular.html#cb32-4"></a>D1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edo,vol,por)</span>
+<span id="cb32-5"><a href="gráfico-circular.html#cb32-5"></a></span>
+<span id="cb32-6"><a href="gráfico-circular.html#cb32-6"></a><span class="kw">ggplot</span>(D1, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span>por, <span class="dt">fill=</span>edo)) <span class="op">+</span></span>
+<span id="cb32-7"><a href="gráfico-circular.html#cb32-7"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">width=</span><span class="dv">1</span>,<span class="dt">color=</span><span class="st">&quot;white&quot;</span>) <span class="op">+</span></span>
+<span id="cb32-8"><a href="gráfico-circular.html#cb32-8"></a><span class="st">  </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">start=</span><span class="dv">0</span>)<span class="op">+</span></span>
+<span id="cb32-9"><a href="gráfico-circular.html#cb32-9"></a><span class="st">  </span><span class="kw">theme_void</span>()<span class="op">+</span></span>
+<span id="cb32-10"><a href="gráfico-circular.html#cb32-10"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> vol,<span class="dt">x =</span> <span class="dv">1</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size=</span><span class="dv">4</span>,</span>
+<span id="cb32-11"><a href="gráfico-circular.html#cb32-11"></a>            <span class="dt">position =</span> <span class="kw">position_stack</span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>))<span class="op">+</span></span>
+<span id="cb32-12"><a href="gráfico-circular.html#cb32-12"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Set2&quot;</span>)<span class="op">+</span></span>
+<span id="cb32-13"><a href="gráfico-circular.html#cb32-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Producción de aguacate por estado en 2019&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 
+</div>
 </div>
 
 

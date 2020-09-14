@@ -170,9 +170,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
 <li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
 <li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
-<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a></li>
+<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>6.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
-<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a></li>
+<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="gráfico-circular.html"><a href="gráfico-circular.html#ejemplo-1"><i class="fa fa-check"></i><b>8.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
 <li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
 <li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
@@ -230,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>V Redes neuronales</b></span></li>
 <li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="15.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="15.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
 <li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
@@ -302,7 +306,7 @@ Legendre desarrolló el método de mínimo cuadrados en 1805. Gauss afirma que �
 </div>
 <div id="regresión-lineal-simple" class="section level2">
 <h2><span class="header-section-number">12.4</span> Regresión lineal simple</h2>
-<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Para este modelo supondremos que nuestra respuesta, <span class="math inline">\(y\)</span>, es explicada únicamente por una covariable, <span class="math inline">\(x\)</span>.</p>
 <p>Entonces, escribimos nuestro modelo como:</p>
 <p><span class="math display">\[y^{(i)}=\beta_0+\beta_1x^{(i)}+\epsilon^{(i)},\ \ i=1,2,\dots,n\]</span>
@@ -473,18 +477,18 @@ Una <span class="math inline">\(R^2\)</span> cercana a uno implicaría que mucha
 <p>Estos residuos se utilizan en los distintos procedimientos para evaluar los supuestos y lo adecuado del ajuste del modelo. La mayoría de las pruebas conocidas para la verificación de los supuestos, son pruebas gráficas.</p>
 <p>Indudablemente, la prueba más importante es sobre la normalidad de los errores, ya que sobre este supuesto descansan todas la inferencias de este modelo.</p>
 <p>La manera de verificarlo es a través de la gráfica conocida como QQ-plot o QQ-norm, que grafica los cuantiles teóricos de una distribución normal (eje x) vs. los cuantiles asociados a los residuos. Entonces, si los residuos realmente provienen de una normal, la gráfica debe mostrar la función identidad. Fuertes desviaciones de esta línea darían evidencia de que los errores no se distribuyen normal.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 </div>
 <div id="linealidad-de-los-predictores" class="section level4">
 <h4><span class="header-section-number">12.7.2.2</span> Linealidad de los predictores</h4>
 <p>La manera estándar de evaluar la linealidad de las variables explicativas es a través de la gráfica de cada una de ellas contra los residuos. Si la variable en cuestión ingresa al modelo de manera lineal, esta gráfica debe mostrar un patrón totalmente aleatorio entre los puntos dispuestos en ella.</p>
 <p>Cuando la variable explicativa es politómica, este tipo de gráficas son poco ilustrativas en este sentido.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <div id="supuestos-sobre-los-errores" class="section level4">
 <h4><span class="header-section-number">12.7.2.3</span> Supuestos sobre los errores</h4>
 <p>Si la gráfica entre los valores ajustados y los residuos estandarizados, muestra un patrón aleatorio, es simétrica alrededor del cero y los puntos están comprendidos entre los valores -2 y 2, entonces se tendrá evidencia de que los errores tienen media cero, varianza constante y no están correlacionados.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Los métodos mostrados hasta ahora, permiten evaluar el modelo de manera global y no por cada observación dentro del mismo. Dado que una observación puede resultar determinante sobre alguna(s) característica(s) del modelo, es conveniente verificar el impacto que cada observación pueda tener en los distintos aspectos del modelo. Las estadísticas para evaluar el impacto que tiene una observación sobre todo el vector de parámetros, alguno de los regresores y sobre los valores predichos, se basan en la misma idea, que consiste en cuantificar el cambio en la característica de interés con y sin la observación que se está evaluando.</p>
 <div id="puntos-palanca" class="section level5">
 <h5><span class="header-section-number">12.7.2.3.1</span> Puntos palanca</h5>
@@ -504,7 +508,7 @@ Con <span class="math inline">\(h_i\)</span> el i-ésimo elemento de la diagonal
 <li>Dffits</li>
 </ul>
 <p><strong>Distancia de Cook</strong>: Sirve para determinar si una observación es influyente en todo el vector de parámetros. Una observación se considera influyente, si su distancia de Cook sobrepasa el valor uno.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <pre><code>## List of 93
 ##  $ line                      :List of 6
 ##   ..$ colour       : chr &quot;black&quot;
@@ -891,10 +895,10 @@ Con <span class="math inline">\(h_i\)</span> el i-ésimo elemento de la diagonal
 ##  - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
 <p><strong>Dfbetas</strong>: Sirven para determinar si una observación es influyente en alguno de los coeficientes de regresión. Hay un dfbeta por cada parámetro dentro del modelo, incluido, por supuesto, el de la ordenada al origen. La regla de dedo es que la observación <span class="math inline">\(i\)</span> es influyente en el j-ésimo coeficiente de regresión si:</p>
 <p><span class="math display">\[|Dfbetas_{j,i}|&gt;\frac{2}{\sqrt{n}}\]</span>
-<img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
+<img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-35-2.png" width="672" /></p>
 <p><strong>Dffits</strong>: Se utilizan para determinar si una observación es influyente en la predicción de <span class="math inline">\(y\)</span>. Se dice que la i-ésima observación es influyente para predecir <span class="math inline">\(y\)</span>, si:</p>
 <p><span class="math display">\[|Dffits_i|&gt;2\sqrt{\frac{p}{n}}\]</span>
-<img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 </div>
 </div>
 <div id="multicolinealidad" class="section level4">
@@ -935,7 +939,7 @@ Si el índice de condición es menor que 10, no hay ningún problema. Si está e
 <p>Primero, ya dijimos que este supuesto se evalúa realizando la gráfica de dispersión entre los residuos del modelo y los valores de la variable en cuestión. Cuando no hay una asociación lineal entre la respuesta y la covariable, generalmente este diagrama de dispersión muestra un patrón (tendencia) que sugiere qué tipo de transformación se debería hacer a la covariable para lograr linealidad con la respuesta.</p>
 <p>Debe quedar claro que la transformación puede realizarse a la variable explicativa o a la variable de respuesta.</p>
 <p>A muchos investigadores no les gusta transformar la respuesta porque argumentan que pierden <em>interpretabilidad</em> del modelo. Aunque esto puede ser cierto, existen transformaciones de la respuesta que pueden <em>regresarse</em> para interpretar el modelo con la respuesta original.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <pre><code>## List of 93
 ##  $ line                      :List of 6
 ##   ..$ colour       : chr &quot;black&quot;

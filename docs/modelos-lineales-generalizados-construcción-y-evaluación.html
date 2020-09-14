@@ -170,9 +170,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
 <li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
 <li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
-<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a></li>
+<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>6.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
-<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a></li>
+<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="gráfico-circular.html"><a href="gráfico-circular.html#ejemplo-1"><i class="fa fa-check"></i><b>8.0.1</b> Ejemplo</a></li>
+</ul></li>
 <li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
 <li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
 <li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
@@ -230,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>V Redes neuronales</b></span></li>
 <li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="15.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="15.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
 <li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
@@ -338,25 +342,25 @@ incluso eliminando ciertos datos que pueden estar desviando el análisis.</p>
 <div id="evaluación-de-glms-en-r" class="section level2">
 <h2><span class="header-section-number">14.7</span> Evaluación de GLMs en R</h2>
 <p>Ejemplo de meses para default crediticio usando una distribución exponencial.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb147-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/default.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb147-2"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb147-2"></a></span>
-<span id="cb147-3"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb147-3"></a>datos &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>default<span class="op">==</span><span class="dv">1</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb149-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/default.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb149-2"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb149-2"></a></span>
+<span id="cb149-3"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb149-3"></a>datos &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>default<span class="op">==</span><span class="dv">1</span>,]</span></code></pre></div>
 <p><strong>Construcción de la variable del tiempo transcurrido al default:</strong></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb148-1"></a>datos<span class="op">$</span>meses_default &lt;-<span class="st"> </span>datos<span class="op">$</span>duration<span class="op">-</span>datos<span class="op">$</span>installment_commitment</span>
-<span id="cb148-2"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb148-2"></a></span>
-<span id="cb148-3"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb148-3"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(meses_default <span class="op">~</span><span class="st"> </span>own_telephone, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb150-1"></a>datos<span class="op">$</span>meses_default &lt;-<span class="st"> </span>datos<span class="op">$</span>duration<span class="op">-</span>datos<span class="op">$</span>installment_commitment</span>
+<span id="cb150-2"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb150-2"></a></span>
+<span id="cb150-3"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb150-3"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(meses_default <span class="op">~</span><span class="st"> </span>own_telephone, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span></code></pre></div>
 <p><strong>Análisis de puntos influyentes.</strong></p>
 <p>Distancia de Cook:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb149-1"></a><span class="kw">plot</span>(m1, <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
-<p>Puntos palanca para betas:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb150-1"></a><span class="kw">plot</span>(<span class="kw">dfbetas</span>(m1)[,<span class="dv">1</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Beta0&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb151-1"></a><span class="kw">plot</span>(<span class="kw">dfbetas</span>(m1)[,<span class="dv">2</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Beta1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb151-1"></a><span class="kw">plot</span>(m1, <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
-<p>Puntos palanca para los datos ajustados:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb152-1"></a><span class="kw">plot</span>(<span class="kw">dffits</span>(m1),<span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
+<p>Puntos palanca para betas:</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb152-1"></a><span class="kw">plot</span>(<span class="kw">dfbetas</span>(m1)[,<span class="dv">1</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Beta0&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb153-1"></a><span class="kw">plot</span>(<span class="kw">dfbetas</span>(m1)[,<span class="dv">2</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Beta1&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p>Puntos palanca para los datos ajustados:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#cb154-1"></a><span class="kw">plot</span>(<span class="kw">dffits</span>(m1),<span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 
 </div>
 </div>
