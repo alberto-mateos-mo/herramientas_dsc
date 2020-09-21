@@ -285,7 +285,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El problema de optimización mostrado es complicado de resolver fundamentalmente por la restricción <span class="math inline">\(||\beta||_2=1\)</span>, sin embargo dado que el plano <span class="math inline">\(H_{\beta_0,\beta}\)</span> es invariente bajo escalamiento sobre <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta\)</span> podemos aplicar el factor <span class="math inline">\(1/M\)</span> (de tal forma que <span class="math inline">\(||\beta||_2=1/M\)</span>) y el problema se transformaría en:</p>
 <p><span class="math display">\[\begin{equation}  \max_{\beta,\beta_0}\frac{1}{||\beta||_2} \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n \end{equation} \]</span></p>
 <p>Si además trabajamos con el problema equivalente</p>
-<p><span class="math display" id="eq:optim">\[\begin{equation} \min_{\beta,\beta_0}\frac{1}{2}||\beta||_2^2 \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\tag{19.1},n (#eq:optim) \end{equation} \]</span></p>
+<p><span class="math display" id="eq:optim">\[\begin{equation} 
+  \min_{\beta,\beta_0}\frac{1}{2}||\beta||_2^2 \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n 
+  
+  \tag{19.1}
+\end{equation}\]</span></p>
 <p>tendremos ahora un problema de optimización con una función objetivo cuadrática y restricciones lineales que puede resolverse eficientemente usando optimizadores convexos estándar.</p>
 <p>Para resolver el problema de optimización se usa el problema dual de Lagrange cuya teoría nos dice que la mejor cota inferior para <span class="math inline">\(||\beta||_2^2/2\)</span> es igual al valor óptimo:</p>
 <p><span class="math display">\[\begin{equation} \max_{\lambda\in \mathbb{R_{\geq0}^n}} \min_{\beta,\beta_0} L(\beta,\beta_0;\lambda) \end{equation} \]</span></p>

@@ -8,7 +8,7 @@ Para hacer la tarea _sencilla_ pensemos las particiones como binarias, es decir,
 
 Una parte muy importante de este tipo de modelos binarios es la interpretabilidad pues el árbol estratifica la población de acuerdo a sus características.
 
-# Árboles de regresión
+## Árboles de regresión
 
 Supongamos que tenemos $p$ covariables, una variable de respuesta/objetivo y $N$ observaciones. El argoritmo debe poder decidir las variables a particionar, los puntos de quiebre y la topología del árbol.
 
@@ -66,7 +66,7 @@ La idea es encontrar, para cada $\alpha$, el sub-árbol $T_\alpha \subseteq T_0$
 
 El parámetro $\alpha \geq 0$ controla el tradeoff entre el tamaño del árbol y la bondad de ajuste a los datos. Valores grandes de $\alpha$ resultará en árboles pequeños y viceversa.
 
-# Árboles de clasificación
+## Árboles de clasificación
 
 Si el objetivo es clasificar los cambios necesarios al algoritmo ocurren en los criterios de partición y de _poda_. Para árboles de regresión usamos la medida de impureza del nodo, error cuadrático, $Q_m(T)$ pero ésta no es útil para clasificación.
 
@@ -92,9 +92,9 @@ En el caso de dos clases, si $p$ es la proporción de la segunda clase, las medi
 
 - Entropía: $-p\log p-(1-p) \log (1-p)$
 
-# Alguno problemas en los árboles
+## AlgunoS problemas en los árboles
 
-## Covariables categóricas
+### Covariables categóricas
 
 Al trabajar con una covariable/predictora categórica con $q$ posibles valores existen $2^{q-1}-1$ posibles particiones binarias y el tiempo de computación se vuelve enorme para valores grandes de $q$.
 
@@ -102,7 +102,7 @@ Sin embargo si tenemos un problema de clasificación de dos clases $(0,1)$ podem
 
 Es posible demostrar que este procedimiento logra la partición óptima en términos de entropía o índice Gini de entre las $2^{q-1}-1$ posibles.
 
-## La matriz de pérdida
+### La matriz de pérdida
 
 En problemas de clasificación, las consecuencias de hacerlo incorrectamente pueden ser más importantes para alguna clase que para otras.
 
@@ -112,6 +112,6 @@ Para incorporar las _pérdidas_ en el modelo podemos modificar el índice Gini c
 
 Aunque en el caso de $k>2$ clases es muy útil, no lo es para el caso $k=2$, ¿por qué?
 
-# Árboles en R
+## Árboles en R
 
 ...WIP...

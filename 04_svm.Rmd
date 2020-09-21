@@ -22,7 +22,7 @@ $$ \begin{equation}  \max_{\beta,\beta_0,||\beta||_2=1} M \ sujeto \ a \ y_i(x_i
 
 Donde $M$ lo podemos interpretar como el margen alrededor del hiperplano optimo que no contiene a ninguna observación.
 
-# Estimación de los coeficientes
+## Estimación de los coeficientes
 
 El problema de optimización mostrado es complicado de resolver fundamentalmente por la restricción $||\beta||_2=1$, sin embargo dado que el plano $H_{\beta_0,\beta}$ es invariente bajo escalamiento sobre $\beta_0$ y $\beta$ podemos aplicar el factor $1/M$ (de tal forma que $||\beta||_2=1/M$) y el problema se transformaría en:
 
@@ -30,7 +30,11 @@ $$\begin{equation}  \max_{\beta,\beta_0}\frac{1}{||\beta||_2} \ sujeto\ a \ y_i(
 
 Si además trabajamos con el problema equivalente
 
-$$\begin{equation} \min_{\beta,\beta_0}\frac{1}{2}||\beta||_2^2 \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n (\#eq:optim) \end{equation} $$
+\begin{equation} 
+  \min_{\beta,\beta_0}\frac{1}{2}||\beta||_2^2 \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n 
+  
+  (\#eq:optim)
+\end{equation}
 
 tendremos ahora un problema de optimización con una función objetivo cuadrática y restricciones lineales que puede resolverse eficientemente usando optimizadores convexos estándar.
 
@@ -38,13 +42,13 @@ Para resolver el problema de optimización se usa el problema dual de Lagrange c
 
 $$\begin{equation} \max_{\lambda\in \mathbb{R_{\geq0}^n}} \min_{\beta,\beta_0} L(\beta,\beta_0;\lambda) \end{equation} $$
 
-donde $L(\beta,\beta_0;\lambda)$ es el lagrangiano de $\@ref(eq:optim)$.
+donde $L(\beta,\beta_0;\lambda)$ es el lagrangiano de \@ref(eq:optim).
 
 Los estimadores de los coeficientes son calculados usando a los puntos _más cercanos_ a la frontera de decisión como puntos _soporte_ de ahí que a esos puntos se les llame _vectores soporte_
 
 Sin meternos demasiado en la teoría, el proceso de estimación de los coeficientes de una SVM y la obtención de predicciones usando a dualidad de Lagrange es el que sigue:
 
-- Resolver el problema dual de $\@ref(eq:optim)$
+- Resolver el problema dual de \@ref(eq:optim)
 
 - Sean $S=\{i:\lambda_i^*\neq0\}$ los índices de los vectores soporte
 
@@ -52,7 +56,7 @@ Sin meternos demasiado en la teoría, el proceso de estimación de los coeficien
 
 - Para cada punto nuevo $x$, lo clasificamos con $$\psi^{SVM}(x)=sgn(x^T\beta^*+\beta_0^*)$$
 
-# RKHS y el método kernel
+## RKHS y el método kernel
 
 Típicamente nos encontraremos con datos para los cuales no será evidente la existencia de un hiperplano que pueda separar a las clases. Esto puede suceder porque la frontera de clasificación es no lineal, o bien porque los datos tienen mucha varianza (_ruido_) y las densidades de las clases se intersectan.
 
@@ -86,21 +90,21 @@ __Definición:__ Una función simétrica $k:\mathcal{X}\times \mathcal{X}\righta
 
 __Teorema:__ Si $k:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}$ es un kernel definido positivo, entonces existe un espacio de Hilbert $\mathcal{H}$ y una función $\phi :\mathcal{X}\rightarrow \mathcal{H}$ tal que $k(x_1,x_2)=\langle\phi(x_1),\phi(x_2)\rangle$ donde $\langle\cdot,\cdot \rangle_\mathcal{H}$ es el producto interno en $\mathcal{H}$.
 
-Esto significa que en lugar de trabajar directamente en espacios de dimensión superior, podemos trabajar con kernels definidos positivos, más aún la _calidad_ de las SVM dependerá solamente de la elección de las funciones krnel $k$.
+Esto significa que en lugar de trabajar directamente en espacios de dimensión superior, podemos trabajar con kernels definidos positivos, más aún la _calidad_ de las SVM dependerá solamente de la elección de las funciones kernel $k$.
 
-## ¿Cómo escoger un kernel k?
+### ¿Cómo escoger un kernel k?
 
 Algunos kernels usados en la practica:
 
 - Kernel lineal: $k(x,x')=x^Tx'$
 
-- Kernel Polinomial: $ k(x,x')=(c+x^Tx')^d$. Típicamente usado si suponemos que la similaridad entre dos observaciones está dada por las covariables y interacciones de ellas.
+- Kernel Polinomial: $k(x,x')=(c+x^Tx')^d$. Típicamente usado si suponemos que la similaridad entre dos observaciones está dada por las covariables e interacciones de ellas.
 
 - Kernel Gaussiano: $k(x,x')=\exp\{-\frac{1}{2\sigma^2}||x-x'||_2^2\}$. Es el más popular para trabajar con características no lineales.
 
 - Kernel de Laplace: $k(x,x')=\exp\{-\frac{1}{\sigma}||x-x'||_2\}$. Similar al gaussiano, éste mide la similaridad de observaciones basados en la distancia en $\mathcal{X}$
 
-# _Margen suave_
+## _Margen suave_
 
 Recordemos que en el contexto de las SVM llamamos _margen_ al espacio entre la frontera de decisión y el punto más cercano de cada clase.
 
@@ -112,6 +116,6 @@ $$ \begin{equation}  \max_{\beta,\beta_0,||\beta||_2=1} M \ sujeto \ a \ y_i(x_i
 
 $$\sum_{i=1}^n \xi_i\leq K$$
 
-# SVMs en R
+## SVMs en R
 
 ..WIP...

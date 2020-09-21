@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 23 Antecedentes | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 9 Antecedentes | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 23 Antecedentes | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 9 Antecedentes | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 23 Antecedentes | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 9 Antecedentes | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="svms-en-r.html"/>
-<link rel="next" href="árboles-de-regresión.html"/>
+<link rel="prev" href="qué-es-una-svm.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,131 +138,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i><b>0.3</b> Detalles técnicos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
 </ul></li>
-<li class="part"><span><b>I Todo empieza con R</b></span></li>
-<li class="chapter" data-level="1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html"><i class="fa fa-check"></i><b>1</b> Instalando R y RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#r-y-rstudio"><i class="fa fa-check"></i><b>1.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2</b> RStudio Cloud</a></li>
-<li class="chapter" data-level="1.3" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#recursos-adicionales"><i class="fa fa-check"></i><b>1.3</b> Recursos adicionales</a></li>
+<li class="part"><span><b>I El argot de ciencia de datos</b></span></li>
+<li class="chapter" data-level="1" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>1</b> Notación</a></li>
+<li class="chapter" data-level="2" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>2</b> Glosario DSc/ML - Estadística</a></li>
+<li class="chapter" data-level="3" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>3</b> Entrenamiento de modelos</a></li>
+<li class="part"><span><b>II Modelos Lineales</b></span></li>
+<li class="chapter" data-level="4" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>4</b> Regresión Lineal</a><ul>
+<li class="chapter" data-level="4.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>4.1</b> Un poco de história</a></li>
+<li class="chapter" data-level="4.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>4.2</b> Objetivos del análisis de regresión</a></li>
+<li class="chapter" data-level="4.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>4.3</b> El algorítmo de regresión lineal</a></li>
+<li class="chapter" data-level="4.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>4.4</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="4.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>4.5</b> Solución al problema de regresión lineal simple</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>4.5.1</b> Mínimos cuadrados ordinarios</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html"><i class="fa fa-check"></i><b>2</b> Conocimientos básicos de R</a><ul>
-<li class="chapter" data-level="2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#buscando-ayuda"><i class="fa fa-check"></i><b>2.1</b> Buscando ayuda</a></li>
-<li class="chapter" data-level="2.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#arítmetica-de-vectores"><i class="fa fa-check"></i><b>2.2.1</b> Arítmetica de vectores</a></li>
+<li class="chapter" data-level="4.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>4.6</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="4.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>4.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>4.7.1</b> Ecuaciones normales</a></li>
+<li class="chapter" data-level="4.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>4.7.2</b> Evaluación de supuestos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#el-ambiente-environment."><i class="fa fa-check"></i><b>2.3</b> El ambiente (environment).</a></li>
-<li class="chapter" data-level="2.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#lectura-y-escritura-de-archivos"><i class="fa fa-check"></i><b>2.4</b> Lectura y escritura de archivos</a></li>
-<li class="chapter" data-level="2.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunas-funciones-variadas"><i class="fa fa-check"></i><b>2.5</b> Algunas funciones variadas</a></li>
-<li class="chapter" data-level="2.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#objetos"><i class="fa fa-check"></i><b>2.6</b> Objetos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores-1"><i class="fa fa-check"></i><b>2.6.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#factores"><i class="fa fa-check"></i><b>2.6.2</b> Factores</a></li>
-<li class="chapter" data-level="2.6.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#matrices"><i class="fa fa-check"></i><b>2.6.3</b> Matrices</a></li>
-<li class="chapter" data-level="2.6.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#data-frames"><i class="fa fa-check"></i><b>2.6.4</b> Data Frames</a></li>
-<li class="chapter" data-level="2.6.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#listas"><i class="fa fa-check"></i><b>2.6.5</b> Listas</a></li>
-<li class="chapter" data-level="2.6.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#expresiones"><i class="fa fa-check"></i><b>2.6.6</b> Expresiones</a></li>
+<li class="chapter" data-level="4.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>4.8</b> Aplicación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunos-ejemplos-más-avanzados"><i class="fa fa-check"></i><b>2.7</b> Algunos ejemplos más avanzados</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#operadores"><i class="fa fa-check"></i><b>2.7.1</b> Operadores</a></li>
-<li class="chapter" data-level="2.7.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#ciclos-condiciones-y-funciones"><i class="fa fa-check"></i><b>2.7.2</b> Ciclos, condiciones y funciones</a></li>
+<li class="chapter" data-level="5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>5</b> Modelos lineales generalizados</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>5.1</b> Regresión logística</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>5.2</b> Modelo de regresión logísitica simple</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>5.3</b> Modelo de regresión logísitica multiple</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>5.3.1</b> Regresión logística simple en R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>5.3.2</b> Ejercicio.</a></li>
+<li class="chapter" data-level="5.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>5.3.3</b> Regresión logística múltiple en R</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#paquetes"><i class="fa fa-check"></i><b>2.8</b> Paquetes</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>5.4</b> Regresión Multinomial</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>5.4.1</b> Regresión Multinomial en R</a></li>
 </ul></li>
-<li class="part"><span><b>II Presentando datos</b></span></li>
-<li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
-<li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
-<li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
-<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>6.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>5.5</b> Modelos para conteos</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>5.5.1</b> Sobredispersión en GLM Poisson</a></li>
+<li class="chapter" data-level="5.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>5.5.2</b> GLM Poisson R</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
-<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a><ul>
-<li class="chapter" data-level="8.0.1" data-path="gráfico-circular.html"><a href="gráfico-circular.html#ejemplo-1"><i class="fa fa-check"></i><b>8.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>5.6</b> GLM binomial negativa</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>5.6.1</b> GLM Binomial Negativa en R</a></li>
+<li class="chapter" data-level="5.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>5.6.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
-<li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
-<li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
-<li class="chapter" data-level="11" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>11</b> Entrenamiento de modelos</a></li>
-<li class="part"><span><b>IV Modelos Lineales</b></span></li>
-<li class="chapter" data-level="12" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>12</b> Regresión Lineal</a><ul>
-<li class="chapter" data-level="12.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>12.1</b> Un poco de história</a></li>
-<li class="chapter" data-level="12.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>12.2</b> Objetivos del análisis de regresión</a></li>
-<li class="chapter" data-level="12.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>12.3</b> El algorítmo de regresión lineal</a></li>
-<li class="chapter" data-level="12.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>12.4</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="12.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>12.5</b> Solución al problema de regresión lineal simple</a><ul>
-<li class="chapter" data-level="12.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>12.5.1</b> Mínimos cuadrados ordinarios</a></li>
+<li class="chapter" data-level="5.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>5.7</b> Exponencial</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>5.7.1</b> GLM Exponencial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.6</b> Regresión lineal múltiple</a></li>
-<li class="chapter" data-level="12.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>12.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
-<li class="chapter" data-level="12.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>12.7.1</b> Ecuaciones normales</a></li>
-<li class="chapter" data-level="12.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>12.7.2</b> Evaluación de supuestos</a></li>
-</ul></li>
-<li class="chapter" data-level="12.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>12.8</b> Aplicación en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>13</b> Modelos lineales generalizados</a><ul>
-<li class="chapter" data-level="13.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>13.1</b> Regresión logística</a></li>
-<li class="chapter" data-level="13.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>13.2</b> Modelo de regresión logísitica simple</a></li>
-<li class="chapter" data-level="13.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>13.3</b> Modelo de regresión logísitica multiple</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>13.3.1</b> Regresión logística simple en R</a></li>
-<li class="chapter" data-level="13.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>13.3.2</b> Ejercicio.</a></li>
-<li class="chapter" data-level="13.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>13.3.3</b> Regresión logística múltiple en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>13.4</b> Regresión Multinomial</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>13.4.1</b> Regresión Multinomial en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>13.5</b> Modelos para conteos</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>13.5.1</b> Sobredispersión en GLM Poisson</a></li>
-<li class="chapter" data-level="13.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>13.5.2</b> GLM Poisson R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>13.6</b> GLM binomial negativa</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>13.6.1</b> GLM Binomial Negativa en R</a></li>
-<li class="chapter" data-level="13.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>13.6.2</b> Ejercicio</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>13.7</b> Exponencial</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>13.7.1</b> GLM Exponencial en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>13.8</b> Gamma</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>13.8.1</b> GLM Gamma en R</a></li>
+<li class="chapter" data-level="5.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>5.8</b> Gamma</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>5.8.1</b> GLM Gamma en R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>14</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
-<li class="chapter" data-level="14.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>14.1</b> Exploración de los datos.</a></li>
-<li class="chapter" data-level="14.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>14.2</b> Elección de la estructura de errores y función liga.</a></li>
-<li class="chapter" data-level="14.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>14.3</b> Bondad de ajuste.</a></li>
-<li class="chapter" data-level="14.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>14.4</b> Simplificación del modelo.</a></li>
-<li class="chapter" data-level="14.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>14.5</b> Criterios de evaluación de modelos.</a></li>
-<li class="chapter" data-level="14.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>14.6</b> Análisis de los residuos.</a></li>
-<li class="chapter" data-level="14.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>14.7</b> Evaluación de GLMs en R</a></li>
+<li class="chapter" data-level="6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>6</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>6.1</b> Exploración de los datos.</a></li>
+<li class="chapter" data-level="6.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>6.2</b> Elección de la estructura de errores y función liga.</a></li>
+<li class="chapter" data-level="6.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>6.3</b> Bondad de ajuste.</a></li>
+<li class="chapter" data-level="6.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>6.4</b> Simplificación del modelo.</a></li>
+<li class="chapter" data-level="6.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>6.5</b> Criterios de evaluación de modelos.</a></li>
+<li class="chapter" data-level="6.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>6.6</b> Análisis de los residuos.</a></li>
+<li class="chapter" data-level="6.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>6.7</b> Evaluación de GLMs en R</a></li>
 </ul></li>
-<li class="part"><span><b>V Redes neuronales</b></span></li>
-<li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="15.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
+<li class="part"><span><b>III Redes neuronales</b></span></li>
+<li class="chapter" data-level="7" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>7</b> ¿Qué es una red neuronal?</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>7.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#teorema-de-universalidad"><i class="fa fa-check"></i><b>7.1</b> Teorema de Universalidad</a></li>
+<li class="chapter" data-level="7.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#entrenamiento-de-una-red-neuronal"><i class="fa fa-check"></i><b>7.2</b> Entrenamiento de una red neuronal</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>7.2.1</b> Back-propagation</a></li>
+<li class="chapter" data-level="7.2.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>7.2.2</b> Saturación</a></li>
+<li class="chapter" data-level="7.2.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>7.2.3</b> Regularización</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
-<li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
-<li class="chapter" data-level="17.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>17.1</b> Back-propagation</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#ejemplo-back-propagation."><i class="fa fa-check"></i><b>17.1.1</b> Ejemplo (back-propagation).</a></li>
+<li class="chapter" data-level="7.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>7.3</b> Redes Neuronales en R</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>17.2</b> Saturación</a></li>
-<li class="chapter" data-level="17.3" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>17.3</b> Regularización</a></li>
-<li class="chapter" data-level="17.4" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>17.4</b> Redes Neuronales en R</a></li>
+<li class="part"><span><b>IV Maquinas de Soporte Vectorial (SVM)</b></span></li>
+<li class="chapter" data-level="8" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>8</b> ¿Qué es una SVM?</a><ul>
+<li class="chapter" data-level="8.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#estimación-de-los-coeficientes"><i class="fa fa-check"></i><b>8.1</b> Estimación de los coeficientes</a></li>
+<li class="chapter" data-level="8.2" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#rkhs-y-el-método-kernel"><i class="fa fa-check"></i><b>8.2</b> RKHS y el método kernel</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>8.2.1</b> ¿Cómo escoger un kernel k?</a></li>
 </ul></li>
-<li class="part"><span><b>VI Maquinas de Soporte Vectorial (SVM)</b></span></li>
-<li class="chapter" data-level="18" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>18</b> ¿Qué es una SVM?</a></li>
-<li class="chapter" data-level="19" data-path="estimación-de-los-coeficientes.html"><a href="estimación-de-los-coeficientes.html"><i class="fa fa-check"></i><b>19</b> Estimación de los coeficientes</a></li>
-<li class="chapter" data-level="20" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html"><i class="fa fa-check"></i><b>20</b> RKHS y el método kernel</a><ul>
-<li class="chapter" data-level="20.1" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo escoger un kernel k?</a></li>
+<li class="chapter" data-level="8.3" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#margen-suave"><i class="fa fa-check"></i><b>8.3</b> <em>Margen suave</em></a></li>
+<li class="chapter" data-level="8.4" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#svms-en-r"><i class="fa fa-check"></i><b>8.4</b> SVMs en R</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="margen-suave.html"><a href="margen-suave.html"><i class="fa fa-check"></i><b>21</b> <em>Margen suave</em></a></li>
-<li class="chapter" data-level="22" data-path="svms-en-r.html"><a href="svms-en-r.html"><i class="fa fa-check"></i><b>22</b> SVMs en R</a></li>
-<li class="part"><span><b>VII Árboles de regresión y clasificación</b></span></li>
-<li class="chapter" data-level="23" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>23</b> Antecedentes</a></li>
-<li class="chapter" data-level="24" data-path="árboles-de-regresión.html"><a href="árboles-de-regresión.html"><i class="fa fa-check"></i><b>24</b> Árboles de regresión</a></li>
-<li class="chapter" data-level="25" data-path="árboles-de-clasificación.html"><a href="árboles-de-clasificación.html"><i class="fa fa-check"></i><b>25</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="26" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html"><i class="fa fa-check"></i><b>26</b> Alguno problemas en los árboles</a><ul>
-<li class="chapter" data-level="26.1" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#covariables-categóricas"><i class="fa fa-check"></i><b>26.1</b> Covariables categóricas</a></li>
-<li class="chapter" data-level="26.2" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>26.2</b> La matriz de pérdida</a></li>
+<li class="part"><span><b>V Árboles de regresión y clasificación</b></span></li>
+<li class="chapter" data-level="9" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>9</b> Antecedentes</a><ul>
+<li class="chapter" data-level="9.1" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-regresión"><i class="fa fa-check"></i><b>9.1</b> Árboles de regresión</a></li>
+<li class="chapter" data-level="9.2" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-clasificación"><i class="fa fa-check"></i><b>9.2</b> Árboles de clasificación</a></li>
+<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
+<li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="árboles-en-r.html"><a href="árboles-en-r.html"><i class="fa fa-check"></i><b>27</b> Árboles en R</a></li>
-<li class="part"><span><b>VIII Random Forests</b></span></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+</ul></li>
+<li class="part"><span><b>VI Random Forests</b></span></li>
 </ul>
 
       </nav>
@@ -281,18 +242,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="antecedentes" class="section level1">
-<h1><span class="header-section-number">Capítulo 23</span> Antecedentes</h1>
+<h1><span class="header-section-number">Capítulo 9</span> Antecedentes</h1>
 <p>También llamados <em>métodos basados en árboles</em>, son algorítmos que hacen particiones al espacio de covariables y a cada una de ellas le ajustan un modelo simple, por ejemplo una constante.</p>
 <p>Para hacer la tarea <em>sencilla</em> pensemos las particiones como binarias, es decir, el primer pasó será partir el espacio de covariables en dos, luego cada parte se divide en dos regiones más y continuamos el proceso hasta cumplir alguna regla de paro.</p>
 <p>Una parte muy importante de este tipo de modelos binarios es la interpretabilidad pues el árbol estratifica la población de acuerdo a sus características.</p>
+<div id="árboles-de-regresión" class="section level2">
+<h2><span class="header-section-number">9.1</span> Árboles de regresión</h2>
+<p>Supongamos que tenemos <span class="math inline">\(p\)</span> covariables, una variable de respuesta/objetivo y <span class="math inline">\(N\)</span> observaciones. El argoritmo debe poder decidir las variables a particionar, los puntos de quiebre y la topología del árbol.</p>
+<p>Supongamos que tenemos una partición de en <span class="math inline">\(M\)</span> regiones <span class="math inline">\(R_1,R_2,\dots,R_M\)</span> y modelamos la respuesta como la constante <span class="math inline">\(c_m\)</span> en cada región:</p>
+<p><span class="math display">\[f(x)=\sum_{m=1}^M c_mI(x\in R_m)\]</span></p>
+<p>Si tomamos como criterio minimizar la suma de cuadrados <span class="math inline">\(\sum(y_i-f(x_i))^2\)</span>, es sencillo obtener que la mejor <span class="math inline">\(\hat{c}_m\)</span> es el promedio de <span class="math inline">\(y_i\)</span> en la región <span class="math inline">\(R_m\)</span>:</p>
+<p><span class="math display">\[\hat{c}_m=prom(y_i|x_i\in R_m)\]</span></p>
+<p>Ahora para encontrar la mejor partición binaria en términos de la suma de cuadrados seguimos lo siguiente pasos:</p>
+<p>Consideremos la variable de partición <span class="math inline">\(j\)</span> y el punto de quiebre <span class="math inline">\(s\)</span> definimos el par de semiplanos</p>
+<p><span class="math display">\[R_1(j,s)=\{X|X_j\leq s\}\]</span></p>
+<p><span class="math display">\[R_2(j,s)=\{X|X_j &gt;s\}\]</span></p>
+<p>Entonces buscamos la variabe <span class="math inline">\(j\)</span> y el punto de quiebre <span class="math inline">\(s\)</span> que resuelve</p>
+<p><span class="math display">\[\min_{j,s}[\min_{c_1}\sum_{x_i\in R_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in R_2(j,s)}(y_i-c_2)^2]\]</span></p>
+<p>Para cualquier elección de <span class="math inline">\(j\)</span> y <span class="math inline">\(s\)</span> la minimización dentro de los corchetes se resuelve como</p>
+<p><span class="math display">\[\hat{c}_1=prom(y_i|x_i \in R_1(j,s))\]</span> y <span class="math display">\[\hat{c}_2=prom(y_i|x_i \in R_2(j,s))\]</span></p>
+<p>Para cada variable de partición, encontrar el punto de quiebre <span class="math inline">\(s\)</span> se puede hacer muy rápidamente pasando por todos los puntos.</p>
+<p>Una vez encontrada la mejor partición, volvemos a hacer particiones siguiendo el mismo método.</p>
+<p><strong>¿Qué tanto debemos dejar que un árbol crezca?</strong></p>
+<p>El crecimiento de un árbol hace referencia a la cantidad de particiones que contiene. En este sentido un árbol muy grande podría sobre ajustar los datos mientras que uno muy pequeño podría no capturar la estructura de ellos.</p>
+<p>El tamaño del árbol es un parámetro que incide directamente en la complejidad del modelo y el tamaño óptimo debe ser elegido de forma adaptativa según los datos.</p>
+<p>La solución usada es dejar crecer el árbol (<span class="math inline">\(T_0\)</span>) hasta tener un tamaño de nodo específico y entonces <em>podar</em> el árbol usando una estrategia costo-complejidad como mostramos en seguida.</p>
+<p>Definimos un sub-árbol <span class="math inline">\(T \subset T_0\)</span> como cualquier árbol que pueda ser obtenido de podar el árbol <span class="math inline">\(T_0\)</span>, es decir, colapsar el número de sus nodos internos.</p>
+<p>Indexemos los nodos terminales con <span class="math inline">\(m\)</span>, siendo el nodo <span class="math inline">\(m\)</span> representante de la región <span class="math inline">\(R_m\)</span>. Sea <span class="math inline">\(|T|\)</span> el número de nodos terminales en el árbol <span class="math inline">\(T\)</span> y sean</p>
+<p><span class="math display">\[N_m=\#\{x_i\in R_m\}\]</span></p>
+<p><span class="math display">\[\hat{c}_m=\frac{1}{N_m}\sum_{x_i\in R_m}y_i\]</span></p>
+<p><span class="math display">\[Q_m(T)=\frac{1}{N_m}\sum_{x_i\in R_m}(y_i-\hat{c}_m)^2\]</span></p>
+<p>definimos entonces el criterio costo-complejidad como:</p>
+<p><span class="math display">\[C_\alpha(T)=\sum_{m=1}^{|T|}N_mQ_m(T)+\alpha |T|\]</span></p>
+<p>La idea es encontrar, para cada <span class="math inline">\(\alpha\)</span>, el sub-árbol <span class="math inline">\(T_\alpha \subseteq T_0\)</span> que minimice <span class="math inline">\(C_\alpha(T)\)</span>.</p>
+<p>El parámetro <span class="math inline">\(\alpha \geq 0\)</span> controla el tradeoff entre el tamaño del árbol y la bondad de ajuste a los datos. Valores grandes de <span class="math inline">\(\alpha\)</span> resultará en árboles pequeños y viceversa.</p>
+</div>
+<div id="árboles-de-clasificación" class="section level2">
+<h2><span class="header-section-number">9.2</span> Árboles de clasificación</h2>
+<p>Si el objetivo es clasificar los cambios necesarios al algoritmo ocurren en los criterios de partición y de <em>poda</em>. Para árboles de regresión usamos la medida de impureza del nodo, error cuadrático, <span class="math inline">\(Q_m(T)\)</span> pero ésta no es útil para clasificación.</p>
+<p>Para cada nodo <span class="math inline">\(m\)</span>, representando una región <span class="math inline">\(R_m\)</span> con <span class="math inline">\(N_m\)</span> observaciones sea</p>
+<p><span class="math display">\[\hat{p}_{mk}=\frac{1}{N_m}\sum_{x_i\in R_m}I(y_i=k)\]</span></p>
+<p>la proporción de observaciones de la clase <span class="math inline">\(k\)</span> en el nodo <span class="math inline">\(m\)</span>.</p>
+<p>Clasificamos, entonces, las observaciones en el nodo <span class="math inline">\(m\)</span> a la clase <span class="math inline">\(k(m)=\arg \max_k \ \hat{p}_{mk}\)</span>, es decir, la clase mayoritaria en el nodo <span class="math inline">\(m\)</span>. Algunas medidas <span class="math inline">\(Q_m(T)\)</span> de impureza del nodo son:</p>
+<ul>
+<li><p>Error de clasificación: <span class="math inline">\(\frac{1}{N_m}\sum_{i \in R_m}I(y_i \neq k(m))=1-\hat{p}_{mk(m)}\)</span></p></li>
+<li><p>Índice GINI: <span class="math inline">\(\sum_{k \ne k&#39;}\hat{p}_{mk}\hat{p}_{mk&#39;}=\sum_{k=1}^K\hat{p}_{mk}(1-\hat{p}_{mk})\)</span></p></li>
+<li><p>Entropía cruzada: <span class="math inline">\(-\sum_{k=1}^K\hat{p}_{mk}\log\hat{p}_{mk}\)</span></p></li>
+</ul>
+<p>En el caso de dos clases, si <span class="math inline">\(p\)</span> es la proporción de la segunda clase, las medidas son:</p>
+<ul>
+<li><p>Error de clasificación: <span class="math inline">\(1-max(p,1-p)\)</span></p></li>
+<li><p>Índice GINI: <span class="math inline">\(2p(1-p)\)</span></p></li>
+<li><p>Entropía: <span class="math inline">\(-p\log p-(1-p) \log (1-p)\)</span></p></li>
+</ul>
+</div>
+<div id="algunos-problemas-en-los-árboles" class="section level2">
+<h2><span class="header-section-number">9.3</span> AlgunoS problemas en los árboles</h2>
+<div id="covariables-categóricas" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Covariables categóricas</h3>
+<p>Al trabajar con una covariable/predictora categórica con <span class="math inline">\(q\)</span> posibles valores existen <span class="math inline">\(2^{q-1}-1\)</span> posibles particiones binarias y el tiempo de computación se vuelve enorme para valores grandes de <span class="math inline">\(q\)</span>.</p>
+<p>Sin embargo si tenemos un problema de clasificación de dos clases <span class="math inline">\((0,1)\)</span> podemos simplificar el problema ordenando los valores de la variable categórica de acuerdo a la propoción en la clase 1, entonces hacemos las particiones como si la variable fuera ordinal.</p>
+<p>Es posible demostrar que este procedimiento logra la partición óptima en términos de entropía o índice Gini de entre las <span class="math inline">\(2^{q-1}-1\)</span> posibles.</p>
+</div>
+<div id="la-matriz-de-pérdida" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> La matriz de pérdida</h3>
+<p>En problemas de clasificación, las consecuencias de hacerlo incorrectamente pueden ser más importantes para alguna clase que para otras.</p>
+<p>Para resolver esta situación definimos una matriz de pérdida <span class="math inline">\(L\)</span> de <span class="math inline">\(K\times K\)</span>, con <span class="math inline">\(L_{kk&#39;}\)</span> siendo la <em>pérdida</em> incurrida por clasificar erroneamente una clase <span class="math inline">\(k\)</span> como una <span class="math inline">\(k&#39;\)</span>. Típicamente <span class="math inline">\(L_{kk}=0\ \forall k\)</span>.</p>
+<p>Para incorporar las <em>pérdidas</em> en el modelo podemos modificar el índice Gini como <span class="math inline">\(\sum_{k \neq k&#39;}L_{kk&#39;}\hat{p}_{mk}\hat{p}_{mk&#39;}\)</span>.</p>
+<p>Aunque en el caso de <span class="math inline">\(k&gt;2\)</span> clases es muy útil, no lo es para el caso <span class="math inline">\(k=2\)</span>, ¿por qué?</p>
+</div>
+</div>
+<div id="árboles-en-r" class="section level2">
+<h2><span class="header-section-number">9.4</span> Árboles en R</h2>
+<p>…WIP…</p>
+
+</div>
+</div>
+
+
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="svms-en-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="árboles-de-regresión.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="qué-es-una-svm.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

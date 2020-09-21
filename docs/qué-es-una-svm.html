@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 18 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 8 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 18 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 8 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 18 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 8 ¿Qué es una SVM? | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="entrenamiento-de-una-red-neuronal.html"/>
-<link rel="next" href="estimación-de-los-coeficientes.html"/>
+<link rel="prev" href="qué-es-una-red-neuronal.html"/>
+<link rel="next" href="antecedentes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,131 +138,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i><b>0.3</b> Detalles técnicos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i>Licencia</a></li>
 </ul></li>
-<li class="part"><span><b>I Todo empieza con R</b></span></li>
-<li class="chapter" data-level="1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html"><i class="fa fa-check"></i><b>1</b> Instalando R y RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#r-y-rstudio"><i class="fa fa-check"></i><b>1.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2</b> RStudio Cloud</a></li>
-<li class="chapter" data-level="1.3" data-path="instalando-r-y-rstudio.html"><a href="instalando-r-y-rstudio.html#recursos-adicionales"><i class="fa fa-check"></i><b>1.3</b> Recursos adicionales</a></li>
+<li class="part"><span><b>I El argot de ciencia de datos</b></span></li>
+<li class="chapter" data-level="1" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>1</b> Notación</a></li>
+<li class="chapter" data-level="2" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>2</b> Glosario DSc/ML - Estadística</a></li>
+<li class="chapter" data-level="3" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>3</b> Entrenamiento de modelos</a></li>
+<li class="part"><span><b>II Modelos Lineales</b></span></li>
+<li class="chapter" data-level="4" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>4</b> Regresión Lineal</a><ul>
+<li class="chapter" data-level="4.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>4.1</b> Un poco de história</a></li>
+<li class="chapter" data-level="4.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>4.2</b> Objetivos del análisis de regresión</a></li>
+<li class="chapter" data-level="4.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>4.3</b> El algorítmo de regresión lineal</a></li>
+<li class="chapter" data-level="4.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>4.4</b> Regresión lineal simple</a></li>
+<li class="chapter" data-level="4.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>4.5</b> Solución al problema de regresión lineal simple</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>4.5.1</b> Mínimos cuadrados ordinarios</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html"><i class="fa fa-check"></i><b>2</b> Conocimientos básicos de R</a><ul>
-<li class="chapter" data-level="2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#buscando-ayuda"><i class="fa fa-check"></i><b>2.1</b> Buscando ayuda</a></li>
-<li class="chapter" data-level="2.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#arítmetica-de-vectores"><i class="fa fa-check"></i><b>2.2.1</b> Arítmetica de vectores</a></li>
+<li class="chapter" data-level="4.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>4.6</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="4.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>4.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>4.7.1</b> Ecuaciones normales</a></li>
+<li class="chapter" data-level="4.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>4.7.2</b> Evaluación de supuestos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#el-ambiente-environment."><i class="fa fa-check"></i><b>2.3</b> El ambiente (environment).</a></li>
-<li class="chapter" data-level="2.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#lectura-y-escritura-de-archivos"><i class="fa fa-check"></i><b>2.4</b> Lectura y escritura de archivos</a></li>
-<li class="chapter" data-level="2.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunas-funciones-variadas"><i class="fa fa-check"></i><b>2.5</b> Algunas funciones variadas</a></li>
-<li class="chapter" data-level="2.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#objetos"><i class="fa fa-check"></i><b>2.6</b> Objetos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#vectores-1"><i class="fa fa-check"></i><b>2.6.1</b> Vectores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#factores"><i class="fa fa-check"></i><b>2.6.2</b> Factores</a></li>
-<li class="chapter" data-level="2.6.3" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#matrices"><i class="fa fa-check"></i><b>2.6.3</b> Matrices</a></li>
-<li class="chapter" data-level="2.6.4" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#data-frames"><i class="fa fa-check"></i><b>2.6.4</b> Data Frames</a></li>
-<li class="chapter" data-level="2.6.5" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#listas"><i class="fa fa-check"></i><b>2.6.5</b> Listas</a></li>
-<li class="chapter" data-level="2.6.6" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#expresiones"><i class="fa fa-check"></i><b>2.6.6</b> Expresiones</a></li>
+<li class="chapter" data-level="4.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>4.8</b> Aplicación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#algunos-ejemplos-más-avanzados"><i class="fa fa-check"></i><b>2.7</b> Algunos ejemplos más avanzados</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#operadores"><i class="fa fa-check"></i><b>2.7.1</b> Operadores</a></li>
-<li class="chapter" data-level="2.7.2" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#ciclos-condiciones-y-funciones"><i class="fa fa-check"></i><b>2.7.2</b> Ciclos, condiciones y funciones</a></li>
+<li class="chapter" data-level="5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>5</b> Modelos lineales generalizados</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>5.1</b> Regresión logística</a></li>
+<li class="chapter" data-level="5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>5.2</b> Modelo de regresión logísitica simple</a></li>
+<li class="chapter" data-level="5.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>5.3</b> Modelo de regresión logísitica multiple</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>5.3.1</b> Regresión logística simple en R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>5.3.2</b> Ejercicio.</a></li>
+<li class="chapter" data-level="5.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>5.3.3</b> Regresión logística múltiple en R</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="conocimientos-básicos-de-r.html"><a href="conocimientos-básicos-de-r.html#paquetes"><i class="fa fa-check"></i><b>2.8</b> Paquetes</a></li>
+<li class="chapter" data-level="5.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>5.4</b> Regresión Multinomial</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>5.4.1</b> Regresión Multinomial en R</a></li>
 </ul></li>
-<li class="part"><span><b>II Presentando datos</b></span></li>
-<li class="chapter" data-level="3" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>3</b> Introducción</a></li>
-<li class="chapter" data-level="4" data-path="manejo-de-números.html"><a href="manejo-de-números.html"><i class="fa fa-check"></i><b>4</b> Manejo de números</a></li>
-<li class="chapter" data-level="5" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>5</b> Tablas</a></li>
-<li class="chapter" data-level="6" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html"><i class="fa fa-check"></i><b>6</b> Tabla de resumen</a><ul>
-<li class="chapter" data-level="6.0.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>6.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>5.5</b> Modelos para conteos</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>5.5.1</b> Sobredispersión en GLM Poisson</a></li>
+<li class="chapter" data-level="5.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>5.5.2</b> GLM Poisson R</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
-<li class="chapter" data-level="8" data-path="gráfico-circular.html"><a href="gráfico-circular.html"><i class="fa fa-check"></i><b>8</b> Gráfico circular</a><ul>
-<li class="chapter" data-level="8.0.1" data-path="gráfico-circular.html"><a href="gráfico-circular.html#ejemplo-1"><i class="fa fa-check"></i><b>8.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="5.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>5.6</b> GLM binomial negativa</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>5.6.1</b> GLM Binomial Negativa en R</a></li>
+<li class="chapter" data-level="5.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>5.6.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="part"><span><b>III El argot de ciencia de datos</b></span></li>
-<li class="chapter" data-level="9" data-path="notación.html"><a href="notación.html"><i class="fa fa-check"></i><b>9</b> Notación</a></li>
-<li class="chapter" data-level="10" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>10</b> Glosario DSc/ML - Estadística</a></li>
-<li class="chapter" data-level="11" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>11</b> Entrenamiento de modelos</a></li>
-<li class="part"><span><b>IV Modelos Lineales</b></span></li>
-<li class="chapter" data-level="12" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>12</b> Regresión Lineal</a><ul>
-<li class="chapter" data-level="12.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>12.1</b> Un poco de história</a></li>
-<li class="chapter" data-level="12.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>12.2</b> Objetivos del análisis de regresión</a></li>
-<li class="chapter" data-level="12.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>12.3</b> El algorítmo de regresión lineal</a></li>
-<li class="chapter" data-level="12.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>12.4</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="12.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>12.5</b> Solución al problema de regresión lineal simple</a><ul>
-<li class="chapter" data-level="12.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>12.5.1</b> Mínimos cuadrados ordinarios</a></li>
+<li class="chapter" data-level="5.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>5.7</b> Exponencial</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>5.7.1</b> GLM Exponencial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.6</b> Regresión lineal múltiple</a></li>
-<li class="chapter" data-level="12.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>12.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
-<li class="chapter" data-level="12.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>12.7.1</b> Ecuaciones normales</a></li>
-<li class="chapter" data-level="12.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>12.7.2</b> Evaluación de supuestos</a></li>
-</ul></li>
-<li class="chapter" data-level="12.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>12.8</b> Aplicación en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>13</b> Modelos lineales generalizados</a><ul>
-<li class="chapter" data-level="13.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>13.1</b> Regresión logística</a></li>
-<li class="chapter" data-level="13.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>13.2</b> Modelo de regresión logísitica simple</a></li>
-<li class="chapter" data-level="13.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>13.3</b> Modelo de regresión logísitica multiple</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>13.3.1</b> Regresión logística simple en R</a></li>
-<li class="chapter" data-level="13.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>13.3.2</b> Ejercicio.</a></li>
-<li class="chapter" data-level="13.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>13.3.3</b> Regresión logística múltiple en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>13.4</b> Regresión Multinomial</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>13.4.1</b> Regresión Multinomial en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>13.5</b> Modelos para conteos</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>13.5.1</b> Sobredispersión en GLM Poisson</a></li>
-<li class="chapter" data-level="13.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>13.5.2</b> GLM Poisson R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>13.6</b> GLM binomial negativa</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>13.6.1</b> GLM Binomial Negativa en R</a></li>
-<li class="chapter" data-level="13.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>13.6.2</b> Ejercicio</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>13.7</b> Exponencial</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>13.7.1</b> GLM Exponencial en R</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>13.8</b> Gamma</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>13.8.1</b> GLM Gamma en R</a></li>
+<li class="chapter" data-level="5.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>5.8</b> Gamma</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>5.8.1</b> GLM Gamma en R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>14</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
-<li class="chapter" data-level="14.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>14.1</b> Exploración de los datos.</a></li>
-<li class="chapter" data-level="14.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>14.2</b> Elección de la estructura de errores y función liga.</a></li>
-<li class="chapter" data-level="14.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>14.3</b> Bondad de ajuste.</a></li>
-<li class="chapter" data-level="14.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>14.4</b> Simplificación del modelo.</a></li>
-<li class="chapter" data-level="14.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>14.5</b> Criterios de evaluación de modelos.</a></li>
-<li class="chapter" data-level="14.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>14.6</b> Análisis de los residuos.</a></li>
-<li class="chapter" data-level="14.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>14.7</b> Evaluación de GLMs en R</a></li>
+<li class="chapter" data-level="6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>6</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>6.1</b> Exploración de los datos.</a></li>
+<li class="chapter" data-level="6.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>6.2</b> Elección de la estructura de errores y función liga.</a></li>
+<li class="chapter" data-level="6.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>6.3</b> Bondad de ajuste.</a></li>
+<li class="chapter" data-level="6.4" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#simplificación-del-modelo."><i class="fa fa-check"></i><b>6.4</b> Simplificación del modelo.</a></li>
+<li class="chapter" data-level="6.5" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#criterios-de-evaluación-de-modelos."><i class="fa fa-check"></i><b>6.5</b> Criterios de evaluación de modelos.</a></li>
+<li class="chapter" data-level="6.6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#análisis-de-los-residuos."><i class="fa fa-check"></i><b>6.6</b> Análisis de los residuos.</a></li>
+<li class="chapter" data-level="6.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>6.7</b> Evaluación de GLMs en R</a></li>
 </ul></li>
-<li class="part"><span><b>V Redes neuronales</b></span></li>
-<li class="chapter" data-level="15" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>15</b> ¿Qué es una red neuronal?</a><ul>
-<li class="chapter" data-level="15.1" data-path="tabla-de-resumen.html"><a href="tabla-de-resumen.html#ejemplo"><i class="fa fa-check"></i><b>15.1</b> Ejemplo</a></li>
+<li class="part"><span><b>III Redes neuronales</b></span></li>
+<li class="chapter" data-level="7" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>7</b> ¿Qué es una red neuronal?</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>7.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#teorema-de-universalidad"><i class="fa fa-check"></i><b>7.1</b> Teorema de Universalidad</a></li>
+<li class="chapter" data-level="7.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#entrenamiento-de-una-red-neuronal"><i class="fa fa-check"></i><b>7.2</b> Entrenamiento de una red neuronal</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>7.2.1</b> Back-propagation</a></li>
+<li class="chapter" data-level="7.2.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>7.2.2</b> Saturación</a></li>
+<li class="chapter" data-level="7.2.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>7.2.3</b> Regularización</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="teorema-de-universalidad.html"><a href="teorema-de-universalidad.html"><i class="fa fa-check"></i><b>16</b> Teorema de Universalidad</a></li>
-<li class="chapter" data-level="17" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html"><i class="fa fa-check"></i><b>17</b> Entrenamiento de una red neuronal</a><ul>
-<li class="chapter" data-level="17.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>17.1</b> Back-propagation</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#ejemplo-back-propagation."><i class="fa fa-check"></i><b>17.1.1</b> Ejemplo (back-propagation).</a></li>
+<li class="chapter" data-level="7.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>7.3</b> Redes Neuronales en R</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>17.2</b> Saturación</a></li>
-<li class="chapter" data-level="17.3" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>17.3</b> Regularización</a></li>
-<li class="chapter" data-level="17.4" data-path="entrenamiento-de-una-red-neuronal.html"><a href="entrenamiento-de-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>17.4</b> Redes Neuronales en R</a></li>
+<li class="part"><span><b>IV Maquinas de Soporte Vectorial (SVM)</b></span></li>
+<li class="chapter" data-level="8" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>8</b> ¿Qué es una SVM?</a><ul>
+<li class="chapter" data-level="8.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#estimación-de-los-coeficientes"><i class="fa fa-check"></i><b>8.1</b> Estimación de los coeficientes</a></li>
+<li class="chapter" data-level="8.2" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#rkhs-y-el-método-kernel"><i class="fa fa-check"></i><b>8.2</b> RKHS y el método kernel</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>8.2.1</b> ¿Cómo escoger un kernel k?</a></li>
 </ul></li>
-<li class="part"><span><b>VI Maquinas de Soporte Vectorial (SVM)</b></span></li>
-<li class="chapter" data-level="18" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>18</b> ¿Qué es una SVM?</a></li>
-<li class="chapter" data-level="19" data-path="estimación-de-los-coeficientes.html"><a href="estimación-de-los-coeficientes.html"><i class="fa fa-check"></i><b>19</b> Estimación de los coeficientes</a></li>
-<li class="chapter" data-level="20" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html"><i class="fa fa-check"></i><b>20</b> RKHS y el método kernel</a><ul>
-<li class="chapter" data-level="20.1" data-path="rkhs-y-el-método-kernel.html"><a href="rkhs-y-el-método-kernel.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>20.1</b> ¿Cómo escoger un kernel k?</a></li>
+<li class="chapter" data-level="8.3" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#margen-suave"><i class="fa fa-check"></i><b>8.3</b> <em>Margen suave</em></a></li>
+<li class="chapter" data-level="8.4" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#svms-en-r"><i class="fa fa-check"></i><b>8.4</b> SVMs en R</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="margen-suave.html"><a href="margen-suave.html"><i class="fa fa-check"></i><b>21</b> <em>Margen suave</em></a></li>
-<li class="chapter" data-level="22" data-path="svms-en-r.html"><a href="svms-en-r.html"><i class="fa fa-check"></i><b>22</b> SVMs en R</a></li>
-<li class="part"><span><b>VII Árboles de regresión y clasificación</b></span></li>
-<li class="chapter" data-level="23" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>23</b> Antecedentes</a></li>
-<li class="chapter" data-level="24" data-path="árboles-de-regresión.html"><a href="árboles-de-regresión.html"><i class="fa fa-check"></i><b>24</b> Árboles de regresión</a></li>
-<li class="chapter" data-level="25" data-path="árboles-de-clasificación.html"><a href="árboles-de-clasificación.html"><i class="fa fa-check"></i><b>25</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="26" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html"><i class="fa fa-check"></i><b>26</b> Alguno problemas en los árboles</a><ul>
-<li class="chapter" data-level="26.1" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#covariables-categóricas"><i class="fa fa-check"></i><b>26.1</b> Covariables categóricas</a></li>
-<li class="chapter" data-level="26.2" data-path="alguno-problemas-en-los-árboles.html"><a href="alguno-problemas-en-los-árboles.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>26.2</b> La matriz de pérdida</a></li>
+<li class="part"><span><b>V Árboles de regresión y clasificación</b></span></li>
+<li class="chapter" data-level="9" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>9</b> Antecedentes</a><ul>
+<li class="chapter" data-level="9.1" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-regresión"><i class="fa fa-check"></i><b>9.1</b> Árboles de regresión</a></li>
+<li class="chapter" data-level="9.2" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-clasificación"><i class="fa fa-check"></i><b>9.2</b> Árboles de clasificación</a></li>
+<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
+<li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="árboles-en-r.html"><a href="árboles-en-r.html"><i class="fa fa-check"></i><b>27</b> Árboles en R</a></li>
-<li class="part"><span><b>VIII Random Forests</b></span></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+</ul></li>
+<li class="part"><span><b>VI Random Forests</b></span></li>
 </ul>
 
       </nav>
@@ -281,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="qué-es-una-svm" class="section level1">
-<h1><span class="header-section-number">Capítulo 18</span> ¿Qué es una SVM?</h1>
+<h1><span class="header-section-number">Capítulo 8</span> ¿Qué es una SVM?</h1>
 <p>Las maquinas de soporte vectorial son, en principio, un clasificador lineal con las característica de que no asume ninguna dsitribución a los datos y directamente busca el hiperplano óptimo que separa los datos en clases.</p>
 <p>De forma inherente una SVM es un clasificador de dos clases, sin embargo para usarlas en problemas con <span class="math inline">\(L&gt;2\)</span> clases bastará con aplicar el algorítmo repetidamente comparando cada clase contra el resto o bien aplicar distintas SVM para cada par de clases y finalmente clasificar un nuevo punto vía <em>mayoría clasificada</em> para las SVMs.</p>
 <p>En este capítulo exploraremos brevemente la teoría detras de las SVM para dos clases.</p>
@@ -292,14 +253,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Las SMV buscan aquel hiperplano que separa completamente a las dos clases y que maximiza la distancia hacia el punto más cercano. Este plano puede determinarse a través del siguiente problema de optimización:</p>
 <p><span class="math display">\[ \begin{equation}  \max_{\beta,\beta_0,||\beta||_2=1} M \ sujeto \ a \ y_i(x_i^T\beta+\beta_0)\geq M,\ i=1,\dots,n \end{equation} \]</span></p>
 <p>Donde <span class="math inline">\(M\)</span> lo podemos interpretar como el margen alrededor del hiperplano optimo que no contiene a ninguna observación.</p>
+<div id="estimación-de-los-coeficientes" class="section level2">
+<h2><span class="header-section-number">8.1</span> Estimación de los coeficientes</h2>
+<p>El problema de optimización mostrado es complicado de resolver fundamentalmente por la restricción <span class="math inline">\(||\beta||_2=1\)</span>, sin embargo dado que el plano <span class="math inline">\(H_{\beta_0,\beta}\)</span> es invariente bajo escalamiento sobre <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta\)</span> podemos aplicar el factor <span class="math inline">\(1/M\)</span> (de tal forma que <span class="math inline">\(||\beta||_2=1/M\)</span>) y el problema se transformaría en:</p>
+<p><span class="math display">\[\begin{equation}  \max_{\beta,\beta_0}\frac{1}{||\beta||_2} \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n \end{equation} \]</span></p>
+<p>Si además trabajamos con el problema equivalente</p>
+<p><span class="math display" id="eq:optim">\[\begin{equation} 
+  \min_{\beta,\beta_0}\frac{1}{2}||\beta||_2^2 \ sujeto\ a \ y_i(x_i^T\beta+\beta_0)\geq 1,\ i=1,\dots,n 
+  
+  \tag{8.1}
+\end{equation}\]</span></p>
+<p>tendremos ahora un problema de optimización con una función objetivo cuadrática y restricciones lineales que puede resolverse eficientemente usando optimizadores convexos estándar.</p>
+<p>Para resolver el problema de optimización se usa el problema dual de Lagrange cuya teoría nos dice que la mejor cota inferior para <span class="math inline">\(||\beta||_2^2/2\)</span> es igual al valor óptimo:</p>
+<p><span class="math display">\[\begin{equation} \max_{\lambda\in \mathbb{R_{\geq0}^n}} \min_{\beta,\beta_0} L(\beta,\beta_0;\lambda) \end{equation} \]</span></p>
+<p>donde <span class="math inline">\(L(\beta,\beta_0;\lambda)\)</span> es el lagrangiano de <a href="qué-es-una-svm.html#eq:optim">(8.1)</a>.</p>
+<p>Los estimadores de los coeficientes son calculados usando a los puntos <em>más cercanos</em> a la frontera de decisión como puntos <em>soporte</em> de ahí que a esos puntos se les llame <em>vectores soporte</em></p>
+<p>Sin meternos demasiado en la teoría, el proceso de estimación de los coeficientes de una SVM y la obtención de predicciones usando a dualidad de Lagrange es el que sigue:</p>
+<ul>
+<li><p>Resolver el problema dual de <a href="qué-es-una-svm.html#eq:optim">(8.1)</a></p></li>
+<li><p>Sean <span class="math inline">\(S=\{i:\lambda_i^*\neq0\}\)</span> los índices de los vectores soporte</p></li>
+<li><p>Calcular <span class="math inline">\(\beta^*=\sum_{i\in S}\lambda_i^*y_i x_i\)</span> y <span class="math inline">\(\beta_0^*=-\frac{1}{2}\{\min_{i:y_i=1}x_i^T\beta^*+\max_{i:y_i=-1}x_i^T\beta^*\}\)</span></p></li>
+<li><p>Para cada punto nuevo <span class="math inline">\(x\)</span>, lo clasificamos con <span class="math display">\[\psi^{SVM}(x)=sgn(x^T\beta^*+\beta_0^*)\]</span></p></li>
+</ul>
 </div>
+<div id="rkhs-y-el-método-kernel" class="section level2">
+<h2><span class="header-section-number">8.2</span> RKHS y el método kernel</h2>
+<p>Típicamente nos encontraremos con datos para los cuales no será evidente la existencia de un hiperplano que pueda separar a las clases. Esto puede suceder porque la frontera de clasificación es no lineal, o bien porque los datos tienen mucha varianza (<em>ruido</em>) y las densidades de las clases se intersectan.</p>
+<p>Existen dos formas de <em>generalizar</em> el hiperplano de separación para resolver ambos problemas.</p>
+<p>Una forma de resolver el problema de <em>no separabilidad</em> es llevar los datos a alguna dimensión superior mediante <span class="math inline">\(x \mapsto \phi(x)=(\phi_1(x),\phi_2(x),\dots)\)</span> donde <span class="math inline">\(\phi_1,\phi_2,\dots\)</span> son funciones reales en algún conjunto <span class="math inline">\(\mathcal{X}\)</span>, donde <span class="math inline">\(\mathcal{X}\)</span> no requiere alguna estructura específica.</p>
+<p>A la función <span class="math inline">\(\phi\)</span> se le conoce como función característica (<em>feature map</em>) y a sus componentes <span class="math inline">\(\phi_1,\phi_2,\dots\)</span> se les llama características (<em>features</em>)</p>
+<p>En dimensiones suficientemente <em>grandes</em> los puntos correspondientes a dos clases son siempre separables.</p>
+<p>Una pregunta natural es ¿cómo escoger buenas <em>características</em> y cuántas deberíamos escoger? Antes de responder estas preguntas asumamos que ya tenemos la función <span class="math inline">\(\phi\)</span> y definamos <span class="math inline">\(k(x,x&#39;)=\langle \phi(x),\phi(x&#39;)\rangle\)</span> para cualesquiera <span class="math inline">\(x,x&#39;\in \mathcal{X}\)</span>, donde <span class="math inline">\(\langle \cdot,\cdot \rangle\)</span> es el producto interior en el espacio de características.</p>
+<p>Con ello podemos obtener los coeficientes de la SVM como sigue:</p>
+<p><strong>1:</strong> Resolver el problema dual en el espacio de características <span class="math display">\[\max_{\lambda\in \mathbb{R}_{\geq 0}^n,\sum_i\lambda_i y_i=0}\sum_{i=1}^n\lambda_i-\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \lambda_i \lambda_j y_i y_j k(x_i,x_j)\]</span> para obtener <span class="math inline">\(\lambda_1^*,\cdots,\lambda_n^*\)</span></p>
+<p><strong>2:</strong> Sea <span class="math inline">\(S=\{i:\lambda_i^*\neq 0\}\)</span> el conjunto de índices de los vectores soporte.</p>
+<p><strong>3:</strong> Calcular <span class="math inline">\(\beta_0^*=\sum_{i\in S}\lambda_i^*y_i \phi(x_i)\)</span> y <span class="math display">\[\beta_0^*=-\frac{1}{2}\{\min_{i:y_i=1}\sum_{j\in S}\lambda _j^*y_j k(x_i,x_j)+\max_{i:y_i=-1}\sum_{j \in S}\lambda_j^* y_j k(x_i,x_j) \}\]</span></p>
+<p><strong>4:</strong> Cada nueva observación la clasificamos de acuerdo a <span class="math display">\[sgn\{ \sum_{i\in S}\lambda_i^* y_i k(x_i,x) + \beta_0^* \}\]</span></p>
+<p>Notemos que el procedimiento anterior depende de <span class="math inline">\(\phi\)</span> a través de <span class="math inline">\(k(\cdot,\cdot)\)</span>, excepto por <span class="math inline">\(\beta^*\)</span> pero si solo queremos hacer predicciones entonces no es necesario saber exactamente quién es <span class="math inline">\(\phi\)</span> siempre que la función <span class="math inline">\(k\)</span> esté dada.</p>
+<p>El siguiente teorema nos dice que cualquier kernel definido positivo <span class="math inline">\(k\)</span> siempre puede obtenerse como el producto interno en algún espacio de características de dimensión infinita.</p>
+<p>Recordemos que un <em>espacio de Hilbert</em> es un espacio producto interior donde toda sucesión de Cauchy tiene límite respecto a la norma asociada al producto interior. Podemos pensar a un espacio de Hilbert como la generalización del espacio Euclideano.</p>
+<p><strong>Definición:</strong> Una función simétrica <span class="math inline">\(k:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}\)</span> se llama <em>kernel definido positivo</em> en <span class="math inline">\(\mathcal{X}\)</span> si <span class="math inline">\((k(x_i,x_j))_{i,j=1,\dots,n}\)</span> es una matriz semi-definida positiva para cualquier <span class="math inline">\(n\in \mathbb{N}\)</span> y <span class="math inline">\(x_1,\dots,x_n\in \mathcal{X}\)</span></p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(k:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}\)</span> es un kernel definido positivo, entonces existe un espacio de Hilbert <span class="math inline">\(\mathcal{H}\)</span> y una función <span class="math inline">\(\phi :\mathcal{X}\rightarrow \mathcal{H}\)</span> tal que <span class="math inline">\(k(x_1,x_2)=\langle\phi(x_1),\phi(x_2)\rangle\)</span> donde <span class="math inline">\(\langle\cdot,\cdot \rangle_\mathcal{H}\)</span> es el producto interno en <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p>Esto significa que en lugar de trabajar directamente en espacios de dimensión superior, podemos trabajar con kernels definidos positivos, más aún la <em>calidad</em> de las SVM dependerá solamente de la elección de las funciones kernel <span class="math inline">\(k\)</span>.</p>
+<div id="cómo-escoger-un-kernel-k" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> ¿Cómo escoger un kernel k?</h3>
+<p>Algunos kernels usados en la practica:</p>
+<ul>
+<li><p>Kernel lineal: <span class="math inline">\(k(x,x&#39;)=x^Tx&#39;\)</span></p></li>
+<li><p>Kernel Polinomial: <span class="math inline">\(k(x,x&#39;)=(c+x^Tx&#39;)^d\)</span>. Típicamente usado si suponemos que la similaridad entre dos observaciones está dada por las covariables e interacciones de ellas.</p></li>
+<li><p>Kernel Gaussiano: <span class="math inline">\(k(x,x&#39;)=\exp\{-\frac{1}{2\sigma^2}||x-x&#39;||_2^2\}\)</span>. Es el más popular para trabajar con características no lineales.</p></li>
+<li><p>Kernel de Laplace: <span class="math inline">\(k(x,x&#39;)=\exp\{-\frac{1}{\sigma}||x-x&#39;||_2\}\)</span>. Similar al gaussiano, éste mide la similaridad de observaciones basados en la distancia en <span class="math inline">\(\mathcal{X}\)</span></p></li>
+</ul>
+</div>
+</div>
+<div id="margen-suave" class="section level2">
+<h2><span class="header-section-number">8.3</span> <em>Margen suave</em></h2>
+<p>Recordemos que en el contexto de las SVM llamamos <em>margen</em> al espacio entre la frontera de decisión y el punto más cercano de cada clase.</p>
+<p>Una segunda forma de lidiar con problemas de no separabilidad es buscar el hiperplano óptimo con el margen <span class="math inline">\(M\)</span>, más amplio tal que el número de observaciones clasificadas erroneamente sea <em>pequeño</em>.</p>
+<p>Matemáticamente, lo que hacemos es agregar variables de <em>holgura</em> al problema de optimización original:</p>
+<p><span class="math display">\[ \begin{equation}  \max_{\beta,\beta_0,||\beta||_2=1} M \ sujeto \ a \ y_i(x_i^T\beta+\beta_0)\geq M(1-\xi_i),\ i=1,\dots,n \end{equation} \]</span></p>
+<p><span class="math display">\[\sum_{i=1}^n \xi_i\leq K\]</span></p>
+</div>
+<div id="svms-en-r" class="section level2">
+<h2><span class="header-section-number">8.4</span> SVMs en R</h2>
+<p>..WIP…</p>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="entrenamiento-de-una-red-neuronal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estimación-de-los-coeficientes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="qué-es-una-red-neuronal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="antecedentes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
