@@ -33,6 +33,7 @@
   
 <link rel="prev" href="regresión-lineal.html"/>
 <link rel="next" href="modelos-lineales-generalizados-construcción-y-evaluación.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,18 +57,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,7 +132,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herramientas Estadísticas para Ciencia de Datos</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Herramientas Estadísticas para Ciencia de Datos</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i><b>0.1</b> Objetivos</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i><b>0.2</b> Estructura</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#detalles-técnicos"><i class="fa fa-check"></i><b>0.3</b> Detalles técnicos</a></li>
@@ -143,48 +144,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="glosario-dscml-estadística.html"><a href="glosario-dscml-estadística.html"><i class="fa fa-check"></i><b>2</b> Glosario DSc/ML - Estadística</a></li>
 <li class="chapter" data-level="3" data-path="entrenamiento-de-modelos.html"><a href="entrenamiento-de-modelos.html"><i class="fa fa-check"></i><b>3</b> Entrenamiento de modelos</a></li>
 <li class="part"><span><b>II Modelos Lineales</b></span></li>
-<li class="chapter" data-level="4" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>4</b> Regresión Lineal</a><ul>
+<li class="chapter" data-level="4" data-path="regresión-lineal.html"><a href="regresión-lineal.html"><i class="fa fa-check"></i><b>4</b> Regresión Lineal</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#un-poco-de-história"><i class="fa fa-check"></i><b>4.1</b> Un poco de história</a></li>
 <li class="chapter" data-level="4.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#objetivos-del-análisis-de-regresión"><i class="fa fa-check"></i><b>4.2</b> Objetivos del análisis de regresión</a></li>
 <li class="chapter" data-level="4.3" data-path="regresión-lineal.html"><a href="regresión-lineal.html#el-algorítmo-de-regresión-lineal"><i class="fa fa-check"></i><b>4.3</b> El algorítmo de regresión lineal</a></li>
 <li class="chapter" data-level="4.4" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-simple"><i class="fa fa-check"></i><b>4.4</b> Regresión lineal simple</a></li>
-<li class="chapter" data-level="4.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>4.5</b> Solución al problema de regresión lineal simple</a><ul>
+<li class="chapter" data-level="4.5" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-simple"><i class="fa fa-check"></i><b>4.5</b> Solución al problema de regresión lineal simple</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#mínimos-cuadrados-ordinarios"><i class="fa fa-check"></i><b>4.5.1</b> Mínimos cuadrados ordinarios</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="regresión-lineal.html"><a href="regresión-lineal.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>4.6</b> Regresión lineal múltiple</a></li>
-<li class="chapter" data-level="4.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>4.7</b> Solución al problema de regresión lineal múltiple.</a><ul>
+<li class="chapter" data-level="4.7" data-path="regresión-lineal.html"><a href="regresión-lineal.html#solución-al-problema-de-regresión-lineal-múltiple."><i class="fa fa-check"></i><b>4.7</b> Solución al problema de regresión lineal múltiple.</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="regresión-lineal.html"><a href="regresión-lineal.html#ecuaciones-normales"><i class="fa fa-check"></i><b>4.7.1</b> Ecuaciones normales</a></li>
 <li class="chapter" data-level="4.7.2" data-path="regresión-lineal.html"><a href="regresión-lineal.html#evaluación-de-supuestos"><i class="fa fa-check"></i><b>4.7.2</b> Evaluación de supuestos</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="regresión-lineal.html"><a href="regresión-lineal.html#aplicación-en-r"><i class="fa fa-check"></i><b>4.8</b> Aplicación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>5</b> Modelos lineales generalizados</a><ul>
+<li class="chapter" data-level="5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html"><i class="fa fa-check"></i><b>5</b> Modelos lineales generalizados</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística"><i class="fa fa-check"></i><b>5.1</b> Regresión logística</a></li>
 <li class="chapter" data-level="5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-simple"><i class="fa fa-check"></i><b>5.2</b> Modelo de regresión logísitica simple</a></li>
-<li class="chapter" data-level="5.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>5.3</b> Modelo de regresión logísitica multiple</a><ul>
+<li class="chapter" data-level="5.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelo-de-regresión-logísitica-multiple"><i class="fa fa-check"></i><b>5.3</b> Modelo de regresión logísitica multiple</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-simple-en-r"><i class="fa fa-check"></i><b>5.3.1</b> Regresión logística simple en R</a></li>
 <li class="chapter" data-level="5.3.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio."><i class="fa fa-check"></i><b>5.3.2</b> Ejercicio.</a></li>
 <li class="chapter" data-level="5.3.3" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-logística-múltiple-en-r"><i class="fa fa-check"></i><b>5.3.3</b> Regresión logística múltiple en R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>5.4</b> Regresión Multinomial</a><ul>
+<li class="chapter" data-level="5.4" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial"><i class="fa fa-check"></i><b>5.4</b> Regresión Multinomial</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#regresión-multinomial-en-r"><i class="fa fa-check"></i><b>5.4.1</b> Regresión Multinomial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>5.5</b> Modelos para conteos</a><ul>
+<li class="chapter" data-level="5.5" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#modelos-para-conteos"><i class="fa fa-check"></i><b>5.5</b> Modelos para conteos</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#sobredispersión-en-glm-poisson"><i class="fa fa-check"></i><b>5.5.1</b> Sobredispersión en GLM Poisson</a></li>
 <li class="chapter" data-level="5.5.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-poisson-r"><i class="fa fa-check"></i><b>5.5.2</b> GLM Poisson R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>5.6</b> GLM binomial negativa</a><ul>
+<li class="chapter" data-level="5.6" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa"><i class="fa fa-check"></i><b>5.6</b> GLM binomial negativa</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-binomial-negativa-en-r"><i class="fa fa-check"></i><b>5.6.1</b> GLM Binomial Negativa en R</a></li>
 <li class="chapter" data-level="5.6.2" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#ejercicio"><i class="fa fa-check"></i><b>5.6.2</b> Ejercicio</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>5.7</b> Exponencial</a><ul>
+<li class="chapter" data-level="5.7" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#exponencial"><i class="fa fa-check"></i><b>5.7</b> Exponencial</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-exponencial-en-r"><i class="fa fa-check"></i><b>5.7.1</b> GLM Exponencial en R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>5.8</b> Gamma</a><ul>
+<li class="chapter" data-level="5.8" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#gamma"><i class="fa fa-check"></i><b>5.8</b> Gamma</a>
+<ul>
 <li class="chapter" data-level="5.8.1" data-path="modelos-lineales-generalizados.html"><a href="modelos-lineales-generalizados.html#glm-gamma-en-r"><i class="fa fa-check"></i><b>5.8.1</b> GLM Gamma en R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>6</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a><ul>
+<li class="chapter" data-level="6" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html"><i class="fa fa-check"></i><b>6</b> Modelos Lineales Generalizados (Construcción y Evaluación)</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#exploración-de-los-datos."><i class="fa fa-check"></i><b>6.1</b> Exploración de los datos.</a></li>
 <li class="chapter" data-level="6.2" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#elección-de-la-estructura-de-errores-y-función-liga."><i class="fa fa-check"></i><b>6.2</b> Elección de la estructura de errores y función liga.</a></li>
 <li class="chapter" data-level="6.3" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#bondad-de-ajuste."><i class="fa fa-check"></i><b>6.3</b> Bondad de ajuste.</a></li>
@@ -194,10 +206,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="modelos-lineales-generalizados-construcción-y-evaluación.html"><a href="modelos-lineales-generalizados-construcción-y-evaluación.html#evaluación-de-glms-en-r"><i class="fa fa-check"></i><b>6.7</b> Evaluación de GLMs en R</a></li>
 </ul></li>
 <li class="part"><span><b>III Redes neuronales</b></span></li>
-<li class="chapter" data-level="7" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>7</b> ¿Qué es una red neuronal?</a><ul>
+<li class="chapter" data-level="7" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html"><i class="fa fa-check"></i><b>7</b> ¿Qué es una red neuronal?</a>
+<ul>
 <li class="chapter" data-level="7.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>7.0.1</b> Ejemplo</a></li>
 <li class="chapter" data-level="7.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#teorema-de-universalidad"><i class="fa fa-check"></i><b>7.1</b> Teorema de Universalidad</a></li>
-<li class="chapter" data-level="7.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#entrenamiento-de-una-red-neuronal"><i class="fa fa-check"></i><b>7.2</b> Entrenamiento de una red neuronal</a><ul>
+<li class="chapter" data-level="7.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#entrenamiento-de-una-red-neuronal"><i class="fa fa-check"></i><b>7.2</b> Entrenamiento de una red neuronal</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#back-propagation"><i class="fa fa-check"></i><b>7.2.1</b> Back-propagation</a></li>
 <li class="chapter" data-level="7.2.2" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#saturación"><i class="fa fa-check"></i><b>7.2.2</b> Saturación</a></li>
 <li class="chapter" data-level="7.2.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#regularización"><i class="fa fa-check"></i><b>7.2.3</b> Regularización</a></li>
@@ -205,19 +219,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#redes-neuronales-en-r"><i class="fa fa-check"></i><b>7.3</b> Redes Neuronales en R</a></li>
 </ul></li>
 <li class="part"><span><b>IV Maquinas de Soporte Vectorial (SVM)</b></span></li>
-<li class="chapter" data-level="8" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>8</b> ¿Qué es una SVM?</a><ul>
+<li class="chapter" data-level="8" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html"><i class="fa fa-check"></i><b>8</b> ¿Qué es una SVM?</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#estimación-de-los-coeficientes"><i class="fa fa-check"></i><b>8.1</b> Estimación de los coeficientes</a></li>
-<li class="chapter" data-level="8.2" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#rkhs-y-el-método-kernel"><i class="fa fa-check"></i><b>8.2</b> RKHS y el método kernel</a><ul>
+<li class="chapter" data-level="8.2" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#rkhs-y-el-método-kernel"><i class="fa fa-check"></i><b>8.2</b> RKHS y el método kernel</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#cómo-escoger-un-kernel-k"><i class="fa fa-check"></i><b>8.2.1</b> ¿Cómo escoger un kernel k?</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#margen-suave"><i class="fa fa-check"></i><b>8.3</b> <em>Margen suave</em></a></li>
 <li class="chapter" data-level="8.4" data-path="qué-es-una-svm.html"><a href="qué-es-una-svm.html#svms-en-r"><i class="fa fa-check"></i><b>8.4</b> SVMs en R</a></li>
 </ul></li>
 <li class="part"><span><b>V Árboles de regresión y clasificación</b></span></li>
-<li class="chapter" data-level="9" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>9</b> Antecedentes</a><ul>
+<li class="chapter" data-level="9" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>9</b> Antecedentes</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-regresión"><i class="fa fa-check"></i><b>9.1</b> Árboles de regresión</a></li>
 <li class="chapter" data-level="9.2" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-clasificación"><i class="fa fa-check"></i><b>9.2</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a><ul>
+<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
@@ -241,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="modelos-lineales-generalizados" class="section level1">
+<div id="modelos-lineales-generalizados" class="section level1" number="5">
 <h1><span class="header-section-number">Capítulo 5</span> Modelos lineales generalizados</h1>
 <p>En el capítulo anterior exploramos el modelo básico que nos permite responder a la pregunta: ¿puede ser la variable de interés predicha por un conjunto de variables explicativas?</p>
 <p>Sin embargo, para poder utilizar dicho modelo, es necesario que la variable respuesta sea continua y cumpla las hipótesis estándar del modelo lineal (datos normales, varianza constante, etc.)</p>
@@ -305,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>La diferencia que hay entre usar la función liga y usar una transformación, es que la función liga transforma la media, <span class="math inline">\(E[Y]\)</span>, y no los datos, <span class="math inline">\(Y\)</span>.</p>
 <p>Los GLM generalizan la regresión <em>ordinaria</em> de dos modos: permitiendo que la variable de respuesta <span class="math inline">\(Y\)</span> tenga distribuciones diferentes a la normal y, por otro lado, incluyendo distintas funciones liga de la media, lo cual resulta muy útil para datos categóricos.</p>
-<div id="regresión-logística" class="section level2">
+<div id="regresión-logística" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Regresión logística</h2>
 <p>El modelo de regresión logistica es un GLM donde la distribución de probabilidad es Bernoulli o Binomial, y la función liga es el logit (ya que relaciona a la media, que en una Bernouilli es la probabilidad con el predictor lineal). Por lo tanto la estimación de los parámetros y los contrastes de hipótesis utilizan la teoría desarrollada para los GLMs.</p>
 <p>Estos modelos se utilizan cuando se desea conocer la relación entre</p>
@@ -316,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Por tanto, el objetivo de la regresión logística no es, como en regresión lineal, predecir el valor de la variable <span class="math inline">\(Y\)</span> a partir de una o varias variables predictoras, sino que queremos predecir la <strong>probabilidad</strong> de que ocurra <span class="math inline">\(Y\)</span> conocidos los valores de las variables <span class="math inline">\(X_i&#39;s\)</span>.</p>
 <p>Recordemos que las covariables cualitativas deben transformarse en las covariables cualitativas dicotómicas ficticias necesarias (variables dummy). De manera que al hacer esta transformación cada categoría de la variable entrará en el modelo de forma individual.</p>
 </div>
-<div id="modelo-de-regresión-logísitica-simple" class="section level2">
+<div id="modelo-de-regresión-logísitica-simple" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Modelo de regresión logísitica simple</h2>
 <p>Para este modelo supondremos que nuestra respuesta, <span class="math inline">\(Y\)</span>, es explicada únicamente por una covariable, <span class="math inline">\(X\)</span>. Asumimos que la variable independiente <span class="math inline">\(Y\)</span> está codificada como un 0 o un 1.</p>
 <p>Entonces, escribimos nuestro modelo como:</p>
@@ -335,36 +353,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El valor mínimo posible es 0 y el máximo teóricamente posible es infinito.</p>
 <p>Un OR inferior a la unidad se interpreta como que el desenlace es menos frecuente en la categoría o grupo que se ha elegido como de interés con respecto al otro grupo o categoría de referencia. Un OR = 3 se interpreta como una ventaja 3 veces superior de una de las categorías <span class="math inline">\(X = 1\)</span> relativamente a la otra categoría <span class="math inline">\(X=0\)</span>.</p>
 </div>
-<div id="modelo-de-regresión-logísitica-multiple" class="section level2">
+<div id="modelo-de-regresión-logísitica-multiple" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Modelo de regresión logísitica multiple</h2>
 <p>Análogo a lo que observamos en los modelos de regresión lineal, el modelo de regresión logística se puede facilmente generalizar de un modelo simple a un múltiple.</p>
 <p><span class="math display">\[ln(\frac{p}{1-p})=\beta_{0}+\beta_{1}X_1+\beta_{2}X_{2}+...\beta_{k}X_{k}\]</span>
 <span class="math display">\[p=P(Y)=\frac{1}{1+e^{-(\beta_{0}+\beta_{1}X_1+\beta_{2}X_{2}+...\beta_{k}X_{k})}}\]</span></p>
 <p>De nuevo los valores posibles de estas ecuaciones varían entre 0 y 1.</p>
 <p>El propósito del análisis es predecir la probabilidad de que un evento <span class="math inline">\(Y\)</span> ocurra para el <span class="math inline">\(i-eismo\)</span> individuo. Para dicha <span class="math inline">\(i-ésima\)</span> persona, <span class="math inline">\(Y\)</span> será 0 (la respuesta no ocurre) o 1 (la respuesta ocurre), y el valor predicho, <span class="math inline">\(\mathbb{P}(Y)\)</span>, tendrá un valor 0 (no hay probabilidad de que el resultado ocurra) o 1 (el resultado seguro que ocurre).</p>
-<div id="regresión-logística-simple-en-r" class="section level3">
+<div id="regresión-logística-simple-en-r" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Regresión logística simple en R</h3>
 <p>En el siguiente ejercicio se busca analizar si los productos salen o no defectuosos de acuerdo de la temperatura de la máquina que los produce.</p>
 <p>Los datos son los siguientes:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modelos-lineales-generalizados.html#cb5-1"></a>temperatura &lt;-<span class="kw">c</span>(<span class="dv">66</span>,<span class="dv">70</span>,<span class="dv">69</span>,<span class="dv">68</span>,<span class="dv">67</span>,<span class="dv">72</span>,<span class="dv">73</span>,<span class="dv">70</span>,<span class="dv">57</span>,<span class="dv">63</span>,<span class="dv">70</span>,<span class="dv">78</span>,<span class="dv">67</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">75</span>,<span class="dv">70</span>,<span class="dv">81</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">75</span>,<span class="dv">76</span>,<span class="dv">58</span>)</span>
-<span id="cb5-2"><a href="modelos-lineales-generalizados.html#cb5-2"></a>defecto &lt;-<span class="kw">c</span>( <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="modelos-lineales-generalizados.html#cb3-1"></a>temperatura &lt;-<span class="kw">c</span>(<span class="dv">66</span>,<span class="dv">70</span>,<span class="dv">69</span>,<span class="dv">68</span>,<span class="dv">67</span>,<span class="dv">72</span>,<span class="dv">73</span>,<span class="dv">70</span>,<span class="dv">57</span>,<span class="dv">63</span>,<span class="dv">70</span>,<span class="dv">78</span>,<span class="dv">67</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">75</span>,<span class="dv">70</span>,<span class="dv">81</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">75</span>,<span class="dv">76</span>,<span class="dv">58</span>)</span>
+<span id="cb3-2"><a href="modelos-lineales-generalizados.html#cb3-2"></a>defecto &lt;-<span class="kw">c</span>( <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
 <p>Con ambos vectores construimos un dataframe:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="modelos-lineales-generalizados.html#cb6-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">temperatura =</span> temperatura, <span class="dt">defecto =</span> defecto)</span>
-<span id="cb6-2"><a href="modelos-lineales-generalizados.html#cb6-2"></a><span class="kw">rm</span>(temperatura, defecto)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="modelos-lineales-generalizados.html#cb4-1"></a>datos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">temperatura =</span> temperatura, <span class="dt">defecto =</span> defecto)</span>
+<span id="cb4-2"><a href="modelos-lineales-generalizados.html#cb4-2"></a><span class="kw">rm</span>(temperatura, defecto)</span></code></pre></div>
 <p>Resumen visual de los datos:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelos-lineales-generalizados.html#cb7-1"></a>colores &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb7-2"><a href="modelos-lineales-generalizados.html#cb7-2"></a>colores[datos<span class="op">$</span>defecto <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> &quot;green&quot;</span></span>
-<span id="cb7-3"><a href="modelos-lineales-generalizados.html#cb7-3"></a>colores[datos<span class="op">$</span>defecto <span class="op">==</span><span class="st"> </span><span class="dv">1</span>] &lt;-<span class="st"> &quot;red&quot;</span></span>
-<span id="cb7-4"><a href="modelos-lineales-generalizados.html#cb7-4"></a><span class="kw">plot</span>(datos<span class="op">$</span>temperatura, datos<span class="op">$</span>defecto, </span>
-<span id="cb7-5"><a href="modelos-lineales-generalizados.html#cb7-5"></a>     <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> colores, <span class="dt">xlab =</span> <span class="st">&quot;Temperatura&quot;</span>, </span>
-<span id="cb7-6"><a href="modelos-lineales-generalizados.html#cb7-6"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Prob.defecto&quot;</span>)</span>
-<span id="cb7-7"><a href="modelos-lineales-generalizados.html#cb7-7"></a><span class="kw">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;No defecto&quot;</span>, <span class="st">&quot;Si defecto&quot;</span>), </span>
-<span id="cb7-8"><a href="modelos-lineales-generalizados.html#cb7-8"></a>       <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="modelos-lineales-generalizados.html#cb5-1"></a>colores &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb5-2"><a href="modelos-lineales-generalizados.html#cb5-2"></a>colores[datos<span class="op">$</span>defecto <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> &quot;green&quot;</span></span>
+<span id="cb5-3"><a href="modelos-lineales-generalizados.html#cb5-3"></a>colores[datos<span class="op">$</span>defecto <span class="op">==</span><span class="st"> </span><span class="dv">1</span>] &lt;-<span class="st"> &quot;red&quot;</span></span>
+<span id="cb5-4"><a href="modelos-lineales-generalizados.html#cb5-4"></a><span class="kw">plot</span>(datos<span class="op">$</span>temperatura, datos<span class="op">$</span>defecto, </span>
+<span id="cb5-5"><a href="modelos-lineales-generalizados.html#cb5-5"></a>     <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> colores, <span class="dt">xlab =</span> <span class="st">&quot;Temperatura&quot;</span>, </span>
+<span id="cb5-6"><a href="modelos-lineales-generalizados.html#cb5-6"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Prob.defecto&quot;</span>)</span>
+<span id="cb5-7"><a href="modelos-lineales-generalizados.html#cb5-7"></a><span class="kw">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;No defecto&quot;</span>, <span class="st">&quot;Si defecto&quot;</span>), </span>
+<span id="cb5-8"><a href="modelos-lineales-generalizados.html#cb5-8"></a>       <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>Creamos el modelo de regresión logística (modelo de regresión lineal generalizado y parametrizamos por familia binomial).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="modelos-lineales-generalizados.html#cb8-1"></a>reg &lt;-<span class="st"> </span><span class="kw">glm</span>(defecto <span class="op">~</span><span class="st"> </span>temperatura, <span class="dt">data =</span> datos, <span class="dt">family =</span> binomial)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="modelos-lineales-generalizados.html#cb6-1"></a>reg &lt;-<span class="st"> </span><span class="kw">glm</span>(defecto <span class="op">~</span><span class="st"> </span>temperatura, <span class="dt">data =</span> datos, <span class="dt">family =</span> binomial)</span></code></pre></div>
 <p>Tabla resumen:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="modelos-lineales-generalizados.html#cb9-1"></a><span class="kw">summary</span>(reg)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="modelos-lineales-generalizados.html#cb7-1"></a><span class="kw">summary</span>(reg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = defecto ~ temperatura, family = binomial, data = datos)
@@ -388,32 +406,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
 <p>Creamos una nueva variable al dataframe de nuestros datos con las probabilidades de pertenencia a la clase 1 predichas por el modelo.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="modelos-lineales-generalizados.html#cb11-1"></a>datos<span class="op">$</span>predict&lt;-reg<span class="op">$</span>fitted.values</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="modelos-lineales-generalizados.html#cb9-1"></a>datos<span class="op">$</span>predict&lt;-reg<span class="op">$</span>fitted.values</span></code></pre></div>
 <p>Dibujamos la recta de probabilidad para cada una de las temperaturas:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelos-lineales-generalizados.html#cb12-1"></a>datos_probab &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">temperatura =</span> <span class="kw">seq</span>(<span class="dv">50</span>, <span class="dv">85</span>, <span class="fl">0.1</span>))</span>
-<span id="cb12-2"><a href="modelos-lineales-generalizados.html#cb12-2"></a></span>
-<span id="cb12-3"><a href="modelos-lineales-generalizados.html#cb12-3"></a>datos.predict &lt;-<span class="st"> </span><span class="kw">predict</span>(reg, datos_probab, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)  </span>
-<span id="cb12-4"><a href="modelos-lineales-generalizados.html#cb12-4"></a></span>
-<span id="cb12-5"><a href="modelos-lineales-generalizados.html#cb12-5"></a></span>
-<span id="cb12-6"><a href="modelos-lineales-generalizados.html#cb12-6"></a><span class="kw">plot</span>(datos<span class="op">$</span>temperatura, datos<span class="op">$</span>defecto, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> colores,  <span class="dt">xlab =</span> <span class="st">&quot;Temperatura&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prob.defecto&quot;</span>)</span>
-<span id="cb12-7"><a href="modelos-lineales-generalizados.html#cb12-7"></a><span class="kw">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;No defecto&quot;</span>, <span class="st">&quot;Si defecto&quot;</span>), </span>
-<span id="cb12-8"><a href="modelos-lineales-generalizados.html#cb12-8"></a>       <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
-<span id="cb12-9"><a href="modelos-lineales-generalizados.html#cb12-9"></a><span class="kw">lines</span>(datos_probab<span class="op">$</span>temperatura, datos.predict, </span>
-<span id="cb12-10"><a href="modelos-lineales-generalizados.html#cb12-10"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="modelos-lineales-generalizados.html#cb10-1"></a>datos_probab &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">temperatura =</span> <span class="kw">seq</span>(<span class="dv">50</span>, <span class="dv">85</span>, <span class="fl">0.1</span>))</span>
+<span id="cb10-2"><a href="modelos-lineales-generalizados.html#cb10-2"></a></span>
+<span id="cb10-3"><a href="modelos-lineales-generalizados.html#cb10-3"></a>datos.predict &lt;-<span class="st"> </span><span class="kw">predict</span>(reg, datos_probab, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)  </span>
+<span id="cb10-4"><a href="modelos-lineales-generalizados.html#cb10-4"></a></span>
+<span id="cb10-5"><a href="modelos-lineales-generalizados.html#cb10-5"></a></span>
+<span id="cb10-6"><a href="modelos-lineales-generalizados.html#cb10-6"></a><span class="kw">plot</span>(datos<span class="op">$</span>temperatura, datos<span class="op">$</span>defecto, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> colores,  <span class="dt">xlab =</span> <span class="st">&quot;Temperatura&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prob.defecto&quot;</span>)</span>
+<span id="cb10-7"><a href="modelos-lineales-generalizados.html#cb10-7"></a><span class="kw">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;No defecto&quot;</span>, <span class="st">&quot;Si defecto&quot;</span>), </span>
+<span id="cb10-8"><a href="modelos-lineales-generalizados.html#cb10-8"></a>       <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb10-9"><a href="modelos-lineales-generalizados.html#cb10-9"></a><span class="kw">lines</span>(datos_probab<span class="op">$</span>temperatura, datos.predict, </span>
+<span id="cb10-10"><a href="modelos-lineales-generalizados.html#cb10-10"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Bondad de Ajuste:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelos-lineales-generalizados.html#cb13-1"></a>dev &lt;-<span class="st"> </span>reg<span class="op">$</span>deviance</span>
-<span id="cb13-2"><a href="modelos-lineales-generalizados.html#cb13-2"></a>nullDev &lt;-<span class="st"> </span>reg<span class="op">$</span>null.deviance</span>
-<span id="cb13-3"><a href="modelos-lineales-generalizados.html#cb13-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb13-4"><a href="modelos-lineales-generalizados.html#cb13-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="modelos-lineales-generalizados.html#cb11-1"></a>dev &lt;-<span class="st"> </span>reg<span class="op">$</span>deviance</span>
+<span id="cb11-2"><a href="modelos-lineales-generalizados.html#cb11-2"></a>nullDev &lt;-<span class="st"> </span>reg<span class="op">$</span>null.deviance</span>
+<span id="cb11-3"><a href="modelos-lineales-generalizados.html#cb11-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb11-4"><a href="modelos-lineales-generalizados.html#cb11-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 14.28173</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelos-lineales-generalizados.html#cb15-1"></a>chidf &lt;-<span class="st"> </span>reg<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>reg<span class="op">$</span>df.residual</span>
-<span id="cb15-2"><a href="modelos-lineales-generalizados.html#cb15-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb15-3"><a href="modelos-lineales-generalizados.html#cb15-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelos-lineales-generalizados.html#cb13-1"></a>chidf &lt;-<span class="st"> </span>reg<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>reg<span class="op">$</span>df.residual</span>
+<span id="cb13-2"><a href="modelos-lineales-generalizados.html#cb13-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb13-3"><a href="modelos-lineales-generalizados.html#cb13-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0.0001573848</code></pre>
 <p>chisq.prob es el p-value de la estadística “modelChi”, para valores pequeños se dice que el modelo es estadisticamente significativo.</p>
 </div>
-<div id="ejercicio." class="section level3">
+<div id="ejercicio." class="section level3" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Ejercicio.</h3>
 <p>Se tiene la siguiente tabla donde se eligen varios niveles de ronquidos y se ponen en relación con una enfermedad cardíaca. Se toman como puntuaciones relativas de ronquidos los valores <span class="math inline">\(\{0, 2, 4, 5\}\)</span>.</p>
 <table>
@@ -448,13 +466,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Fijamos los niveles de manera ordinal:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="modelos-lineales-generalizados.html#cb17-1"></a>roncas &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb17-2"><a href="modelos-lineales-generalizados.html#cb17-2"></a></span>
-<span id="cb17-3"><a href="modelos-lineales-generalizados.html#cb17-3"></a>frecuencia &lt;-<span class="st">  </span><span class="kw">cbind</span> (<span class="dt">SI=</span><span class="kw">c</span>(<span class="dv">24</span> , <span class="dv">35</span>, <span class="dv">21</span>, <span class="dv">30</span>) , <span class="dt">NO=</span><span class="kw">c</span> (<span class="dv">1355</span> ,<span class="dv">603</span> , <span class="dv">192</span> , <span class="dv">224</span>))</span>
-<span id="cb17-4"><a href="modelos-lineales-generalizados.html#cb17-4"></a></span>
-<span id="cb17-5"><a href="modelos-lineales-generalizados.html#cb17-5"></a>logit.irls &lt;-<span class="st"> </span><span class="kw">glm</span>( frecuencia<span class="op">~</span>roncas , <span class="dt">family =</span> <span class="kw">binomial</span> ( <span class="dt">link =</span> logit ))</span>
-<span id="cb17-6"><a href="modelos-lineales-generalizados.html#cb17-6"></a></span>
-<span id="cb17-7"><a href="modelos-lineales-generalizados.html#cb17-7"></a><span class="kw">summary</span> ( logit.irls )<span class="op">$</span><span class="st"> </span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelos-lineales-generalizados.html#cb15-1"></a>roncas &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb15-2"><a href="modelos-lineales-generalizados.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="modelos-lineales-generalizados.html#cb15-3"></a>frecuencia &lt;-<span class="st">  </span><span class="kw">cbind</span> (<span class="dt">SI=</span><span class="kw">c</span>(<span class="dv">24</span> , <span class="dv">35</span>, <span class="dv">21</span>, <span class="dv">30</span>) , <span class="dt">NO=</span><span class="kw">c</span> (<span class="dv">1355</span> ,<span class="dv">603</span> , <span class="dv">192</span> , <span class="dv">224</span>))</span>
+<span id="cb15-4"><a href="modelos-lineales-generalizados.html#cb15-4"></a></span>
+<span id="cb15-5"><a href="modelos-lineales-generalizados.html#cb15-5"></a>logit.irls &lt;-<span class="st"> </span><span class="kw">glm</span>( frecuencia<span class="op">~</span>roncas , <span class="dt">family =</span> <span class="kw">binomial</span> ( <span class="dt">link =</span> logit ))</span>
+<span id="cb15-6"><a href="modelos-lineales-generalizados.html#cb15-6"></a></span>
+<span id="cb15-7"><a href="modelos-lineales-generalizados.html#cb15-7"></a><span class="kw">summary</span> ( logit.irls )<span class="op">$</span><span class="st"> </span>coefficients</span></code></pre></div>
 <pre><code>##               Estimate Std. Error    z value      Pr(&gt;|z|)
 ## (Intercept) -3.8662481 0.16621436 -23.260614 1.110885e-119
 ## roncas       0.3973366 0.05001066   7.945039  1.941304e-15</code></pre>
@@ -463,16 +481,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Como <span class="math inline">\(\beta = 0.40 &gt; 0\)</span> entonces la probabilidad de ataque cardíaco aumenta cuando los niveles de ronquidos se incrementan.</p>
 <p>Con un nivel de ronquido <span class="math inline">\(X=0\)</span> obtenemos:</p>
 <p><span class="math display">\[ln(\frac{p}{1-p})=-3.87\]</span> y</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelos-lineales-generalizados.html#cb19-1"></a>p &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">3.87</span>)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">3.87</span>))</span>
-<span id="cb19-2"><a href="modelos-lineales-generalizados.html#cb19-2"></a></span>
-<span id="cb19-3"><a href="modelos-lineales-generalizados.html#cb19-3"></a><span class="kw">print</span>(p)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="modelos-lineales-generalizados.html#cb17-1"></a>p &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">3.87</span>)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">3.87</span>))</span>
+<span id="cb17-2"><a href="modelos-lineales-generalizados.html#cb17-2"></a></span>
+<span id="cb17-3"><a href="modelos-lineales-generalizados.html#cb17-3"></a><span class="kw">print</span>(p)</span></code></pre></div>
 <pre><code>## [1] 0.02043219</code></pre>
 <p>La probabilidad de tener la enfermedad es 2.04%.</p>
 <p>Mientras que si <span class="math inline">\(X=5\)</span> obtenemos:</p>
 <p><span class="math display">\[ln(\frac{p}{1-p})=-3.87+.40*5=-1.87\]</span> y</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="modelos-lineales-generalizados.html#cb21-1"></a>p &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">1.87</span>)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">1.87</span>))</span>
-<span id="cb21-2"><a href="modelos-lineales-generalizados.html#cb21-2"></a></span>
-<span id="cb21-3"><a href="modelos-lineales-generalizados.html#cb21-3"></a><span class="kw">print</span>(p)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelos-lineales-generalizados.html#cb19-1"></a>p &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">1.87</span>)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">1.87</span>))</span>
+<span id="cb19-2"><a href="modelos-lineales-generalizados.html#cb19-2"></a></span>
+<span id="cb19-3"><a href="modelos-lineales-generalizados.html#cb19-3"></a><span class="kw">print</span>(p)</span></code></pre></div>
 <pre><code>## [1] 0.1335417</code></pre>
 <p>La probabilidad de tener la enfermedad aumenta a 13.35%.</p>
 <ul>
@@ -480,20 +498,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>¿Cuántas veces más probable es la ocurrencia de la enfermedad cardíaca cuando el nivel de ronquidos es <em>cada noche</em> en comparación con <em>ocasional</em>?</p></li>
 </ul>
 </div>
-<div id="regresión-logística-múltiple-en-r" class="section level3">
+<div id="regresión-logística-múltiple-en-r" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Regresión logística múltiple en R</h3>
 <p>Los datos corresponden a información sobre la respuesta a anuncios en redes sociales, se tienen datos de género, edad, salario de los individuos
 asi como la información de si se realizó o no la compra del producto anunciado.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="modelos-lineales-generalizados.html#cb23-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/social_network_ads.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="modelos-lineales-generalizados.html#cb21-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/social_network_ads.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><strong>Descriptivos básicos de los datos:</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="modelos-lineales-generalizados.html#cb24-1"></a><span class="kw">str</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="modelos-lineales-generalizados.html#cb22-1"></a><span class="kw">str</span>(datos)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	400 obs. of  5 variables:
 ##  $ User.ID        : int  15624510 15810944 15668575 15603246 15804002 15728773 15598044 15694829 15600575 15727311 ...
 ##  $ Gender         : chr  &quot;Male&quot; &quot;Male&quot; &quot;Female&quot; &quot;Female&quot; ...
 ##  $ Age            : int  19 35 26 27 19 27 27 32 25 35 ...
 ##  $ EstimatedSalary: int  19000 20000 43000 57000 76000 58000 84000 150000 33000 65000 ...
 ##  $ Purchased      : int  0 0 0 0 0 0 0 1 0 0 ...</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="modelos-lineales-generalizados.html#cb26-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="modelos-lineales-generalizados.html#cb24-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
 <pre><code>##     User.ID            Gender               Age        EstimatedSalary    Purchased     
 ##  Min.   :15566689   Length:400         Min.   :18.00   Min.   : 15000   Min.   :0.0000  
 ##  1st Qu.:15626764   Class :character   1st Qu.:29.75   1st Qu.: 43000   1st Qu.:0.0000  
@@ -502,13 +520,13 @@ asi como la información de si se realizó o no la compra del producto anunciado
 ##  3rd Qu.:15750363                      3rd Qu.:46.00   3rd Qu.: 88000   3rd Qu.:1.0000  
 ##  Max.   :15815236                      Max.   :60.00   Max.   :150000   Max.   :1.0000</code></pre>
 <p><strong>Resumen de cuantos elementos hay en cada caso para la variable de compra del producto:</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="modelos-lineales-generalizados.html#cb28-1"></a><span class="kw">table</span>(datos<span class="op">$</span>Purchased)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="modelos-lineales-generalizados.html#cb26-1"></a><span class="kw">table</span>(datos<span class="op">$</span>Purchased)</span></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 257 143</code></pre>
 <p><strong>Creación del modelo de regresión logística(modelo de regresión lineal generalizado y parametrizamos por binomial) aplicando a datos[,-1] estamos dejando fuera la variable “User.ID”:</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="modelos-lineales-generalizados.html#cb30-1"></a>modelo &lt;-<span class="st"> </span><span class="kw">glm</span>(Purchased <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> datos[,<span class="op">-</span><span class="dv">1</span>], <span class="dt">family =</span> binomial)</span>
-<span id="cb30-2"><a href="modelos-lineales-generalizados.html#cb30-2"></a><span class="kw">summary</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="modelos-lineales-generalizados.html#cb28-1"></a>modelo &lt;-<span class="st"> </span><span class="kw">glm</span>(Purchased <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> datos[,<span class="op">-</span><span class="dv">1</span>], <span class="dt">family =</span> binomial)</span>
+<span id="cb28-2"><a href="modelos-lineales-generalizados.html#cb28-2"></a><span class="kw">summary</span>(modelo)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Purchased ~ ., family = binomial, data = datos[, 
@@ -535,38 +553,38 @@ asi como la información de si se realizó o no la compra del producto anunciado
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p><strong>Bondad de ajuste:</strong></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="modelos-lineales-generalizados.html#cb32-1"></a>dev &lt;-<span class="st"> </span>modelo<span class="op">$</span>deviance</span>
-<span id="cb32-2"><a href="modelos-lineales-generalizados.html#cb32-2"></a>nullDev &lt;-<span class="st"> </span>modelo<span class="op">$</span>null.deviance</span>
-<span id="cb32-3"><a href="modelos-lineales-generalizados.html#cb32-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb32-4"><a href="modelos-lineales-generalizados.html#cb32-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="modelos-lineales-generalizados.html#cb30-1"></a>dev &lt;-<span class="st"> </span>modelo<span class="op">$</span>deviance</span>
+<span id="cb30-2"><a href="modelos-lineales-generalizados.html#cb30-2"></a>nullDev &lt;-<span class="st"> </span>modelo<span class="op">$</span>null.deviance</span>
+<span id="cb30-3"><a href="modelos-lineales-generalizados.html#cb30-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb30-4"><a href="modelos-lineales-generalizados.html#cb30-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 245.7297</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="modelos-lineales-generalizados.html#cb34-1"></a>chidf &lt;-<span class="st"> </span>modelo<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>modelo<span class="op">$</span>df.residual</span>
-<span id="cb34-2"><a href="modelos-lineales-generalizados.html#cb34-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb34-3"><a href="modelos-lineales-generalizados.html#cb34-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="modelos-lineales-generalizados.html#cb32-1"></a>chidf &lt;-<span class="st"> </span>modelo<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>modelo<span class="op">$</span>df.residual</span>
+<span id="cb32-2"><a href="modelos-lineales-generalizados.html#cb32-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb32-3"><a href="modelos-lineales-generalizados.html#cb32-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>El modelo queda de la siguiente forma:</p>
 <p><span class="math display">\[ln(\frac{p}{1-p})=-12.78+.33*Genero+.237*Edad+0.000036*Salario\]</span></p>
 <p>La prueba Ji-Cuadrada para la significancia del modelo da un p-value de cero, por lo tanto el modelo propuesto con las variables de género, edad y salario resulta ser significativo.</p>
 <p><strong>Agregamos a los datos la columna de probabilidad de compra calculada con nuestro modelo:</strong></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="modelos-lineales-generalizados.html#cb36-1"></a>datos &lt;-<span class="st"> </span><span class="kw">cbind</span>(datos, modelo<span class="op">$</span>fitted.values)</span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="modelos-lineales-generalizados.html#cb37-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, <span class="dt">col =</span> <span class="kw">as.factor</span>(datos<span class="op">$</span>Gender),</span>
-<span id="cb37-2"><a href="modelos-lineales-generalizados.html#cb37-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra por género&quot;</span>,</span>
-<span id="cb37-3"><a href="modelos-lineales-generalizados.html#cb37-3"></a>     <span class="dt">ylab=</span><span class="st">&quot;probabilidad de compra&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="modelos-lineales-generalizados.html#cb34-1"></a>datos &lt;-<span class="st"> </span><span class="kw">cbind</span>(datos, modelo<span class="op">$</span>fitted.values)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="modelos-lineales-generalizados.html#cb35-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, <span class="dt">col =</span> <span class="kw">as.factor</span>(datos<span class="op">$</span>Gender),</span>
+<span id="cb35-2"><a href="modelos-lineales-generalizados.html#cb35-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra por género&quot;</span>,</span>
+<span id="cb35-3"><a href="modelos-lineales-generalizados.html#cb35-3"></a>     <span class="dt">ylab=</span><span class="st">&quot;probabilidad de compra&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="modelos-lineales-generalizados.html#cb38-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, datos<span class="op">$</span>Age, <span class="dt">col =</span> <span class="kw">as.factor</span>(datos<span class="op">$</span>Gender),</span>
-<span id="cb38-2"><a href="modelos-lineales-generalizados.html#cb38-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra vs edad coloreado por edad&quot;</span>,</span>
-<span id="cb38-3"><a href="modelos-lineales-generalizados.html#cb38-3"></a>     <span class="dt">xlab=</span><span class="st">&quot;probabilidad de compra&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;edad&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="modelos-lineales-generalizados.html#cb36-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, datos<span class="op">$</span>Age, <span class="dt">col =</span> <span class="kw">as.factor</span>(datos<span class="op">$</span>Gender),</span>
+<span id="cb36-2"><a href="modelos-lineales-generalizados.html#cb36-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra vs edad coloreado por edad&quot;</span>,</span>
+<span id="cb36-3"><a href="modelos-lineales-generalizados.html#cb36-3"></a>     <span class="dt">xlab=</span><span class="st">&quot;probabilidad de compra&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;edad&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="modelos-lineales-generalizados.html#cb39-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, datos<span class="op">$</span>EstimatedSalary,</span>
-<span id="cb39-2"><a href="modelos-lineales-generalizados.html#cb39-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra vs salario&quot;</span>,</span>
-<span id="cb39-3"><a href="modelos-lineales-generalizados.html#cb39-3"></a>     <span class="dt">xlab=</span><span class="st">&quot;probabilidad de compra&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;salario&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="modelos-lineales-generalizados.html#cb37-1"></a><span class="kw">plot</span>(modelo<span class="op">$</span>fitted.values, datos<span class="op">$</span>EstimatedSalary,</span>
+<span id="cb37-2"><a href="modelos-lineales-generalizados.html#cb37-2"></a>     <span class="dt">main=</span><span class="st">&quot;Probabilidad de compra vs salario&quot;</span>,</span>
+<span id="cb37-3"><a href="modelos-lineales-generalizados.html#cb37-3"></a>     <span class="dt">xlab=</span><span class="st">&quot;probabilidad de compra&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;salario&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Observamos que de las 3 variables consideradas, la que parece tener más efecto en la probabilidad de compra es la edad.</p>
 <p>Veamos ahora algunas probabilidades. Según nuestro modelo ¿cuál es la probabilidad de compra de una mujer 55 años con salario de 80,000?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="modelos-lineales-generalizados.html#cb40-1"></a><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(<span class="op">-</span><span class="fl">12.78+.33</span><span class="op">*</span><span class="dv">0</span><span class="fl">+.237</span><span class="op">*</span><span class="dv">55</span><span class="fl">+0.000036</span><span class="op">*</span><span class="dv">80000</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="modelos-lineales-generalizados.html#cb38-1"></a><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(<span class="op">-</span><span class="fl">12.78+.33</span><span class="op">*</span><span class="dv">0</span><span class="fl">+.237</span><span class="op">*</span><span class="dv">55</span><span class="fl">+0.000036</span><span class="op">*</span><span class="dv">80000</span>)))</span></code></pre></div>
 <pre><code>## [1] 0.9583136</code></pre>
 <p>¿Y el de una mujer de 35 años con el mismo salario?</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="modelos-lineales-generalizados.html#cb42-1"></a><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(<span class="op">-</span><span class="fl">12.78+.33</span><span class="op">*</span><span class="dv">0</span><span class="fl">+.237</span><span class="op">*</span><span class="dv">35</span><span class="fl">+0.000036</span><span class="op">*</span><span class="dv">80000</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="modelos-lineales-generalizados.html#cb40-1"></a><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span>(<span class="op">-</span><span class="fl">12.78+.33</span><span class="op">*</span><span class="dv">0</span><span class="fl">+.237</span><span class="op">*</span><span class="dv">35</span><span class="fl">+0.000036</span><span class="op">*</span><span class="dv">80000</span>)))</span></code></pre></div>
 <pre><code>## [1] 0.167284</code></pre>
 <p>Mientrás que la probabilidad de compra de una mujer de 55 años con salario de 80,000 es <span class="math inline">\(96\%\)</span> una mujer con el mismo salario pero 20 años mas joven tendrá una probabilidad de sólo <span class="math inline">\(17\%\)</span> de comprar el producto anunciado.</p>
 <ul>
@@ -575,7 +593,7 @@ asi como la información de si se realizó o no la compra del producto anunciado
 </ul>
 </div>
 </div>
-<div id="regresión-multinomial" class="section level2">
+<div id="regresión-multinomial" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Regresión Multinomial</h2>
 <p>Hasta ahora hemos revisado el caso en el que la variable respuesta era dicotómica. Ahora nos centramos en el caso en el que la variable de interés tiene más de dos categorías, por ejemplo, afiliación política; resultado de un partido de fútbol; marcas de teléfonos celulares, etc.</p>
 <p>Por simplicidad, se ilustrará la metodología para el caso de tres categorías, ya que la generalización a más de tres es inmediata.</p>
@@ -592,24 +610,24 @@ asi como la información de si se realizó o no la compra del producto anunciado
 <span class="math display">\[P[Y=2|X]=\frac{e^{g_2(X)}}{1+e^{g_1(X)}+e^{g_2(X)}}\]</span>
 <span class="math display">\[g_1(X)=\beta_{10}+\beta_{11}X_1+\beta_{12}X_{2}+...\beta_{1k}X_{k}\]</span>
 <span class="math display">\[g_2(X)=\beta_{20}+\beta_{21}X_1+\beta_{22}X_{2}+...\beta_{2k}X_{k}\]</span></p>
-<div id="regresión-multinomial-en-r" class="section level3">
+<div id="regresión-multinomial-en-r" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Regresión Multinomial en R</h3>
 <p>Datos “rh_satisfaction” corresponde a información del área de recursos humanos de una empresa que mide el nivel de satisfacción de sus empleados (en escala de 1 a 5).</p>
 <p>También se tiene algunas características de los empleados (edad, area, salario, etc). El primer análisis a realizar que queremos analizar es la satisfacción de los empleados a través del salario y la edad. Para ello aplicaremos primero una regresión para cada variable por separado y posteriormente un modelo con ambas.</p>
 <p>La función para realizar la regresión multinomial es <strong>multinom</strong>, la cual es similar a la de los comandos para regresión logística.
 Esta función está en la librería <strong>nnet</strong>.</p>
 <p><strong>Cargamos la libreria y los datos:</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="modelos-lineales-generalizados.html#cb44-1"></a><span class="kw">library</span>(nnet)</span>
-<span id="cb44-2"><a href="modelos-lineales-generalizados.html#cb44-2"></a></span>
-<span id="cb44-3"><a href="modelos-lineales-generalizados.html#cb44-3"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/hr_satisfaction.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="modelos-lineales-generalizados.html#cb42-1"></a><span class="kw">library</span>(nnet)</span>
+<span id="cb42-2"><a href="modelos-lineales-generalizados.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="modelos-lineales-generalizados.html#cb42-3"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/hr_satisfaction.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de salario.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="modelos-lineales-generalizados.html#cb45-1"></a>multi1 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>salary, <span class="dt">data =</span> datos)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="modelos-lineales-generalizados.html#cb43-1"></a>multi1 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>salary, <span class="dt">data =</span> datos)</span></code></pre></div>
 <pre><code>## # weights:  15 (8 variable)
 ## initial  value 804.718956 
 ## iter  10 value 801.134736
 ## final  value 800.932439 
 ## converged</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="modelos-lineales-generalizados.html#cb47-1"></a><span class="kw">print</span>(multi1)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="modelos-lineales-generalizados.html#cb45-1"></a><span class="kw">print</span>(multi1)</span></code></pre></div>
 <pre><code>## Call:
 ## multinom(formula = satisfied ~ salary, data = datos)
 ## 
@@ -624,23 +642,23 @@ Esta función está en la librería <strong>nnet</strong>.</p>
 ## AIC: 1617.865</code></pre>
 <p>Tenemos entonces 4 ecuaciones y el análisis está tomando la categoría 1 como la base para construir los modelos <em>logit</em> como vimos en la teoría.</p>
 <p>Uno de los usos de este modelo puede ser el calcular probabilidades especifícas para ciertos niveles de satisfacción que sean de interés. Por ejemplo la probabilidad de que un empleado con salario de 50,000 (la media es 50,416.06) esté muy satisfecho en la empresa es <span class="math inline">\(21\%\)</span> y se calcula de la siguiente forma:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="modelos-lineales-generalizados.html#cb49-1"></a>s &lt;-<span class="st"> </span><span class="dv">50000</span></span>
-<span id="cb49-2"><a href="modelos-lineales-generalizados.html#cb49-2"></a></span>
-<span id="cb49-3"><a href="modelos-lineales-generalizados.html#cb49-3"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.108+.0000031</span><span class="op">*</span>s)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.219+.0000027</span><span class="op">*</span>s) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.152+.0000066</span><span class="op">*</span>s)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.410+.0000103</span><span class="op">*</span>s)</span>
-<span id="cb49-4"><a href="modelos-lineales-generalizados.html#cb49-4"></a></span>
-<span id="cb49-5"><a href="modelos-lineales-generalizados.html#cb49-5"></a><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.410+.0000103</span><span class="op">*</span>s)<span class="op">/</span>denom</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="modelos-lineales-generalizados.html#cb47-1"></a>s &lt;-<span class="st"> </span><span class="dv">50000</span></span>
+<span id="cb47-2"><a href="modelos-lineales-generalizados.html#cb47-2"></a></span>
+<span id="cb47-3"><a href="modelos-lineales-generalizados.html#cb47-3"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.108+.0000031</span><span class="op">*</span>s)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.219+.0000027</span><span class="op">*</span>s) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.152+.0000066</span><span class="op">*</span>s)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.410+.0000103</span><span class="op">*</span>s)</span>
+<span id="cb47-4"><a href="modelos-lineales-generalizados.html#cb47-4"></a></span>
+<span id="cb47-5"><a href="modelos-lineales-generalizados.html#cb47-5"></a><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.410+.0000103</span><span class="op">*</span>s)<span class="op">/</span>denom</span></code></pre></div>
 <pre><code>## [1] 0.2106376</code></pre>
 <p>Mientras que la probabilidad de que este empleado esté completamente insatisfecho será:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="modelos-lineales-generalizados.html#cb51-1"></a><span class="dv">1</span><span class="op">/</span>denom</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="modelos-lineales-generalizados.html#cb49-1"></a><span class="dv">1</span><span class="op">/</span>denom</span></code></pre></div>
 <pre><code>## [1] 0.1896422</code></pre>
 <p>Ahora ajustemos el modelo de regresión multinominal para la satisfacción de los empleados con la variable de edad.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="modelos-lineales-generalizados.html#cb53-1"></a>multi2 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>age, <span class="dt">data =</span> datos)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="modelos-lineales-generalizados.html#cb51-1"></a>multi2 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>age, <span class="dt">data =</span> datos)</span></code></pre></div>
 <pre><code>## # weights:  15 (8 variable)
 ## initial  value 804.718956 
 ## iter  10 value 798.978325
 ## final  value 798.956315 
 ## converged</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="modelos-lineales-generalizados.html#cb55-1"></a>multi2</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="modelos-lineales-generalizados.html#cb53-1"></a>multi2</span></code></pre></div>
 <pre><code>## Call:
 ## multinom(formula = satisfied ~ age, data = datos)
 ## 
@@ -654,20 +672,20 @@ Esta función está en la librería <strong>nnet</strong>.</p>
 ## Residual Deviance: 1597.913 
 ## AIC: 1613.913</code></pre>
 <p>La probabilidad de que un empleado de edad 40 años esté muy satisfecho en la empresa es 20% y se calcula de la siguiente forma:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="modelos-lineales-generalizados.html#cb57-1"></a>e &lt;-<span class="st"> </span><span class="dv">40</span></span>
-<span id="cb57-2"><a href="modelos-lineales-generalizados.html#cb57-2"></a></span>
-<span id="cb57-3"><a href="modelos-lineales-generalizados.html#cb57-3"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.068+.0028</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.438+.0088</span><span class="op">*</span>e) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.636-.0120</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="fl">1.178-.0281</span><span class="op">*</span>e)</span>
-<span id="cb57-4"><a href="modelos-lineales-generalizados.html#cb57-4"></a></span>
-<span id="cb57-5"><a href="modelos-lineales-generalizados.html#cb57-5"></a><span class="kw">exp</span>(<span class="fl">1.178-.0281</span><span class="op">*</span>e)<span class="op">/</span>denom</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="modelos-lineales-generalizados.html#cb55-1"></a>e &lt;-<span class="st"> </span><span class="dv">40</span></span>
+<span id="cb55-2"><a href="modelos-lineales-generalizados.html#cb55-2"></a></span>
+<span id="cb55-3"><a href="modelos-lineales-generalizados.html#cb55-3"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.068+.0028</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.438+.0088</span><span class="op">*</span>e) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.636-.0120</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="fl">1.178-.0281</span><span class="op">*</span>e)</span>
+<span id="cb55-4"><a href="modelos-lineales-generalizados.html#cb55-4"></a></span>
+<span id="cb55-5"><a href="modelos-lineales-generalizados.html#cb55-5"></a><span class="kw">exp</span>(<span class="fl">1.178-.0281</span><span class="op">*</span>e)<span class="op">/</span>denom</span></code></pre></div>
 <pre><code>## [1] 0.2034909</code></pre>
 <p>Finalmente ajustamos el modelo de regresión con las variables explicativas de salario y edad.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="modelos-lineales-generalizados.html#cb59-1"></a>multi3 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>salary<span class="op">+</span>age, <span class="dt">data =</span> datos)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="modelos-lineales-generalizados.html#cb57-1"></a>multi3 &lt;-<span class="st"> </span><span class="kw">multinom</span>(satisfied<span class="op">~</span>salary<span class="op">+</span>age, <span class="dt">data =</span> datos)</span></code></pre></div>
 <pre><code>## # weights:  20 (12 variable)
 ## initial  value 804.718956 
 ## iter  10 value 799.192997
 ## final  value 797.372424 
 ## converged</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="modelos-lineales-generalizados.html#cb61-1"></a>multi3</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="modelos-lineales-generalizados.html#cb59-1"></a>multi3</span></code></pre></div>
 <pre><code>## Call:
 ## multinom(formula = satisfied ~ salary + age, data = datos)
 ## 
@@ -682,15 +700,15 @@ Esta función está en la librería <strong>nnet</strong>.</p>
 ## AIC: 1618.745</code></pre>
 <p>Con este modelo entonces podemos calcular la probabilidad de que un empleado de edad 25 años esté muy satisfecho en la empresa es <span class="math inline">\(27\%\)</span> y se
 calcula de la siguiente forma:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="modelos-lineales-generalizados.html#cb63-1"></a>e &lt;-<span class="st"> </span><span class="dv">25</span></span>
-<span id="cb63-2"><a href="modelos-lineales-generalizados.html#cb63-2"></a>s &lt;-<span class="st"> </span><span class="dv">50000</span></span>
-<span id="cb63-3"><a href="modelos-lineales-generalizados.html#cb63-3"></a></span>
-<span id="cb63-4"><a href="modelos-lineales-generalizados.html#cb63-4"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.232+.0000031</span><span class="op">*</span>s<span class="fl">+0.003</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.587+.0000028</span><span class="op">*</span>s<span class="fl">+0.009</span><span class="op">*</span>e) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.295+.0000063</span><span class="op">*</span>s<span class="fl">-0.011</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="fl">0.640+.0000098</span><span class="op">*</span>s<span class="fl">-0.027</span><span class="op">*</span>e)</span>
-<span id="cb63-5"><a href="modelos-lineales-generalizados.html#cb63-5"></a></span>
-<span id="cb63-6"><a href="modelos-lineales-generalizados.html#cb63-6"></a><span class="kw">exp</span>(<span class="fl">0.640+.0000098</span><span class="op">*</span>s<span class="fl">-0.027</span><span class="op">*</span>e)<span class="op">/</span>denom</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="modelos-lineales-generalizados.html#cb61-1"></a>e &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb61-2"><a href="modelos-lineales-generalizados.html#cb61-2"></a>s &lt;-<span class="st"> </span><span class="dv">50000</span></span>
+<span id="cb61-3"><a href="modelos-lineales-generalizados.html#cb61-3"></a></span>
+<span id="cb61-4"><a href="modelos-lineales-generalizados.html#cb61-4"></a>denom &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.232+.0000031</span><span class="op">*</span>s<span class="fl">+0.003</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="fl">0.587+.0000028</span><span class="op">*</span>s<span class="fl">+0.009</span><span class="op">*</span>e) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.295+.0000063</span><span class="op">*</span>s<span class="fl">-0.011</span><span class="op">*</span>e)<span class="op">+</span><span class="kw">exp</span>(<span class="fl">0.640+.0000098</span><span class="op">*</span>s<span class="fl">-0.027</span><span class="op">*</span>e)</span>
+<span id="cb61-5"><a href="modelos-lineales-generalizados.html#cb61-5"></a></span>
+<span id="cb61-6"><a href="modelos-lineales-generalizados.html#cb61-6"></a><span class="kw">exp</span>(<span class="fl">0.640+.0000098</span><span class="op">*</span>s<span class="fl">-0.027</span><span class="op">*</span>e)<span class="op">/</span>denom</span></code></pre></div>
 <pre><code>## [1] 0.2730235</code></pre>
 <p>Mientras que la probabilidad de estar completamente insatisfecho será:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="modelos-lineales-generalizados.html#cb65-1"></a><span class="dv">1</span><span class="op">/</span>denom</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="modelos-lineales-generalizados.html#cb63-1"></a><span class="dv">1</span><span class="op">/</span>denom</span></code></pre></div>
 <pre><code>## [1] 0.1732192</code></pre>
 <ul>
 <li><p>Calcular la probabilidad de un empleado de 50 años con salario de 65,000 asigne un nivel de satisfacción de 3.</p></li>
@@ -700,7 +718,7 @@ calcula de la siguiente forma:</p>
 </ul>
 </div>
 </div>
-<div id="modelos-para-conteos" class="section level2">
+<div id="modelos-para-conteos" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Modelos para conteos</h2>
 <p>En muchos casos las variables respuesta son conteos, y en ocasiones estos recuentos aparecen al resumir en tablas de contingencia otras variables.</p>
 <p>Hay cuatro razones por las que sería erroneo utlizar un modelo de regresión normal para datos de conteo :</p>
@@ -724,42 +742,42 @@ calcula de la siguiente forma:</p>
 <p><span class="math display">\[log(\mu) = log(E[Y])=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
 <p>de modo que al despejar <span class="math inline">\(\mu\)</span> obtenemos:</p>
 <p><span class="math display">\[\mu = e^{\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}}\]</span></p>
-<div id="sobredispersión-en-glm-poisson" class="section level3">
+<div id="sobredispersión-en-glm-poisson" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Sobredispersión en GLM Poisson</h3>
 <p>En una distribución de Poisson, la media y la varianza son iguales, pero en la práctica, los datos de conteo muestran mayor variabilidad de la que se espera en un modelo binomial o Poisson. En el caso de este último, es común que la varianza sea mucho mayor que la media <span class="math inline">\(\mathbb{V}\left(Y\right)&gt;&gt;\mathbb{E}\left(Y\right)=\mu\)</span>, este fenómeno se conoce como <em>sobredispersión</em>.</p>
 <p>Por ejemplo, podemos suponer que cada individuo tienen igual probabilidad de padecer cierta enfermedad; no obstante, siendo más realistas, es claro que que estas probabilidades varían debido a factores genéticos, de salubridad y de localización geográfica, entre otros, propiciando mayor variabilidad sobre el número de sujetos enfermos en un periodo determinado, que los que puede predecir el modelo Poisson asociado.</p>
 <p>Una forma de medir la sobredispersión en los datos es ajustando una distribución <em>quasipoisson</em>, la cual ajustará el modelo con distribución Poisson pero no asumirá varianza igual a la media y calculará el parámetro de dispersión.</p>
 </div>
-<div id="glm-poisson-r" class="section level3">
+<div id="glm-poisson-r" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> GLM Poisson R</h3>
 <p>Entre los cangrejos cacerola se sabe que cada hembra tiene un macho en su nido, pero puede tener más machos concubinos. Considerando que deseamos relacionar la variable respuesta, el número de concubinos, con las variables explicativas son: color, estado de la espina central, peso y anchura del caparazón, procederemos a ajustar un modelo lineal a los datos.</p>
 <p>En un primer análisis sólo consideramos la anchura del caparazón como variable explicativa.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="modelos-lineales-generalizados.html#cb67-1"></a>tabla &lt;-<span class="st"> </span><span class="kw">read.csv</span> ( <span class="st">&quot;http://www.hofroe.net/stat557/data/crab.txt&quot;</span> , <span class="dt">header =</span><span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span> )</span>
-<span id="cb67-2"><a href="modelos-lineales-generalizados.html#cb67-2"></a></span>
-<span id="cb67-3"><a href="modelos-lineales-generalizados.html#cb67-3"></a>plot.tabla &lt;-<span class="st">  </span><span class="kw">aggregate</span> (<span class="kw">rep</span> (<span class="dv">1</span>,<span class="kw">nrow</span> (tabla)), <span class="kw">list</span> (<span class="dt">Sa=</span> tabla<span class="op">$</span>Satellite , <span class="dt">W=</span>tabla<span class="op">$</span>Width), sum)</span>
-<span id="cb67-4"><a href="modelos-lineales-generalizados.html#cb67-4"></a></span>
-<span id="cb67-5"><a href="modelos-lineales-generalizados.html#cb67-5"></a><span class="kw">plot</span>(tabla<span class="op">$</span>Width,tabla<span class="op">$</span>Satellite, <span class="dt">xlab=</span><span class="st">&quot;Ancho de caparazón&quot;, ylab=&quot;</span>Número de Concubinos<span class="st">&quot;, bty=&quot;</span>L<span class="st">&quot;, axes = FALSE, type =&quot;</span>n<span class="st">&quot;)</span></span>
-<span id="cb67-6"><a href="modelos-lineales-generalizados.html#cb67-6"></a><span class="st">axis (2, at =1:15)</span></span>
-<span id="cb67-7"><a href="modelos-lineales-generalizados.html#cb67-7"></a><span class="st">axis (1, at=seq (20 , 34, 2))</span></span>
-<span id="cb67-8"><a href="modelos-lineales-generalizados.html#cb67-8"></a><span class="st">text (y= plot.tabla$Sa , x= plot.tabla$W, labels = plot.tabla$x)</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="modelos-lineales-generalizados.html#cb65-1"></a>tabla &lt;-<span class="st"> </span><span class="kw">read.csv</span> ( <span class="st">&quot;http://www.hofroe.net/stat557/data/crab.txt&quot;</span> , <span class="dt">header =</span><span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span> )</span>
+<span id="cb65-2"><a href="modelos-lineales-generalizados.html#cb65-2"></a></span>
+<span id="cb65-3"><a href="modelos-lineales-generalizados.html#cb65-3"></a>plot.tabla &lt;-<span class="st">  </span><span class="kw">aggregate</span> (<span class="kw">rep</span> (<span class="dv">1</span>,<span class="kw">nrow</span> (tabla)), <span class="kw">list</span> (<span class="dt">Sa=</span> tabla<span class="op">$</span>Satellite , <span class="dt">W=</span>tabla<span class="op">$</span>Width), sum)</span>
+<span id="cb65-4"><a href="modelos-lineales-generalizados.html#cb65-4"></a></span>
+<span id="cb65-5"><a href="modelos-lineales-generalizados.html#cb65-5"></a><span class="kw">plot</span>(tabla<span class="op">$</span>Width,tabla<span class="op">$</span>Satellite, <span class="dt">xlab=</span><span class="st">&quot;Ancho de caparazón&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Número de Concubinos&quot;</span>, <span class="dt">bty=</span><span class="st">&quot;L&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">type =</span><span class="st">&quot;n&quot;</span>)</span>
+<span id="cb65-6"><a href="modelos-lineales-generalizados.html#cb65-6"></a><span class="kw">axis</span> (<span class="dv">2</span>, <span class="dt">at =</span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</span>
+<span id="cb65-7"><a href="modelos-lineales-generalizados.html#cb65-7"></a><span class="kw">axis</span> (<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span> (<span class="dv">20</span> , <span class="dv">34</span>, <span class="dv">2</span>))</span>
+<span id="cb65-8"><a href="modelos-lineales-generalizados.html#cb65-8"></a><span class="kw">text</span> (<span class="dt">y=</span> plot.tabla<span class="op">$</span>Sa , <span class="dt">x=</span> plot.tabla<span class="op">$</span>W, <span class="dt">labels =</span> plot.tabla<span class="op">$</span>x)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 <p>Ahora agruparemos los datos según cortes específicos en la variable de ancho de caparazón (<em>Width</em>) para poder ver visualmente el ajuste del modelo de regresión.</p>
 <p><strong>Discretizamos el ancho del caparazón</strong></p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="modelos-lineales-generalizados.html#cb68-1"></a>tabla<span class="op">$</span>W.fac =<span class="st"> </span><span class="kw">cut</span>( tabla<span class="op">$</span>Width , <span class="dt">breaks =</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">seq</span> (<span class="fl">23.25</span> , <span class="fl">29.25</span>), <span class="ot">Inf</span> ))</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="modelos-lineales-generalizados.html#cb66-1"></a>tabla<span class="op">$</span>W.fac =<span class="st"> </span><span class="kw">cut</span>( tabla<span class="op">$</span>Width , <span class="dt">breaks =</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">seq</span> (<span class="fl">23.25</span> , <span class="fl">29.25</span>), <span class="ot">Inf</span> ))</span></code></pre></div>
 <p><strong>Calculamos el numero medio de concubinos para cada categoria según el ancho del caparazón:</strong></p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="modelos-lineales-generalizados.html#cb69-1"></a>plot.y &lt;-<span class="st"> </span><span class="kw">aggregate</span> ( tabla<span class="op">$</span>Satellite , <span class="dt">by=</span> <span class="kw">list</span> (<span class="dt">W=</span> tabla<span class="op">$</span>W.fac), mean )<span class="op">$</span>x</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="modelos-lineales-generalizados.html#cb67-1"></a>plot.y &lt;-<span class="st"> </span><span class="kw">aggregate</span> ( tabla<span class="op">$</span>Satellite , <span class="dt">by=</span> <span class="kw">list</span> (<span class="dt">W=</span> tabla<span class="op">$</span>W.fac), mean )<span class="op">$</span>x</span></code></pre></div>
 <p><strong>Determinamos la media del ancho del caparazon por categoría:</strong></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="modelos-lineales-generalizados.html#cb70-1"></a>plot.x &lt;-<span class="st"> </span><span class="kw">aggregate</span> ( tabla<span class="op">$</span>Width , <span class="dt">by =</span> <span class="kw">list</span> (<span class="dt">W=</span> tabla<span class="op">$</span>W.fac ), mean )<span class="op">$</span>x</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="modelos-lineales-generalizados.html#cb68-1"></a>plot.x &lt;-<span class="st"> </span><span class="kw">aggregate</span> ( tabla<span class="op">$</span>Width , <span class="dt">by =</span> <span class="kw">list</span> (<span class="dt">W=</span> tabla<span class="op">$</span>W.fac ), mean )<span class="op">$</span>x</span></code></pre></div>
 <p><strong>Representamos las medias de anchura y la media del numero de concubinos:</strong></p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="modelos-lineales-generalizados.html#cb71-1"></a><span class="kw">plot</span> (<span class="dt">x =</span> plot.x , <span class="dt">y =</span> plot.y , <span class="dt">ylab =</span> <span class="st">&quot; Numero de Concubinos &quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot; Anchura (cm) &quot;</span>, <span class="dt">bty =</span> <span class="st">&quot;L&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb71-2"><a href="modelos-lineales-generalizados.html#cb71-2"></a><span class="kw">axis</span>(<span class="dv">2</span>, <span class="dt">at =</span><span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)</span>
-<span id="cb71-3"><a href="modelos-lineales-generalizados.html#cb71-3"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span> (<span class="dv">20</span> , <span class="dv">34</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="modelos-lineales-generalizados.html#cb69-1"></a><span class="kw">plot</span> (<span class="dt">x =</span> plot.x , <span class="dt">y =</span> plot.y , <span class="dt">ylab =</span> <span class="st">&quot; Numero de Concubinos &quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot; Anchura (cm) &quot;</span>, <span class="dt">bty =</span> <span class="st">&quot;L&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb69-2"><a href="modelos-lineales-generalizados.html#cb69-2"></a><span class="kw">axis</span>(<span class="dv">2</span>, <span class="dt">at =</span><span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)</span>
+<span id="cb69-3"><a href="modelos-lineales-generalizados.html#cb69-3"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span> (<span class="dv">20</span> , <span class="dv">34</span>, <span class="dv">2</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>En este caso podemos observar una relación lineal entre la media del número de concubinos y la media del ancho del caparazón por categoría.</p>
 <p>Ahora ajustamos el modelo lineal entre el número de concubinos y el ancho del caparazón definiendo una función de distribución Poisson.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="modelos-lineales-generalizados.html#cb72-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(Satellite<span class="op">~</span>Width , <span class="dt">family =</span> poisson , <span class="dt">data =</span> tabla )</span>
-<span id="cb72-2"><a href="modelos-lineales-generalizados.html#cb72-2"></a></span>
-<span id="cb72-3"><a href="modelos-lineales-generalizados.html#cb72-3"></a><span class="kw">summary</span>( m1 )</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="modelos-lineales-generalizados.html#cb70-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(Satellite<span class="op">~</span>Width , <span class="dt">family =</span> poisson , <span class="dt">data =</span> tabla )</span>
+<span id="cb70-2"><a href="modelos-lineales-generalizados.html#cb70-2"></a></span>
+<span id="cb70-3"><a href="modelos-lineales-generalizados.html#cb70-3"></a><span class="kw">summary</span>( m1 )</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Satellite ~ Width, family = poisson, data = tabla)
@@ -784,26 +802,26 @@ calcula de la siguiente forma:</p>
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p>Recordando que para medir el ajuste del modelo utilizamos la devianza, en donde la devianza nula es la desviación para el modelo que no depende de ninguna variable. Miéntras que la devianza residual es la diferencia entre la desviación del modelo que no depende de ninguna variable menos la del modelo que incluye a la variable “Width”. La diferencia entre ambas se distribuirá como una distribución Ji-cuadrada con 1 grado de libertad.</p>
 <p><strong>Bondad de Ajuste:</strong></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="modelos-lineales-generalizados.html#cb74-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
-<span id="cb74-2"><a href="modelos-lineales-generalizados.html#cb74-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
-<span id="cb74-3"><a href="modelos-lineales-generalizados.html#cb74-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb74-4"><a href="modelos-lineales-generalizados.html#cb74-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="modelos-lineales-generalizados.html#cb72-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
+<span id="cb72-2"><a href="modelos-lineales-generalizados.html#cb72-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
+<span id="cb72-3"><a href="modelos-lineales-generalizados.html#cb72-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb72-4"><a href="modelos-lineales-generalizados.html#cb72-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 64.91309</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="modelos-lineales-generalizados.html#cb76-1"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, <span class="dv">1</span>)</span>
-<span id="cb76-2"><a href="modelos-lineales-generalizados.html#cb76-2"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="modelos-lineales-generalizados.html#cb74-1"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, <span class="dv">1</span>)</span>
+<span id="cb74-2"><a href="modelos-lineales-generalizados.html#cb74-2"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 7.771561e-16</code></pre>
 <p>Se puede rechazar claramente la hipótesis nula. Por lo que concluimos que hay un aportación significativa de la variable de ancho del caparazón al modelo del número de concubinos.</p>
 <p>El modelo queda de la siguiente forma:</p>
 <p><span class="math display">\[ln(\mu)=-3.30+0.16*Width\]</span></p>
 <p>Y los valores estimados por el modelo se pueden encontrar en <code>m1$fitted.values</code>. Y se puede predecir la media del números de concubinos para un valor de ancho de caparazón dado, por ejemplo, para una anchura igual a 26.3:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="modelos-lineales-generalizados.html#cb78-1"></a><span class="kw">predict.glm</span> ( m1 , <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">newdata =</span> <span class="kw">data.frame</span>( <span class="dt">Width =</span> <span class="fl">26.3</span> ))</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="modelos-lineales-generalizados.html#cb76-1"></a><span class="kw">predict.glm</span> ( m1 , <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>, <span class="dt">newdata =</span> <span class="kw">data.frame</span>( <span class="dt">Width =</span> <span class="fl">26.3</span> ))</span></code></pre></div>
 <pre><code>##        1 
 ## 2.744581</code></pre>
 <p>Entonces siguiendo este modelo, decimos que los cangrejos hembra con ancho de caparazón del 26.3cm tienen en promedio 2.7 parejas.</p>
 <p>Podriamos ajustar ahora el modelo con las variables de peso, color y estado de la espina. Se deja al lector el ejercicio de utilizando el algoritmo stepAIC encontrar el mejor modelo para el número de concubinos.</p>
 </div>
 </div>
-<div id="glm-binomial-negativa" class="section level2">
+<div id="glm-binomial-negativa" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> GLM binomial negativa</h2>
 <p>Una distribución que puede usarse como alternativa a una Poisson es la . Dado que su varianza es más grande que su media, constituye una excelente alternativa para modelar datos de conteo sobredispersos, que son muy comunes en aplicaciones reales.</p>
 <p>Si una variable aleatoria <span class="math inline">\(Y\)</span> se distribuye como una binomial negativa, entonces la función de probabilidad es:</p>
@@ -815,14 +833,14 @@ calcula de la siguiente forma:</p>
 <p>Por otro lado, para un valor fijo de <span class="math inline">\(k\)</span> esta distribución pertenece a la familia exponencial natural, de modo que se puede definir un modelo GLM binomial negativo. En general, se usa una función liga de tipo logaritmo.</p>
 <p>La regresión binomial negativa se puede utilizar para datos sobredispersos de recuentos, es decir cuando la varianza condicional es mayor que la media condicional. Se puede considerar como una generalización de la regresión de Poisson, ya que tiene su misma estructura de medias y además un parámetro adicional para el modelo de sobredispersión.</p>
 <p>Si la distribución condicional de la variable observada es más dispersa, los intervalos de confianza para la regresión binomial negativa es probable que sean más estrechos que los correspondientes a un modelo de regresión de Poisson.</p>
-<div id="glm-binomial-negativa-en-r" class="section level3">
+<div id="glm-binomial-negativa-en-r" class="section level3" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> GLM Binomial Negativa en R</h3>
 <p>Usando los mismos datos de los cangrejos ahora ajustaremos un modelo con distribución binomial negativa:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="modelos-lineales-generalizados.html#cb80-1"></a><span class="kw">require</span>( MASS )</span>
-<span id="cb80-2"><a href="modelos-lineales-generalizados.html#cb80-2"></a></span>
-<span id="cb80-3"><a href="modelos-lineales-generalizados.html#cb80-3"></a>m2 &lt;-<span class="st">  </span><span class="kw">glm.nb</span>(Satellite<span class="op">~</span>Width , <span class="dt">data =</span> tabla )</span>
-<span id="cb80-4"><a href="modelos-lineales-generalizados.html#cb80-4"></a></span>
-<span id="cb80-5"><a href="modelos-lineales-generalizados.html#cb80-5"></a><span class="kw">summary</span>( m2 )</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="modelos-lineales-generalizados.html#cb78-1"></a><span class="kw">require</span>( MASS )</span>
+<span id="cb78-2"><a href="modelos-lineales-generalizados.html#cb78-2"></a></span>
+<span id="cb78-3"><a href="modelos-lineales-generalizados.html#cb78-3"></a>m2 &lt;-<span class="st">  </span><span class="kw">glm.nb</span>(Satellite<span class="op">~</span>Width , <span class="dt">data =</span> tabla )</span>
+<span id="cb78-4"><a href="modelos-lineales-generalizados.html#cb78-4"></a></span>
+<span id="cb78-5"><a href="modelos-lineales-generalizados.html#cb78-5"></a><span class="kw">summary</span>( m2 )</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm.nb(formula = Satellite ~ Width, data = tabla, init.theta = 0.90456808, 
@@ -857,7 +875,7 @@ calcula de la siguiente forma:</p>
 <p>Observamos que tanto la devianza como el coeficiente de Akaike son menores en comparación con el modelo que usa una distribución Poisson.</p>
 <p>Adicionalmente habiamos visto que los datos indicaban que la varianza era poco mas de tres veces la media. Por estas razones para este ejemplo se puede decir que un modelo con distribución binomial negativa es mas adecuado.</p>
 </div>
-<div id="ejercicio" class="section level3">
+<div id="ejercicio" class="section level3" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> Ejercicio</h3>
 <p>La base de datos “productos.csv” contiene información sobre el número de productos financieros que posee cada cliente, adicional a esa información se tiene la edad, género, número de ofertas, antigüedad y el número de créditos que tiene. Deseamos obtener información respecto a la relación entre el número de productos y el resto de las variables que nos permitan incrementar la venta de productos.</p>
 <ul>
@@ -871,18 +889,18 @@ calcula de la siguiente forma:</p>
 </ul>
 </div>
 </div>
-<div id="exponencial" class="section level2">
+<div id="exponencial" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Exponencial</h2>
 <p>Se dice que la variable respuesta <span class="math inline">\(Y\)</span> es de tipo Exponencial cuando hemos observado el tiempo transcurrido hasta que ocurre un evento de interés como resultado de un conjunto de variables predictoras que pueden ser de tipo numérico o categórico. En este caso similar al caso de conteos también se asume que <span class="math inline">\(Y\)</span> sólo toma valores positivos y es continua.</p>
 <p>En este caso la función liga utilizada es el recíproco, de modo que el modelo lineal se puede expresar como:</p>
 <p><span class="math display">\[\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
-<div id="glm-exponencial-en-r" class="section level3">
+<div id="glm-exponencial-en-r" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> GLM Exponencial en R</h3>
 <p>Los datos de este ejemplo corresponden a la información de un banco qué busca entender la transición de sus clientes hacia un estado de alto riesgo de crédito. Con la finalidad de entender mejor el momento en que el cliente pasa a un estado de alto riesgo crediticio por falta de pago, el banco hizo un seguimiento a una muestra representativa de sus clientes.</p>
 <p>Deseamos identificar cuáles de las características de los clientes influyen en la transición de un estado de bajo riesgo a alto riesgo.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="modelos-lineales-generalizados.html#cb82-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/default.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="modelos-lineales-generalizados.html#cb80-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/default.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <p><strong>Breve análisis exploratorio:</strong></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="modelos-lineales-generalizados.html#cb83-1"></a><span class="kw">str</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="modelos-lineales-generalizados.html#cb81-1"></a><span class="kw">str</span>(datos)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	1000 obs. of  17 variables:
 ##  $ duration              : int  6 48 12 42 24 36 24 36 12 30 ...
 ##  $ credit_history        : chr  &quot;critical/other existing credit&quot; &quot;existing paid&quot; &quot;critical/other existing credit&quot; &quot;existing paid&quot; ...
@@ -901,40 +919,40 @@ calcula de la siguiente forma:</p>
 ##  $ own_telephone         : chr  &quot;yes&quot; &quot;none&quot; &quot;none&quot; &quot;none&quot; ...
 ##  $ foreign_worker        : chr  &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; ...
 ##  $ default               : int  0 1 0 0 1 0 0 0 0 1 ...</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="modelos-lineales-generalizados.html#cb85-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
-<pre><code>##     duration    credit_history       purpose          credit_amount   installment_commitment personal_status    residence_since property_magnitude
-##  Min.   : 4.0   Length:1000        Length:1000        Min.   :  250   Min.   :1.000          Length:1000        Min.   :1.000   Length:1000       
-##  1st Qu.:12.0   Class :character   Class :character   1st Qu.: 1366   1st Qu.:2.000          Class :character   1st Qu.:2.000   Class :character  
-##  Median :18.0   Mode  :character   Mode  :character   Median : 2320   Median :3.000          Mode  :character   Median :3.000   Mode  :character  
-##  Mean   :20.9                                         Mean   : 3271   Mean   :2.973                             Mean   :2.845                     
-##  3rd Qu.:24.0                                         3rd Qu.: 3972   3rd Qu.:4.000                             3rd Qu.:4.000                     
-##  Max.   :72.0                                         Max.   :18424   Max.   :4.000                             Max.   :4.000                     
-##       age        other_payment_plans   housing          existing_credits     job            num_dependents  own_telephone      foreign_worker    
-##  Min.   :19.00   Length:1000         Length:1000        Min.   :1.000    Length:1000        Min.   :1.000   Length:1000        Length:1000       
-##  1st Qu.:27.00   Class :character    Class :character   1st Qu.:1.000    Class :character   1st Qu.:1.000   Class :character   Class :character  
-##  Median :33.00   Mode  :character    Mode  :character   Median :1.000    Mode  :character   Median :1.000   Mode  :character   Mode  :character  
-##  Mean   :35.55                                          Mean   :1.407                       Mean   :1.155                                        
-##  3rd Qu.:42.00                                          3rd Qu.:2.000                       3rd Qu.:1.000                                        
-##  Max.   :75.00                                          Max.   :4.000                       Max.   :2.000                                        
-##     default   
-##  Min.   :0.0  
-##  1st Qu.:0.0  
-##  Median :0.0  
-##  Mean   :0.3  
-##  3rd Qu.:1.0  
-##  Max.   :1.0</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="modelos-lineales-generalizados.html#cb83-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
+<pre><code>##     duration    credit_history       purpose          credit_amount   installment_commitment personal_status    residence_since
+##  Min.   : 4.0   Length:1000        Length:1000        Min.   :  250   Min.   :1.000          Length:1000        Min.   :1.000  
+##  1st Qu.:12.0   Class :character   Class :character   1st Qu.: 1366   1st Qu.:2.000          Class :character   1st Qu.:2.000  
+##  Median :18.0   Mode  :character   Mode  :character   Median : 2320   Median :3.000          Mode  :character   Median :3.000  
+##  Mean   :20.9                                         Mean   : 3271   Mean   :2.973                             Mean   :2.845  
+##  3rd Qu.:24.0                                         3rd Qu.: 3972   3rd Qu.:4.000                             3rd Qu.:4.000  
+##  Max.   :72.0                                         Max.   :18424   Max.   :4.000                             Max.   :4.000  
+##  property_magnitude      age        other_payment_plans   housing          existing_credits     job            num_dependents 
+##  Length:1000        Min.   :19.00   Length:1000         Length:1000        Min.   :1.000    Length:1000        Min.   :1.000  
+##  Class :character   1st Qu.:27.00   Class :character    Class :character   1st Qu.:1.000    Class :character   1st Qu.:1.000  
+##  Mode  :character   Median :33.00   Mode  :character    Mode  :character   Median :1.000    Mode  :character   Median :1.000  
+##                     Mean   :35.55                                          Mean   :1.407                       Mean   :1.155  
+##                     3rd Qu.:42.00                                          3rd Qu.:2.000                       3rd Qu.:1.000  
+##                     Max.   :75.00                                          Max.   :4.000                       Max.   :2.000  
+##  own_telephone      foreign_worker        default   
+##  Length:1000        Length:1000        Min.   :0.0  
+##  Class :character   Class :character   1st Qu.:0.0  
+##  Mode  :character   Mode  :character   Median :0.0  
+##                                        Mean   :0.3  
+##                                        3rd Qu.:1.0  
+##                                        Max.   :1.0</code></pre>
 <p><strong>Selección de observaciones en donde si hubo falta de pago:</strong></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="modelos-lineales-generalizados.html#cb87-1"></a>datos &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>default<span class="op">==</span><span class="dv">1</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="modelos-lineales-generalizados.html#cb85-1"></a>datos &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>default<span class="op">==</span><span class="dv">1</span>,]</span></code></pre></div>
 <p><strong>Construcción de la variable del tiempo transcurrido al default:</strong></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="modelos-lineales-generalizados.html#cb88-1"></a>datos<span class="op">$</span>meses_default &lt;-<span class="st"> </span>datos<span class="op">$</span>duration<span class="op">-</span>datos<span class="op">$</span>installment_commitment</span>
-<span id="cb88-2"><a href="modelos-lineales-generalizados.html#cb88-2"></a></span>
-<span id="cb88-3"><a href="modelos-lineales-generalizados.html#cb88-3"></a><span class="kw">hist</span>(datos<span class="op">$</span>meses_default)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="modelos-lineales-generalizados.html#cb86-1"></a>datos<span class="op">$</span>meses_default &lt;-<span class="st"> </span>datos<span class="op">$</span>duration<span class="op">-</span>datos<span class="op">$</span>installment_commitment</span>
+<span id="cb86-2"><a href="modelos-lineales-generalizados.html#cb86-2"></a></span>
+<span id="cb86-3"><a href="modelos-lineales-generalizados.html#cb86-3"></a><span class="kw">hist</span>(datos<span class="op">$</span>meses_default)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <p>Lo primero será ajustar un modelo que explique el tiempo en que occure la falta de pago en función de la variable tenencia de teléfono propio.</p>
 <p>N.B. La distribución exponencial es un caso particular de la distribución gamma y por esa razón en la función glm sólo aparece la familia <em>Gamma</em></p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="modelos-lineales-generalizados.html#cb89-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(meses_default <span class="op">~</span><span class="st"> </span>own_telephone, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
-<span id="cb89-2"><a href="modelos-lineales-generalizados.html#cb89-2"></a></span>
-<span id="cb89-3"><a href="modelos-lineales-generalizados.html#cb89-3"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="modelos-lineales-generalizados.html#cb87-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(meses_default <span class="op">~</span><span class="st"> </span>own_telephone, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
+<span id="cb87-2"><a href="modelos-lineales-generalizados.html#cb87-2"></a></span>
+<span id="cb87-3"><a href="modelos-lineales-generalizados.html#cb87-3"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = meses_default ~ own_telephone, family = Gamma, 
@@ -959,21 +977,21 @@ calcula de la siguiente forma:</p>
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p><strong>Bondad de ajuste:</strong></p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="modelos-lineales-generalizados.html#cb91-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
-<span id="cb91-2"><a href="modelos-lineales-generalizados.html#cb91-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
-<span id="cb91-3"><a href="modelos-lineales-generalizados.html#cb91-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb91-4"><a href="modelos-lineales-generalizados.html#cb91-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="modelos-lineales-generalizados.html#cb89-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
+<span id="cb89-2"><a href="modelos-lineales-generalizados.html#cb89-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
+<span id="cb89-3"><a href="modelos-lineales-generalizados.html#cb89-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb89-4"><a href="modelos-lineales-generalizados.html#cb89-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 3.07052</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="modelos-lineales-generalizados.html#cb93-1"></a>chidf &lt;-<span class="st"> </span>m1<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m1<span class="op">$</span>df.residual</span>
-<span id="cb93-2"><a href="modelos-lineales-generalizados.html#cb93-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb93-3"><a href="modelos-lineales-generalizados.html#cb93-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="modelos-lineales-generalizados.html#cb91-1"></a>chidf &lt;-<span class="st"> </span>m1<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m1<span class="op">$</span>df.residual</span>
+<span id="cb91-2"><a href="modelos-lineales-generalizados.html#cb91-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb91-3"><a href="modelos-lineales-generalizados.html#cb91-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0.07972398</code></pre>
 <p>La prueba de bondad de ajuste da una probabilidad de <span class="math inline">\(7\%\)</span> que es menor al <span class="math inline">\(10\%\)</span> y puede considerarse suficiente para decir que el modelo con esta variable si aporta información estadísticamente significativa.</p>
 <p>El modelo queda de la siguiente forma:</p>
 <p><span class="math display">\[\frac{1}{E(Y)}=0.050-0.009*TeléfonoPropio\]</span></p>
 <p>Con este modelo podriamos calcular, en promedio, en cuantos meses de iniciado el crédito se presentará el no pago en función de si el teléfono es propio o no.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="modelos-lineales-generalizados.html#cb95-1"></a><span class="kw">table</span>(m1<span class="op">$</span>fitted.values) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb95-2"><a href="modelos-lineales-generalizados.html#cb95-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="modelos-lineales-generalizados.html#cb93-1"></a><span class="kw">table</span>(m1<span class="op">$</span>fitted.values) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb93-2"><a href="modelos-lineales-generalizados.html#cb93-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1000,20 +1018,20 @@ calcula de la siguiente forma:</p>
 </ul>
 </div>
 </div>
-<div id="gamma" class="section level2">
+<div id="gamma" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Gamma</h2>
 <p>Como se mencionó en la sección anterior las distribución exponencial es un caso particular de la distribución gamma. En general cuando la variable de respuesta es de tipo numérico, pero sólo puede tomar valores positivos de forma asimétrica, es decir, se encuentra concentrada en un conjunto de valores y su frecuencia disminuye cuando aumenta el valor de la respuesta, se dice que la variable se distribuye gamma.</p>
 <p>La distribución gamma sólo está definida para valores mayores a cero, por lo que si la variable de respuesta <span class="math inline">\(Y\)</span> toma valores negativos o cero, para poder utilizar esta distribución será necesario realizar una transformación de los datos, sumando una constante lo suficientemente grande que haga todas las obervaciones positivas.</p>
 <p>Análogo al caso exponencial, la función liga utilizada es el recíproco, de modo que el modelo lineal se expresa como:</p>
 <p><span class="math display">\[\frac{1}{E[Y]}=\beta_{0}+\beta_{1}X_{1}+\beta_{2}X_{2}+\cdots+\beta_{k}X_{k}\]</span></p>
-<div id="glm-gamma-en-r" class="section level3">
+<div id="glm-gamma-en-r" class="section level3" number="5.8.1">
 <h3><span class="header-section-number">5.8.1</span> GLM Gamma en R</h3>
 <p>La base de datos que utilizaremos para este ejemplo, corresponde a las reclamaciones recibidas por cierta aseguradora para su producto de seguro de automóviles. Los siniestros corresponden al primer trimestre de 2015 y se registraron además del monto total reclamado, características del asegurado asi como del siniestro.</p>
 <p>La aseguradora busca modelar el monto total reclamado en función de las otras variables medidas para con ello mejorar su cálculo de primas e identificación de grupos que deberian tener sobreprima.</p>
 <p>Cargamos los datos y realizamos un breve análisis exploratorio de los datos.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="modelos-lineales-generalizados.html#cb96-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/insurance_claims.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb96-2"><a href="modelos-lineales-generalizados.html#cb96-2"></a></span>
-<span id="cb96-3"><a href="modelos-lineales-generalizados.html#cb96-3"></a><span class="kw">str</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="modelos-lineales-generalizados.html#cb94-1"></a>datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/insurance_claims.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb94-2"><a href="modelos-lineales-generalizados.html#cb94-2"></a></span>
+<span id="cb94-3"><a href="modelos-lineales-generalizados.html#cb94-3"></a><span class="kw">str</span>(datos)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	1000 obs. of  22 variables:
 ##  $ months_as_customer         : int  328 228 134 256 228 256 137 165 27 212 ...
 ##  $ age                        : int  48 42 29 41 44 39 34 37 33 42 ...
@@ -1037,33 +1055,40 @@ calcula de la siguiente forma:</p>
 ##  $ auto_model                 : chr  &quot;92x&quot; &quot;E400&quot; &quot;RAM&quot; &quot;Tahoe&quot; ...
 ##  $ auto_year                  : int  2004 2007 2007 2014 2009 2003 2012 2015 2012 1996 ...
 ##  $ total_claim_amount         : int  71610 5070 34650 63400 6500 64100 78650 51590 27700 42300 ...</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="modelos-lineales-generalizados.html#cb98-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
-<pre><code>##  months_as_customer      age        policy_number    policy_state       policy_deductable policy_annual_premium insured_sex        insured_education_level
-##  Min.   :  0.0      Min.   :19.00   Min.   :100804   Length:1000        Min.   : 500      Min.   : 433.3        Length:1000        Length:1000            
-##  1st Qu.:115.8      1st Qu.:32.00   1st Qu.:335980   Class :character   1st Qu.: 500      1st Qu.:1089.6        Class :character   Class :character       
-##  Median :199.5      Median :38.00   Median :533135   Mode  :character   Median :1000      Median :1257.2        Mode  :character   Mode  :character       
-##  Mean   :204.0      Mean   :38.95   Mean   :546239                      Mean   :1136      Mean   :1256.4                                                  
-##  3rd Qu.:276.2      3rd Qu.:44.00   3rd Qu.:759100                      3rd Qu.:2000      3rd Qu.:1415.7                                                  
-##  Max.   :479.0      Max.   :64.00   Max.   :999435                      Max.   :2000      Max.   :2047.6                                                  
-##  insured_occupation insured_hobbies    insured_relationship incident_date      incident_type      collision_type     incident_severity 
-##  Length:1000        Length:1000        Length:1000          Length:1000        Length:1000        Length:1000        Length:1000       
-##  Class :character   Class :character   Class :character     Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character     Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                                                                                        
-##                                                                                                                                        
-##                                                                                                                                        
-##  authorities_contacted incident_hour_of_the_day number_of_vehicles_involved  auto_make          auto_model          auto_year    total_claim_amount
-##  Length:1000           Min.   : 0.00            Min.   :1.000               Length:1000        Length:1000        Min.   :1995   Min.   :   100    
-##  Class :character      1st Qu.: 6.00            1st Qu.:1.000               Class :character   Class :character   1st Qu.:2000   1st Qu.: 41813    
-##  Mode  :character      Median :12.00            Median :1.000               Mode  :character   Mode  :character   Median :2005   Median : 58055    
-##                        Mean   :11.64            Mean   :1.839                                                     Mean   :2005   Mean   : 52762    
-##                        3rd Qu.:17.00            3rd Qu.:3.000                                                     3rd Qu.:2010   3rd Qu.: 70593    
-##                        Max.   :23.00            Max.   :4.000                                                     Max.   :2015   Max.   :114920</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="modelos-lineales-generalizados.html#cb96-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
+<pre><code>##  months_as_customer      age        policy_number    policy_state       policy_deductable policy_annual_premium insured_sex       
+##  Min.   :  0.0      Min.   :19.00   Min.   :100804   Length:1000        Min.   : 500      Min.   : 433.3        Length:1000       
+##  1st Qu.:115.8      1st Qu.:32.00   1st Qu.:335980   Class :character   1st Qu.: 500      1st Qu.:1089.6        Class :character  
+##  Median :199.5      Median :38.00   Median :533135   Mode  :character   Median :1000      Median :1257.2        Mode  :character  
+##  Mean   :204.0      Mean   :38.95   Mean   :546239                      Mean   :1136      Mean   :1256.4                          
+##  3rd Qu.:276.2      3rd Qu.:44.00   3rd Qu.:759100                      3rd Qu.:2000      3rd Qu.:1415.7                          
+##  Max.   :479.0      Max.   :64.00   Max.   :999435                      Max.   :2000      Max.   :2047.6                          
+##  insured_education_level insured_occupation insured_hobbies    insured_relationship incident_date      incident_type      collision_type    
+##  Length:1000             Length:1000        Length:1000        Length:1000          Length:1000        Length:1000        Length:1000       
+##  Class :character        Class :character   Class :character   Class :character     Class :character   Class :character   Class :character  
+##  Mode  :character        Mode  :character   Mode  :character   Mode  :character     Mode  :character   Mode  :character   Mode  :character  
+##                                                                                                                                             
+##                                                                                                                                             
+##                                                                                                                                             
+##  incident_severity  authorities_contacted incident_hour_of_the_day number_of_vehicles_involved  auto_make          auto_model       
+##  Length:1000        Length:1000           Min.   : 0.00            Min.   :1.000               Length:1000        Length:1000       
+##  Class :character   Class :character      1st Qu.: 6.00            1st Qu.:1.000               Class :character   Class :character  
+##  Mode  :character   Mode  :character      Median :12.00            Median :1.000               Mode  :character   Mode  :character  
+##                                           Mean   :11.64            Mean   :1.839                                                    
+##                                           3rd Qu.:17.00            3rd Qu.:3.000                                                    
+##                                           Max.   :23.00            Max.   :4.000                                                    
+##    auto_year    total_claim_amount
+##  Min.   :1995   Min.   :   100    
+##  1st Qu.:2000   1st Qu.: 41813    
+##  Median :2005   Median : 58055    
+##  Mean   :2005   Mean   : 52762    
+##  3rd Qu.:2010   3rd Qu.: 70593    
+##  Max.   :2015   Max.   :114920</code></pre>
 <p><strong>Eliminar las columnas que contienen información específica:</strong></p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="modelos-lineales-generalizados.html#cb100-1"></a>datos &lt;-<span class="st"> </span>datos[,<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">12</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="modelos-lineales-generalizados.html#cb98-1"></a>datos &lt;-<span class="st"> </span>datos[,<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">12</span>)]</span></code></pre></div>
 <p><strong>Ajustaremos un primer modelo con la variable de género del asegurado:</strong></p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="modelos-lineales-generalizados.html#cb101-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(total_claim_amount <span class="op">~</span><span class="st"> </span>insured_sex, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
-<span id="cb101-2"><a href="modelos-lineales-generalizados.html#cb101-2"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="modelos-lineales-generalizados.html#cb99-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(total_claim_amount <span class="op">~</span><span class="st"> </span>insured_sex, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
+<span id="cb99-2"><a href="modelos-lineales-generalizados.html#cb99-2"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = total_claim_amount ~ insured_sex, family = Gamma, 
@@ -1088,19 +1113,19 @@ calcula de la siguiente forma:</p>
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p><strong>Bondad de ajuste:</strong></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="modelos-lineales-generalizados.html#cb103-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
-<span id="cb103-2"><a href="modelos-lineales-generalizados.html#cb103-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
-<span id="cb103-3"><a href="modelos-lineales-generalizados.html#cb103-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb103-4"><a href="modelos-lineales-generalizados.html#cb103-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="modelos-lineales-generalizados.html#cb101-1"></a>dev &lt;-<span class="st"> </span>m1<span class="op">$</span>deviance</span>
+<span id="cb101-2"><a href="modelos-lineales-generalizados.html#cb101-2"></a>nullDev &lt;-<span class="st"> </span>m1<span class="op">$</span>null.deviance</span>
+<span id="cb101-3"><a href="modelos-lineales-generalizados.html#cb101-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb101-4"><a href="modelos-lineales-generalizados.html#cb101-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 0.1409954</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="modelos-lineales-generalizados.html#cb105-1"></a>chidf &lt;-<span class="st"> </span>m1<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m1<span class="op">$</span>df.residual</span>
-<span id="cb105-2"><a href="modelos-lineales-generalizados.html#cb105-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb105-3"><a href="modelos-lineales-generalizados.html#cb105-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="modelos-lineales-generalizados.html#cb103-1"></a>chidf &lt;-<span class="st"> </span>m1<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m1<span class="op">$</span>df.residual</span>
+<span id="cb103-2"><a href="modelos-lineales-generalizados.html#cb103-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb103-3"><a href="modelos-lineales-generalizados.html#cb103-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0.7072934</code></pre>
 <p>La prueba de bondad de ajuste nos dice que el modelo es malo ya que la explicación de la varianza ganada con el modelo no es estadísticamente significativa.</p>
 <p>Intentemos ahora con la variable de edad</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="modelos-lineales-generalizados.html#cb107-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">glm</span>(total_claim_amount <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
-<span id="cb107-2"><a href="modelos-lineales-generalizados.html#cb107-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="modelos-lineales-generalizados.html#cb105-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">glm</span>(total_claim_amount <span class="op">~</span><span class="st"> </span>age, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
+<span id="cb105-2"><a href="modelos-lineales-generalizados.html#cb105-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = total_claim_amount ~ age, family = Gamma, data = datos)
@@ -1124,20 +1149,20 @@ calcula de la siguiente forma:</p>
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p><strong>Bondad de ajuste:</strong></p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="modelos-lineales-generalizados.html#cb109-1"></a>dev &lt;-<span class="st"> </span>m2<span class="op">$</span>deviance</span>
-<span id="cb109-2"><a href="modelos-lineales-generalizados.html#cb109-2"></a>nullDev &lt;-<span class="st"> </span>m2<span class="op">$</span>null.deviance</span>
-<span id="cb109-3"><a href="modelos-lineales-generalizados.html#cb109-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb109-4"><a href="modelos-lineales-generalizados.html#cb109-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="modelos-lineales-generalizados.html#cb107-1"></a>dev &lt;-<span class="st"> </span>m2<span class="op">$</span>deviance</span>
+<span id="cb107-2"><a href="modelos-lineales-generalizados.html#cb107-2"></a>nullDev &lt;-<span class="st"> </span>m2<span class="op">$</span>null.deviance</span>
+<span id="cb107-3"><a href="modelos-lineales-generalizados.html#cb107-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb107-4"><a href="modelos-lineales-generalizados.html#cb107-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 1.207078</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="modelos-lineales-generalizados.html#cb111-1"></a>chidf &lt;-<span class="st"> </span>m2<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m2<span class="op">$</span>df.residual</span>
-<span id="cb111-2"><a href="modelos-lineales-generalizados.html#cb111-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb111-3"><a href="modelos-lineales-generalizados.html#cb111-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="modelos-lineales-generalizados.html#cb109-1"></a>chidf &lt;-<span class="st"> </span>m2<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m2<span class="op">$</span>df.residual</span>
+<span id="cb109-2"><a href="modelos-lineales-generalizados.html#cb109-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb109-3"><a href="modelos-lineales-generalizados.html#cb109-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0.2719116</code></pre>
 <p>¿Es un buen modelo?, ¿Es mejor que el modelo de género?</p>
 <p>Probar con la variable de tipo de siniestro.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modelos-lineales-generalizados.html#cb113-1"></a>m3 &lt;-<span class="st"> </span><span class="kw">glm</span>( total_claim_amount <span class="op">~</span><span class="st"> </span>incident_type, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
-<span id="cb113-2"><a href="modelos-lineales-generalizados.html#cb113-2"></a></span>
-<span id="cb113-3"><a href="modelos-lineales-generalizados.html#cb113-3"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="modelos-lineales-generalizados.html#cb111-1"></a>m3 &lt;-<span class="st"> </span><span class="kw">glm</span>( total_claim_amount <span class="op">~</span><span class="st"> </span>incident_type, <span class="dt">data =</span> datos, <span class="dt">family =</span> Gamma)</span>
+<span id="cb111-2"><a href="modelos-lineales-generalizados.html#cb111-2"></a></span>
+<span id="cb111-3"><a href="modelos-lineales-generalizados.html#cb111-3"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = total_claim_amount ~ incident_type, family = Gamma, 
@@ -1164,14 +1189,14 @@ calcula de la siguiente forma:</p>
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p><strong>Bondad de ajuste:</strong></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="modelos-lineales-generalizados.html#cb115-1"></a>dev &lt;-<span class="st"> </span>m3<span class="op">$</span>deviance</span>
-<span id="cb115-2"><a href="modelos-lineales-generalizados.html#cb115-2"></a>nullDev &lt;-<span class="st"> </span>m3<span class="op">$</span>null.deviance</span>
-<span id="cb115-3"><a href="modelos-lineales-generalizados.html#cb115-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
-<span id="cb115-4"><a href="modelos-lineales-generalizados.html#cb115-4"></a>modelChi</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modelos-lineales-generalizados.html#cb113-1"></a>dev &lt;-<span class="st"> </span>m3<span class="op">$</span>deviance</span>
+<span id="cb113-2"><a href="modelos-lineales-generalizados.html#cb113-2"></a>nullDev &lt;-<span class="st"> </span>m3<span class="op">$</span>null.deviance</span>
+<span id="cb113-3"><a href="modelos-lineales-generalizados.html#cb113-3"></a>modelChi &lt;-<span class="st"> </span>nullDev <span class="op">-</span><span class="st"> </span>dev</span>
+<span id="cb113-4"><a href="modelos-lineales-generalizados.html#cb113-4"></a>modelChi</span></code></pre></div>
 <pre><code>## [1] 518.7961</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="modelos-lineales-generalizados.html#cb117-1"></a>chidf &lt;-<span class="st"> </span>m3<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m3<span class="op">$</span>df.residual</span>
-<span id="cb117-2"><a href="modelos-lineales-generalizados.html#cb117-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
-<span id="cb117-3"><a href="modelos-lineales-generalizados.html#cb117-3"></a>chisq.prob</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="modelos-lineales-generalizados.html#cb115-1"></a>chidf &lt;-<span class="st"> </span>m3<span class="op">$</span>df.null <span class="op">-</span><span class="st"> </span>m3<span class="op">$</span>df.residual</span>
+<span id="cb115-2"><a href="modelos-lineales-generalizados.html#cb115-2"></a>chisq.prob &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(modelChi, chidf)</span>
+<span id="cb115-3"><a href="modelos-lineales-generalizados.html#cb115-3"></a>chisq.prob</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>¿Qué podemos decir de este modelo?, ¿Nos sirve este modelo para clasificar la sobreprima?</p>
 <p>¿Podemos encontrar un mejor modelo?</p>
