@@ -104,7 +104,7 @@ La interpretación, desde el punto de vista estadístico, de los parámetros est
 - $\hat{\beta_0}$ es el promedio esperado de la respuesta $y$ cuando $x = 0$ (este parámetro tendrá una interpretación dentro del
 modelo, si tiene sentido que $x$ tome el valor cero, de lo contrario, no tiene una interpretación razonable) y 
 
-- $\hat{\beta_1}}$ es el cambio promedio o cambio esperado en $y$ por unidad de cambio en $x$.
+- $\hat{\beta_1}$ es el cambio promedio o cambio esperado en $y$ por unidad de cambio en $x$.
 
 ## Regresión lineal múltiple
 
@@ -135,7 +135,8 @@ donde $p=k+1$ es el número total de parámetros en el modelo.
 Tanto en el modelo simple como en el múltiple, la variación total de las $y$'s se puede descomponer en una parte que explica el modelo, i.e., los $k$ regresores o variables explicativas y otra no explicada por estas variables, llamada error.
 
 $$\sum_{i=1}^n(y_i-\bar{y})^2=\sum_{i=1}^n(\hat{y_i}-\bar{y})^2+\sum_{i=1}^n(\hat{y_i}-y_i)^2$$
-#### Pruebas de hipótesis
+
+#### Prueba de hipótesis
 
 La descomposición anterior ayuda para realizar la importante prueba de hipótesis:
 
@@ -170,11 +171,11 @@ $$t=\frac{\hat{\beta_i}}{\sqrt{\hat{\mathbb{V}ar}(\hat{\beta_i})}}\sim t_{(n-p)}
 De este estadístico se desprenden también los intervalos de confianza para cada parámetro:
 
 $$\beta_i\in(\hat{\beta_i}\pm t_{(n-p,1-\alpha/2)} \sqrt{\hat{\mathbb{V}ar} (\hat{\beta_i})})$$
-#### Interpretación de los parámetros
+#### Interpretación de parámetros
 
 La interpretación de cada parámetro es similar a la del coeficiente de regresión $\hat{\beta_1}$ en el modelo simple, anexando la frase: "manteniendo constantes el resto de las variables". 
 
-Esto es, $\hat{\beta_i}}$ es el cambio promedio o cambio esperado en $y$ por unidad de cambio en $x_i$, sin considerar cambio alguno en ninguna de las otras variables dentro del modelo, es decir, suponiendo que estas otras variables permanecen fijas. Esta interpretación es similar a la que se hace de la derivada parcial en un modelo determinista. 
+Esto es, $\hat{\beta_i}$ es el cambio promedio o cambio esperado en $y$ por unidad de cambio en $x_i$, sin considerar cambio alguno en ninguna de las otras variables dentro del modelo, es decir, suponiendo que estas otras variables permanecen fijas. Esta interpretación es similar a la que se hace de la derivada parcial en un modelo determinista. 
 
 Nuevamente, la interpretación de $\hat{\beta_0}$  estará sujeta a la posibilidad de que, en este caso, todas las variables puedan tomar el valor cero.
 
@@ -308,7 +309,7 @@ __Distancia de Cook__: Sirve para determinar si una observación es influyente e
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(model, aes(seq_along(.cooksd)))+
   geom_linerange(aes(ymin = 0, ymax = .cooksd))+
-  labs(x = "Observation", y = "Cook's distance")
+  labs(x = "Observation", y = "Cook's distance")+
   theme_minimal()
 ```
 
@@ -388,7 +389,7 @@ Si el número de condición es menor que 100, no existen problemas serios de mul
 
 __Índice de condición.__
 
-$$k_j=\frac{\lambda{max}}{\lambda_j}$$
+$$k_j=\frac{\lambda_{max}}{\lambda_j}$$
 Si el  índice de condición es menor que 10, no hay ningún problema. Si está entre 10 y 30, hay moderada multicolinealidad, y si es mayor que 30, existe una fuerte colinealidad en la j-ésima variable en el modelo.
 
 N.B. En algunos paquetes estos índices se presentan aplicando la raíz cuadrada a su expresión, entonces hay que extraer raíz a los puntos de corte de los criterios correspondientes.
@@ -408,7 +409,7 @@ data.frame(x = cars$speed, y = model$residuals) %>%
   ggplot(aes(x = x, y = y))+
   geom_point()+
   geom_smooth(se = FALSE)+
-  labs(x = "x", y = "residuals")
+  labs(x = "x", y = "residuals")+
   theme_minimal()
   
 rm(model)
@@ -431,7 +432,7 @@ La siguiente tabla muestra el rango de valores de $\lambda$ que estarían asocia
 |:---------------:|:-----------------------:|
 |   (-2.5, -1.5]  |     $\frac{1}{y^2}$     |
 |  (-1.5, -0.75]  |       $\frac{1}{y}$      |
-|  (-0.75, -0.25] |   $\frac{1}{sqrt{y}}$   |
+|  (-0.75, -0.25] |   $\frac{1}{\sqrt{y}}$   |
 |  (-0.25, 0.25]  |         $ln(y)$         |
 |   (0.25, 0.75]  |        $\sqrt{y}$       |
 |   (0.75, 1.25]  |           $y$           |
