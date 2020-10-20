@@ -1,0 +1,5 @@
+# (PART) Reducción de dimensiones {-}
+
+# Análisis de Componentes Principales
+
+# Análisis factorial

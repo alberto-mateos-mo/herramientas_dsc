@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="clusterización-jerárquica.html"/>
 
-<link rel="next" href="notación.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -293,90 +293,271 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Herramientas Estadísticas para Ciencia de Datos</h1>
-<p class="author"><em>Sofía Villers Gómez</em></p>
-<p class="author"><em>David Alberto Mateos Montes de Oca</em></p>
-</div>
-<div id="herramientas-estadísticas-para-ciencia-de-datos" class="section level1 unnumbered" number="">
-<h1>Herramientas Estadísticas para Ciencia de Datos</h1>
-<p>Primera edición del libro de texto para el curso <em>Herramientas Estadísticas para Ciencia de Datos</em> del Seminario de Estadística de la Facultad de Ciencias.</p>
-<div id="objetivos" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> Objetivos</h2>
-<p>Como el título lo indica, a lo largo de este libro se expondrán diferentes modelos estadísticos y sus aplicaciones con un enfoque a Ciencia de Datos.</p>
-<p>El objetivo es proveer al lector de las herramientas necesarias para comprender los fundamentos de estos modelos y sus aplicaciones mediante el uso del lenguaje R.</p>
-</div>
-<div id="estructura" class="section level2" number="0.2">
-<h2><span class="header-section-number">0.2</span> Estructura</h2>
-<p>El libro se descompone en dos grandes secciones, una de ellas enfocada a presentar diferentes paquetes de R considerados de gran utilidad para la práctica de Ciencia de Datos, la otra se enfoca en la teoría y aplicación de diferentes modelos.</p>
-<p>La estructura del libro sigue el orden en que se imparte la materia en la Facultad de Ciencias sin embargo hemos diseñado los capítulos suficientemente independientes como para ser consultados en el orden de preferencia del lector.</p>
-</div>
-<div id="detalles-técnicos" class="section level2" number="0.3">
-<h2><span class="header-section-number">0.3</span> Detalles técnicos</h2>
-<p>Este libro fue escrito con <a href="http://bookdown.org/">bookdown</a> usando <a href="http://www.rstudio.com/ide/">RStudio</a>.</p>
-<p>Esta versión fue escrita con:</p>
-<pre><code>## Finding R package dependencies ... Done!</code></pre>
-<pre><code>##  setting  value                       
-##  version  R version 4.0.2 (2020-06-22)
-##  os       Windows 10 x64              
-##  system   x86_64, mingw32             
-##  ui       RStudio                     
-##  language (EN)                        
-##  collate  Spanish_Mexico.1252         
-##  ctype    Spanish_Mexico.1252         
-##  tz       America/Mexico_City         
-##  date     2020-10-19</code></pre>
-</div>
-<div id="licencia" class="section level2 unnumbered" number="">
-<h2>Licencia</h2>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-<center>
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-sa fa-2x"></i>
-</center>
-<p><em>This is a human-readable summary of (and not a substitute for) the license.
-Please see <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="uri">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a> for the full legal text.</em></p>
-<p><strong>You are free to:</strong></p>
+<div id="motivación" class="section level1" number="14">
+<h1><span class="header-section-number">Capítulo 14</span> Motivación</h1>
+<p>En estadística nos enfrentaremos a una número importante de modelos que pueden usarse para explicar el fenómeno presente en nuestros datos. Y además para cada uno de ellos siempre existirá la pregunta ¿qué variables deberíamos incluir?</p>
+<p>Para dar respuesta a esta necesidad es importante contar con un esquema de selección de modelos que nos permita llegar al más adecuado de manera óptima.</p>
+<p>Un esquema de selección debe combinar, por un lado, una estrategia de busqueda en el espacio de modelos posibles y, por otro lado, un criterio de comparación que nos permita evaluar la calidad de cada modelo.</p>
+<p>En ocasiones será sencillo escoger al grupo de modelos candidatos sin embargo para otros problemas las psoibilidades pueden ser enormes.</p>
+<p>Cuando el número de posibles modelos es muy grande generalmente se emplea una técnica <em>ambiciosa</em> que parte de un modelo inicial y en cada paso se explora el espacio de modelos posibles escogiendo aquel que sea mejor de entre los <em>cercanos</em> al último explorado.</p>
+<div id="ejemplo" class="section level3" number="14.0.1">
+<h3><span class="header-section-number">14.0.1</span> Ejemplo</h3>
+<p>Para un modelo lineal cuyo un espacio de inputs de tamaño <em>p</em> hay <span class="math inline">\(2^p\)</span> posibles sub-modelos. Si <em>p</em> fuera suficientemente pequeño podríamos listar todos los modelos sin embargo en la práctica <em>p</em> suele ser grande.</p>
+<p>En este caso, para llegar a un modelo adecuado suele utilizarse alguna de las siguientes dos técnicas:</p>
 <ul>
-<li><p><strong>Share</strong>—copy and redistribute the material in any medium or
-format</p></li>
-<li><p><strong>Remix</strong>—remix, transform, and build upon the material for any
-purpose, even commercially.</p></li>
+<li><p><strong>Forward Selection:</strong> Se empieza con el modelo sin variables y éstas se agregan una por una escogiendo aquella que cumple cierto criterio e.g. que la variable pase la prueba de significancia o que al agregarla al modelo el <em>accuracy</em> mejore en cierto grado.</p></li>
+<li><p><strong>Backward Selection:</strong> Empezamos con el modelo de todas las variables y vamos quitando aquellas menos <em>importantes</em> de acuerdo a algún otro criterio e.g. nivel de significancia para el modelo.</p></li>
 </ul>
-<p>The licensor cannot revoke these freedoms as long as you follow the
-license terms.</p>
-<p><strong>Under the following terms:</strong></p>
+</div>
+<div id="esquemas-básicos" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Esquemas básicos</h2>
 <ul>
-<li><p><strong>Attribution</strong>—You must give appropriate credit, provide a link
-to the license, and indicate if changes were made. You may do so in
-any reasonable manner, but not in any way that suggests the licensor
-endorses you or your use.</p></li>
-<li><p><strong>ShareAlike</strong>—If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</p></li>
-<li><p><strong>No additional restrictions</strong>—You may not apply legal terms or
-technological measures that legally restrict others from doing
-anything the license permits.</p></li>
+<li><p>Akaike Information Criterion</p></li>
+<li><p>Bayesian Information Criterion</p></li>
+<li><p>Cross-validation</p></li>
 </ul>
-<p><strong>Notices:</strong></p>
-<p>You do not have to comply with the license for elements of the
-material in the public domain or where your use is permitted by an
-applicable exception or limitation.</p>
-<p>No warranties are given. The license may not give you all of the
-permissions necessary for your intended use. For example, other rights
-such as publicity, privacy, or moral rights may limit how you use the
-material.</p>
+<p>El esquema Akaike Information Criterion (AIC) busca maximizar la probabilidad de seleccionar el mejor modelo bajo el supuesto de que éste estuvo dentro del espacio de modelos evaluados.</p>
+<p>Por otro lado, los esquemas Bayesian Information Criterion (BIC) y validación cruzada buscan optimizar el desempeño predictivo del modelo elegido.</p>
+<div id="akaike-information-criterion." class="section level3" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Akaike Information Criterion.</h3>
+<p>Es una aproximación asíntótica a la divergencia Kullback-Leibler entre el modelo de interés y <em>la verdad</em>. También llamada entropía relativa, se define como la esperanza del logaritmo de las diferencias entre <em>P</em> y <em>Q</em>.</p>
+<p>Supongamos una colección de modelos <span class="math inline">\(\mathbb{M} = \{\mathcal{M_1},\dots,\mathcal{M_K}\}\)</span> donde <span class="math inline">\(\mathcal{M_k}:=\{f(y|\theta_k):\theta_k\in\Theta_k\}\)</span>.</p>
+<p>Para cada <span class="math inline">\(\mathcal{M}_k\)</span> sea <span class="math inline">\(\hat{\theta}_k\)</span> el estimador máximo verosímil y <span class="math inline">\(\hat{f}_k=f(.|\hat{\theta}_k)\)</span>.</p>
+<p>Usando la divergencia Kullback-Leibler podemos calcular <span class="math display">\[D(f_0||\hat{f}_k)=\int f_0\ log(f_0)-\int f_0\ log(\hat{f}_k)\]</span></p>
+<p>Dado que en realidad observamos la distribución empírica podemos estimar el término negativo como <span class="math display">\[\hat{H}_k=\frac{l_k(\hat{\theta}_k)}{n}\]</span></p>
+<p>Akaike propuse el siguiente estimador: <span class="math display">\[\hat{H}_k=\frac{l_k(\hat{\theta}_k)-dim(\Theta_k)}{n}\]</span></p>
+<p>De donde se deriva el número AIC como: <span class="math display">\[AIC(\mathcal{M}_k)=-2n \hat{H}_k\]</span></p>
+<p>Un error común es pensar que el AIC solo puede usarse en modelos anidados sin embargo puede usarse entre modelos distintos siempre que la verosimilitud se calcule con los mismos datos.</p>
+</div>
+<div id="bayesian-information-criterion." class="section level3" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> Bayesian Information Criterion.</h3>
+<p>BIC es una aproximación para la selección de modelos Bayesiana <em>a posteriori</em>, máxima, dados los datos.</p>
+<p>Supongamos que establecemos una probabilidad <em>a priori</em> <span class="math inline">\(p_k\)</span> para el modelo <span class="math inline">\(\mathcal{M}_k\)</span> y una <em>a priori</em> para <span class="math inline">\(\theta_k|\mathcal{M}_K\)</span> de <span class="math inline">\(\pi_k\)</span>.</p>
+<p>Buscamos elegir el modelo con la mayor probabilidad <em>a posteriori</em>; del teorema de Bayes la log-probabilidad <em>a posteriori</em> es: <span class="math display">\[log(\mathbb{P[\mathcal{M}|_1,...,Y_n]})=const+log(p_k)+log(\int exp(l_k(\theta_k))\pi_k(\theta_k) d\theta_k\]</span></p>
+<p>De donde derivamos que el mejor modelo se obtiene al minimizar <span class="math display">\[BIC(\mathcal{M}_k)=-2l_k(\hat{\theta}_k)+dim(\Theta_k)log(n)\]</span></p>
+<p>Comparado con el AIC, se impone una mayor penalización por cada parámetro adicional, por lo que el BIC tenderá a seleccionar modelos más simples.</p>
+</div>
+<div id="cross-validation" class="section level3" number="14.1.3">
+<h3><span class="header-section-number">14.1.3</span> Cross-validation</h3>
+<p>Si buscamos elegir el modelo cuyo desempeño predictivo sea el mejor, lo ideal es contar con un conjunto de prueba <em>aislado</em>. En ausencia de esto podemos probar el modelo con una parte de los datos de entrenamiento.</p>
+<p>Esto puede hacerse repetidamente escogiendo porciones distintas cada vez.</p>
+<div id="v-fold-cross-validation" class="section level4" number="14.1.3.1">
+<h4><span class="header-section-number">14.1.3.1</span> V-fold cross-validation</h4>
+<p>Los datos se dividen en <span class="math inline">\(V\)</span> subconjuntos del <em>mismo</em> tamaño. En cada paso usamos <span class="math inline">\(V-1\)</span> subconjuntos para estimar los parámetros (entrenar el modelo) y probamos en el subconjunto restante.</p>
+<p>Repertimos <span class="math inline">\(V\)</span> ocasiones y se reporta el error promedio.</p>
+<p>Elecciones comunes del valor <span class="math inline">\(V\)</span> son: 5, 10 y n.</p>
+<p>Para <em>n</em> se define leave-one-out cross validation. Donde se usan todos los datos salvo una observación y se predice para ella.</p>
+<p>Para el caso continuo se utiliza MSE y para clasificación el número de observaciones mal clasificadas.</p>
+</div>
+</div>
+</div>
+<div id="esquemas-adicionales" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Esquemas adicionales</h2>
+<ul>
+<li><p>Bootstrap.</p></li>
+<li><p>Matrices de confusión.</p></li>
+<li><p>Information Value.</p></li>
+<li><p>Curvas CAP y ROC.</p></li>
+</ul>
+<div id="bootstrap" class="section level3" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Bootstrap</h3>
+<p>Dado que nuestros modelos están construidos con la información que pudimos observar y no con la información de la población, surgen las siguientes preguntas:</p>
+<ul>
+<li><p>¿Hasta qué grado podemos confiar en que nuestros resultados serán <em>ciertos</em> para toda la población?</p></li>
+<li><p>¿Qué tanto podrían variar bajo distintos sesgos en la información usada?</p></li>
+</ul>
+<p>La técnica de <em>bootstrapping</em> trata de resolver estas preguntas y con ello evaluar la calidad de un modelo a través del resampleo de estadísticos de un modelo.</p>
+<div id="ejemplo-1" class="section level4" number="14.2.1.1">
+<h4><span class="header-section-number">14.2.1.1</span> Ejemplo</h4>
+<p>Utilizando la técnica de <em>bootstrapping</em> evaluaremos las variaciones en la <span class="math inline">\(R^2\)</span> de un modelo de regresión lineal.</p>
+<p>En primer llugar debemos definir una función que extraiga la(s) métrica(s) de interés, en este caso la <span class="math inline">\(R^2\)</span>:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="motivación.html#cb123-1"></a><span class="kw">library</span>(boot)</span>
+<span id="cb123-2"><a href="motivación.html#cb123-2"></a></span>
+<span id="cb123-3"><a href="motivación.html#cb123-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
+<span id="cb123-4"><a href="motivación.html#cb123-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
+<span id="cb123-5"><a href="motivación.html#cb123-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
+<span id="cb123-6"><a href="motivación.html#cb123-6"></a>  </span>
+<span id="cb123-7"><a href="motivación.html#cb123-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
+<span id="cb123-8"><a href="motivación.html#cb123-8"></a>}</span></code></pre></div>
+<p>Posteriormente usamos el paquete <code>boot</code> para aplicar la técnica y evaluar las variaciones de la <span class="math inline">\(R^2\)</span> bajo diferentes escenarios muestrales:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="motivación.html#cb124-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
+<p>Podemos imprimir los resultados:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="motivación.html#cb125-1"></a>results</span></code></pre></div>
+<pre><code>## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = mtcars, statistic = r2, R = 1000, formula = mpg ~ 
+##     wt + disp)
+## 
+## 
+## Bootstrap Statistics :
+##      original     bias    std. error
+## t1* 0.7809306 0.01039726  0.04716692</code></pre>
+<p>O bien, podemos graficarlos para leerlos más facilmente:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="motivación.html#cb127-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+</div>
+<div id="ejercicios" class="section level4" number="14.2.1.2">
+<h4><span class="header-section-number">14.2.1.2</span> Ejercicios</h4>
+<ol style="list-style-type: decimal">
+<li>Aplique la técnica de <em>bootstrapping</em> para evaluar variaciones en la <span class="math inline">\(R^2\)</span> de los siguientes modelos al mismo tiempo:</li>
+</ol>
+<ul>
+<li><p>mpg~data$wt+disp</p></li>
+<li><p>mpg~data$wt+disp+cyl</p></li>
+<li><p>mpg~data$wt+disp+cyl+hp</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Aplique la técnica de <em>bootstrapping</em> para otro estadístico que le parezca relevante.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="information-value-woe" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Information Value &amp; WoE</h2>
+<p>Derivaron del uso de regresión logística particularmente en problemas de riesgo de crédito.</p>
+<p>Se utilizan para medir qué <em>tan bien</em> una variable logra <em>distinguir</em> una respuesta binaria.</p>
+<div id="weight-of-evidence-woe" class="section level3" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> Weight of Evidence (WoE)</h3>
+<p>Se calcula de la siguiente forma:</p>
+<p><span class="math display">\[WoE_{x=i} = log(\frac{P[y=1 |x=i]}{P[y=0|x=i]})\]</span></p>
+</div>
+<div id="information-value" class="section level3" number="14.3.2">
+<h3><span class="header-section-number">14.3.2</span> Information Value</h3>
+<p>Su cálculo se realiza de la siguiente forma:</p>
+<p><span class="math display">\[IV_{x_i} = (P[Y = 1|x=i]-P[y=0|x=i])*WoE_{x_i}\]</span></p>
+<div id="interpretación-del-information-value" class="section level4" number="14.3.2.1">
+<h4><span class="header-section-number">14.3.2.1</span> Interpretación del Information Value</h4>
+<table>
+<thead>
+<tr class="header">
+<th>IVx</th>
+<th>Poder predictivo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;0.02</td>
+<td>Variable no útil</td>
+</tr>
+<tr class="even">
+<td>0.02-0.1</td>
+<td>Poder débil</td>
+</tr>
+<tr class="odd">
+<td>0.1-0.3</td>
+<td>Poder medio</td>
+</tr>
+<tr class="even">
+<td>0.3-0.5</td>
+<td>Poder alto</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>Sospechosa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="matrices-de-confusión-y-derivados" class="section level2" number="14.4">
+<h2><span class="header-section-number">14.4</span> Matrices de confusión (y derivados…)</h2>
+<ul>
+<li><p>Son una forma de medir el desempeño de un algorítmo de clasificación.</p></li>
+<li><p>De ellas derivan diferentes medidas que nos ayudan a entender más a fondo el desempeño de nuestro algorítmo.</p></li>
+<li><p>En un problema de clasificación de 2 clases, la matriz se construye con la tabla cruzada entre las clases reales y las clases ajustadas/predichas</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Positivo Real</th>
+<th>Negativo Real</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Positivo predicho</td>
+<td>TP</td>
+<td>FP</td>
+</tr>
+<tr class="even">
+<td>Negativo predicho</td>
+<td>FN</td>
+<td>TN</td>
+</tr>
+</tbody>
+</table>
+<p>Las matrices de confusión se pueden extender a problemás de más de dos clases.</p>
+<div id="estadísticos-derivados-de-las-matrices-de-confusión" class="section level3" number="14.4.1">
+<h3><span class="header-section-number">14.4.1</span> Estadísticos derivados de las matrices de confusión</h3>
+<ul>
+<li><span class="math inline">\(Sensitivity = \frac{TP}{TP+FN}\)</span></li>
+</ul>
+<p>También llamada tasa de verdaderos positivos, mide la proporción de positivos predichos de entre los verdaderos reales.</p>
+<ul>
+<li><span class="math inline">\(Specificity = \frac{TN}{TN+FP}\)</span></li>
+</ul>
+<p>O tasa de verdaderos negativos, mide la proporción de negativos predichos de entre los negativos reales.</p>
+<ul>
+<li><span class="math inline">\(Prevalence = \frac{TP+FN}{TP+FP+TN+FN}\)</span></li>
+</ul>
+<p>Mide cuántos valores reales hay</p>
+<ul>
+<li><span class="math inline">\(PPV = \frac{sensitivity*prevalence}{(sensitivity*prevalence)+((1-specificity)*(1-prevalence))}\)</span></li>
+</ul>
+<p>PPV: positive predicted values</p>
+<ul>
+<li><span class="math inline">\(NPV = \frac{sensitivity*(1-prevalence)}{((1-sensitivity)*prevalence)+((specificity)*(1-prevalence))}\)</span></li>
+</ul>
+<p>NPV: negative predicted values</p>
+<ul>
+<li><span class="math inline">\(Detection \ rate = \frac{TP}{TP+FP+TN+FN}\)</span></li>
+</ul>
+<p>Mide cuántos verdaderos positivos esta detectando el modelo</p>
+<ul>
+<li><span class="math inline">\(Detection \ prevalence = \frac{TP+FP}{TP+FP+TN+FN}\)</span></li>
+</ul>
+<p>Mide cuántos positivos predichos tiene el modelo</p>
+<ul>
+<li><p><span class="math inline">\(Balanced \ accuracy = \frac{sensitivity+specificity}{2}\)</span></p></li>
+<li><p><span class="math inline">\(Precision = \frac{TP}{TP+FP}\)</span></p></li>
+</ul>
+<p>Proporción de verdaderos positivos de entre los positivos predichos</p>
+<ul>
+<li><span class="math inline">\(Recall = \frac{TP}{TP+FN}\)</span></li>
+</ul>
+<p>Proporción de verdaderos positivos de entre los positivos reales</p>
+<ul>
+<li><span class="math inline">\(F-beta = \frac{(1+beta^2)*precision*recall}{(beta^2*precision)+recall}\)</span></li>
+</ul>
+</div>
+</div>
+<div id="curvas-auc-roc" class="section level2" number="14.5">
+<h2><span class="header-section-number">14.5</span> Curvas AUC-ROC</h2>
+<p>Muchos algoritmos de clasificación no generan directamente el vector de clases predichas sino que primero obtienen el vector de probabilidades de pertenencia a cada clase.</p>
+<p>Dado un umbral o punto de corte para el vector de probabilidades se puede generar entonces un vector de clases asociado a ese vector.</p>
+<p>Es claro que el valor de ese umbral afectará directamente al <em>accuracy</em> de clasificación del modelo.</p>
+<p>Las curvas AUC-ROC nos permiten medir el desempeño del algorítmo bajo distintos umbrales.</p>
+<p>ROC es una curva probabilística mientras que AUC es una medida de <em>separación.</em></p>
+<div id="construcción-de-una-curva-auc-roc" class="section level3" number="14.5.1">
+<h3><span class="header-section-number">14.5.1</span> Construcción de una curva AUC-ROC</h3>
+<p>Para generar una curva de ROC debemos graficar la métrica <strong>1-specificity</strong> vs <strong>sensitivity</strong>.</p>
+<p>Para obtener el valor AUC debemos calcular el área bajo la curva ROC.</p>
 
 </div>
 </div>
-
-
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="clusterización-jerárquica.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="notación.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

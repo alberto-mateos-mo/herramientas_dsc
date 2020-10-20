@@ -242,6 +242,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
+<li class="part"><span><b>VII Reducción de dimensiones</b></span></li>
+<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a></li>
+<li class="chapter" data-level="11" data-path="análisis-factorial.html"><a href="análisis-factorial.html"><i class="fa fa-check"></i><b>11</b> Análisis factorial</a></li>
+<li class="part"><span><b>VIII Clusterización</b></span></li>
+<li class="chapter" data-level="12" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>12</b> k-means</a></li>
+<li class="chapter" data-level="13" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>13</b> Clusterización jerárquica</a></li>
+<li class="part"><span><b>IX Selección de modelos</b></span></li>
+<li class="chapter" data-level="14" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>14</b> Motivación</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>14.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="14.1" data-path="motivación.html"><a href="motivación.html#esquemas-básicos"><i class="fa fa-check"></i><b>14.1</b> Esquemas básicos</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="motivación.html"><a href="motivación.html#akaike-information-criterion."><i class="fa fa-check"></i><b>14.1.1</b> Akaike Information Criterion.</a></li>
+<li class="chapter" data-level="14.1.2" data-path="motivación.html"><a href="motivación.html#bayesian-information-criterion."><i class="fa fa-check"></i><b>14.1.2</b> Bayesian Information Criterion.</a></li>
+<li class="chapter" data-level="14.1.3" data-path="motivación.html"><a href="motivación.html#cross-validation"><i class="fa fa-check"></i><b>14.1.3</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="motivación.html"><a href="motivación.html#esquemas-adicionales"><i class="fa fa-check"></i><b>14.2</b> Esquemas adicionales</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="motivación.html"><a href="motivación.html#bootstrap"><i class="fa fa-check"></i><b>14.2.1</b> Bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="motivación.html"><a href="motivación.html#information-value-woe"><i class="fa fa-check"></i><b>14.3</b> Information Value &amp; WoE</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="motivación.html"><a href="motivación.html#weight-of-evidence-woe"><i class="fa fa-check"></i><b>14.3.1</b> Weight of Evidence (WoE)</a></li>
+<li class="chapter" data-level="14.3.2" data-path="motivación.html"><a href="motivación.html#information-value"><i class="fa fa-check"></i><b>14.3.2</b> Information Value</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="motivación.html"><a href="motivación.html#matrices-de-confusión-y-derivados"><i class="fa fa-check"></i><b>14.4</b> Matrices de confusión (y derivados…)</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="motivación.html"><a href="motivación.html#estadísticos-derivados-de-las-matrices-de-confusión"><i class="fa fa-check"></i><b>14.4.1</b> Estadísticos derivados de las matrices de confusión</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="motivación.html"><a href="motivación.html#curvas-auc-roc"><i class="fa fa-check"></i><b>14.5</b> Curvas AUC-ROC</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="motivación.html"><a href="motivación.html#construcción-de-una-curva-auc-roc"><i class="fa fa-check"></i><b>14.5.1</b> Construcción de una curva AUC-ROC</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -262,8 +296,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="qué-es-una-red-neuronal" class="section level1" number="7">
 <h1><span class="header-section-number">Capítulo 7</span> ¿Qué es una red neuronal?</h1>
 <p>Las redes neuronales artificiales están inspiradas en la forma en la que las neuronas de nuestro cerebro trabajan en conjunto para resolver una tarea compleja. Éstas modelan una variable respuesta, ya sea de tipo continua o categórica, como función de las covariables a través de la composición de funciones no lineales.</p>
-<p>De manera general, una red nueronal consiste de una <em>arquitectura</em>, una <em>regla de activación</em> y una <em>regla de salida</em>.</p>
-<p><strong>Arquitectura:</strong> Puede ser descrita vía un gráfo dirigido cuyo nodos son llamados <em>neuronas</em>. Existen una grán cantidad de arquitecturas dependiendo de la naturaleza del grafo i.e. de las relaciones entre los nodos. Una descripción bastante completa de las distintas arquitecturas y sus nombres puede ser consultada <img src="https://www.asimovinstitute.org/neural-network-zoo/" alt="en este sitio." /></p>
+<p>De manera general, una red neuronal consiste de una <em>arquitectura</em>, una <em>regla de activación</em> y una <em>regla de salida</em>.</p>
+<p><strong>Arquitectura:</strong> Puede ser descrita vía un gráfo dirigido cuyo nodos son llamados <em>neuronas</em>. Existen una grán cantidad de arquitecturas dependiendo de la naturaleza del grafo i.e. de las relaciones entre los nodos.</p>
+<p>Una descripción bastante completa de las distintas arquitecturas y sus nombres puede ser consultada <a href="https://www.asimovinstitute.org/neural-network-zoo/">en este sitio.</a></p>
 <p><strong>Regla de activación:</strong> Típicamente el valor en cada nodo <span class="math inline">\(v\)</span> puede ser calculado como <span class="math display">\[x_v = f(\sum_{u \rightarrow v}\beta_{uv}x_u)\]</span> donde la suma se obtiene sobre los nodos <em>predecesores</em> de <span class="math inline">\(v\)</span> y <span class="math inline">\(\beta_{uv}\)</span> son los coeficientes (desconocidos) de la red.</p>
 <p>A la función <span class="math inline">\(f(\cdot)\)</span> se le conoce como <em>función de activación</em>. Las más comúnmente usadas son la <em>sigmoide logística</em> <span class="math inline">\(f(x) = \frac{e^y}{1+e^y}\)</span> y la función <em>rectificadora</em> <span class="math inline">\(f(x) = \max\{{y,0}\}\)</span></p>
 <div id="ejemplo" class="section level3" number="7.0.1">
@@ -278,9 +313,9 @@ x_{6} &amp; =f\left(\beta_{3,6}\cdot x_{3}+\beta_{4,6}\cdot x_{4}+\beta_{5,6}\cd
  &amp; \vdots
 \end{align*}\]</span></p>
 <p>donde <span class="math inline">\(f(\cdot)\)</span> es la función de activación.</p>
-<p>Si suponemos que <span class="math inline">\(f(x) = \mathbb{I}(x)\)</span> entonces el problema a resolver será el de regresión lineal.</p>
-<p><strong>Nodos de <em>sesgo:</em></strong> Dependiendo de la utilidad, podríamos estar interesados, como en el problema de regresión lineal, en un término de intercepto o de nivel base, para ello puede simplemente crearse un nodo extra cuyo valor sea la constante 1.</p>
-<p><strong>Regla de salida:</strong> En el nodo de salida <span class="math inline">\(v\)</span> se calcula: <span class="math display">\[s_v = \sum_{u\rightarrow v}\beta_{uv}x_u\]</span> y en lugar de aplicar la función de activación <span class="math inline">\(f(\cdot)\)</span>, se usa una regla de salida para obtener el valor o vector de ajuste/predicción.</p>
+<p>N.B. Si suponemos que <span class="math inline">\(f(x) = \mathbb{I}(x)\)</span> y que la red consiste de una sola capa entonces el problema a resolver será el de regresión lineal.</p>
+<p><strong>Nodos de <em>sesgo:</em></strong> Dependiendo de la utilidad, podríamos estar interesados, como en el problema de regresión lineal, en un término de intercepto o nivel _base-, para ello puede simplemente crearse un nodo extra cuyo valor sea la constante 1.</p>
+<p><strong>Regla de salida:</strong> En el nodo de salida <span class="math inline">\(v\)</span>, se calcula: <span class="math display">\[s_v = \sum_{u\rightarrow v}\beta_{uv}x_u\]</span> y en lugar de aplicar la función de activación <span class="math inline">\(f(\cdot)\)</span>, se usa una regla de salida para obtener el valor o vector de ajuste/predicción.</p>
 <p>Por ejemplo, en un problema de clasificación de <span class="math inline">\(N\)</span> clases, la <em>capa de salida</em> consitirá de <span class="math inline">\(N\)</span> nodos, cada uno asociado a cada clase; la predicción/ajuste <span class="math inline">\(\hat{y}\in \mathbb{R}^p\)</span> está dada por <span class="math display">\[\hat{y}=\arg max\{s_{vn}\}\]</span></p>
 <p>Notemos que para este ejemplo, si la arquitectura de la red carece de <em>capas</em> intermedias/ocultas y con función de activación <em>sigmoide logística</em> entonces el modelo corresponde al de regresión logística múltiple.</p>
 <p>Al igual que en los modelos logísticos, podemos hacer que la red neuronal tenga como salida un vector de probabilidades <span class="math inline">\(z=(z_1,\dots,z_N)\)</span> dado por <span class="math display">\[z_n=\frac{e^{s_{v_n}}}{e^{s_{v_1}}+\dots+e^{s_{v_N}}}\]</span></p>
@@ -291,7 +326,7 @@ x_{6} &amp; =f\left(\beta_{3,6}\cdot x_{3}+\beta_{4,6}\cdot x_{4}+\beta_{5,6}\cd
 </div>
 <div id="teorema-de-universalidad" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Teorema de Universalidad</h2>
-<p>La flexibilidad y el poder de las redes neuronales radica en la estructura de composición de funciones de activación no lineales. El siguiente teorema implica que una red neuronal puede aproximar cualquier función en particular nos es relevante el poder aproximar cualquier modelo no paramétrico de regresión.</p>
+<p>La flexibilidad y el poder de las redes neuronales radica en la estructura de composición de funciones de activación no lineales. El siguiente teorema implica que una red neuronal puede aproximar cualquier función; en particular, es relevante el poder aproximar cualquier modelo no paramétrico de regresión.</p>
 <p><strong>Teorema.</strong> Sea <span class="math inline">\(\Delta^{L}=\left\{ \left(y_{1},\ldots,y_{L}\right)\in\mathbb{R}_{\geq0}^{L}\,|\,y_{1}+\dots+y_{L}=1\right\} \in \mathbb{R}^{L}\)</span>, y <span class="math inline">\(B\subseteq\mathbb{R}^{p}\)</span> un conjunto acotado que contiene al origen y <span class="math inline">\(\mu\)</span> una medida de probabilidad en <span class="math inline">\(B\)</span>.</p>
 <p>Para <span class="math inline">\(g:\,B\rightarrow\Delta\)</span> una función medible arbitraria existe una red neuronal totalmente conectada (<em>feedforward</em>), de una capa oculta que tiene <span class="math inline">\(m\)</span> neuronas, activación sigmoide y regla output softmax tal que su correspondiente función de probabilidades <span class="math inline">\(g^{NNET}\)</span> satisface:</p>
 <p><span class="math display">\[\int_{B}\left\lVert g-g^{NNET}\right\lVert _{2}^{2}d\mu\leq\frac{Clog^{2}\left(n\right)}{n}\]</span></p>
@@ -299,7 +334,7 @@ x_{6} &amp; =f\left(\beta_{3,6}\cdot x_{3}+\beta_{4,6}\cdot x_{4}+\beta_{5,6}\cd
 </div>
 <div id="entrenamiento-de-una-red-neuronal" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Entrenamiento de una red neuronal</h2>
-<p>En el ámbito del <em>machine learning</em> se le conoce como entrenamiento al proceso de encontrar <em>buenos</em> estimadores de los parámetros del mmodelo usado, en este caso, de la red neuronal.</p>
+<p>En el ámbito del <em>machine learning</em> se le conoce como entrenamiento al proceso de encontrar <em>buenos</em> estimadores de los parámetros del modelo usado, en este caso, de la red neuronal.</p>
 <p>Sea <span class="math inline">\(\beta = (\beta_{uv}; u\rightarrow v)\)</span> el vector de parámetros de una red neuronal. Dados los datos de entrenamiento <span class="math inline">\((x^1,y^1),\dots,(x^n,y^n)\)</span>, la log-verosimilitud de <span class="math inline">\(\beta\)</span> está dada por:</p>
 <p><span class="math display">\[{\it l}\left(\beta\right)=\sum_{i=1}^{n}\sum_{{\it l}=1}^{L}\mathbb{I}_{\left\{ y_{i}={\it l}\right\} }log\left(\frac{e^{s_{v_{{\it l}}}\left(x_{i},\beta\right)}}{e^{s_{v_{1}}\left(x_{1},\beta\right)}+\dots+e^{s_{v_{L}}\left(x_{L},\beta\right)}}\right) =\colon \sum_{i=1}^{n}{\it l}_{i}\left(\beta\right)\]</span>
 A continuación mostraremos cómo podemos maximizar la log-verosimilitud para obtener los parámetros.</p>
@@ -317,7 +352,7 @@ s_{4}=\beta_{1,4}x_{1}+\beta_{2,4}x_{2} &amp; \,\,\,\,\,\,\,\,\,\,x_{4}\leftarro
 s_{5}=\beta_{1,5}x_{1}+\beta_{2,5}x_{2} &amp; \,\,\,\,\,\,\,\,\,\,x_{5}\leftarrow f\left(s_{5}\right)\\
 s_{6}=\beta_{3,6}x_{3}+\beta_{4,6}x_{4}+\beta_{5,6}x_{5} &amp; \,\,\,\,\,\,\,\,\,\,z_{1}\leftarrow f\left(s_{6}\right)
 \end{align*}\]</span></p>
-<p>Donde, por facilidad estamos considerando que <span class="math inline">\(f(x)=\frac{e^x}{1+e^x}\)</span>.</p>
+<p>Donde, por facilidad, estamos considerando que <span class="math inline">\(f(x)=\frac{e^x}{1+e^x}\)</span>.</p>
 <p>El valor de la log-verosimilitud para este ejemplo de entrenamiento se calcula como:</p>
 <p><span class="math display">\[{\it l}_{i}\left(\beta;\,\left(x^{i},\,y^{i}\right)\right)=\mathbb{I}_{\left\{ y^{i}=1\right\} }log\left(z_{1}\right)+\mathbb{I}_{\left\{ y^{i}=2\right\} }log\left(1-z_{1}\right)\]</span></p>
 <p>Y el <em>gradiente estocástico</em> como:</p>
@@ -342,7 +377,7 @@ s_{6}=\beta_{3,6}x_{3}+\beta_{4,6}x_{4}+\beta_{5,6}x_{5} &amp; \,\,\,\,\,\,\,\,\
 <li><p><span class="math inline">\(\frac{\partial l}{\partial x_1} = \frac{\partial l}{\partial s_3}\cdot \beta_{1,3}+\frac{\partial l}{\partial s_4}\cdot \beta_{1,4}+\frac{\partial l}{\partial s_5}\cdot \beta_{1,5}\)</span></p></li>
 <li><p><span class="math inline">\(\frac{\partial l}{\partial x_2} = \frac{\partial l}{\partial s_3}\cdot \beta_{2,3}+\frac{\partial l}{\partial s_4}\cdot \beta_{2,4}+\frac{\partial l}{\partial s_5}\cdot \beta_{2,5}\)</span></p></li>
 </ul>
-<p>En resúmen, para optimizar la verosimilitud por gradiente estocástico debemos seguir lo siguientes pasos (llamados _back-propagation):</p>
+<p>En resúmen, para optimizar la verosimilitud por gradiente estocástico debemos seguir lo siguientes pasos (llamados <em>back-propagation</em>):</p>
 <p><strong>1.</strong> Inicializar los parámetros <span class="math inline">\(\hat{\beta}^{(0,n)}=\{\hat{\beta_{u,v}}^{(0,n)}:u\rightarrow v\}\)</span></p>
 <p><strong>2.</strong> Para cada fase de entrenamiento <span class="math inline">\(t=1,2,\dots\)</span></p>
 <p>Para <span class="math inline">\(i = 1,2,\dots,n\)</span>

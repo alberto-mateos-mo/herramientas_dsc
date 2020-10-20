@@ -242,6 +242,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
+<li class="part"><span><b>VII Reducción de dimensiones</b></span></li>
+<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a></li>
+<li class="chapter" data-level="11" data-path="análisis-factorial.html"><a href="análisis-factorial.html"><i class="fa fa-check"></i><b>11</b> Análisis factorial</a></li>
+<li class="part"><span><b>VIII Clusterización</b></span></li>
+<li class="chapter" data-level="12" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>12</b> k-means</a></li>
+<li class="chapter" data-level="13" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>13</b> Clusterización jerárquica</a></li>
+<li class="part"><span><b>IX Selección de modelos</b></span></li>
+<li class="chapter" data-level="14" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>14</b> Motivación</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>14.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="14.1" data-path="motivación.html"><a href="motivación.html#esquemas-básicos"><i class="fa fa-check"></i><b>14.1</b> Esquemas básicos</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="motivación.html"><a href="motivación.html#akaike-information-criterion."><i class="fa fa-check"></i><b>14.1.1</b> Akaike Information Criterion.</a></li>
+<li class="chapter" data-level="14.1.2" data-path="motivación.html"><a href="motivación.html#bayesian-information-criterion."><i class="fa fa-check"></i><b>14.1.2</b> Bayesian Information Criterion.</a></li>
+<li class="chapter" data-level="14.1.3" data-path="motivación.html"><a href="motivación.html#cross-validation"><i class="fa fa-check"></i><b>14.1.3</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="motivación.html"><a href="motivación.html#esquemas-adicionales"><i class="fa fa-check"></i><b>14.2</b> Esquemas adicionales</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="motivación.html"><a href="motivación.html#bootstrap"><i class="fa fa-check"></i><b>14.2.1</b> Bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="motivación.html"><a href="motivación.html#information-value-woe"><i class="fa fa-check"></i><b>14.3</b> Information Value &amp; WoE</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="motivación.html"><a href="motivación.html#weight-of-evidence-woe"><i class="fa fa-check"></i><b>14.3.1</b> Weight of Evidence (WoE)</a></li>
+<li class="chapter" data-level="14.3.2" data-path="motivación.html"><a href="motivación.html#information-value"><i class="fa fa-check"></i><b>14.3.2</b> Information Value</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="motivación.html"><a href="motivación.html#matrices-de-confusión-y-derivados"><i class="fa fa-check"></i><b>14.4</b> Matrices de confusión (y derivados…)</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="motivación.html"><a href="motivación.html#estadísticos-derivados-de-las-matrices-de-confusión"><i class="fa fa-check"></i><b>14.4.1</b> Estadísticos derivados de las matrices de confusión</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="motivación.html"><a href="motivación.html#curvas-auc-roc"><i class="fa fa-check"></i><b>14.5</b> Curvas AUC-ROC</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="motivación.html"><a href="motivación.html#construcción-de-una-curva-auc-roc"><i class="fa fa-check"></i><b>14.5.1</b> Construcción de una curva AUC-ROC</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -920,27 +954,34 @@ calcula de la siguiente forma:</p>
 ##  $ foreign_worker        : chr  &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; ...
 ##  $ default               : int  0 1 0 0 1 0 0 0 0 1 ...</code></pre>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="modelos-lineales-generalizados.html#cb83-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
-<pre><code>##     duration    credit_history       purpose          credit_amount   installment_commitment personal_status    residence_since
-##  Min.   : 4.0   Length:1000        Length:1000        Min.   :  250   Min.   :1.000          Length:1000        Min.   :1.000  
-##  1st Qu.:12.0   Class :character   Class :character   1st Qu.: 1366   1st Qu.:2.000          Class :character   1st Qu.:2.000  
-##  Median :18.0   Mode  :character   Mode  :character   Median : 2320   Median :3.000          Mode  :character   Median :3.000  
-##  Mean   :20.9                                         Mean   : 3271   Mean   :2.973                             Mean   :2.845  
-##  3rd Qu.:24.0                                         3rd Qu.: 3972   3rd Qu.:4.000                             3rd Qu.:4.000  
-##  Max.   :72.0                                         Max.   :18424   Max.   :4.000                             Max.   :4.000  
-##  property_magnitude      age        other_payment_plans   housing          existing_credits     job            num_dependents 
-##  Length:1000        Min.   :19.00   Length:1000         Length:1000        Min.   :1.000    Length:1000        Min.   :1.000  
-##  Class :character   1st Qu.:27.00   Class :character    Class :character   1st Qu.:1.000    Class :character   1st Qu.:1.000  
-##  Mode  :character   Median :33.00   Mode  :character    Mode  :character   Median :1.000    Mode  :character   Median :1.000  
-##                     Mean   :35.55                                          Mean   :1.407                       Mean   :1.155  
-##                     3rd Qu.:42.00                                          3rd Qu.:2.000                       3rd Qu.:1.000  
-##                     Max.   :75.00                                          Max.   :4.000                       Max.   :2.000  
-##  own_telephone      foreign_worker        default   
-##  Length:1000        Length:1000        Min.   :0.0  
-##  Class :character   Class :character   1st Qu.:0.0  
-##  Mode  :character   Mode  :character   Median :0.0  
-##                                        Mean   :0.3  
-##                                        3rd Qu.:1.0  
-##                                        Max.   :1.0</code></pre>
+<pre><code>##     duration    credit_history       purpose          credit_amount   installment_commitment
+##  Min.   : 4.0   Length:1000        Length:1000        Min.   :  250   Min.   :1.000         
+##  1st Qu.:12.0   Class :character   Class :character   1st Qu.: 1366   1st Qu.:2.000         
+##  Median :18.0   Mode  :character   Mode  :character   Median : 2320   Median :3.000         
+##  Mean   :20.9                                         Mean   : 3271   Mean   :2.973         
+##  3rd Qu.:24.0                                         3rd Qu.: 3972   3rd Qu.:4.000         
+##  Max.   :72.0                                         Max.   :18424   Max.   :4.000         
+##  personal_status    residence_since property_magnitude      age        other_payment_plans
+##  Length:1000        Min.   :1.000   Length:1000        Min.   :19.00   Length:1000        
+##  Class :character   1st Qu.:2.000   Class :character   1st Qu.:27.00   Class :character   
+##  Mode  :character   Median :3.000   Mode  :character   Median :33.00   Mode  :character   
+##                     Mean   :2.845                      Mean   :35.55                      
+##                     3rd Qu.:4.000                      3rd Qu.:42.00                      
+##                     Max.   :4.000                      Max.   :75.00                      
+##    housing          existing_credits     job            num_dependents  own_telephone     
+##  Length:1000        Min.   :1.000    Length:1000        Min.   :1.000   Length:1000       
+##  Class :character   1st Qu.:1.000    Class :character   1st Qu.:1.000   Class :character  
+##  Mode  :character   Median :1.000    Mode  :character   Median :1.000   Mode  :character  
+##                     Mean   :1.407                       Mean   :1.155                     
+##                     3rd Qu.:2.000                       3rd Qu.:1.000                     
+##                     Max.   :4.000                       Max.   :2.000                     
+##  foreign_worker        default   
+##  Length:1000        Min.   :0.0  
+##  Class :character   1st Qu.:0.0  
+##  Mode  :character   Median :0.0  
+##                     Mean   :0.3  
+##                     3rd Qu.:1.0  
+##                     Max.   :1.0</code></pre>
 <p><strong>Selección de observaciones en donde si hubo falta de pago:</strong></p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="modelos-lineales-generalizados.html#cb85-1"></a>datos &lt;-<span class="st"> </span>datos[datos<span class="op">$</span>default<span class="op">==</span><span class="dv">1</span>,]</span></code></pre></div>
 <p><strong>Construcción de la variable del tiempo transcurrido al default:</strong></p>
@@ -1056,34 +1097,41 @@ calcula de la siguiente forma:</p>
 ##  $ auto_year                  : int  2004 2007 2007 2014 2009 2003 2012 2015 2012 1996 ...
 ##  $ total_claim_amount         : int  71610 5070 34650 63400 6500 64100 78650 51590 27700 42300 ...</code></pre>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="modelos-lineales-generalizados.html#cb96-1"></a><span class="kw">summary</span>(datos)</span></code></pre></div>
-<pre><code>##  months_as_customer      age        policy_number    policy_state       policy_deductable policy_annual_premium insured_sex       
-##  Min.   :  0.0      Min.   :19.00   Min.   :100804   Length:1000        Min.   : 500      Min.   : 433.3        Length:1000       
-##  1st Qu.:115.8      1st Qu.:32.00   1st Qu.:335980   Class :character   1st Qu.: 500      1st Qu.:1089.6        Class :character  
-##  Median :199.5      Median :38.00   Median :533135   Mode  :character   Median :1000      Median :1257.2        Mode  :character  
-##  Mean   :204.0      Mean   :38.95   Mean   :546239                      Mean   :1136      Mean   :1256.4                          
-##  3rd Qu.:276.2      3rd Qu.:44.00   3rd Qu.:759100                      3rd Qu.:2000      3rd Qu.:1415.7                          
-##  Max.   :479.0      Max.   :64.00   Max.   :999435                      Max.   :2000      Max.   :2047.6                          
-##  insured_education_level insured_occupation insured_hobbies    insured_relationship incident_date      incident_type      collision_type    
-##  Length:1000             Length:1000        Length:1000        Length:1000          Length:1000        Length:1000        Length:1000       
-##  Class :character        Class :character   Class :character   Class :character     Class :character   Class :character   Class :character  
-##  Mode  :character        Mode  :character   Mode  :character   Mode  :character     Mode  :character   Mode  :character   Mode  :character  
-##                                                                                                                                             
-##                                                                                                                                             
-##                                                                                                                                             
-##  incident_severity  authorities_contacted incident_hour_of_the_day number_of_vehicles_involved  auto_make          auto_model       
-##  Length:1000        Length:1000           Min.   : 0.00            Min.   :1.000               Length:1000        Length:1000       
-##  Class :character   Class :character      1st Qu.: 6.00            1st Qu.:1.000               Class :character   Class :character  
-##  Mode  :character   Mode  :character      Median :12.00            Median :1.000               Mode  :character   Mode  :character  
-##                                           Mean   :11.64            Mean   :1.839                                                    
-##                                           3rd Qu.:17.00            3rd Qu.:3.000                                                    
-##                                           Max.   :23.00            Max.   :4.000                                                    
-##    auto_year    total_claim_amount
-##  Min.   :1995   Min.   :   100    
-##  1st Qu.:2000   1st Qu.: 41813    
-##  Median :2005   Median : 58055    
-##  Mean   :2005   Mean   : 52762    
-##  3rd Qu.:2010   3rd Qu.: 70593    
-##  Max.   :2015   Max.   :114920</code></pre>
+<pre><code>##  months_as_customer      age        policy_number    policy_state       policy_deductable
+##  Min.   :  0.0      Min.   :19.00   Min.   :100804   Length:1000        Min.   : 500     
+##  1st Qu.:115.8      1st Qu.:32.00   1st Qu.:335980   Class :character   1st Qu.: 500     
+##  Median :199.5      Median :38.00   Median :533135   Mode  :character   Median :1000     
+##  Mean   :204.0      Mean   :38.95   Mean   :546239                      Mean   :1136     
+##  3rd Qu.:276.2      3rd Qu.:44.00   3rd Qu.:759100                      3rd Qu.:2000     
+##  Max.   :479.0      Max.   :64.00   Max.   :999435                      Max.   :2000     
+##  policy_annual_premium insured_sex        insured_education_level insured_occupation insured_hobbies   
+##  Min.   : 433.3        Length:1000        Length:1000             Length:1000        Length:1000       
+##  1st Qu.:1089.6        Class :character   Class :character        Class :character   Class :character  
+##  Median :1257.2        Mode  :character   Mode  :character        Mode  :character   Mode  :character  
+##  Mean   :1256.4                                                                                        
+##  3rd Qu.:1415.7                                                                                        
+##  Max.   :2047.6                                                                                        
+##  insured_relationship incident_date      incident_type      collision_type     incident_severity 
+##  Length:1000          Length:1000        Length:1000        Length:1000        Length:1000       
+##  Class :character     Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character     Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                                                  
+##                                                                                                  
+##                                                                                                  
+##  authorities_contacted incident_hour_of_the_day number_of_vehicles_involved  auto_make        
+##  Length:1000           Min.   : 0.00            Min.   :1.000               Length:1000       
+##  Class :character      1st Qu.: 6.00            1st Qu.:1.000               Class :character  
+##  Mode  :character      Median :12.00            Median :1.000               Mode  :character  
+##                        Mean   :11.64            Mean   :1.839                                 
+##                        3rd Qu.:17.00            3rd Qu.:3.000                                 
+##                        Max.   :23.00            Max.   :4.000                                 
+##   auto_model          auto_year    total_claim_amount
+##  Length:1000        Min.   :1995   Min.   :   100    
+##  Class :character   1st Qu.:2000   1st Qu.: 41813    
+##  Mode  :character   Median :2005   Median : 58055    
+##                     Mean   :2005   Mean   : 52762    
+##                     3rd Qu.:2010   3rd Qu.: 70593    
+##                     Max.   :2015   Max.   :114920</code></pre>
 <p><strong>Eliminar las columnas que contienen información específica:</strong></p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="modelos-lineales-generalizados.html#cb98-1"></a>datos &lt;-<span class="st"> </span>datos[,<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">12</span>)]</span></code></pre></div>
 <p><strong>Ajustaremos un primer modelo con la variable de género del asegurado:</strong></p>

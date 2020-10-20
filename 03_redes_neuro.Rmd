@@ -4,9 +4,11 @@
 
 Las redes neuronales artificiales están inspiradas en la forma en la que las neuronas de nuestro cerebro trabajan en conjunto para resolver una tarea compleja. Éstas modelan una variable respuesta, ya sea de tipo continua o categórica, como función de las covariables a través de la composición de funciones no lineales.
 
-De manera general, una red nueronal consiste de una _arquitectura_, una _regla de activación_ y una _regla de salida_.
+De manera general, una red neuronal consiste de una _arquitectura_, una _regla de activación_ y una _regla de salida_.
 
-__Arquitectura:__ Puede ser descrita vía un gráfo dirigido cuyo nodos son llamados _neuronas_. Existen una grán cantidad de arquitecturas dependiendo de la naturaleza del grafo i.e. de las relaciones entre los nodos. Una descripción bastante completa de las distintas arquitecturas y sus nombres puede ser consultada ![en este sitio.](https://www.asimovinstitute.org/neural-network-zoo/) 
+__Arquitectura:__ Puede ser descrita vía un gráfo dirigido cuyo nodos son llamados _neuronas_. Existen una grán cantidad de arquitecturas dependiendo de la naturaleza del grafo i.e. de las relaciones entre los nodos. 
+
+Una descripción bastante completa de las distintas arquitecturas y sus nombres puede ser consultada [en este sitio.](https://www.asimovinstitute.org/neural-network-zoo/) 
 
 __Regla de activación:__ Típicamente el valor en cada nodo $v$ puede ser calculado como $$x_v = f(\sum_{u \rightarrow v}\beta_{uv}x_u)$$ donde la suma se obtiene sobre los nodos _predecesores_ de $v$ y $\beta_{uv}$ son los coeficientes (desconocidos) de la red.
 
@@ -28,11 +30,11 @@ x_{6} & =f\left(\beta_{3,6}\cdot x_{3}+\beta_{4,6}\cdot x_{4}+\beta_{5,6}\cdot x
 
 donde $f(\cdot)$ es la función de activación.
 
-Si suponemos que $f(x) = \mathbb{I}(x)$ entonces el problema a resolver será el de regresión lineal.
+N.B. Si suponemos que $f(x) = \mathbb{I}(x)$ y que la red consiste de una sola capa entonces el problema a resolver será el de regresión lineal.
 
-__Nodos de _sesgo:___ Dependiendo de la utilidad, podríamos estar interesados, como en el problema de regresión lineal, en un término de intercepto o de nivel base, para ello puede simplemente crearse un nodo extra cuyo valor sea la constante 1.
+__Nodos de _sesgo:___ Dependiendo de la utilidad, podríamos estar interesados, como en el problema de regresión lineal, en un término de intercepto o nivel _base-, para ello puede simplemente crearse un nodo extra cuyo valor sea la constante 1.
 
-__Regla de salida:__ En el nodo de salida $v$ se calcula: $$s_v = \sum_{u\rightarrow v}\beta_{uv}x_u$$ y en lugar de aplicar la función de activación $f(\cdot)$, se usa una regla de salida para obtener el valor o vector de ajuste/predicción.
+__Regla de salida:__ En el nodo de salida $v$, se calcula: $$s_v = \sum_{u\rightarrow v}\beta_{uv}x_u$$ y en lugar de aplicar la función de activación $f(\cdot)$, se usa una regla de salida para obtener el valor o vector de ajuste/predicción.
 
 Por ejemplo, en un problema de clasificación de $N$ clases, la _capa de salida_ consitirá de $N$ nodos, cada uno asociado a cada clase; la predicción/ajuste $\hat{y}\in \mathbb{R}^p$  está dada por $$\hat{y}=\arg max\{s_{vn}\}$$
 
@@ -49,7 +51,7 @@ $$(p_1,\dots,p_N)=g^{nnet}(x_v; \{\beta_{uv}:u\rightarrow v\})$$
 
 ## Teorema de Universalidad
 
-La flexibilidad y el poder de las redes neuronales radica en la estructura de composición de funciones de activación no lineales. El siguiente teorema implica que una red neuronal puede aproximar cualquier función en particular nos es relevante el poder aproximar cualquier modelo no paramétrico de regresión.
+La flexibilidad y el poder de las redes neuronales radica en la estructura de composición de funciones de activación no lineales. El siguiente teorema implica que una red neuronal puede aproximar cualquier función; en particular, es relevante el poder aproximar cualquier modelo no paramétrico de regresión.
 
 __Teorema.__ Sea $\Delta^{L}=\left\{ \left(y_{1},\ldots,y_{L}\right)\in\mathbb{R}_{\geq0}^{L}\,|\,y_{1}+\dots+y_{L}=1\right\} \in \mathbb{R}^{L}$, y $B\subseteq\mathbb{R}^{p}$ un conjunto acotado que contiene al origen y $\mu$ una medida de probabilidad en $B$. 
 
@@ -61,7 +63,7 @@ para alguna constante universal $C$.
 
 ## Entrenamiento de una red neuronal
 
-En el ámbito del _machine learning_ se le conoce como entrenamiento al proceso de encontrar _buenos_ estimadores de los parámetros del mmodelo usado, en este caso, de la red neuronal.
+En el ámbito del _machine learning_ se le conoce como entrenamiento al proceso de encontrar _buenos_ estimadores de los parámetros del modelo usado, en este caso, de la red neuronal.
 
 Sea $\beta = (\beta_{uv}; u\rightarrow v)$ el vector de parámetros de una red neuronal. Dados los datos de entrenamiento $(x^1,y^1),\dots,(x^n,y^n)$, la log-verosimilitud de $\beta$ está dada por:
 
@@ -87,7 +89,7 @@ s_{5}=\beta_{1,5}x_{1}+\beta_{2,5}x_{2} & \,\,\,\,\,\,\,\,\,\,x_{5}\leftarrow f\
 s_{6}=\beta_{3,6}x_{3}+\beta_{4,6}x_{4}+\beta_{5,6}x_{5} & \,\,\,\,\,\,\,\,\,\,z_{1}\leftarrow f\left(s_{6}\right)
 \end{align*}$$
 
-Donde, por facilidad estamos considerando que $f(x)=\frac{e^x}{1+e^x}$.
+Donde, por facilidad, estamos considerando que $f(x)=\frac{e^x}{1+e^x}$.
 
 El valor de la log-verosimilitud para este ejemplo de entrenamiento se calcula como:
 
@@ -134,7 +136,7 @@ Y el _gradiente estocástico_ como:
 - $\frac{\partial l}{\partial x_2} = \frac{\partial l}{\partial s_3}\cdot \beta_{2,3}+\frac{\partial l}{\partial s_4}\cdot \beta_{2,4}+\frac{\partial l}{\partial s_5}\cdot \beta_{2,5}$
 
 
-En resúmen, para optimizar la verosimilitud por gradiente estocástico debemos seguir lo siguientes pasos (llamados _back-propagation):
+En resúmen, para optimizar la verosimilitud por gradiente estocástico debemos seguir lo siguientes pasos (llamados _back-propagation_):
 
 __1.__ Inicializar los parámetros $\hat{\beta}^{(0,n)}=\{\hat{\beta_{u,v}}^{(0,n)}:u\rightarrow v\}$
 
