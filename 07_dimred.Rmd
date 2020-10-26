@@ -34,7 +34,11 @@ Entoncesla matriz $H_q = V_q V_q^T$ es una matriz de proyección que mapea cada 
 
 La solución puede ser expresada como:
 
-$$X = UDV^T$$
+\begin{equation} 
+  X = UDV^T
+  
+  (\#eq:svd)
+\end{equation}
 
 esto es, la descomposicion en valores singulares de $X$ donde:
 
@@ -122,3 +126,90 @@ var_explained_df %>%
 
 
 # Análisis factorial
+
+## Variables Latentes
+
+En muchas ocasiones los datos multivariados son vistos como mediciones indirectas provenientes de una fuente subyacente que típicamente no puede ser medida directamente.
+
+Por ejemplo:
+
+- Tests psicológicos y pedagógicos se usan como una forma de medir la inteligencia u otras habilidades mentales.
+
+- Los electroencefalogramas miden la actividad cerebral de forma indirecta usando señales electromagnéticas grabadas por sensores colocados en diferentes partes de la cabeza.
+
+- Los precios de las acciones en el mercado financiero reflejan factores no medidos como la confianza en el mercado o influencias externas que serían dificiles de medir o identificar.
+
+
+El análisis factorial es una herramienta que permite identificar las fuentes latentes subyacentes a un conjunto de datos.
+
+## Solución factorial
+
+La descomposición en valores singulares \@ref(eq:svd) tiene una representación en variables latentes.
+
+Escribiendo $S = \sqrt{N}U$, $A^T = \frac{DV^T}{\sqrt{N}}$, tenemos $$X = SA^T$$
+
+Y por tanto cada columna de $X$ es una combinación lineal de las columnas de $S$.
+
+Dado que $U$ es una matriz ortogonal y asumiendo que las columnas de $X$ (y de $U$) tienen media cero tenemos que las columnas de $S$ también tienen media cero, no están correlacionadas y tienen varianza unitaria.
+
+En términos de variables aleatorias podemos interpretar a los componentes principales como una estimación del modelo de variables latentes:
+
+$$X_1 = a_{11}S_1+a_{12}S_2+\dots +a_{1p}S_p$$
+$$X_2 = a_{21}S_1+a_{22}S_2+\dots +a_{2p}S_p$$
+$$\vdots$$
+$$X_p = a_{p1}S_1+a_{p2}S_2+\dots +a_{pp}S_p$$
+
+o simplemente $X = AS$.
+
+Las variables $X_j$, que están correlacionadas son representadas como una expasión lineal de las variables $S_l$, no correlacionadas y de varianza unitaria.
+
+Sin embargo, esto no es demasiado satisfactorio puesto que dada cualquier matriz ortogonal de $p\times p$ en $\mathbb{R}$ podemos escribir:
+
+$$X = AS$$
+$$X = AR^TRS$$
+$$X = A^*S^*$$
+
+Y $Cov(S^*) = R Cov(S)R^T = I$
+
+Por lo tanto ha una infinidad de tales descomposiciones haciendo imposible identificar las variables latentes como fuentes subyacentes únicas.
+
+El modelo clásico de factores resuelve este problema escribiendo el modelo como $X = AS+\epsilon$. Donde $A$ es la matriz de pesos de los factores, $S$ un vector de $q$ variables latentes y $\epsilon_j$ son errores no correlacionados de media cero.
+
+
+Comúnmente tanto $S_j$ y $\epsilon_j$ se modelan como variables aleatorias normales y el modelo factoria se ajusta por máxima verosimilitud.
+
+Los parámetros dependen de la matriz de covarianzas
+
+$$\Sigma = AA^T+D_{\epsilon}$$
+
+Donde $D_{\epsilon} = diag[Var(\epsilon_1),\dots , Var(\epsilon_p)]$.
+
+Y dado que $S_j$ son variables normales no correlacionadas entonces son variables aleatorias independientes.
+
+La presencia de los errores $\epsilon_j$ hace que el análisis de factores pueda verse como un modelo de la estructura de correlación de $X_j$ en lugar de la estructura de covarianza (la usada en el análisis de componentes principales).
+
+## Rotaciones de factores
+
+Como se menciona anteriormente las soluciones al modelo factorial podrían no ser únicas para encontrar la unicidad se introducen restricciones meramente arbitrarias.
+
+Diferentes tipos de restricciones derivan en soluciones distintas al modelo.
+
+Al proceso de cambiar de una solución a otra se le llama _rotación_ y proviene de la representación geométrica del procedimiento.
+
+La razón principal para rotar una solución es dar claridad a las cargas factoriales. Si la solución inicial es confusa una rotación puede proporcionar una estructura más fácil de interpretar.
+
+### Rotaciones ortogonales
+
+Uno de los patrones de cargas factoriales más usuales y de hecho más deseables es la llamada _estructura simple de pesos factoriales_. 
+
+Se dice que los pesps factoriales presentan una estructura simple si cada variable tiene un gran peso en un solo factor, con pesos cercanos a cero en el resto de los factores. 
+
+Una de las rotaciones que procura generar una estructura de pesos simple son las rotaciones ortogonales (los nuevos ejes después de la rotación siguen siendo ortogonales).
+
+### Rotaciones oblicuas
+
+Contrario a las rotaciones ortogonales, las rotaciones oblicuas permiten relajar la restricción de ortogonalidad con el fin de ganar simplicidad en la interpretación de los factores. 
+
+Con este método los factores resultan correlacionados, aunque generalmente esta correlación es pequeña. 
+
+El uso de rotaciones oblicuas se justifica porque en muchos contextos es lógico suponer que los factores están correlacionados.
