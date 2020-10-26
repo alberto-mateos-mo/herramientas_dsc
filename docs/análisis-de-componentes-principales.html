@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-regresión"><i class="fa fa-check"></i><b>9.1</b> Árboles de regresión</a></li>
 <li class="chapter" data-level="9.2" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-clasificación"><i class="fa fa-check"></i><b>9.2</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a>
+<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> Algunos problemas en los árboles</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
@@ -243,7 +243,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="part"><span><b>VII Reducción de dimensiones</b></span></li>
-<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a></li>
+<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#introducción"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#los-componentes-principales"><i class="fa fa-check"></i><b>10.2</b> Los componentes principales</a></li>
+<li class="chapter" data-level="10.3" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#interpretación-geométrica"><i class="fa fa-check"></i><b>10.3</b> Interpretación geométrica</a></li>
+<li class="chapter" data-level="10.4" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#consideraciones"><i class="fa fa-check"></i><b>10.4</b> Consideraciones</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#escalamiento-de-variables"><i class="fa fa-check"></i><b>10.4.1</b> Escalamiento de variables</a></li>
+<li class="chapter" data-level="10.4.2" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#varianza-explicada-por-los-componentes-principales"><i class="fa fa-check"></i><b>10.4.2</b> Varianza explicada por los componentes principales</a></li>
+<li class="chapter" data-level="10.4.3" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#número-de-componentes-a-usar"><i class="fa fa-check"></i><b>10.4.3</b> Número de componentes a usar</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="análisis-factorial.html"><a href="análisis-factorial.html"><i class="fa fa-check"></i><b>11</b> Análisis factorial</a></li>
 <li class="part"><span><b>VIII Clusterización</b></span></li>
 <li class="chapter" data-level="12" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>12</b> k-means</a></li>
@@ -295,6 +306,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="análisis-de-componentes-principales" class="section level1" number="10">
 <h1><span class="header-section-number">Capítulo 10</span> Análisis de Componentes Principales</h1>
+<div id="introducción" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Introducción</h2>
+<p>Supongamos que tenemos un conjunto de datos en <span class="math inline">\(\mathbb{R}^p\)</span> y que queremos visualizarlos. Si <span class="math inline">\(p\)</span> es muy grande no podremos visulizar todo el conjunto con un solo gráfico, una manera de visualizar los datos es hacer gráficos de dsipersión de dos dimensiones.</p>
+<p>Sin embargo la cantidad de gráficos de dos dimensiones que podemos hacer son <span class="math inline">\(p(1-p)/2\)</span>. Lo cual vuelve la tarea compleja conforme el valor de <span class="math inline">\(p\)</span> aumenta.</p>
+<p>Lo que nos gustaría es poder encontrar una representación de los datos con menos dimensiones pero que conserva la mayor cantidad de información posible.</p>
+<p>El análisis de componentes principales es una herramienta que nos permitirá lograr eso, enocntrar representaciones en menos dimensiones que conserven la mayor cantidad de varianza.</p>
+</div>
+<div id="los-componentes-principales" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Los componentes principales</h2>
+<p>Los componentes principales de un conjunto de datos en <span class="math inline">\(\mathbb{R}^p\)</span> son una serie de combinaciones lineales de rango <span class="math inline">\(q \leq p\)</span> que, colectivamente, explican la mayoría de la varianza original.</p>
+<p>Si denotamos las observaciones por <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>, sea <span class="math display">\[f(\lambda) = \mu+V_q\lambda\]</span> el modelo lineal de rango <span class="math inline">\(q\)</span> que las representa; esta ecuación es la representación paramétrica de un hiperplano afín de rango <span class="math inline">\(q\)</span>.</p>
+<p>Si resolvemos el problema que nos permita encontrar el plano afín que minimice el <em>error de reconstrucción</em>: <span class="math display">\[min_{\mu,\lambda_i,V_q} \sum_{i=1}^N ||x_i-\mu -V_q\lamda_i||^2\]</span> obtenemos</p>
+<p><span class="math display">\[\hat{\mu}=\bar{x}\]</span></p>
+<p><span class="math display">\[\hat{\lambda}_i=V_q^T(x_i-\bar{x})\]</span></p>
+<p>Con lo cual debemos encontrar la matriz ortogonal <span class="math inline">\(V_q\)</span> tal que:</p>
+<p><span class="math display">\[min_{V_q}\sum_{i=1}^N||x_i-\bar{x}-V_q V_q^T(x_i-\bar{x})||^2\]</span></p>
+<p>Por facilidad, asumimos que <span class="math inline">\(\bar{x}=0\)</span>. En caso contrario centramos las variables para tener media cero.</p>
+<p>Entoncesla matriz <span class="math inline">\(H_q = V_q V_q^T\)</span> es una matriz de proyección que mapea cada punto <span class="math inline">\(x_i\)</span> en su reconstrucción <span class="math inline">\(H_q x_i\)</span> que es la proyección ortogonal de <span class="math inline">\(x_i\)</span> en el subespacio generado por las columnas de <span class="math inline">\(V_q\)</span></p>
+<p>La solución puede ser expresada como:</p>
+<p><span class="math display">\[X = UDV^T\]</span></p>
+<p>esto es, la descomposicion en valores singulares de <span class="math inline">\(X\)</span> donde:</p>
+<ul>
+<li><p><span class="math inline">\(U\)</span> es una matriz ortogonal de <span class="math inline">\(N\times p\)</span> cuyas columnas llamamos <em>valores singulares izquierdos</em></p></li>
+<li><p><span class="math inline">\(V\)</span> es una matriz ortogonal de <span class="math inline">\(p\times p\)</span> cuyas columnas llamamos <em>valores singulares derechos</em></p></li>
+<li><p><span class="math inline">\(D\)</span> es una matriz diagonal de <span class="math inline">\(p \times p\)</span> cuyos elementos cumplen <span class="math inline">\(d_1\geq d_2\geq \dots \geq d_p\geq 0\)</span> llamados valores singulares</p></li>
+</ul>
+<p>A las columnas de <span class="math inline">\(UD\)</span> las llamamos componentes principales de <span class="math inline">\(X\)</span></p>
+<p>El primer componente principal está dado por la combinación lineal normalizada de las columnas de los datos originales cuya varianza es máxima:</p>
+<p><span class="math display">\[Z_1 = \phi_{11}X_1+\phi_{21}X_2+ \dots+\phi_{p1}X_p\]</span>
+N.B. <span class="math inline">\(\sum_{j=1}^p\phi_{j1}^2=1\)</span></p>
+<p>A los valores <span class="math inline">\(\phi_{j1}\)</span> los llamamos <em>pesos</em> del primer componente principal. Éstos tienen la restricción de que su suma debe ser igual a uno para evitar que el primer componente tenga varianza arbitraria.</p>
+</div>
+<div id="interpretación-geométrica" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Interpretación geométrica</h2>
+<p>Para el primer componente principal, <span class="math inline">\(\phi_1\)</span> define la dirección en el espacio para la cual los datos presentan mayor variación.</p>
+<p>El segundo componente principal es aquella combinación lineal ortogonal al primer componente que tenga máxima varianzay aspi sucesivamente con el resto de componentes.</p>
+<p>Los scores de los componentes principales son las proyecciones de los datos en las direcciones descritas por <span class="math inline">\(\phi_i\)</span></p>
+</div>
+<div id="consideraciones" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Consideraciones</h2>
+<div id="escalamiento-de-variables" class="section level3" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Escalamiento de variables</h3>
+<p>Los resultados del análisis de componentes principales serán distintos si las variables no se centran (media cero) e incluso serán distintos si éstas se escalan individualmente.</p>
+<p>Las diferencias en los resultados están ligadas directamente con la escala en la que estén medidas las diferentes variables del conjunto de datos.</p>
+<p>Consideremos por ejemplo los datos <code>USArrests</code>, en este conjunto las variables <code>Murder</code>, <code>Rape</code> y <code>Assault</code> están medidas como ocurrencia por cada 100,000 habitantes y <code>UrbanPop</code> como porcentaje de población, en este sentido, si analizamos las varianzas:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="análisis-de-componentes-principales.html#cb133-1"></a><span class="kw">lapply</span>(USArrests, var)</span></code></pre></div>
+<pre><code>## $Murder
+## [1] 18.97047
+## 
+## $Assault
+## [1] 6945.166
+## 
+## $UrbanPop
+## [1] 209.5188
+## 
+## $Rape
+## [1] 87.72916</code></pre>
+<p>veremos que <code>Assault</code> tiene la varianza más grande lo cual causará si no escalaramos los datos, que el primer componente tengo un peso muy grande para esta variable.</p>
+<p>Para evitar que los componentes principales dependan de la escala o de la elección de algún factor de escala deberemos transformar las variables para que tengan desviación estandar unitaria antes de aplicar el algoritmo de componentes principales.</p>
+<p>N.B. Si las variables fueron medidas en la misma escala entonces no es necesario aplicar ninguna transformación.</p>
+</div>
+<div id="varianza-explicada-por-los-componentes-principales" class="section level3" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Varianza explicada por los componentes principales</h3>
+<p>La varianza total del conjunto de datos está dada por <span class="math display">\[\sum_{j=1}^pVar(X_j)=\sum_{j=1}^p\frac{1}{n}\sum_{i=1}^{n}x_{ij}^2\]</span></p>
+<p>La varianza explicada por el m-ésimo componente principal es <span class="math display">\[\frac{1}{n}\sum_{i=1}^n(\sum_{j=1}^p\phi_{jm}x_{ij})^2\]</span></p>
+<p>Y la proporción de varianza explicada por el m-ésimo componente es <span class="math display">\[\frac{\sum_{i=1}^n(\sum_{j=1}^p\phi_{jm}x_{ij})^2}{\sum_{j=1}^p\sum_{i=1}^nx_{ij}^2}\]</span></p>
+</div>
+<div id="número-de-componentes-a-usar" class="section level3" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> Número de componentes a usar</h3>
+<p>De manera general, un conjunto de datos n-dimensional tiene <span class="math inline">\(min(n-1,p)\)</span> componentes principales distintos. Sin embargo, dado que no típicamente usaremos este análisis para reducir la dimensión de los datos no estamos interesados en usarlos todos.</p>
+<p>De hecho lo que buscamos es el menor número de componentes que nos permitan capturar una <em>buena</em> cantidad de información.</p>
+<p>Para encontrar este número de componentes no existe una respuesta única. Comúnmente usaremos como ayuda el <em>screeplot</em> o gráfica de codo de la varianza del m-ésimo componente principal y escogeremos la cantidad que nos permita capturar ya sea cierta cantidad de varianza e.g. el 70% de ella o bien aquel número de componentes a partir del cual el incremento de varianza por cada componente adicional sea marginal.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+</div>
+</div>
 </div>
             </section>
 

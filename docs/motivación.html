@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-regresión"><i class="fa fa-check"></i><b>9.1</b> Árboles de regresión</a></li>
 <li class="chapter" data-level="9.2" data-path="antecedentes.html"><a href="antecedentes.html#árboles-de-clasificación"><i class="fa fa-check"></i><b>9.2</b> Árboles de clasificación</a></li>
-<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> AlgunoS problemas en los árboles</a>
+<li class="chapter" data-level="9.3" data-path="antecedentes.html"><a href="antecedentes.html#algunos-problemas-en-los-árboles"><i class="fa fa-check"></i><b>9.3</b> Algunos problemas en los árboles</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
@@ -243,7 +243,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="part"><span><b>VII Reducción de dimensiones</b></span></li>
-<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a></li>
+<li class="chapter" data-level="10" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html"><i class="fa fa-check"></i><b>10</b> Análisis de Componentes Principales</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#introducción"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#los-componentes-principales"><i class="fa fa-check"></i><b>10.2</b> Los componentes principales</a></li>
+<li class="chapter" data-level="10.3" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#interpretación-geométrica"><i class="fa fa-check"></i><b>10.3</b> Interpretación geométrica</a></li>
+<li class="chapter" data-level="10.4" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#consideraciones"><i class="fa fa-check"></i><b>10.4</b> Consideraciones</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#escalamiento-de-variables"><i class="fa fa-check"></i><b>10.4.1</b> Escalamiento de variables</a></li>
+<li class="chapter" data-level="10.4.2" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#varianza-explicada-por-los-componentes-principales"><i class="fa fa-check"></i><b>10.4.2</b> Varianza explicada por los componentes principales</a></li>
+<li class="chapter" data-level="10.4.3" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#número-de-componentes-a-usar"><i class="fa fa-check"></i><b>10.4.3</b> Número de componentes a usar</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="análisis-factorial.html"><a href="análisis-factorial.html"><i class="fa fa-check"></i><b>11</b> Análisis factorial</a></li>
 <li class="part"><span><b>VIII Clusterización</b></span></li>
 <li class="chapter" data-level="12" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>12</b> k-means</a></li>
@@ -371,18 +382,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">14.2.1.1</span> Ejemplo</h4>
 <p>Utilizando la técnica de <em>bootstrapping</em> evaluaremos las variaciones en la <span class="math inline">\(R^2\)</span> de un modelo de regresión lineal.</p>
 <p>En primer llugar debemos definir una función que extraiga la(s) métrica(s) de interés, en este caso la <span class="math inline">\(R^2\)</span>:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="motivación.html#cb123-1"></a><span class="kw">library</span>(boot)</span>
-<span id="cb123-2"><a href="motivación.html#cb123-2"></a></span>
-<span id="cb123-3"><a href="motivación.html#cb123-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
-<span id="cb123-4"><a href="motivación.html#cb123-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
-<span id="cb123-5"><a href="motivación.html#cb123-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
-<span id="cb123-6"><a href="motivación.html#cb123-6"></a>  </span>
-<span id="cb123-7"><a href="motivación.html#cb123-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
-<span id="cb123-8"><a href="motivación.html#cb123-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="motivación.html#cb135-1"></a><span class="kw">library</span>(boot)</span>
+<span id="cb135-2"><a href="motivación.html#cb135-2"></a></span>
+<span id="cb135-3"><a href="motivación.html#cb135-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
+<span id="cb135-4"><a href="motivación.html#cb135-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
+<span id="cb135-5"><a href="motivación.html#cb135-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
+<span id="cb135-6"><a href="motivación.html#cb135-6"></a>  </span>
+<span id="cb135-7"><a href="motivación.html#cb135-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
+<span id="cb135-8"><a href="motivación.html#cb135-8"></a>}</span></code></pre></div>
 <p>Posteriormente usamos el paquete <code>boot</code> para aplicar la técnica y evaluar las variaciones de la <span class="math inline">\(R^2\)</span> bajo diferentes escenarios muestrales:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="motivación.html#cb124-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="motivación.html#cb136-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
 <p>Podemos imprimir los resultados:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="motivación.html#cb125-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="motivación.html#cb137-1"></a>results</span></code></pre></div>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ## 
@@ -394,10 +405,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##      original     bias    std. error
-## t1* 0.7809306 0.01039726  0.04716692</code></pre>
+## t1* 0.7809306 0.01065145  0.05045813</code></pre>
 <p>O bien, podemos graficarlos para leerlos más facilmente:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="motivación.html#cb127-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="motivación.html#cb139-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 </div>
 <div id="ejercicios" class="section level4" number="14.2.1.2">
 <h4><span class="header-section-number">14.2.1.2</span> Ejercicios</h4>

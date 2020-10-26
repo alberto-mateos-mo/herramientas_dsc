@@ -105,7 +105,7 @@ library(dplyr)
 library(tidyr)
 
 penguins_data <- penguins %>%
-  select(bill_length_mm:year, -sex)
+  dplyr::select(bill_length_mm:year, -sex)
 
 pca_obj <- prcomp(drop_na(penguins_data), scale. = TRUE)
 
