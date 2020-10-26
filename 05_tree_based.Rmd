@@ -92,7 +92,7 @@ En el caso de dos clases, si $p$ es la proporción de la segunda clase, las medi
 
 - Entropía: $-p\log p-(1-p) \log (1-p)$
 
-## AlgunoS problemas en los árboles
+## Algunos problemas en los árboles
 
 ### Covariables categóricas
 
