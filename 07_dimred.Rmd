@@ -2,4 +2,123 @@
 
 # Análisis de Componentes Principales
 
+## Introducción
+
+Supongamos que tenemos un conjunto de datos en $\mathbb{R}^p$ y que queremos visualizarlos. Si $p$ es muy grande no podremos visulizar todo el conjunto con un solo gráfico, una manera de visualizar los datos es hacer gráficos de dsipersión de dos dimensiones.
+
+Sin embargo la cantidad de gráficos de dos dimensiones que podemos hacer son $p(1-p)/2$. Lo cual vuelve la tarea compleja conforme el valor de $p$ aumenta.
+
+Lo que nos gustaría es poder encontrar una representación de los datos con menos dimensiones pero que conserva la mayor cantidad de información posible.
+
+El análisis de componentes principales es una herramienta que nos permitirá lograr eso, enocntrar representaciones en menos dimensiones que conserven la mayor cantidad de varianza.
+
+## Los componentes principales
+
+Los componentes principales de un conjunto de datos en $\mathbb{R}^p$ son una serie de combinaciones lineales de rango $q \leq p$ que, colectivamente, explican la mayoría de la varianza original.
+
+Si denotamos las observaciones por $x_1, x_2, \dots, x_n$, sea $$f(\lambda) = \mu+V_q\lambda$$ el modelo lineal de rango $q$ que las representa; esta ecuación es la representación paramétrica de un hiperplano afín de rango $q$.
+
+Si resolvemos el problema que nos permita encontrar el plano afín que minimice el _error de reconstrucción_: $$min_{\mu,\lambda_i,V_q} \sum_{i=1}^N ||x_i-\mu -V_q\lamda_i||^2$$ obtenemos 
+
+$$\hat{\mu}=\bar{x}$$
+
+$$\hat{\lambda}_i=V_q^T(x_i-\bar{x})$$
+
+Con lo cual debemos encontrar la matriz ortogonal $V_q$ tal que:
+
+$$min_{V_q}\sum_{i=1}^N||x_i-\bar{x}-V_q V_q^T(x_i-\bar{x})||^2$$
+
+Por facilidad, asumimos que $\bar{x}=0$. En caso contrario centramos las variables para tener media cero.
+
+Entoncesla matriz $H_q = V_q V_q^T$ es una matriz de proyección que mapea cada punto $x_i$ en su reconstrucción $H_q x_i$  que es la proyección ortogonal de $x_i$ en el subespacio generado por las columnas de $V_q$
+
+La solución puede ser expresada como:
+
+$$X = UDV^T$$
+
+esto es, la descomposicion en valores singulares de $X$ donde:
+
+- $U$ es una matriz ortogonal de $N\times p$ cuyas columnas llamamos _valores singulares izquierdos_
+
+- $V$ es una matriz ortogonal de $p\times p$ cuyas columnas llamamos _valores singulares derechos_
+
+- $D$ es una matriz diagonal de $p \times p$ cuyos elementos cumplen $d_1\geq d_2\geq \dots \geq d_p\geq 0$ llamados valores singulares
+
+A las columnas de $UD$ las llamamos componentes principales de $X$
+
+El primer componente principal está dado por la combinación lineal normalizada de las columnas de los datos originales cuya varianza es máxima:
+
+$$Z_1 = \phi_{11}X_1+\phi_{21}X_2+ \dots+\phi_{p1}X_p$$
+N.B. $\sum_{j=1}^p\phi_{j1}^2=1$
+
+A los valores $\phi_{j1}$ los llamamos _pesos_ del primer componente principal. Éstos tienen la restricción de que su suma debe ser igual a uno para evitar que el primer componente tenga varianza arbitraria.
+
+## Interpretación geométrica
+
+Para el primer componente principal, $\phi_1$ define la dirección en el espacio para la cual los datos presentan mayor variación.
+
+El segundo componente principal es aquella combinación lineal ortogonal al primer componente que tenga máxima varianzay aspi sucesivamente con el resto de componentes.
+
+Los scores de los componentes principales son las proyecciones de los datos en las direcciones descritas por $\phi_i$
+
+## Consideraciones
+
+### Escalamiento de variables
+
+Los resultados del análisis de componentes principales serán distintos si las variables no se centran (media cero) e incluso serán distintos si éstas se escalan individualmente.
+
+Las diferencias en los resultados están ligadas directamente con la escala en la que estén medidas las diferentes variables del conjunto de datos.
+
+Consideremos por ejemplo los datos `USArrests`, en este conjunto las variables `Murder`, `Rape` y `Assault` están medidas como ocurrencia por cada 100,000 habitantes y `UrbanPop` como porcentaje de población, en este sentido, si analizamos las varianzas:
+
+```{r}
+lapply(USArrests, var)
+```
+
+veremos que `Assault` tiene la varianza más grande lo cual causará si no escalaramos los datos, que el primer componente tengo un peso muy grande para esta variable.
+
+Para evitar que los componentes principales dependan de la escala o de la elección de algún factor de escala deberemos transformar las variables para que tengan desviación estandar unitaria antes de aplicar el algoritmo de componentes principales.
+
+N.B. Si las variables fueron medidas en la misma escala entonces no es necesario aplicar ninguna transformación.
+
+
+### Varianza explicada por los componentes principales
+
+La varianza total del conjunto de datos está dada por $$\sum_{j=1}^pVar(X_j)=\sum_{j=1}^p\frac{1}{n}\sum_{i=1}^{n}x_{ij}^2$$
+
+La varianza explicada por el m-ésimo componente principal es $$\frac{1}{n}\sum_{i=1}^n(\sum_{j=1}^p\phi_{jm}x_{ij})^2$$
+
+Y la proporción de varianza explicada por el m-ésimo componente es $$\frac{\sum_{i=1}^n(\sum_{j=1}^p\phi_{jm}x_{ij})^2}{\sum_{j=1}^p\sum_{i=1}^nx_{ij}^2}$$
+
+### Número de componentes a usar
+
+De manera general, un conjunto de datos n-dimensional tiene $min(n-1,p)$ componentes principales distintos. Sin embargo, dado que no típicamente usaremos este análisis para reducir la dimensión de los datos no estamos interesados en usarlos todos.
+
+De hecho lo que buscamos es el menor número de componentes que nos permitan capturar una _buena_ cantidad de información.
+
+Para encontrar este número de componentes no existe una respuesta única. Comúnmente usaremos como ayuda el _screeplot_ o gráfica de codo de la varianza del m-ésimo componente principal y escogeremos la cantidad que nos permita capturar ya sea cierta cantidad de varianza e.g. el 70% de ella o bien aquel número de componentes a partir del cual el incremento de varianza por cada componente adicional sea marginal.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(palmerpenguins)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+penguins_data <- penguins %>%
+  select(bill_length_mm:year, -sex)
+
+pca_obj <- prcomp(drop_na(penguins_data), scale. = TRUE)
+
+var_explained_df <- data.frame(PC = paste0("PC",1:5),
+                               var_explained = (pca_obj$sdev)^2/sum((pca_obj$sdev)^2))
+
+var_explained_df %>%
+  ggplot(aes(x=PC,y=var_explained, group=1))+
+  geom_point(size=4)+
+  geom_line()+
+  labs(title="Scree plot: PCA on scaled data")+
+  unam.theme::theme_unam()
+```
+
+
 # Análisis factorial
