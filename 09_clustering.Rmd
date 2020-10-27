@@ -1,5 +1,119 @@
 # (PART) Clusterización {-}
 
-# k-means
+# ¿Qué son los métodos de clusterización?
+
+Son un serie de técnicas que permiten encontrar subgrupos/clústers dentro de un conjunto de datos
+
+Estos subgrupos tienen la característica de que las observaciones dentro de cada uno _similares_ mientras que los subgrupos son distintos entre ellos.
+
+Estas técnicas nos permitirán indentificar la estructura subyacente a los datos.
+
+Por ejemplo, supongamos que un club de precios cuenta con información sobre las compras de sus clientes, podemos estar interesados en segmentar a los clientes de acuerdo a sus patrones de consumo con la intención de generar estrategias de marketing específicas para cada segmento. El análisis de clústers nos sería útil para identificar estos grupos de consumo.
+
+Las técnicas de clusterización son muy usadas y existen una gran variedad de ellas; en esta sección nos enfocaremos en las dos más conocidas __k-medias__ y __clusterización jerárquica__.
+
+# Conceptos teóricos
+
+```{definition}
+$C_1, C_2, \dots,C_k$ es una __partición__ de $C$ de tamaño $k$ si $\cup_{i=1}^k C_i = C$, y $C_i \cap C_j = \emptyset$ si $i \neq j$. Una clusterización de $X$ es una partición de $X$.
+```
+
+```{definition}
+Una medida de disimilaridad en un conjunto finito $X$ es una función $d: X\times X \rightarrow \mathbb{R}$ simétrica.
+```
+
+En particular una métrica es medida de disimilaridad pero una medida de disimilaridad no es necesariamente una métrica.
+
+## Medidas de disimilaridad
+
+### Datos numéricos
+
+Si $X \subset \mathbb{R}^p$ es un conjunto de $N$ datos, entonces tenemos las siguientes medidas de disimilaridad:
+
+- $d_{euc}: X\times X \rightarrow \mathbb{R}^+\cup\{0\}$; $d_e(x_i,x_j)=||x_i-xj||$
+
+- $d_{abs}: X\times X \rightarrow \mathbb{R}^+\cup\{0\}$; $d_a(x_i,x_j)=\sum_{l=1}^p|x_{il}-x_{jl}|$
+
+- $d_{cor}: X\times X \rightarrow \mathbb{R}$; $d_c(x_i,x_j)=\rho(x_i,x_j)$
+
+### Datos ordinales
+
+Si $X=\{x_1,\dots,x_N\}$ representa un conjunto de $N$ datos univariados ordinales, podemos definir la métrica de valor absoluto en $X$ guiándonos por el ordenamiento de los datos, entonces podemos definir $f:\ Rango(X)\rightarrow \mathbb{N}$ de tal manera que $f$ preserve el orden y definir $$d(x_i,x_j) = |f(x_i)-f(x_j)|$$
+
+### Datos categóricos
+
+Si $X$ representa un conjunto de datos categóricos podemos definir como medida de disimilaridad a la __delta de Kronocker__
+
+$$d(x_i,x_j) = \left\{\begin{matrix}
+0 & x_i=x_j\\ 
+1 & e.o.c.
+\end{matrix}\right.$$
+
+Cuando $X_{N\times p}$ representa un conjunto de datos arbitrario podemos definir
+
+$$d(x_i,x_j) = \sum_{l=1}^p\alpha_l d_l(x_{il},x_{jl})$$
+donde $0\leq \alpha_l$ y $sum_{l=1}^p\alpha_l=1$, es decir, $d$ es una combinación lineal convexa de las $d_l$
+
+# K-medias
+
+Es un algorítmo iterativo descendiente cuyo uso está limitado a conjuntos de datos numéricos.
+
+La idea detrás del algorítmo es encontrar clústers cuya variación interna sea _tan pequeña como sea posible_.
+
+La variación interna de un clúster $C_k$ es una medida $W(C_k)$ de qué tanto difieren las observaciones pertenecientes a un clúster, por lo que buscamos resolver el problema:
+
+\begin{equation} 
+  \min_{C_1,\dots,C_k}\{\sum_{k=1}^K W(C_k)\}
+  
+  (\#eq:kmeans)
+\end{equation}
+
+Comúnmnete se utiliza la distancia euclideana como medida de disimilaridad.
+
+No se ha probado que exista algún algorítmo que resuelva el problema \@ref(eq:kmeans), sin embargo
+existen heurísticas que intentan resolverlo parcialmente.
+
+## Algorítmo k-medias
+
+1. Tomar una partición de tamaño $k$ de manera aleatoria.
+
+2. Para $x\in X$, se asigna a $C_j$, donde $$||x-\bar{x}_{C_j}|| = inf||x-\bar{x}_{C_l}||$$
+
+Repetir el paso 2 hasta que ningún $C_j$ cambie.
+
+```{lemma, name="Suma de variaciones internas"}
+En el algorítmo k-medias, el paso 2 nunca incrementa la suma de variaciones internas
+```
+
+Es decir, el algoritmo k-medias es un proceso iterativo que divide un conjunto de datos en $K$ grupos excluyentes. Este método es usado extensamente en la literatura, porque es un método sencillo de implementar que utiliza centroides (prototipos) para la representación de los clusters. 
+
+La calidad de los clusters es mediada por el criterio de variación interna.
+
+Este algoritmo produce clusters compactos (de poca dispersión en el interior), pero no toma en consideración la distancia entre clusters, y además el uso de la norma dos hace que el algoritmo sea sensible en presencia de valores atípicos.
+
+## Variantes
+
+En términos generales las variantes del algoritmo k-medias difieren en el momento del algoritmo en que se hace la asignación de clusters, entre las variantes más utilizadas en la práctica están las siguientes:
+
+- __Algoritmo de Forgy-Lloyd__: los centroides son recalculados después de que todos los individuos fueron asignados. El algoritmo realiza iteraciones hasta que se obtiene la convergencia.
+
+- __Algoritmo de McQueen__: Los centroides son recalculados inmediatamente después de cada asignación, y al final de todas las asignaciones. El algoritmo da un único barrido a los datos.
+
+- __Algoritmo de Hartigan__: Se selecciona un elemento de cada partición, después se recalculan los centroides sin considerar los elementos seleccionados. Por último se asignan los elementos seleccionados
+al cluster cuyo centroide sea el más cercano.
+
+## Desventajas
+
+- Sensibilidad a la partición inicial: como el algoritmo consiste de una búsqueda local, entonces el algoritmo es muy sensible a la selección inicial de clusters.
+
+- Falta de robustéz: esta desventaje se hereda del hecho de que la media y varianza son sensibles ante valores atípicos.
+
+- Número de clusters desconocido: el algoritmo no proporciona información alguna del número de clusters.
+
+- No es adecuado para variables nominales: no hay una definición de media muestral para tales variables.
+
+## K-medias en R
+
+WIP
 
 # Clusterización jerárquica
