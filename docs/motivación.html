@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 16 Motivación | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 16 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 14 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 16 Motivación | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -254,6 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.4.2" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#varianza-explicada-por-los-componentes-principales"><i class="fa fa-check"></i><b>10.4.2</b> Varianza explicada por los componentes principales</a></li>
 <li class="chapter" data-level="10.4.3" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#número-de-componentes-a-usar"><i class="fa fa-check"></i><b>10.4.3</b> Número de componentes a usar</a></li>
 </ul></li>
+<li class="chapter" data-level="10.5" data-path="análisis-de-componentes-principales.html"><a href="análisis-de-componentes-principales.html#pca-en-r"><i class="fa fa-check"></i><b>10.5</b> PCA en R</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="análisis-factorial.html"><a href="análisis-factorial.html"><i class="fa fa-check"></i><b>11</b> Análisis factorial</a>
 <ul>
@@ -264,36 +265,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3.1" data-path="análisis-factorial.html"><a href="análisis-factorial.html#rotaciones-ortogonales"><i class="fa fa-check"></i><b>11.3.1</b> Rotaciones ortogonales</a></li>
 <li class="chapter" data-level="11.3.2" data-path="análisis-factorial.html"><a href="análisis-factorial.html#rotaciones-oblicuas"><i class="fa fa-check"></i><b>11.3.2</b> Rotaciones oblicuas</a></li>
 </ul></li>
+<li class="chapter" data-level="11.4" data-path="análisis-factorial.html"><a href="análisis-factorial.html#análisis-factorial-en-r"><i class="fa fa-check"></i><b>11.4</b> Análisis factorial en R</a></li>
 </ul></li>
 <li class="part"><span><b>VIII Clusterización</b></span></li>
-<li class="chapter" data-level="12" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>12</b> k-means</a></li>
-<li class="chapter" data-level="13" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>13</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="12" data-path="qué-son-los-métodos-de-clusterización.html"><a href="qué-son-los-métodos-de-clusterización.html"><i class="fa fa-check"></i><b>12</b> ¿Qué son los métodos de clusterización?</a></li>
+<li class="chapter" data-level="13" data-path="conceptos-teóricos.html"><a href="conceptos-teóricos.html"><i class="fa fa-check"></i><b>13</b> Conceptos teóricos</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="conceptos-teóricos.html"><a href="conceptos-teóricos.html#medidas-de-disimilaridad"><i class="fa fa-check"></i><b>13.1</b> Medidas de disimilaridad</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="conceptos-teóricos.html"><a href="conceptos-teóricos.html#datos-numéricos"><i class="fa fa-check"></i><b>13.1.1</b> Datos numéricos</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conceptos-teóricos.html"><a href="conceptos-teóricos.html#datos-ordinales"><i class="fa fa-check"></i><b>13.1.2</b> Datos ordinales</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conceptos-teóricos.html"><a href="conceptos-teóricos.html#datos-categóricos"><i class="fa fa-check"></i><b>13.1.3</b> Datos categóricos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="k-medias.html"><a href="k-medias.html"><i class="fa fa-check"></i><b>14</b> K-medias</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="k-medias.html"><a href="k-medias.html#algorítmo-k-medias"><i class="fa fa-check"></i><b>14.1</b> Algorítmo k-medias</a></li>
+<li class="chapter" data-level="14.2" data-path="k-medias.html"><a href="k-medias.html#variantes"><i class="fa fa-check"></i><b>14.2</b> Variantes</a></li>
+<li class="chapter" data-level="14.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>14.3</b> Desventajas</a></li>
+<li class="chapter" data-level="14.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>14.4</b> K-medias en R</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>15</b> Clusterización jerárquica</a></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
-<li class="chapter" data-level="14" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>14</b> Motivación</a>
+<li class="chapter" data-level="16" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>16</b> Motivación</a>
 <ul>
-<li class="chapter" data-level="14.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>14.0.1</b> Ejemplo</a></li>
-<li class="chapter" data-level="14.1" data-path="motivación.html"><a href="motivación.html#esquemas-básicos"><i class="fa fa-check"></i><b>14.1</b> Esquemas básicos</a>
+<li class="chapter" data-level="16.0.1" data-path="qué-es-una-red-neuronal.html"><a href="qué-es-una-red-neuronal.html#ejemplo"><i class="fa fa-check"></i><b>16.0.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="16.1" data-path="motivación.html"><a href="motivación.html#esquemas-básicos"><i class="fa fa-check"></i><b>16.1</b> Esquemas básicos</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="motivación.html"><a href="motivación.html#akaike-information-criterion."><i class="fa fa-check"></i><b>14.1.1</b> Akaike Information Criterion.</a></li>
-<li class="chapter" data-level="14.1.2" data-path="motivación.html"><a href="motivación.html#bayesian-information-criterion."><i class="fa fa-check"></i><b>14.1.2</b> Bayesian Information Criterion.</a></li>
-<li class="chapter" data-level="14.1.3" data-path="motivación.html"><a href="motivación.html#cross-validation"><i class="fa fa-check"></i><b>14.1.3</b> Cross-validation</a></li>
+<li class="chapter" data-level="16.1.1" data-path="motivación.html"><a href="motivación.html#akaike-information-criterion."><i class="fa fa-check"></i><b>16.1.1</b> Akaike Information Criterion.</a></li>
+<li class="chapter" data-level="16.1.2" data-path="motivación.html"><a href="motivación.html#bayesian-information-criterion."><i class="fa fa-check"></i><b>16.1.2</b> Bayesian Information Criterion.</a></li>
+<li class="chapter" data-level="16.1.3" data-path="motivación.html"><a href="motivación.html#cross-validation"><i class="fa fa-check"></i><b>16.1.3</b> Cross-validation</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="motivación.html"><a href="motivación.html#esquemas-adicionales"><i class="fa fa-check"></i><b>14.2</b> Esquemas adicionales</a>
+<li class="chapter" data-level="16.2" data-path="motivación.html"><a href="motivación.html#esquemas-adicionales"><i class="fa fa-check"></i><b>16.2</b> Esquemas adicionales</a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="motivación.html"><a href="motivación.html#bootstrap"><i class="fa fa-check"></i><b>14.2.1</b> Bootstrap</a></li>
+<li class="chapter" data-level="16.2.1" data-path="motivación.html"><a href="motivación.html#bootstrap"><i class="fa fa-check"></i><b>16.2.1</b> Bootstrap</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="motivación.html"><a href="motivación.html#information-value-woe"><i class="fa fa-check"></i><b>14.3</b> Information Value &amp; WoE</a>
+<li class="chapter" data-level="16.3" data-path="motivación.html"><a href="motivación.html#information-value-woe"><i class="fa fa-check"></i><b>16.3</b> Information Value &amp; WoE</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="motivación.html"><a href="motivación.html#weight-of-evidence-woe"><i class="fa fa-check"></i><b>14.3.1</b> Weight of Evidence (WoE)</a></li>
-<li class="chapter" data-level="14.3.2" data-path="motivación.html"><a href="motivación.html#information-value"><i class="fa fa-check"></i><b>14.3.2</b> Information Value</a></li>
+<li class="chapter" data-level="16.3.1" data-path="motivación.html"><a href="motivación.html#weight-of-evidence-woe"><i class="fa fa-check"></i><b>16.3.1</b> Weight of Evidence (WoE)</a></li>
+<li class="chapter" data-level="16.3.2" data-path="motivación.html"><a href="motivación.html#information-value"><i class="fa fa-check"></i><b>16.3.2</b> Information Value</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="motivación.html"><a href="motivación.html#matrices-de-confusión-y-derivados"><i class="fa fa-check"></i><b>14.4</b> Matrices de confusión (y derivados…)</a>
+<li class="chapter" data-level="16.4" data-path="motivación.html"><a href="motivación.html#matrices-de-confusión-y-derivados"><i class="fa fa-check"></i><b>16.4</b> Matrices de confusión (y derivados…)</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="motivación.html"><a href="motivación.html#estadísticos-derivados-de-las-matrices-de-confusión"><i class="fa fa-check"></i><b>14.4.1</b> Estadísticos derivados de las matrices de confusión</a></li>
+<li class="chapter" data-level="16.4.1" data-path="motivación.html"><a href="motivación.html#estadísticos-derivados-de-las-matrices-de-confusión"><i class="fa fa-check"></i><b>16.4.1</b> Estadísticos derivados de las matrices de confusión</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="motivación.html"><a href="motivación.html#curvas-auc-roc"><i class="fa fa-check"></i><b>14.5</b> Curvas AUC-ROC</a>
+<li class="chapter" data-level="16.5" data-path="motivación.html"><a href="motivación.html#curvas-auc-roc"><i class="fa fa-check"></i><b>16.5</b> Curvas AUC-ROC</a>
 <ul>
-<li class="chapter" data-level="14.5.1" data-path="motivación.html"><a href="motivación.html#construcción-de-una-curva-auc-roc"><i class="fa fa-check"></i><b>14.5.1</b> Construcción de una curva AUC-ROC</a></li>
+<li class="chapter" data-level="16.5.1" data-path="motivación.html"><a href="motivación.html#construcción-de-una-curva-auc-roc"><i class="fa fa-check"></i><b>16.5.1</b> Construcción de una curva AUC-ROC</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -313,15 +331,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="motivación" class="section level1" number="14">
-<h1><span class="header-section-number">Capítulo 14</span> Motivación</h1>
+<div id="motivación" class="section level1" number="16">
+<h1><span class="header-section-number">Capítulo 16</span> Motivación</h1>
 <p>En estadística nos enfrentaremos a una número importante de modelos que pueden usarse para explicar el fenómeno presente en nuestros datos. Y además para cada uno de ellos siempre existirá la pregunta ¿qué variables deberíamos incluir?</p>
 <p>Para dar respuesta a esta necesidad es importante contar con un esquema de selección de modelos que nos permita llegar al más adecuado de manera óptima.</p>
 <p>Un esquema de selección debe combinar, por un lado, una estrategia de busqueda en el espacio de modelos posibles y, por otro lado, un criterio de comparación que nos permita evaluar la calidad de cada modelo.</p>
 <p>En ocasiones será sencillo escoger al grupo de modelos candidatos sin embargo para otros problemas las psoibilidades pueden ser enormes.</p>
 <p>Cuando el número de posibles modelos es muy grande generalmente se emplea una técnica <em>ambiciosa</em> que parte de un modelo inicial y en cada paso se explora el espacio de modelos posibles escogiendo aquel que sea mejor de entre los <em>cercanos</em> al último explorado.</p>
-<div id="ejemplo" class="section level3" number="14.0.1">
-<h3><span class="header-section-number">14.0.1</span> Ejemplo</h3>
+<div id="ejemplo" class="section level3" number="16.0.1">
+<h3><span class="header-section-number">16.0.1</span> Ejemplo</h3>
 <p>Para un modelo lineal cuyo un espacio de inputs de tamaño <em>p</em> hay <span class="math inline">\(2^p\)</span> posibles sub-modelos. Si <em>p</em> fuera suficientemente pequeño podríamos listar todos los modelos sin embargo en la práctica <em>p</em> suele ser grande.</p>
 <p>En este caso, para llegar a un modelo adecuado suele utilizarse alguna de las siguientes dos técnicas:</p>
 <ul>
@@ -329,8 +347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Backward Selection:</strong> Empezamos con el modelo de todas las variables y vamos quitando aquellas menos <em>importantes</em> de acuerdo a algún otro criterio e.g. nivel de significancia para el modelo.</p></li>
 </ul>
 </div>
-<div id="esquemas-básicos" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Esquemas básicos</h2>
+<div id="esquemas-básicos" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Esquemas básicos</h2>
 <ul>
 <li><p>Akaike Information Criterion</p></li>
 <li><p>Bayesian Information Criterion</p></li>
@@ -338,8 +356,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>El esquema Akaike Information Criterion (AIC) busca maximizar la probabilidad de seleccionar el mejor modelo bajo el supuesto de que éste estuvo dentro del espacio de modelos evaluados.</p>
 <p>Por otro lado, los esquemas Bayesian Information Criterion (BIC) y validación cruzada buscan optimizar el desempeño predictivo del modelo elegido.</p>
-<div id="akaike-information-criterion." class="section level3" number="14.1.1">
-<h3><span class="header-section-number">14.1.1</span> Akaike Information Criterion.</h3>
+<div id="akaike-information-criterion." class="section level3" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Akaike Information Criterion.</h3>
 <p>Es una aproximación asíntótica a la divergencia Kullback-Leibler entre el modelo de interés y <em>la verdad</em>. También llamada entropía relativa, se define como la esperanza del logaritmo de las diferencias entre <em>P</em> y <em>Q</em>.</p>
 <p>Supongamos una colección de modelos <span class="math inline">\(\mathbb{M} = \{\mathcal{M_1},\dots,\mathcal{M_K}\}\)</span> donde <span class="math inline">\(\mathcal{M_k}:=\{f(y|\theta_k):\theta_k\in\Theta_k\}\)</span>.</p>
 <p>Para cada <span class="math inline">\(\mathcal{M}_k\)</span> sea <span class="math inline">\(\hat{\theta}_k\)</span> el estimador máximo verosímil y <span class="math inline">\(\hat{f}_k=f(.|\hat{\theta}_k)\)</span>.</p>
@@ -349,20 +367,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>De donde se deriva el número AIC como: <span class="math display">\[AIC(\mathcal{M}_k)=-2n \hat{H}_k\]</span></p>
 <p>Un error común es pensar que el AIC solo puede usarse en modelos anidados sin embargo puede usarse entre modelos distintos siempre que la verosimilitud se calcule con los mismos datos.</p>
 </div>
-<div id="bayesian-information-criterion." class="section level3" number="14.1.2">
-<h3><span class="header-section-number">14.1.2</span> Bayesian Information Criterion.</h3>
+<div id="bayesian-information-criterion." class="section level3" number="16.1.2">
+<h3><span class="header-section-number">16.1.2</span> Bayesian Information Criterion.</h3>
 <p>BIC es una aproximación para la selección de modelos Bayesiana <em>a posteriori</em>, máxima, dados los datos.</p>
 <p>Supongamos que establecemos una probabilidad <em>a priori</em> <span class="math inline">\(p_k\)</span> para el modelo <span class="math inline">\(\mathcal{M}_k\)</span> y una <em>a priori</em> para <span class="math inline">\(\theta_k|\mathcal{M}_K\)</span> de <span class="math inline">\(\pi_k\)</span>.</p>
 <p>Buscamos elegir el modelo con la mayor probabilidad <em>a posteriori</em>; del teorema de Bayes la log-probabilidad <em>a posteriori</em> es: <span class="math display">\[log(\mathbb{P[\mathcal{M}|_1,...,Y_n]})=const+log(p_k)+log(\int exp(l_k(\theta_k))\pi_k(\theta_k) d\theta_k\]</span></p>
 <p>De donde derivamos que el mejor modelo se obtiene al minimizar <span class="math display">\[BIC(\mathcal{M}_k)=-2l_k(\hat{\theta}_k)+dim(\Theta_k)log(n)\]</span></p>
 <p>Comparado con el AIC, se impone una mayor penalización por cada parámetro adicional, por lo que el BIC tenderá a seleccionar modelos más simples.</p>
 </div>
-<div id="cross-validation" class="section level3" number="14.1.3">
-<h3><span class="header-section-number">14.1.3</span> Cross-validation</h3>
+<div id="cross-validation" class="section level3" number="16.1.3">
+<h3><span class="header-section-number">16.1.3</span> Cross-validation</h3>
 <p>Si buscamos elegir el modelo cuyo desempeño predictivo sea el mejor, lo ideal es contar con un conjunto de prueba <em>aislado</em>. En ausencia de esto podemos probar el modelo con una parte de los datos de entrenamiento.</p>
 <p>Esto puede hacerse repetidamente escogiendo porciones distintas cada vez.</p>
-<div id="v-fold-cross-validation" class="section level4" number="14.1.3.1">
-<h4><span class="header-section-number">14.1.3.1</span> V-fold cross-validation</h4>
+<div id="v-fold-cross-validation" class="section level4" number="16.1.3.1">
+<h4><span class="header-section-number">16.1.3.1</span> V-fold cross-validation</h4>
 <p>Los datos se dividen en <span class="math inline">\(V\)</span> subconjuntos del <em>mismo</em> tamaño. En cada paso usamos <span class="math inline">\(V-1\)</span> subconjuntos para estimar los parámetros (entrenar el modelo) y probamos en el subconjunto restante.</p>
 <p>Repertimos <span class="math inline">\(V\)</span> ocasiones y se reporta el error promedio.</p>
 <p>Elecciones comunes del valor <span class="math inline">\(V\)</span> son: 5, 10 y n.</p>
@@ -371,24 +389,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="esquemas-adicionales" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Esquemas adicionales</h2>
+<div id="esquemas-adicionales" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Esquemas adicionales</h2>
 <ul>
 <li><p>Bootstrap.</p></li>
 <li><p>Matrices de confusión.</p></li>
 <li><p>Information Value.</p></li>
 <li><p>Curvas CAP y ROC.</p></li>
 </ul>
-<div id="bootstrap" class="section level3" number="14.2.1">
-<h3><span class="header-section-number">14.2.1</span> Bootstrap</h3>
+<div id="bootstrap" class="section level3" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> Bootstrap</h3>
 <p>Dado que nuestros modelos están construidos con la información que pudimos observar y no con la información de la población, surgen las siguientes preguntas:</p>
 <ul>
 <li><p>¿Hasta qué grado podemos confiar en que nuestros resultados serán <em>ciertos</em> para toda la población?</p></li>
 <li><p>¿Qué tanto podrían variar bajo distintos sesgos en la información usada?</p></li>
 </ul>
 <p>La técnica de <em>bootstrapping</em> trata de resolver estas preguntas y con ello evaluar la calidad de un modelo a través del resampleo de estadísticos de un modelo.</p>
-<div id="ejemplo-1" class="section level4" number="14.2.1.1">
-<h4><span class="header-section-number">14.2.1.1</span> Ejemplo</h4>
+<div id="ejemplo-1" class="section level4" number="16.2.1.1">
+<h4><span class="header-section-number">16.2.1.1</span> Ejemplo</h4>
 <p>Utilizando la técnica de <em>bootstrapping</em> evaluaremos las variaciones en la <span class="math inline">\(R^2\)</span> de un modelo de regresión lineal.</p>
 <p>En primer llugar debemos definir una función que extraiga la(s) métrica(s) de interés, en este caso la <span class="math inline">\(R^2\)</span>:</p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="motivación.html#cb135-1"></a><span class="kw">library</span>(boot)</span>
@@ -414,13 +432,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##      original     bias    std. error
-## t1* 0.7809306 0.01080536  0.04978631</code></pre>
+## t1* 0.7809306 0.01169286  0.05032241</code></pre>
 <p>O bien, podemos graficarlos para leerlos más facilmente:</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="motivación.html#cb139-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 </div>
-<div id="ejercicios" class="section level4" number="14.2.1.2">
-<h4><span class="header-section-number">14.2.1.2</span> Ejercicios</h4>
+<div id="ejercicios" class="section level4" number="16.2.1.2">
+<h4><span class="header-section-number">16.2.1.2</span> Ejercicios</h4>
 <ol style="list-style-type: decimal">
 <li>Aplique la técnica de <em>bootstrapping</em> para evaluar variaciones en la <span class="math inline">\(R^2\)</span> de los siguientes modelos al mismo tiempo:</li>
 </ol>
@@ -435,21 +453,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="information-value-woe" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Information Value &amp; WoE</h2>
+<div id="information-value-woe" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Information Value &amp; WoE</h2>
 <p>Derivaron del uso de regresión logística particularmente en problemas de riesgo de crédito.</p>
 <p>Se utilizan para medir qué <em>tan bien</em> una variable logra <em>distinguir</em> una respuesta binaria.</p>
-<div id="weight-of-evidence-woe" class="section level3" number="14.3.1">
-<h3><span class="header-section-number">14.3.1</span> Weight of Evidence (WoE)</h3>
+<div id="weight-of-evidence-woe" class="section level3" number="16.3.1">
+<h3><span class="header-section-number">16.3.1</span> Weight of Evidence (WoE)</h3>
 <p>Se calcula de la siguiente forma:</p>
 <p><span class="math display">\[WoE_{x=i} = log(\frac{P[y=1 |x=i]}{P[y=0|x=i]})\]</span></p>
 </div>
-<div id="information-value" class="section level3" number="14.3.2">
-<h3><span class="header-section-number">14.3.2</span> Information Value</h3>
+<div id="information-value" class="section level3" number="16.3.2">
+<h3><span class="header-section-number">16.3.2</span> Information Value</h3>
 <p>Su cálculo se realiza de la siguiente forma:</p>
 <p><span class="math display">\[IV_{x_i} = (P[Y = 1|x=i]-P[y=0|x=i])*WoE_{x_i}\]</span></p>
-<div id="interpretación-del-information-value" class="section level4" number="14.3.2.1">
-<h4><span class="header-section-number">14.3.2.1</span> Interpretación del Information Value</h4>
+<div id="interpretación-del-information-value" class="section level4" number="16.3.2.1">
+<h4><span class="header-section-number">16.3.2.1</span> Interpretación del Information Value</h4>
 <table>
 <thead>
 <tr class="header">
@@ -483,8 +501,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="matrices-de-confusión-y-derivados" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Matrices de confusión (y derivados…)</h2>
+<div id="matrices-de-confusión-y-derivados" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Matrices de confusión (y derivados…)</h2>
 <ul>
 <li><p>Son una forma de medir el desempeño de un algorítmo de clasificación.</p></li>
 <li><p>De ellas derivan diferentes medidas que nos ayudan a entender más a fondo el desempeño de nuestro algorítmo.</p></li>
@@ -512,8 +530,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Las matrices de confusión se pueden extender a problemás de más de dos clases.</p>
-<div id="estadísticos-derivados-de-las-matrices-de-confusión" class="section level3" number="14.4.1">
-<h3><span class="header-section-number">14.4.1</span> Estadísticos derivados de las matrices de confusión</h3>
+<div id="estadísticos-derivados-de-las-matrices-de-confusión" class="section level3" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Estadísticos derivados de las matrices de confusión</h3>
 <ul>
 <li><span class="math inline">\(Sensitivity = \frac{TP}{TP+FN}\)</span></li>
 </ul>
@@ -556,15 +574,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="curvas-auc-roc" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Curvas AUC-ROC</h2>
+<div id="curvas-auc-roc" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Curvas AUC-ROC</h2>
 <p>Muchos algoritmos de clasificación no generan directamente el vector de clases predichas sino que primero obtienen el vector de probabilidades de pertenencia a cada clase.</p>
 <p>Dado un umbral o punto de corte para el vector de probabilidades se puede generar entonces un vector de clases asociado a ese vector.</p>
 <p>Es claro que el valor de ese umbral afectará directamente al <em>accuracy</em> de clasificación del modelo.</p>
 <p>Las curvas AUC-ROC nos permiten medir el desempeño del algorítmo bajo distintos umbrales.</p>
 <p>ROC es una curva probabilística mientras que AUC es una medida de <em>separación.</em></p>
-<div id="construcción-de-una-curva-auc-roc" class="section level3" number="14.5.1">
-<h3><span class="header-section-number">14.5.1</span> Construcción de una curva AUC-ROC</h3>
+<div id="construcción-de-una-curva-auc-roc" class="section level3" number="16.5.1">
+<h3><span class="header-section-number">16.5.1</span> Construcción de una curva AUC-ROC</h3>
 <p>Para generar una curva de ROC debemos graficar la métrica <strong>1-specificity</strong> vs <strong>sensitivity</strong>.</p>
 <p>Para obtener el valor AUC debemos calcular el área bajo la curva ROC.</p>
 

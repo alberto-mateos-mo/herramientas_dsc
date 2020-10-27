@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 2 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos</title>
+  <title>Capítulo 13 Conceptos teóricos | Herramientas Estadísticas para Ciencia de Datos</title>
   <meta name="description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 2 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta property="og:title" content="Capítulo 13 Conceptos teóricos | Herramientas Estadísticas para Ciencia de Datos" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alberto-mateos-mo/seminario_est_libro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 2 Glosario DSc/ML - Estadística | Herramientas Estadísticas para Ciencia de Datos" />
+  <meta name="twitter:title" content="Capítulo 13 Conceptos teóricos | Herramientas Estadísticas para Ciencia de Datos" />
   
   <meta name="twitter:description" content="Material para el curso Herramientas Estadíticas para Ciencia de Datos del Seminario de Estadística de la Facultad de Ciencias, Universidad Nacional Autónoma de México" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="notación.html"/>
-<link rel="next" href="entrenamiento-de-modelos.html"/>
+<link rel="prev" href="qué-son-los-métodos-de-clusterización.html"/>
+<link rel="next" href="k-medias.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -331,54 +331,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="glosario-dscml---estadística" class="section level1" number="2">
-<h1><span class="header-section-number">Capítulo 2</span> Glosario DSc/ML - Estadística</h1>
-<table>
-<colgroup>
-<col width="55%" />
-<col width="44%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Machine Learning / Ciencia de Datos</th>
-<th align="center">Estadística</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">red, grafo (network, graphs)</td>
-<td align="center">modelo (model)</td>
-</tr>
-<tr class="even">
-<td align="center">pesos (weigths)</td>
-<td align="center">parámetros (parameters)</td>
-</tr>
-<tr class="odd">
-<td align="center">aprendizaje (learning)</td>
-<td align="center">ajuste (fiting)</td>
-</tr>
-<tr class="even">
-<td align="center">prueba, generalización (testing, generalization)</td>
-<td align="center">ajuste en el conjunto de prueba</td>
-</tr>
-<tr class="odd">
-<td align="center">aprendizaje supervisado (supervised learning)</td>
-<td align="center">regresión, clasificación</td>
-</tr>
-<tr class="even">
-<td align="center">aprendizaje no supervisado (unsupervised learning)</td>
-<td align="center">estimación de densidades, clusterización</td>
-</tr>
-</tbody>
-</table>
+<div id="conceptos-teóricos" class="section level1" number="13">
+<h1><span class="header-section-number">Capítulo 13</span> Conceptos teóricos</h1>
+
+<div class="definition">
+<span id="def:unnamed-chunk-91" class="definition"><strong>Definition 13.1  </strong></span><span class="math inline">\(C_1, C_2, \dots,C_k\)</span> es una <strong>partición</strong> de <span class="math inline">\(C\)</span> de tamaño <span class="math inline">\(k\)</span> si <span class="math inline">\(\cup_{i=1}^k C_i = C\)</span>, y <span class="math inline">\(C_i \cap C_j = \emptyset\)</span> si <span class="math inline">\(i \neq j\)</span>. Una clusterización de <span class="math inline">\(X\)</span> es una partición de <span class="math inline">\(X\)</span>.
+</div>
+
+<div class="definition">
+<span id="def:unnamed-chunk-92" class="definition"><strong>Definition 13.2  </strong></span>Una medida de disimilaridad en un conjunto finito <span class="math inline">\(X\)</span> es una función <span class="math inline">\(d: X\times X \rightarrow \mathbb{R}\)</span> simétrica.
+</div>
+<p>En particular una métrica es medida de disimilaridad pero una medida de disimilaridad no es necesariamente una métrica.</p>
+<div id="medidas-de-disimilaridad" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Medidas de disimilaridad</h2>
+<div id="datos-numéricos" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Datos numéricos</h3>
+<p>Si <span class="math inline">\(X \subset \mathbb{R}^p\)</span> es un conjunto de <span class="math inline">\(N\)</span> datos, entonces tenemos las siguientes medidas de disimilaridad:</p>
+<ul>
+<li><p><span class="math inline">\(d_{euc}: X\times X \rightarrow \mathbb{R}^+\cup\{0\}\)</span>; <span class="math inline">\(d_e(x_i,x_j)=||x_i-xj||\)</span></p></li>
+<li><p><span class="math inline">\(d_{abs}: X\times X \rightarrow \mathbb{R}^+\cup\{0\}\)</span>; <span class="math inline">\(d_a(x_i,x_j)=\sum_{l=1}^p|x_{il}-x_{jl}|\)</span></p></li>
+<li><p><span class="math inline">\(d_{cor}: X\times X \rightarrow \mathbb{R}\)</span>; <span class="math inline">\(d_c(x_i,x_j)=\rho(x_i,x_j)\)</span></p></li>
+</ul>
+</div>
+<div id="datos-ordinales" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Datos ordinales</h3>
+<p>Si <span class="math inline">\(X=\{x_1,\dots,x_N\}\)</span> representa un conjunto de <span class="math inline">\(N\)</span> datos univariados ordinales, podemos definir la métrica de valor absoluto en <span class="math inline">\(X\)</span> guiándonos por el ordenamiento de los datos, entonces podemos definir <span class="math inline">\(f:\ Rango(X)\rightarrow \mathbb{N}\)</span> de tal manera que <span class="math inline">\(f\)</span> preserve el orden y definir <span class="math display">\[d(x_i,x_j) = |f(x_i)-f(x_j)|\]</span></p>
+</div>
+<div id="datos-categóricos" class="section level3" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Datos categóricos</h3>
+<p>Si <span class="math inline">\(X\)</span> representa un conjunto de datos categóricos podemos definir como medida de disimilaridad a la <strong>delta de Kronocker</strong></p>
+<p><span class="math display">\[d(x_i,x_j) = \left\{\begin{matrix}
+0 &amp; x_i=x_j\\ 
+1 &amp; e.o.c.
+\end{matrix}\right.\]</span></p>
+<p>Cuando <span class="math inline">\(X_{N\times p}\)</span> representa un conjunto de datos arbitrario podemos definir</p>
+<p><span class="math display">\[d(x_i,x_j) = \sum_{l=1}^p\alpha_l d_l(x_{il},x_{jl})\]</span>
+donde <span class="math inline">\(0\leq \alpha_l\)</span> y <span class="math inline">\(sum_{l=1}^p\alpha_l=1\)</span>, es decir, <span class="math inline">\(d\)</span> es una combinación lineal convexa de las <span class="math inline">\(d_l\)</span></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="notación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="entrenamiento-de-modelos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="qué-son-los-métodos-de-clusterización.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="k-medias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
