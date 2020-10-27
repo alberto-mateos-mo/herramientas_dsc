@@ -124,6 +124,9 @@ var_explained_df %>%
   unam.theme::theme_unam()
 ```
 
+## PCA en R
+
+WIP
 
 # Análisis factorial
 
@@ -213,3 +216,7 @@ Contrario a las rotaciones ortogonales, las rotaciones oblicuas permiten relajar
 Con este método los factores resultan correlacionados, aunque generalmente esta correlación es pequeña. 
 
 El uso de rotaciones oblicuas se justifica porque en muchos contextos es lógico suponer que los factores están correlacionados.
+
+## Análisis factorial en R
+
+WIP
