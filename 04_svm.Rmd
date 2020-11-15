@@ -118,4 +118,58 @@ $$\sum_{i=1}^n \xi_i\leq K$$
 
 ## SVMs en R
 
-..WIP...
+En este ejemplo usaremos una máquina de soporte vectorial para clasificar un conjunto que asemeja un tablero de ajedréz.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(unam.theme)
+
+load("example_data/svm_plots.RData")
+```
+
+```{r, echo=FALSE}
+chessboard <- read.csv("example_data/chessboard.csv")
+
+ggplot(chessboard, aes(x, y, colour = as.factor(z)))+
+  geom_point()+
+  scale_colour_unam(name = "Clase", palette = "secondary")+
+  labs(x = "", y = "")+
+  theme_light()
+```
+
+Evidentemente, en el espacio original de los datos, resulta imposible encontrar un hiperplano que separe a las dos clases de interés.
+
+__Algunos planos posibles__
+
+```{r, echo=FALSE, animation.hook='gifski'}
+for(i in 1:10){
+ g <- ggplot(chessboard, aes(x,y))+
+   geom_point(aes(colour = as.factor(z)))+
+   geom_abline(slope = runif(1,-1,1), intercept = runif(1, 1, 7), size = 2)+
+   scale_colour_unam(name = "Clase", palette = "secondary")+
+   theme_light()
+ plot(g)
+}
+```
+
+Es aquí donde se vuelve relevante el uso de los RKHS (_reproducing kernel hilbert space_) cuya utilidad reside en poder trabajar con representaciones en dimensiones superiores en donde la elección del hiperplano sea más sencilla.
+
+Para construir la svm debemos especificar, al menos, el tipo de algoritmo, el kernel a usar y los parámetros del mismo.
+
+```{r, eval=FALSE}
+svm <- ksvm(z~., data = chessboard[,1:3], 
+            type = "C-svc", 
+            kernel = "rbfdot", 
+            kpar=list(sigma = 0.1), 
+            scaled = F, 
+            cross  = 5)
+```
+
+__Resultados con diferente valor para el parámetro del kernel__
+
+```{r, echo=FALSE, animation.hook='gifski'}
+for (i in 1:10) {
+  plot(plots[[i]])
+}
+```
+
