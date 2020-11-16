@@ -415,18 +415,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="svms-en-r" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> SVMs en R</h2>
 <p>En este ejemplo usaremos una máquina de soporte vectorial para clasificar un conjunto que asemeja un tablero de ajedréz.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="qué-es-una-svm.html#cb133-1"></a>chessboard &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/chessboard.csv&quot;</span>)</span>
+<span id="cb133-2"><a href="qué-es-una-svm.html#cb133-2"></a></span>
+<span id="cb133-3"><a href="qué-es-una-svm.html#cb133-3"></a><span class="kw">ggplot</span>(chessboard, <span class="kw">aes</span>(x, y, <span class="dt">colour =</span> <span class="kw">as.factor</span>(z)))<span class="op">+</span></span>
+<span id="cb133-4"><a href="qué-es-una-svm.html#cb133-4"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb133-5"><a href="qué-es-una-svm.html#cb133-5"></a><span class="st">  </span><span class="kw">scale_colour_unam</span>(<span class="dt">name =</span> <span class="st">&quot;Clase&quot;</span>, <span class="dt">palette =</span> <span class="st">&quot;secondary&quot;</span>)<span class="op">+</span></span>
+<span id="cb133-6"><a href="qué-es-una-svm.html#cb133-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>)<span class="op">+</span></span>
+<span id="cb133-7"><a href="qué-es-una-svm.html#cb133-7"></a><span class="st">  </span><span class="kw">theme_light</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>Evidentemente, en el espacio original de los datos, resulta imposible encontrar un hiperplano que separe a las dos clases de interés.</p>
 <p><strong>Algunos planos posibles</strong></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-91-.gif" width="672" /></p>
 <p>Es aquí donde se vuelve relevante el uso de los RKHS (<em>reproducing kernel hilbert space</em>) cuya utilidad reside en poder trabajar con representaciones en dimensiones superiores en donde la elección del hiperplano sea más sencilla.</p>
 <p>Para construir la svm debemos especificar, al menos, el tipo de algoritmo, el kernel a usar y los parámetros del mismo.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="qué-es-una-svm.html#cb133-1"></a>svm &lt;-<span class="st"> </span><span class="kw">ksvm</span>(z<span class="op">~</span>., <span class="dt">data =</span> chessboard[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], </span>
-<span id="cb133-2"><a href="qué-es-una-svm.html#cb133-2"></a>            <span class="dt">type =</span> <span class="st">&quot;C-svc&quot;</span>, </span>
-<span id="cb133-3"><a href="qué-es-una-svm.html#cb133-3"></a>            <span class="dt">kernel =</span> <span class="st">&quot;rbfdot&quot;</span>, </span>
-<span id="cb133-4"><a href="qué-es-una-svm.html#cb133-4"></a>            <span class="dt">kpar=</span><span class="kw">list</span>(<span class="dt">sigma =</span> <span class="fl">0.1</span>), </span>
-<span id="cb133-5"><a href="qué-es-una-svm.html#cb133-5"></a>            <span class="dt">scaled =</span> F, </span>
-<span id="cb133-6"><a href="qué-es-una-svm.html#cb133-6"></a>            <span class="dt">cross  =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="qué-es-una-svm.html#cb134-1"></a>svm &lt;-<span class="st"> </span><span class="kw">ksvm</span>(z<span class="op">~</span>., <span class="dt">data =</span> chessboard[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], </span>
+<span id="cb134-2"><a href="qué-es-una-svm.html#cb134-2"></a>            <span class="dt">type =</span> <span class="st">&quot;C-svc&quot;</span>, </span>
+<span id="cb134-3"><a href="qué-es-una-svm.html#cb134-3"></a>            <span class="dt">kernel =</span> <span class="st">&quot;rbfdot&quot;</span>, </span>
+<span id="cb134-4"><a href="qué-es-una-svm.html#cb134-4"></a>            <span class="dt">kpar=</span><span class="kw">list</span>(<span class="dt">sigma =</span> <span class="fl">0.1</span>), </span>
+<span id="cb134-5"><a href="qué-es-una-svm.html#cb134-5"></a>            <span class="dt">scaled =</span> F, </span>
+<span id="cb134-6"><a href="qué-es-una-svm.html#cb134-6"></a>            <span class="dt">cross  =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p><strong>Resultados con diferente valor para el parámetro del kernel</strong></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-93-.gif" width="672" /></p>
 

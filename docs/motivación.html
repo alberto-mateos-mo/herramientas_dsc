@@ -417,18 +417,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">19.2.1.1</span> Ejemplo</h4>
 <p>Utilizando la técnica de <em>bootstrapping</em> evaluaremos las variaciones en la <span class="math inline">\(R^2\)</span> de un modelo de regresión lineal.</p>
 <p>En primer llugar debemos definir una función que extraiga la(s) métrica(s) de interés, en este caso la <span class="math inline">\(R^2\)</span>:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="motivación.html#cb150-1"></a><span class="kw">library</span>(boot)</span>
-<span id="cb150-2"><a href="motivación.html#cb150-2"></a></span>
-<span id="cb150-3"><a href="motivación.html#cb150-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
-<span id="cb150-4"><a href="motivación.html#cb150-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
-<span id="cb150-5"><a href="motivación.html#cb150-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
-<span id="cb150-6"><a href="motivación.html#cb150-6"></a>  </span>
-<span id="cb150-7"><a href="motivación.html#cb150-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
-<span id="cb150-8"><a href="motivación.html#cb150-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="motivación.html#cb145-1"></a><span class="kw">library</span>(boot)</span>
+<span id="cb145-2"><a href="motivación.html#cb145-2"></a></span>
+<span id="cb145-3"><a href="motivación.html#cb145-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
+<span id="cb145-4"><a href="motivación.html#cb145-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
+<span id="cb145-5"><a href="motivación.html#cb145-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
+<span id="cb145-6"><a href="motivación.html#cb145-6"></a>  </span>
+<span id="cb145-7"><a href="motivación.html#cb145-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
+<span id="cb145-8"><a href="motivación.html#cb145-8"></a>}</span></code></pre></div>
 <p>Posteriormente usamos el paquete <code>boot</code> para aplicar la técnica y evaluar las variaciones de la <span class="math inline">\(R^2\)</span> bajo diferentes escenarios muestrales:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="motivación.html#cb151-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="motivación.html#cb146-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
 <p>Podemos imprimir los resultados:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="motivación.html#cb152-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="motivación.html#cb147-1"></a>results</span></code></pre></div>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ## 
@@ -442,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##      original     bias    std. error
 ## t1* 0.7809306 0.01184656  0.05052901</code></pre>
 <p>O bien, podemos graficarlos para leerlos más facilmente:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="motivación.html#cb154-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="motivación.html#cb149-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 </div>
 <div id="ejercicios" class="section level4" number="19.2.1.2">

@@ -390,7 +390,7 @@ N.B. <span class="math inline">\(\sum_{j=1}^p\phi_{j1}^2=1\)</span></p>
 <p>Los resultados del análisis de componentes principales serán distintos si las variables no se centran (media cero) e incluso serán distintos si éstas se escalan individualmente.</p>
 <p>Las diferencias en los resultados están ligadas directamente con la escala en la que estén medidas las diferentes variables del conjunto de datos.</p>
 <p>Consideremos por ejemplo los datos <code>USArrests</code>, en este conjunto las variables <code>Murder</code>, <code>Rape</code> y <code>Assault</code> están medidas como ocurrencia por cada 100,000 habitantes y <code>UrbanPop</code> como porcentaje de población, en este sentido, si analizamos las varianzas:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="análisis-de-componentes-principales.html#cb148-1"></a><span class="kw">lapply</span>(USArrests, var)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="análisis-de-componentes-principales.html#cb143-1"></a><span class="kw">lapply</span>(USArrests, var)</span></code></pre></div>
 <pre><code>## $Murder
 ## [1] 18.97047
 ## 
