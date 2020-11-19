@@ -104,7 +104,7 @@ al cluster cuyo centroide sea el más cercano.
 
 ## Desventajas
 
-- Sensibilidad a la partición inicial: como el algoritmo consiste de una búsqueda local, entonces el algoritmo es muy sensible a la selección inicial de clusters.
+- Sensibilidad a la partición inicial: como el algoritmo consiste de una búsqueda local,  este es muy sensible a la selección inicial de clusters.
 
 - Falta de robustéz: esta desventaje se hereda del hecho de que la media y varianza son sensibles ante valores atípicos.
 
@@ -117,3 +117,9 @@ al cluster cuyo centroide sea el más cercano.
 WIP
 
 # Clusterización jerárquica
+
+A diferencia del método k-medias, la clústerización jerárquica no requiere de una previa especificación del número de clústers a encontrar ni de la configuración inicial de ellos.
+
+Como el nombre lo dice, estos clusterización producen representaciones jerárquicas en las cuales los clústers de cada nivel jerárquico son creados a través de la unión de clústers en el nivel inmediato inferior.
+
+En el nivel más bajo todos los elementos del conjunto forman un clúster
