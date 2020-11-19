@@ -114,4 +114,64 @@ Aunque en el caso de $k>2$ clases es muy útil, no lo es para el caso $k=2$, ¿p
 
 ## Árboles en R
 
-...WIP...
+En este ejemplo crearemos un árbol de clasificación que nos ayude a identificar a personajes de marvel como _buenos_ o _malos_.
+
+Los datos que usaremos son estadísticas de cada personaje:
+
+```{r}
+marvel <- janitor::clean_names(read.csv("example_data/charcters_stats.csv"))
+```
+
+```{r, echo=FALSE}
+head(marvel, 10) %>% 
+  knitr::kable()
+```
+
+Eliminaremos las variables `Name` y `Total` para construir el árbol. Usaremos las librerías `rpart` y `rpart.plot` para construir el modelo y la visualización.
+
+```{r, echo=FALSE}
+marvel <- marvel %>% 
+  filter(alignment %in% c("bad", "good"))
+
+marvel <- marvel %>%
+  dplyr::select(-name, -total)
+```
+
+Construimos el árbol:
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+tree_model <- rpart(alignment~., data = marvel)
+```
+
+```{r}
+tree_model
+```
+
+```{r}
+rpart.plot(tree_model)
+```
+
+Métricas de ajuste:
+
+```{r, echo=FALSE}
+res <- as.data.frame(predict(tree_model, marvel))
+
+res$alig_pred <- ifelse(res$bad >= 0.5, "bad", "good")
+
+caret::confusionMatrix(as.factor(marvel$alignment), as.factor(res$alig_pred), positive = "good")
+```
+
+### Ejercicios
+
+- ¿Cómo interpretaría el modelo?
+
+- ¿Considera que el modelo es bueno?
+
+- Modifique el modelo para lograr un mejor accuracy de predicción.
+
+- Explore los parámetros de la función `rpart.plot` y diseñe una función que ajuste el modelo y lo grafique con el diseño que para usted sea el más informativo.
+
+- Explique el modelo detalladamente.
