@@ -127,7 +127,7 @@ library(unam.theme)
 load("example_data/svm_plots.RData")
 ```
 
-```{r, echo=FALSE}
+```{r}
 chessboard <- read.csv("example_data/chessboard.csv")
 
 ggplot(chessboard, aes(x, y, colour = as.factor(z)))+
