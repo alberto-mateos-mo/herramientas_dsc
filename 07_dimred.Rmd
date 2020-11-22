@@ -157,7 +157,7 @@ summary(componentes)
 ```{r}
 cumulative_prop <- data.frame(pc = 1:100, cumvar = cumsum(componentes$sdev^2/sum(componentes$sdev^2))[1:100])
 
-ggplot(cumpro, aes(pc, cumvar))+
+ggplot(cumulative_prop, aes(pc, cumvar))+
   geom_line()+
   geom_point()+
   labs(x = "Componente", y = "Varianza acumulada")+
@@ -167,7 +167,7 @@ ggplot(cumpro, aes(pc, cumvar))+
 El gráfico de varianza acumulada nos sugiere que 100 componentes son más que suficientes para representar las 784 dimensiones originales.
 
 ```{r}
-nueva_rep <- matrix(compo$x[315,], nrow = 10, byrow = TRUE)
+nueva_rep <- matrix(componentes$x[315,], nrow = 10, byrow = TRUE)
 
 heatmap(nueva_rep, Colv = NA, Rowv = NA, revC = T, scale = "none", col = grey.colors(2))
 ```
