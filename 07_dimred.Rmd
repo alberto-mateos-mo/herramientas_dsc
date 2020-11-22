@@ -126,7 +126,53 @@ var_explained_df %>%
 
 ## PCA en R
 
-WIP
+Usaremos datos de números escritos a mano para reducir las dimensiones.
+
+```{r}
+digitos <- read.csv("example_data/train.csv")
+```
+
+El conjunto de datos tiene información sobre 784 pixeles para 1000 números.
+
+```{r}
+un_numero <- matrix(as.matrix(digitos[315,]), ncol = 28, byrow = TRUE)
+
+heatmap(x = un_numero, Colv = NA, Rowv = NA, revC = T, scale = "none", col = grey.colors(1000))
+```
+
+Cada número consta de 784 pixels, la idea es reducir la dimensión de los número para representarlo con una menor cantidad de ellos.
+
+```{r, eval=FALSE}
+componentes <- prcomp(digitos, center = TRUE, scale. = F, rank. = 100, retx = TRUE)
+```
+
+```{r, echo=FALSE}
+componentes <- prcomp(digitos[,sample(1:784, 784)], center = TRUE, scale. = F, rank. = 100, retx = TRUE)
+```
+
+```{r}
+summary(componentes)
+```
+
+```{r}
+cumulative_prop <- data.frame(pc = 1:100, cumvar = cumsum(componentes$sdev^2/sum(componentes$sdev^2))[1:100])
+
+ggplot(cumpro, aes(pc, cumvar))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Componente", y = "Varianza acumulada")+
+  theme_unam()
+```
+
+El gráfico de varianza acumulada nos sugiere que 100 componentes son más que suficientes para representar las 784 dimensiones originales.
+
+```{r}
+nueva_rep <- matrix(compo$x[315,], nrow = 10, byrow = TRUE)
+
+heatmap(nueva_rep, Colv = NA, Rowv = NA, revC = T, scale = "none", col = grey.colors(2))
+```
+
+Naturalmente, para nosotros, esta representación tiene poco (o ningún) sentido pero es una buena representación de la información original que puede usarse como _input_ para otros modelos e.g. predictivos.
 
 # Análisis factorial
 
@@ -219,4 +265,41 @@ El uso de rotaciones oblicuas se justifica porque en muchos contextos es lógico
 
 ## Análisis factorial en R
 
-WIP
+Usando datos de gastos en hogares buscaremos identificar, a través de un análisis factorial, grupos de gastos _generales_.
+
+```{r}
+library(psych)
+library(GPArotation)
+
+gastos <- read.csv("example_data/pob2.csv", sep = "\t")
+```
+
+```{r}
+str(gastos)
+```
+
+Trabajaremos solamente con la información relacionada a gastos.
+
+```{r}
+gastos <- gastos[,19:59]
+```
+
+```{r, warning=FALSE}
+factores <- fa(gastos, nfactors = 4, rotate = "oblimin")
+```
+
+```{r}
+autoplot(abs(factores$loadings[,1:4]))
+```
+
+Ejercicios:
+
+1. ¿Considera que los factores son buenos?
+
+2. ¿Qué problema encuentra en los datos que puedan causar una mala optimización en la búsqueda de los factores?
+
+3. Analize detalladamente los datos y proponga alguna solución si es que considera que hay problemas en los datos.
+
+4. Vuelva aplicar el análisis factorial.
+
+5. ¿Cómo interpretaría los factores?
