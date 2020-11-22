@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -390,7 +399,7 @@ N.B. <span class="math inline">\(\sum_{j=1}^p\phi_{j1}^2=1\)</span></p>
 <p>Los resultados del análisis de componentes principales serán distintos si las variables no se centran (media cero) e incluso serán distintos si éstas se escalan individualmente.</p>
 <p>Las diferencias en los resultados están ligadas directamente con la escala en la que estén medidas las diferentes variables del conjunto de datos.</p>
 <p>Consideremos por ejemplo los datos <code>USArrests</code>, en este conjunto las variables <code>Murder</code>, <code>Rape</code> y <code>Assault</code> están medidas como ocurrencia por cada 100,000 habitantes y <code>UrbanPop</code> como porcentaje de población, en este sentido, si analizamos las varianzas:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="análisis-de-componentes-principales.html#cb143-1"></a><span class="kw">lapply</span>(USArrests, var)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="análisis-de-componentes-principales.html#cb149-1"></a><span class="kw">lapply</span>(USArrests, var)</span></code></pre></div>
 <pre><code>## $Murder
 ## [1] 18.97047
 ## 
@@ -417,12 +426,116 @@ N.B. <span class="math inline">\(\sum_{j=1}^p\phi_{j1}^2=1\)</span></p>
 <p>De manera general, un conjunto de datos n-dimensional tiene <span class="math inline">\(min(n-1,p)\)</span> componentes principales distintos. Sin embargo, dado que no típicamente usaremos este análisis para reducir la dimensión de los datos no estamos interesados en usarlos todos.</p>
 <p>De hecho lo que buscamos es el menor número de componentes que nos permitan capturar una <em>buena</em> cantidad de información.</p>
 <p>Para encontrar este número de componentes no existe una respuesta única. Comúnmente usaremos como ayuda el <em>screeplot</em> o gráfica de codo de la varianza del m-ésimo componente principal y escogeremos la cantidad que nos permita capturar ya sea cierta cantidad de varianza e.g. el 70% de ella o bien aquel número de componentes a partir del cual el incremento de varianza por cada componente adicional sea marginal.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 </div>
 </div>
 <div id="pca-en-r" class="section level2" number="13.5">
 <h2><span class="header-section-number">13.5</span> PCA en R</h2>
-<p>WIP</p>
+<p>Usaremos datos de números escritos a mano para reducir las dimensiones.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="análisis-de-componentes-principales.html#cb151-1"></a>digitos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/train.csv&quot;</span>)</span></code></pre></div>
+<p>El conjunto de datos tiene información sobre 784 pixeles para 1000 números.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="análisis-de-componentes-principales.html#cb152-1"></a>un_numero &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">as.matrix</span>(digitos[<span class="dv">315</span>,]), <span class="dt">ncol =</span> <span class="dv">28</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb152-2"><a href="análisis-de-componentes-principales.html#cb152-2"></a></span>
+<span id="cb152-3"><a href="análisis-de-componentes-principales.html#cb152-3"></a><span class="kw">heatmap</span>(<span class="dt">x =</span> un_numero, <span class="dt">Colv =</span> <span class="ot">NA</span>, <span class="dt">Rowv =</span> <span class="ot">NA</span>, <span class="dt">revC =</span> T, <span class="dt">scale =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">col =</span> <span class="kw">grey.colors</span>(<span class="dv">1000</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p>Cada número consta de 784 pixels, la idea es reducir la dimensión de los número para representarlo con una menor cantidad de ellos.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="análisis-de-componentes-principales.html#cb153-1"></a>componentes &lt;-<span class="st"> </span><span class="kw">prcomp</span>(digitos, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale. =</span> F, <span class="dt">rank. =</span> <span class="dv">100</span>, <span class="dt">retx =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="análisis-de-componentes-principales.html#cb154-1"></a><span class="kw">summary</span>(componentes)</span></code></pre></div>
+<pre><code>## Importance of first k=100 (out of 784) components:
+##                              PC1       PC2       PC3       PC4       PC5
+## Standard deviation     561.86766 490.76826 468.37392 440.74081 408.35793
+## Proportion of Variance   0.09178   0.07002   0.06377   0.05647   0.04848
+## Cumulative Proportion    0.09178   0.16179   0.22557   0.28204   0.33052
+##                              PC6       PC7       PC8       PC9      PC10
+## Standard deviation     397.26889 330.06467 323.24940 309.72557 280.48302
+## Proportion of Variance   0.04588   0.03167   0.03038   0.02789   0.02287
+## Cumulative Proportion    0.37640   0.40807   0.43845   0.46633   0.48920
+##                             PC11      PC12      PC13      PC14      PC15
+## Standard deviation     270.46930 260.12743 244.82230 242.63829 231.37822
+## Proportion of Variance   0.02127   0.01967   0.01742   0.01712   0.01556
+## Cumulative Proportion    0.51047   0.53014   0.54757   0.56468   0.58024
+##                             PC16      PC17      PC18      PC19     PC20
+## Standard deviation     226.88223 221.91522 217.69853 205.86651 204.0297
+## Proportion of Variance   0.01496   0.01432   0.01378   0.01232   0.0121
+## Cumulative Proportion    0.59521   0.60953   0.62330   0.63562   0.6477
+##                             PC21      PC22     PC23      PC24      PC25
+## Standard deviation     194.69877 191.20772 184.5454 183.85717 176.70210
+## Proportion of Variance   0.01102   0.01063   0.0099   0.00983   0.00908
+## Cumulative Proportion    0.65875   0.66937   0.6793   0.68910   0.69818
+##                             PC26      PC27      PC28      PC29      PC30
+## Standard deviation     174.51903 166.72761 165.20845 161.50046 157.06771
+## Proportion of Variance   0.00885   0.00808   0.00793   0.00758   0.00717
+## Cumulative Proportion    0.70703   0.71511   0.72305   0.73063   0.73780
+##                             PC31     PC32      PC33      PC34      PC35
+## Standard deviation     154.11878 151.7943 146.20414 141.49294 140.80434
+## Proportion of Variance   0.00691   0.0067   0.00621   0.00582   0.00576
+## Cumulative Proportion    0.74471   0.7514   0.75762   0.76344   0.76920
+##                             PC36      PC37      PC38      PC39      PC40
+## Standard deviation     135.72952 135.17497 133.28084 131.86642 126.22832
+## Proportion of Variance   0.00536   0.00531   0.00516   0.00506   0.00463
+## Cumulative Proportion    0.77456   0.77987   0.78504   0.79009   0.79472
+##                             PC41      PC42      PC43      PC44      PC45
+## Standard deviation     124.33321 121.16178 120.96106 118.47836 117.96289
+## Proportion of Variance   0.00449   0.00427   0.00425   0.00408   0.00405
+## Cumulative Proportion    0.79922   0.80349   0.80774   0.81182   0.81586
+##                            PC46      PC47      PC48      PC49      PC50
+## Standard deviation     114.3650 113.71241 111.81485 110.84387 108.59844
+## Proportion of Variance   0.0038   0.00376   0.00363   0.00357   0.00343
+## Cumulative Proportion    0.8197   0.82343   0.82706   0.83063   0.83406
+##                             PC51      PC52      PC53      PC54      PC55
+## Standard deviation     107.67339 103.86519 102.76554 101.25518 100.63854
+## Proportion of Variance   0.00337   0.00314   0.00307   0.00298   0.00294
+## Cumulative Proportion    0.83743   0.84057   0.84364   0.84662   0.84956
+##                            PC56     PC57     PC58     PC59     PC60
+## Standard deviation     99.32478 97.46050 96.11925 93.50884 93.43295
+## Proportion of Variance  0.00287  0.00276  0.00269  0.00254  0.00254
+## Cumulative Proportion   0.85243  0.85519  0.85788  0.86042  0.86296
+##                            PC61     PC62    PC63    PC64     PC65     PC66
+## Standard deviation     91.23502 89.83818 88.8591 86.9524 85.36302 84.59068
+## Proportion of Variance  0.00242  0.00235  0.0023  0.0022  0.00212  0.00208
+## Cumulative Proportion   0.86538  0.86772  0.8700  0.8722  0.87434  0.87642
+##                            PC67    PC68     PC69     PC70     PC71
+## Standard deviation     83.24666 82.9586 81.89783 81.24899 79.89416
+## Proportion of Variance  0.00201  0.0020  0.00195  0.00192  0.00186
+## Cumulative Proportion   0.87843  0.8804  0.88238  0.88430  0.88616
+##                            PC72     PC73     PC74     PC75     PC76
+## Standard deviation     79.00510 77.63465 77.28005 75.78120 75.20461
+## Proportion of Variance  0.00181  0.00175  0.00174  0.00167  0.00164
+## Cumulative Proportion   0.88797  0.88972  0.89146  0.89313  0.89477
+##                            PC77     PC78     PC79     PC80     PC81
+## Standard deviation     74.74010 72.97750 72.30186 72.02557 70.92370
+## Proportion of Variance  0.00162  0.00155  0.00152  0.00151  0.00146
+## Cumulative Proportion   0.89640  0.89794  0.89946  0.90097  0.90243
+##                            PC82     PC83     PC84     PC85     PC86
+## Standard deviation     69.65708 69.57450 68.86347 68.51498 68.32834
+## Proportion of Variance  0.00141  0.00141  0.00138  0.00136  0.00136
+## Cumulative Proportion   0.90385  0.90525  0.90663  0.90800  0.90935
+##                            PC87     PC88     PC89    PC90     PC91
+## Standard deviation     67.08805 65.94946 65.13713 64.1382 63.89187
+## Proportion of Variance  0.00131  0.00126  0.00123  0.0012  0.00119
+## Cumulative Proportion   0.91066  0.91193  0.91316  0.9144  0.91554
+##                            PC92     PC93     PC94    PC95     PC96
+## Standard deviation     63.15300 62.06389 61.84139 61.5554 60.31362
+## Proportion of Variance  0.00116  0.00112  0.00111  0.0011  0.00106
+## Cumulative Proportion   0.91670  0.91782  0.91893  0.9200  0.92109
+##                            PC97     PC98     PC99   PC100
+## Standard deviation     60.23987 59.82256 59.20697 58.5542
+## Proportion of Variance  0.00105  0.00104  0.00102  0.0010
+## Cumulative Proportion   0.92215  0.92319  0.92421  0.9252</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="análisis-de-componentes-principales.html#cb156-1"></a>cumulative_prop &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">pc =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">cumvar =</span> <span class="kw">cumsum</span>(componentes<span class="op">$</span>sdev<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="kw">sum</span>(componentes<span class="op">$</span>sdev<span class="op">^</span><span class="dv">2</span>))[<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>])</span>
+<span id="cb156-2"><a href="análisis-de-componentes-principales.html#cb156-2"></a></span>
+<span id="cb156-3"><a href="análisis-de-componentes-principales.html#cb156-3"></a><span class="kw">ggplot</span>(cumulative_prop, <span class="kw">aes</span>(pc, cumvar))<span class="op">+</span></span>
+<span id="cb156-4"><a href="análisis-de-componentes-principales.html#cb156-4"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb156-5"><a href="análisis-de-componentes-principales.html#cb156-5"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb156-6"><a href="análisis-de-componentes-principales.html#cb156-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Componente&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Varianza acumulada&quot;</span>)<span class="op">+</span></span>
+<span id="cb156-7"><a href="análisis-de-componentes-principales.html#cb156-7"></a><span class="st">  </span><span class="kw">theme_unam</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p>El gráfico de varianza acumulada nos sugiere que 100 componentes son más que suficientes para representar las 784 dimensiones originales.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="análisis-de-componentes-principales.html#cb157-1"></a>nueva_rep &lt;-<span class="st"> </span><span class="kw">matrix</span>(componentes<span class="op">$</span>x[<span class="dv">315</span>,], <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb157-2"><a href="análisis-de-componentes-principales.html#cb157-2"></a></span>
+<span id="cb157-3"><a href="análisis-de-componentes-principales.html#cb157-3"></a><span class="kw">heatmap</span>(nueva_rep, <span class="dt">Colv =</span> <span class="ot">NA</span>, <span class="dt">Rowv =</span> <span class="ot">NA</span>, <span class="dt">revC =</span> T, <span class="dt">scale =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">col =</span> <span class="kw">grey.colors</span>(<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p>Naturalmente, para nosotros, esta representación tiene poco (o ningún) sentido pero es una buena representación de la información original que puede usarse como <em>input</em> para otros modelos e.g. predictivos.</p>
 </div>
 </div>
             </section>

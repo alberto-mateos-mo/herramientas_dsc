@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -417,18 +426,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">19.2.1.1</span> Ejemplo</h4>
 <p>Utilizando la técnica de <em>bootstrapping</em> evaluaremos las variaciones en la <span class="math inline">\(R^2\)</span> de un modelo de regresión lineal.</p>
 <p>En primer llugar debemos definir una función que extraiga la(s) métrica(s) de interés, en este caso la <span class="math inline">\(R^2\)</span>:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="motivación.html#cb145-1"></a><span class="kw">library</span>(boot)</span>
-<span id="cb145-2"><a href="motivación.html#cb145-2"></a></span>
-<span id="cb145-3"><a href="motivación.html#cb145-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
-<span id="cb145-4"><a href="motivación.html#cb145-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
-<span id="cb145-5"><a href="motivación.html#cb145-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
-<span id="cb145-6"><a href="motivación.html#cb145-6"></a>  </span>
-<span id="cb145-7"><a href="motivación.html#cb145-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
-<span id="cb145-8"><a href="motivación.html#cb145-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="motivación.html#cb175-1"></a><span class="kw">library</span>(boot)</span>
+<span id="cb175-2"><a href="motivación.html#cb175-2"></a></span>
+<span id="cb175-3"><a href="motivación.html#cb175-3"></a>r2 &lt;-<span class="st"> </span><span class="cf">function</span>(formula, data, index){</span>
+<span id="cb175-4"><a href="motivación.html#cb175-4"></a>  d &lt;-<span class="st"> </span>data[index,]</span>
+<span id="cb175-5"><a href="motivación.html#cb175-5"></a>  mod &lt;-<span class="st"> </span><span class="kw">lm</span>(formula, <span class="dt">data =</span> d)</span>
+<span id="cb175-6"><a href="motivación.html#cb175-6"></a>  </span>
+<span id="cb175-7"><a href="motivación.html#cb175-7"></a>  <span class="kw">return</span>(<span class="kw">summary</span>(mod)<span class="op">$</span>r.square)</span>
+<span id="cb175-8"><a href="motivación.html#cb175-8"></a>}</span></code></pre></div>
 <p>Posteriormente usamos el paquete <code>boot</code> para aplicar la técnica y evaluar las variaciones de la <span class="math inline">\(R^2\)</span> bajo diferentes escenarios muestrales:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="motivación.html#cb146-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="motivación.html#cb176-1"></a>results &lt;-<span class="st"> </span><span class="kw">boot</span>(<span class="dt">data =</span> mtcars, <span class="dt">statistic =</span> r2, <span class="dt">R =</span> <span class="dv">1000</span>, <span class="dt">formula =</span> mpg<span class="op">~</span>wt<span class="op">+</span>disp)</span></code></pre></div>
 <p>Podemos imprimir los resultados:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="motivación.html#cb147-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="motivación.html#cb177-1"></a>results</span></code></pre></div>
 <pre><code>## 
 ## ORDINARY NONPARAMETRIC BOOTSTRAP
 ## 
@@ -440,10 +449,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Bootstrap Statistics :
 ##      original     bias    std. error
-## t1* 0.7809306 0.01184656  0.05052901</code></pre>
+## t1* 0.7809306 0.01164103  0.05134422</code></pre>
 <p>O bien, podemos graficarlos para leerlos más facilmente:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="motivación.html#cb149-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="motivación.html#cb179-1"></a><span class="kw">plot</span>(results)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
 </div>
 <div id="ejercicios" class="section level4" number="19.2.1.2">
 <h4><span class="header-section-number">19.2.1.2</span> Ejercicios</h4>

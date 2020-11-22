@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -412,7 +421,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="árboles-en-r" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Árboles en R</h2>
+<p>En este ejemplo crearemos un árbol de clasificación que nos ayude a identificar a personajes de marvel como <em>buenos</em> o <em>malos</em>.</p>
+<p>Los datos que usaremos son estadísticas de cada personaje:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="antecedentes.html#cb135-1"></a>marvel &lt;-<span class="st"> </span>janitor<span class="op">::</span><span class="kw">clean_names</span>(<span class="kw">read.csv</span>(<span class="st">&quot;example_data/charcters_stats.csv&quot;</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">alignment</th>
+<th align="right">intelligence</th>
+<th align="right">strength</th>
+<th align="right">speed</th>
+<th align="right">durability</th>
+<th align="right">power</th>
+<th align="right">combat</th>
+<th align="right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">3-D Man</td>
+<td align="left">good</td>
+<td align="right">50</td>
+<td align="right">31</td>
+<td align="right">43</td>
+<td align="right">32</td>
+<td align="right">25</td>
+<td align="right">52</td>
+<td align="right">233</td>
+</tr>
+<tr class="even">
+<td align="left">A-Bomb</td>
+<td align="left">good</td>
+<td align="right">38</td>
+<td align="right">100</td>
+<td align="right">17</td>
+<td align="right">80</td>
+<td align="right">17</td>
+<td align="right">64</td>
+<td align="right">316</td>
+</tr>
+<tr class="odd">
+<td align="left">Abe Sapien</td>
+<td align="left">good</td>
+<td align="right">88</td>
+<td align="right">14</td>
+<td align="right">35</td>
+<td align="right">42</td>
+<td align="right">35</td>
+<td align="right">85</td>
+<td align="right">299</td>
+</tr>
+<tr class="even">
+<td align="left">Abin Sur</td>
+<td align="left">good</td>
+<td align="right">50</td>
+<td align="right">90</td>
+<td align="right">53</td>
+<td align="right">64</td>
+<td align="right">84</td>
+<td align="right">65</td>
+<td align="right">406</td>
+</tr>
+<tr class="odd">
+<td align="left">Abomination</td>
+<td align="left">bad</td>
+<td align="right">63</td>
+<td align="right">80</td>
+<td align="right">53</td>
+<td align="right">90</td>
+<td align="right">55</td>
+<td align="right">95</td>
+<td align="right">436</td>
+</tr>
+<tr class="even">
+<td align="left">Abraxas</td>
+<td align="left">bad</td>
+<td align="right">88</td>
+<td align="right">100</td>
+<td align="right">83</td>
+<td align="right">99</td>
+<td align="right">100</td>
+<td align="right">56</td>
+<td align="right">526</td>
+</tr>
+<tr class="odd">
+<td align="left">Adam Monroe</td>
+<td align="left">good</td>
+<td align="right">63</td>
+<td align="right">10</td>
+<td align="right">12</td>
+<td align="right">100</td>
+<td align="right">71</td>
+<td align="right">64</td>
+<td align="right">320</td>
+</tr>
+<tr class="even">
+<td align="left">Adam Strange</td>
+<td align="left">good</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Agent 13</td>
+<td align="left">good</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Agent Bob</td>
+<td align="left">good</td>
+<td align="right">10</td>
+<td align="right">8</td>
+<td align="right">13</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">20</td>
+<td align="right">61</td>
+</tr>
+</tbody>
+</table>
+<p>Eliminaremos las variables <code>Name</code> y <code>Total</code> para construir el árbol. Usaremos las librerías <code>rpart</code> y <code>rpart.plot</code> para construir el modelo y la visualización.</p>
+<p>Construimos el árbol:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="antecedentes.html#cb136-1"></a><span class="kw">library</span>(rpart)</span>
+<span id="cb136-2"><a href="antecedentes.html#cb136-2"></a><span class="kw">library</span>(rpart.plot)</span>
+<span id="cb136-3"><a href="antecedentes.html#cb136-3"></a></span>
+<span id="cb136-4"><a href="antecedentes.html#cb136-4"></a>tree_model &lt;-<span class="st"> </span><span class="kw">rpart</span>(alignment<span class="op">~</span>., <span class="dt">data =</span> marvel)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="antecedentes.html#cb137-1"></a>tree_model</span></code></pre></div>
+<pre><code>## n= 597 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+##  1) root 597 165 good (0.2763819 0.7236181)  
+##    2) intelligence&gt;=84.5 76  38 bad (0.5000000 0.5000000)  
+##      4) power&lt; 29 10   2 bad (0.8000000 0.2000000) *
+##      5) power&gt;=29 66  30 good (0.4545455 0.5454545)  
+##       10) power&gt;=46.5 54  24 bad (0.5555556 0.4444444)  
+##         20) intelligence&lt; 97 35  12 bad (0.6571429 0.3428571)  
+##           40) strength&gt;=56 26   5 bad (0.8076923 0.1923077) *
+##           41) strength&lt; 56 9   2 good (0.2222222 0.7777778) *
+##         21) intelligence&gt;=97 19   7 good (0.3684211 0.6315789) *
+##       11) power&lt; 46.5 12   0 good (0.0000000 1.0000000) *
+##    3) intelligence&lt; 84.5 521 127 good (0.2437620 0.7562380)  
+##      6) intelligence&gt;=72 76  26 good (0.3421053 0.6578947)  
+##       12) speed&lt; 16.5 8   2 bad (0.7500000 0.2500000) *
+##       13) speed&gt;=16.5 68  20 good (0.2941176 0.7058824) *
+##      7) intelligence&lt; 72 445 101 good (0.2269663 0.7730337) *</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="antecedentes.html#cb139-1"></a><span class="kw">rpart.plot</span>(tree_model)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p>Métricas de ajuste:</p>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction bad good
+##       bad   35  130
+##       good   9  423
+##                                           
+##                Accuracy : 0.7672          
+##                  95% CI : (0.7312, 0.8005)
+##     No Information Rate : 0.9263          
+##     P-Value [Acc &gt; NIR] : 1               
+##                                           
+##                   Kappa : 0.2473          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##             Sensitivity : 0.7649          
+##             Specificity : 0.7955          
+##          Pos Pred Value : 0.9792          
+##          Neg Pred Value : 0.2121          
+##              Prevalence : 0.9263          
+##          Detection Rate : 0.7085          
+##    Detection Prevalence : 0.7236          
+##       Balanced Accuracy : 0.7802          
+##                                           
+##        &#39;Positive&#39; Class : good            
+## </code></pre>
+<div id="ejercicios" class="section level3" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Ejercicios</h3>
+<ul>
+<li><p>¿Cómo interpretaría el modelo?</p></li>
+<li><p>¿Considera que el modelo es bueno?</p></li>
+<li><p>Modifique el modelo para lograr un mejor accuracy de predicción.</p></li>
+<li><p>Explore los parámetros de la función <code>rpart.plot</code> y diseñe una función que ajuste el modelo y lo grafique con el diseño que para usted sea el más informativo.</p></li>
+<li><p>Explique el modelo detalladamente.</p></li>
+</ul>
 
+</div>
 </div>
 </div>
 

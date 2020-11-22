@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -361,7 +370,7 @@ existen heurísticas que intentan resolverlo parcialmente.</p>
 <p>Repetir el paso 2 hasta que ningún <span class="math inline">\(C_j\)</span> cambie.</p>
 
 <div class="lemma">
-<span id="lem:unnamed-chunk-99" class="lemma"><strong>Lemma 17.1  (Suma de variaciones internas)  </strong></span>En el algorítmo k-medias, el paso 2 nunca incrementa la suma de variaciones internas
+<span id="lem:unnamed-chunk-118" class="lemma"><strong>Lemma 17.1  (Suma de variaciones internas)  </strong></span>En el algorítmo k-medias, el paso 2 nunca incrementa la suma de variaciones internas
 </div>
 <p>Es decir, el algoritmo k-medias es un proceso iterativo que divide un conjunto de datos en <span class="math inline">\(K\)</span> grupos excluyentes. Este método es usado extensamente en la literatura, porque es un método sencillo de implementar que utiliza centroides (prototipos) para la representación de los clusters.</p>
 <p>La calidad de los clusters es mediada por el criterio de variación interna.</p>
@@ -388,7 +397,37 @@ al cluster cuyo centroide sea el más cercano.</p></li>
 </div>
 <div id="k-medias-en-r" class="section level2" number="17.4">
 <h2><span class="header-section-number">17.4</span> K-medias en R</h2>
-<p>WIP</p>
+<p>Usaremos los datos de personajes de marvel para tratar de identificar grupos subyacentes de ellos.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="k-medias.html#cb167-1"></a>marvel &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;example_data/charcters_stats.csv&quot;</span>)</span>
+<span id="cb167-2"><a href="k-medias.html#cb167-2"></a></span>
+<span id="cb167-3"><a href="k-medias.html#cb167-3"></a>marvel &lt;-<span class="st"> </span>marvel[<span class="op">-</span><span class="dv">419</span>,]</span>
+<span id="cb167-4"><a href="k-medias.html#cb167-4"></a></span>
+<span id="cb167-5"><a href="k-medias.html#cb167-5"></a>nombres &lt;-<span class="st"> </span>marvel<span class="op">$</span>Name</span>
+<span id="cb167-6"><a href="k-medias.html#cb167-6"></a></span>
+<span id="cb167-7"><a href="k-medias.html#cb167-7"></a>marvel &lt;-<span class="st"> </span>marvel <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb167-8"><a href="k-medias.html#cb167-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>Total, <span class="op">-</span>Alignment, <span class="op">-</span>Name)</span>
+<span id="cb167-9"><a href="k-medias.html#cb167-9"></a></span>
+<span id="cb167-10"><a href="k-medias.html#cb167-10"></a><span class="kw">rownames</span>(marvel) &lt;-<span class="st"> </span>nombres</span>
+<span id="cb167-11"><a href="k-medias.html#cb167-11"></a></span>
+<span id="cb167-12"><a href="k-medias.html#cb167-12"></a>grupos &lt;-<span class="st"> </span><span class="kw">kmeans</span>(marvel, <span class="dt">centers =</span> <span class="dv">2</span>, <span class="dt">algorithm =</span> <span class="st">&quot;Hartigan-Wong&quot;</span>, <span class="dt">nstart =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Variación interna</strong></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="k-medias.html#cb168-1"></a>grupos<span class="op">$</span>withinss</span></code></pre></div>
+<pre><code>## [1] 1535899.3  176249.5</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="k-medias.html#cb170-1"></a>grupos<span class="op">$</span>tot.withinss</span></code></pre></div>
+<pre><code>## [1] 1712149</code></pre>
+<p><strong>Visualización de los grupos</strong></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="k-medias.html#cb172-1"></a><span class="kw">fviz_cluster</span>(grupos, marvel)<span class="op">+</span></span>
+<span id="cb172-2"><a href="k-medias.html#cb172-2"></a><span class="st">  </span><span class="kw">scale_color_unam</span>()<span class="op">+</span></span>
+<span id="cb172-3"><a href="k-medias.html#cb172-3"></a><span class="st">  </span><span class="kw">theme_unam</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<p><strong>Distinta cantidad de grupos</strong></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-124-.gif" width="672" /></p>
+<p><strong>Ejercicios</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Diseñe resultados que le permitan hacer evidentes las características de cada grupo.</p></li>
+<li><p>¿Qué cantidad de grupos considera más adecuados?, ¿por qué?</p></li>
+<li><p>Analize los resultados de los grupos con el resto de variables y comente.</p></li>
+</ol>
 </div>
 </div>
             </section>

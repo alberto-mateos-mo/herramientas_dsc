@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -342,9 +351,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="clusterización-jerárquica" class="section level1" number="18">
 <h1><span class="header-section-number">Capítulo 18</span> Clusterización jerárquica</h1>
 <p>A diferencia del método k-medias, la clústerización jerárquica no requiere de una previa especificación del número de clústers a encontrar ni de la configuración inicial de ellos.</p>
-<p>Como el nombre lo dice, estos clusterización producen representaciones jerárquicas en las cuales los clústers de cada nivel jerárquico son creados a través de la unión de clústers en el nivel inmediato inferior.</p>
-<p>En el nivel más bajo todos los elementos del conjunto forman un clúster</p>
+<p>Como el nombre lo dice, estos clusterización producen representaciones jerárquicas en las cuales los clústers de cada nivel jerárquico son creados a través de la unión de clústers en el nivel inmediato siguiente.</p>
+<p>Existen dos paradigmas dentro de la clusterización jerárquica: el aglomerativo (bottom-up) y el divisivo (top-down); en adelante nos centraremos en el paradigma aglomerativo.</p>
+<div id="paradígma-aglomerativo" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> Paradígma aglomerativo</h2>
+<p>En este paradigma la construcción de la clusterización empieza en el nivel más bajo y en cada nivel se unen pares de clústers para formar uno nuevo; es decir, en el nivel más bajo todos los elementos del conjunto forman un clúster cada uno; en el nivel más alto todos los elementos forman un único clúster.</p>
+<p>La elección del par de clústers que serán unidos en uno nuevo se hace considerando la disimilaridad más pequeña entre los distintos clústers.</p>
+<p>Cada nivel de la jerarquía representa una agrupación particular de los datos y depende del analista decidir qué nivel corresponde a una agrupación <em>natural</em>.</p>
+</div>
+<div id="representación-gráfica" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> Representación gráfica</h2>
+<p>Esta clusterización binaria puede ser fácilmente representada por un árbol binario donde los nodos del árbol representan los distintos grupos.</p>
+<p>El nodo raíz representa todo el conjunto de datos, los <span class="math inline">\(N\)</span> nodos terminales representan cada observación individual y cada nodo no terminal tiene dos nodos hijos que representan los clústers que fueron unidos.</p>
+<p>El paradigma aglomertivo poseé una propiedad monótona sobre la disimilaridad: la disimilaridad entre clústers es monótona creciente en cada nivel.</p>
+<p>Esto permite que el árbol resultante pueda graficarse de forma que la altura de cada nodo sea proporcional al valor de la disimilaridad entre sus nodos hijos.</p>
+<p>A esta representación gráfica se le conoce como <em>dendrograma</em>.</p>
+<p>Los dendrogramas proveen una excelente representación interpretativa de los resultados y es en gran parte una de las razones que han hecho popular a este método de agrupación.</p>
+</div>
+<div id="el-algorítmo-aglomerativo-de-clusterización" class="section level2" number="18.3">
+<h2><span class="header-section-number">18.3</span> El algorítmo aglomerativo de clusterización</h2>
+<p>Naturalmente, para construir la clusterización necesitamos usar una medida de disimilaridad para las observaciones, sin embargo, una vez que las observaciones están agrupadas es necesario extender la defición de medidas de disimilaridad a grupos de observaciones.</p>
+<p>Esta extensión se define como <em>linkage</em>.</p>
+<p>Los cuatro tipos de <em>linkage</em> más comunes son:</p>
+<ul>
+<li><p>Complete (máxima disimilaridad intraclúster): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos la mayor de ellas.</p></li>
+<li><p>Single (mínima disimilaridad intraclúster): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos la menos de ellas.</p></li>
+<li><p>Average (disimilaridad intraclúster promedio): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos el promedio de ellas.</p></li>
+<li><p>Centroid: Se calcula la disimilaridad entre el centroide de cada clúster.</p></li>
+</ul>
+<p>Aún con la definición de <em>linkage</em> es necesario elegir una medida de disimilaridad particular y de hecho esta elección tiene una efecto muy importante en los resultados de la clusterización.</p>
+<p>Como siempre no existe respuesta única a la <em>mejor</em> elección de la medida de disimilaridad pues esta depende de la naturaleza de los datos y de la pregunta que se busca responder.</p>
+</div>
+<div id="clusterización-jerárquica-en-r" class="section level2" number="18.4">
+<h2><span class="header-section-number">18.4</span> Clusterización jerárquica en R</h2>
+<p>Usaremos nuevamente los datos de personajes de marvel para aplicarles clusterización jerárquica.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="clusterización-jerárquica.html#cb173-1"></a>x &lt;-<span class="st"> </span><span class="kw">dist</span>(marvel)</span>
+<span id="cb173-2"><a href="clusterización-jerárquica.html#cb173-2"></a>  </span>
+<span id="cb173-3"><a href="clusterización-jerárquica.html#cb173-3"></a>jerarquico &lt;-<span class="st"> </span><span class="kw">hclust</span>(x, <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="clusterización-jerárquica.html#cb174-1"></a><span class="kw">fviz_dend</span>(jerarquico, <span class="dt">k =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><strong>Ejercicios</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Considera que la clusterización jerárquica realizada es buena, ¿cuántos grupos considera adecuados?.</p></li>
+<li><p>¿Haría alguna modificación a los datos o al algorítmo de clústerización?</p></li>
+<li><p>Analize algunos personajes de su interés para identificar con qué otros personajes son <em>cercanos</em>.</p></li>
+<li><p>Realice la clusterización con otros métodos o con transformaciones a los datos y compare.</p></li>
+<li><p>Compare los resultados con la clusterización kmedias usando el mismo número de grupos y discuta al respecto.</p></li>
+</ol>
 
+</div>
 </div>
 
 

@@ -239,7 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="antecedentes.html"><a href="antecedentes.html#covariables-categóricas"><i class="fa fa-check"></i><b>9.3.1</b> Covariables categóricas</a></li>
 <li class="chapter" data-level="9.3.2" data-path="antecedentes.html"><a href="antecedentes.html#la-matriz-de-pérdida"><i class="fa fa-check"></i><b>9.3.2</b> La matriz de pérdida</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a></li>
+<li class="chapter" data-level="9.4" data-path="antecedentes.html"><a href="antecedentes.html#árboles-en-r"><i class="fa fa-check"></i><b>9.4</b> Árboles en R</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="antecedentes.html"><a href="antecedentes.html#ejercicios"><i class="fa fa-check"></i><b>9.4.1</b> Ejercicios</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Random Forests</b></span></li>
 <li class="chapter" data-level="10" data-path="qué-es-un-random-forest.html"><a href="qué-es-un-random-forest.html"><i class="fa fa-check"></i><b>10</b> ¿Qué es un random forest?</a></li>
@@ -293,7 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.3" data-path="k-medias.html"><a href="k-medias.html#desventajas"><i class="fa fa-check"></i><b>17.3</b> Desventajas</a></li>
 <li class="chapter" data-level="17.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-r"><i class="fa fa-check"></i><b>17.4</b> K-medias en R</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a></li>
+<li class="chapter" data-level="18" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html"><i class="fa fa-check"></i><b>18</b> Clusterización jerárquica</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#paradígma-aglomerativo"><i class="fa fa-check"></i><b>18.1</b> Paradígma aglomerativo</a></li>
+<li class="chapter" data-level="18.2" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#representación-gráfica"><i class="fa fa-check"></i><b>18.2</b> Representación gráfica</a></li>
+<li class="chapter" data-level="18.3" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#el-algorítmo-aglomerativo-de-clusterización"><i class="fa fa-check"></i><b>18.3</b> El algorítmo aglomerativo de clusterización</a></li>
+<li class="chapter" data-level="18.4" data-path="clusterización-jerárquica.html"><a href="clusterización-jerárquica.html#clusterización-jerárquica-en-r"><i class="fa fa-check"></i><b>18.4</b> Clusterización jerárquica en R</a></li>
+</ul></li>
 <li class="part"><span><b>IX Selección de modelos</b></span></li>
 <li class="chapter" data-level="19" data-path="motivación.html"><a href="motivación.html"><i class="fa fa-check"></i><b>19</b> Motivación</a>
 <ul>
@@ -341,23 +350,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="random-forest-en-r" class="section level1" number="12">
 <h1><span class="header-section-number">Capítulo 12</span> Random forest en R</h1>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="random-forest-en-r.html#cb135-1"></a><span class="co"># Carga el paquete específico del método Random Forest</span></span>
-<span id="cb135-2"><a href="random-forest-en-r.html#cb135-2"></a><span class="kw">library</span>(randomForest)</span>
-<span id="cb135-3"><a href="random-forest-en-r.html#cb135-3"></a></span>
-<span id="cb135-4"><a href="random-forest-en-r.html#cb135-4"></a><span class="co"># Carga de datos inicial, tipos de flores con diferentes caracter?sticas </span></span>
-<span id="cb135-5"><a href="random-forest-en-r.html#cb135-5"></a><span class="kw">data</span>(iris)</span>
-<span id="cb135-6"><a href="random-forest-en-r.html#cb135-6"></a></span>
-<span id="cb135-7"><a href="random-forest-en-r.html#cb135-7"></a><span class="co"># Selección de una submuestra del 70% de los datos</span></span>
-<span id="cb135-8"><a href="random-forest-en-r.html#cb135-8"></a><span class="kw">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb135-9"><a href="random-forest-en-r.html#cb135-9"></a>training_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="kw">nrow</span>(iris), <span class="dt">replace =</span> T, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.7</span>,<span class="fl">0.3</span>))</span>
-<span id="cb135-10"><a href="random-forest-en-r.html#cb135-10"></a>train &lt;-<span class="st"> </span>iris[training_sample, ]</span>
-<span id="cb135-11"><a href="random-forest-en-r.html#cb135-11"></a>test &lt;-<span class="st"> </span>iris[<span class="op">!</span>training_sample, ]</span>
-<span id="cb135-12"><a href="random-forest-en-r.html#cb135-12"></a></span>
-<span id="cb135-13"><a href="random-forest-en-r.html#cb135-13"></a><span class="co"># Ajustar modelo</span></span>
-<span id="cb135-14"><a href="random-forest-en-r.html#cb135-14"></a>modelo &lt;-<span class="st"> </span><span class="kw">randomForest</span>(Species<span class="op">~</span>., <span class="dt">data=</span>train)</span>
-<span id="cb135-15"><a href="random-forest-en-r.html#cb135-15"></a></span>
-<span id="cb135-16"><a href="random-forest-en-r.html#cb135-16"></a><span class="co"># Resumen del ajuste del modelo</span></span>
-<span id="cb135-17"><a href="random-forest-en-r.html#cb135-17"></a>modelo</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="random-forest-en-r.html#cb141-1"></a><span class="co"># Carga el paquete específico del método Random Forest</span></span>
+<span id="cb141-2"><a href="random-forest-en-r.html#cb141-2"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb141-3"><a href="random-forest-en-r.html#cb141-3"></a></span>
+<span id="cb141-4"><a href="random-forest-en-r.html#cb141-4"></a><span class="co"># Carga de datos inicial, tipos de flores con diferentes caracter?sticas </span></span>
+<span id="cb141-5"><a href="random-forest-en-r.html#cb141-5"></a><span class="kw">data</span>(iris)</span>
+<span id="cb141-6"><a href="random-forest-en-r.html#cb141-6"></a></span>
+<span id="cb141-7"><a href="random-forest-en-r.html#cb141-7"></a><span class="co"># Selección de una submuestra del 70% de los datos</span></span>
+<span id="cb141-8"><a href="random-forest-en-r.html#cb141-8"></a><span class="kw">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb141-9"><a href="random-forest-en-r.html#cb141-9"></a>training_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="kw">nrow</span>(iris), <span class="dt">replace =</span> T, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.7</span>,<span class="fl">0.3</span>))</span>
+<span id="cb141-10"><a href="random-forest-en-r.html#cb141-10"></a>train &lt;-<span class="st"> </span>iris[training_sample, ]</span>
+<span id="cb141-11"><a href="random-forest-en-r.html#cb141-11"></a>test &lt;-<span class="st"> </span>iris[<span class="op">!</span>training_sample, ]</span>
+<span id="cb141-12"><a href="random-forest-en-r.html#cb141-12"></a></span>
+<span id="cb141-13"><a href="random-forest-en-r.html#cb141-13"></a><span class="co"># Ajustar modelo</span></span>
+<span id="cb141-14"><a href="random-forest-en-r.html#cb141-14"></a>modelo &lt;-<span class="st"> </span><span class="kw">randomForest</span>(Species<span class="op">~</span>., <span class="dt">data=</span>train)</span>
+<span id="cb141-15"><a href="random-forest-en-r.html#cb141-15"></a></span>
+<span id="cb141-16"><a href="random-forest-en-r.html#cb141-16"></a><span class="co"># Resumen del ajuste del modelo</span></span>
+<span id="cb141-17"><a href="random-forest-en-r.html#cb141-17"></a>modelo</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ##  randomForest(formula = Species ~ ., data = train) 
@@ -371,25 +380,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## setosa         31          0         0  0.00000000
 ## versicolor      0         34         1  0.02857143
 ## virginica       0          1        27  0.03571429</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="random-forest-en-r.html#cb137-1"></a><span class="co"># Importancia de las variables</span></span>
-<span id="cb137-2"><a href="random-forest-en-r.html#cb137-2"></a>modelo<span class="op">$</span>importance</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="random-forest-en-r.html#cb143-1"></a><span class="co"># Importancia de las variables</span></span>
+<span id="cb143-2"><a href="random-forest-en-r.html#cb143-2"></a>modelo<span class="op">$</span>importance</span></code></pre></div>
 <pre><code>##              MeanDecreaseGini
 ## Sepal.Length         4.547454
 ## Sepal.Width          2.383503
 ## Petal.Length        25.823796
 ## Petal.Width         29.080949</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="random-forest-en-r.html#cb139-1"></a><span class="co"># Hacer predicciones</span></span>
-<span id="cb139-2"><a href="random-forest-en-r.html#cb139-2"></a>predicciones &lt;-<span class="st"> </span><span class="kw">predict</span>(modelo, test)</span>
-<span id="cb139-3"><a href="random-forest-en-r.html#cb139-3"></a></span>
-<span id="cb139-4"><a href="random-forest-en-r.html#cb139-4"></a><span class="co"># Matriz de confusión</span></span>
-<span id="cb139-5"><a href="random-forest-en-r.html#cb139-5"></a>(mc &lt;-<span class="st"> </span><span class="kw">with</span>(test,<span class="kw">table</span>(predicciones, Species)))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="random-forest-en-r.html#cb145-1"></a><span class="co"># Hacer predicciones</span></span>
+<span id="cb145-2"><a href="random-forest-en-r.html#cb145-2"></a>predicciones &lt;-<span class="st"> </span><span class="kw">predict</span>(modelo, test)</span>
+<span id="cb145-3"><a href="random-forest-en-r.html#cb145-3"></a></span>
+<span id="cb145-4"><a href="random-forest-en-r.html#cb145-4"></a><span class="co"># Matriz de confusión</span></span>
+<span id="cb145-5"><a href="random-forest-en-r.html#cb145-5"></a>(mc &lt;-<span class="st"> </span><span class="kw">with</span>(test,<span class="kw">table</span>(predicciones, Species)))</span></code></pre></div>
 <pre><code>##             Species
 ## predicciones setosa versicolor virginica
 ##   setosa         19          0         0
 ##   versicolor      0         13         3
 ##   virginica       0          2        19</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="random-forest-en-r.html#cb141-1"></a><span class="co"># % correcto</span></span>
-<span id="cb141-2"><a href="random-forest-en-r.html#cb141-2"></a><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">diag</span>(mc)) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(mc)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="random-forest-en-r.html#cb147-1"></a><span class="co"># % correcto</span></span>
+<span id="cb147-2"><a href="random-forest-en-r.html#cb147-2"></a><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">diag</span>(mc)) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(mc)</span></code></pre></div>
 <pre><code>## [1] 91.07143</code></pre>
 <p><strong>Referencias</strong></p>
 <p><span class="math inline">\(\href{https://www.iartificial.net/random-forest-bosque-aleatorio/}{https://www.iartificial.net/random-forest-bosque-aleatorio/}\)</span></p>
