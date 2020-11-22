@@ -114,12 +114,141 @@ al cluster cuyo centroide sea el más cercano.
 
 ## K-medias en R
 
-WIP
+Usaremos los datos de personajes de marvel para tratar de identificar grupos subyacentes de ellos.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(dplyr)
+require(ggfortify)
+require(factoextra)
+```
+
+
+```{r}
+marvel <- read.csv("example_data/charcters_stats.csv")
+
+marvel <- marvel[-419,]
+
+nombres <- marvel$Name
+
+marvel <- marvel %>% 
+  dplyr::select(-Total, -Alignment, -Name)
+
+rownames(marvel) <- nombres
+
+grupos <- kmeans(marvel, centers = 2, algorithm = "Hartigan-Wong", nstart = 1)
+```
+
+__Variación interna__
+
+```{r}
+grupos$withinss
+```
+```{r}
+grupos$tot.withinss
+```
+__Visualización de los grupos__
+
+```{r}
+fviz_cluster(grupos, marvel)+
+  scale_color_unam()+
+  theme_unam()
+```
+
+__Distinta cantidad de grupos__
+
+```{r, animation.hook='gifski', echo=FALSE}
+for (i in 1:10) {
+  grupos <- kmeans(marvel, centers = i, algorithm = "Hartigan-Wong", nstart = 1)
+
+  g <- fviz_cluster(grupos, marvel)+
+  labs(subtitle = paste("Variación interna:", round(grupos$tot.withinss,1)))+
+  scale_color_unam()+
+  theme_unam()
+  
+  plot(g)
+}
+```
+
+__Ejercicios__
+
+1. Diseñe resultados que le permitan hacer evidentes las características de cada grupo.
+
+2. ¿Qué cantidad de grupos considera más adecuados?, ¿por qué?
+
+3. Analize los resultados de los grupos con el resto de variables y comente.
 
 # Clusterización jerárquica
 
 A diferencia del método k-medias, la clústerización jerárquica no requiere de una previa especificación del número de clústers a encontrar ni de la configuración inicial de ellos.
 
-Como el nombre lo dice, estos clusterización producen representaciones jerárquicas en las cuales los clústers de cada nivel jerárquico son creados a través de la unión de clústers en el nivel inmediato inferior.
+Como el nombre lo dice, estos clusterización producen representaciones jerárquicas en las cuales los clústers de cada nivel jerárquico son creados a través de la unión de clústers en el nivel inmediato siguiente.
 
-En el nivel más bajo todos los elementos del conjunto forman un clúster
+Existen dos paradigmas dentro de la clusterización jerárquica: el aglomerativo (bottom-up) y el divisivo (top-down); en adelante nos centraremos en el paradigma aglomerativo.
+
+## Paradígma aglomerativo
+
+En este paradigma la construcción de la clusterización empieza en el nivel más bajo y en cada nivel se unen pares de clústers para formar uno nuevo; es decir, en el nivel más bajo todos los elementos del conjunto forman un clúster cada uno; en el nivel más alto todos los elementos forman un único clúster.
+
+La elección del par de clústers que serán unidos en uno nuevo se hace considerando la disimilaridad más pequeña entre los distintos clústers.
+
+Cada nivel de la jerarquía representa una agrupación particular de los datos y depende del analista decidir qué nivel corresponde a una agrupación _natural_.
+
+## Representación gráfica
+
+Esta clusterización binaria puede ser fácilmente representada por un árbol binario donde los nodos del árbol representan los distintos grupos.
+
+El nodo raíz representa todo el conjunto de datos, los $N$ nodos terminales representan cada observación individual y cada nodo no terminal tiene dos nodos hijos que representan los clústers que fueron unidos.
+
+El paradigma aglomertivo poseé una propiedad monótona sobre la disimilaridad: la disimilaridad entre clústers es monótona creciente en cada nivel. 
+
+Esto permite que el árbol resultante pueda graficarse de forma que la altura de cada nodo sea proporcional al valor de la disimilaridad entre sus nodos hijos.
+
+A esta representación gráfica se le conoce como _dendrograma_.
+
+Los dendrogramas proveen una excelente representación interpretativa de los resultados y es en gran parte una de las razones que han hecho popular a este método de agrupación.
+
+## El algorítmo aglomerativo de clusterización
+
+Naturalmente, para construir la clusterización necesitamos usar una medida de disimilaridad para las observaciones, sin embargo, una vez que las observaciones están agrupadas es necesario extender la defición de medidas de disimilaridad a grupos de observaciones.
+
+Esta extensión se define como _linkage_.
+
+Los cuatro tipos de _linkage_ más comunes son:
+
+- Complete (máxima disimilaridad intraclúster): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos la mayor de ellas.
+
+- Single (mínima disimilaridad intraclúster): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos la menos de ellas.
+
+- Average (disimilaridad intraclúster promedio): Se calculan todas las disimilaridades entre pares de observaciones entre dos clústers y conservamos el promedio de ellas.
+
+- Centroid: Se calcula la disimilaridad entre el centroide de cada clúster.
+
+Aún con la definición de _linkage_ es necesario elegir una medida de disimilaridad particular y de hecho esta elección tiene una efecto muy importante en los resultados de la clusterización.
+
+Como siempre no existe respuesta única a la _mejor_ elección de la medida de disimilaridad pues esta depende de la naturaleza de los datos y de la pregunta que se busca responder.
+
+## Clusterización jerárquica en R
+
+Usaremos nuevamente los datos de personajes de marvel para aplicarles clusterización jerárquica.
+
+```{r}
+x <- dist(marvel)
+  
+jerarquico <- hclust(x, method = "complete")
+```
+
+```{r}
+fviz_dend(jerarquico, k = 3)
+```
+
+__Ejercicios__
+
+1. Considera que la clusterización jerárquica realizada es buena, ¿cuántos grupos considera adecuados?.
+
+2. ¿Haría alguna modificación a los datos o al algorítmo de clústerización?
+
+3. Analize algunos personajes de su interés para identificar con qué otros personajes son _cercanos_.
+
+4. Realice la clusterización con otros métodos o con transformaciones a los datos y compare.
+
+5. Compare los resultados con la clusterización kmedias usando el mismo número de grupos y discuta al respecto.
